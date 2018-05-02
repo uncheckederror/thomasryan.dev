@@ -9,7 +9,8 @@
    \ \_\ \_\ \____\/\____/\ \____/\ \_\\ \_\ \__/.\_\\ \ ,__/
     \/_/\/ /\/____/\/___/  \/___/  \/_/ \/_/\/__/\/_/ \ \ \/ 
                                                        \ \_\ 
-                                                        \/_/ 
+                                                        \/_/
+@uncheckederror                                                         
 -->
 
 <head>
@@ -29,10 +30,10 @@
         }
 
         #map {
-            
+
             top: 0;
             bottom: 0;
-            width: 50%;
+            width: 66.6%;
         }
     </style>
 </head>
@@ -42,23 +43,29 @@
     <style>
         #map {
             position: fixed;
-            
+
         }
 
         #features {
-            
-            font-family: Tw Cen MT;
+
+            font-family: 'Segoe UI Light', Tahoma, Geneva, Verdana, sans-serif;
             overflow-y: scroll;
-            background-color: #1A1A1A;
+            background-color: rgb(104, 104, 104);
+            opacity: 1;
+        }
+
+        .nopadding {
+            padding: 0 !important;
+            margin: 0 !important;
         }
 
         section {
             padding: 25px 50px;
             line-height: 25px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid rgb(255, 255, 255);
             opacity: 0.25;
             font-size: 20px;
-            color: #FFF
+            color: rgb(255, 255, 255)
         }
 
         section.active {
@@ -67,61 +74,84 @@
 
         section:last-child {
             border-bottom: none;
-            margin-bottom: 1000px;
+
         }
     </style>
 
-    <div class="container-fluid">
-        <div class="row no-gutters">
-            <div class="col-xs-6">
+    <div class="container-fluid nopadding">
+        <div class="row no-gutters nopadding">
+            <div class="col-xs-8 p-xs-0 nopadding">
                 <div id='map'></div>
             </div>
-            
-            <div id='features' class="col-xs-6">
+
+            <div id='features' class="col-xs-4 nopadding">
                 <section id='welcome' class='active'>
-                    <h3>Hey, there!</h3>
-                    <p>Welcome to a resumap! A resume can only say so much.
-                        <br>
-                        <br>🤖 And they tend to feel robotic, don't they?
-                        <br>
-                        <br>Resumaps are designed to fill the gaps in your resume. If you want to stand out, a resumap is a fun
-                        way to help people get to know you. After all, wouldn't you want to know who you're hiring? So if
-                        you want see more, sit back, relax, and enjoy the flight 🚀</p>
+                    <h1>
+                        <b>Thomas August Ryan</b>
+                    </h1>
+                    <b>
+                        <p>Story Telling from Space</p>
+                    </b>
+                    <p>Welcome to a story map based on my resume. A ResuMap perhaps.</p>
                 </section>
                 <section id='ballard' class='active'>
-                    <h3>Ballard High School</h3>
-                    <img src="http://files.constantcontact.com/e16221ec001/e976d412-37f2-4439-8d3e-766eff05e272.jpg?a=1129411154145" class="img-responsive">
+                    <h3>
+                        <b>Ballard High School</b>
+                        <p>
+                            <i>Student</i>
+                        </p>
+                    </h3>
                     <p>In 2011 I graduated from Ballard High School where I was a student in the Biotechnology Academy and enjoyed
                         classes in Video Production and AP US History.</p>
                 </section>
                 <section id='central'>
-                    <h3>Seattle Central</h3>
-                    <p>In 2010 I enrolled in the Running Start program which allow me to take classes at Seattle Central Community
+                    <h3>
+                        <b>Seattle Central Community College</b>
+                        <p>
+                            <i>Student</i>
+                        </p>
+                    </h3>
+                    <p>In 2010 I enrolled in the Running Start program which allowed me to take classes at Seattle Central Community
                         College while I was still in High School.</p>
-                    <img src="http://www.capitolhilltimes.com/Images/Images/32220.jpg" class="img-responsive">
                     <p>During this period I began working as a writer and photographer for both the Student newspaper and SemiAccurate.com.
                         At the Seattle Central I covered campus events and did faculty interviews. For SemiAccurate I wrote
                         product reviews for computer hardware and compiled news roundups.</p>
                 </section>
                 <section id='uw'>
-                    <h3>University of Washington - Seattle Campus</h3>
-                    <img src="https://www.washington.edu/alumni/columns/march99/images/trees_spread.jpg" class="img-responsive">
+                    <h3>
+                        <b>University of Washington</b>
+                        <p>
+                            <i>Physical Geographer</i>
+                        </p>
+                    </h3>
                     <p>In 2013 I was admitted to the University of Washington's Seattle campus where I found the right environment
-                        to explore my love for Geography and Mapping.
+                        to explore my love for technology and map-making.
                         <br>
-                        <br>Professionally this was an exciting time for me as I began writing freelance story for PCWorld.com
-                        which receives an order of magnitude more page views than any platform I'd published on previously.</p>
-                    <a data-flickr-embed="true" data-header="true" data-footer="true" data-context="true" href="https://www.flickr.com/photos/uncheckederror/29603646456/in/photostream/"
-                        title="Hard Drive Platters">
-                        <img src="https://farm9.staticflickr.com/8149/29603646456_c233bd66db.jpg" width="500" height="331" alt="Hard Drive Platters" class="img-responsive">
-                    </a>
+                        <br>Professionally this was an exciting time for me as I began writing freelance stories for PCWorld.com
+                        which received an order of magnitude more page views than any platform I'd published on previously.</p>
+                    <p>
+                        <p>
+                            I also continued to engage with my interest in photography. First through product photography to support my writting and
+                            then through landscape photography to extract an aesthetic.
+                        </p>
+                        <a data-flickr-embed="true" data-header="true" data-footer="true" data-context="true" href="https://www.flickr.com/photos/uncheckederror/29603646456/in/photostream/"
+                            title="Hard Drive Platters">
+                            <img src="https://farm9.staticflickr.com/8149/29603646456_c233bd66db.jpg" width="100%" height="331" alt="Hard Drive Platters"
+                                class="img-responsive">
+                        </a>
+                    </p>
                     <script async src="https://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script> </section>
                 <section id='summer'>
-                    <h3>The Summer Food Service Program</h3>
-                    <img src="https://www.seattle.gov/Images/FAS/Civic-Center/civic-center-seattle-municipal-tower.jpg" class="img-responsive">
+                    <h3>
+                        <b>The City of Seattle</b>
+                        <p>
+                            <i>College Internship</i>
+                        </p>
+                    </h3>
                     <p>Starting in 2012 and ending in 2015 I spent my summers working for the City of Seattle's Human Services
-                        Department.</p>
-                    <p>In this role I spend my first two summers speeding around the City in an old van delivering boxes of
+                        Department.
+                    </p>
+                    <p>In this role I spent my first two summers speeding around the City in an old van delivering boxes of
                         pre-made meals to parks and community centers for distribution to hungry children. The last two summers
                         I worked as a distribution site manager where I handled the training of the distribution staff and
                         the filing of their accounting paper work.</p>
@@ -129,9 +159,14 @@
                     </p>
                 </section>
                 <section id='apple'>
-                    <h3>Apple via Apex Systems</h3>
+                    <h3>
+                        <b>Apple via Apex Systems</b>
+                        <p>
+                            <i>GIS Technician</i>
+                        </p>
+                    </h3>
                     <p>After graduating with a Degree in Geography from the University of Washington I was referred by a classmate
-                        to a contract position with Apple where I working on building out the dataset for the Transit layer
+                        to a contract position with Apple where I worked on building out the dataset for the Transit layer
                         in their Maps app.</p>
                     <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/BOSmJzejN2m/"
                         data-instgrm-version="8" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
@@ -175,10 +210,15 @@
                     <script async defer src="https://www.instagram.com/embed.js"></script>
                 </section>
                 <section id='kitsap' class="col-xs-12">
-                    <h3>Kitsap County</h3>
+                    <h3>
+                        <b>Kitsap County</b>
+                        <p>
+                            <i>GIS Programmer</i>
+                        </p>
+                    </h3>
                     <p>After weathering a Texas summer and getting a three month contract extension at Apple I found a way to
-                        return to the Pacific North-West. At the start of 2018 I began working in my current role as a GIS
-                        Programmer for Kitsap County. In this role I've been lucky enough to take over the maintenance on
+                        return to the Pacific Northwest. At the start of 2018 I began working in my current role as a GIS
+                        Programmer for Kitsap County.</p><p>In this role I've been lucky enough to take over the maintenance on
                         a couple of key county information services namely Parcel Details and Plats.</p>
                     <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/BhalkgoAJ3L/"
                         data-instgrm-version="8" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
@@ -189,7 +229,8 @@
                             <p style=" margin:8px 0 0 0; padding:0 4px;">
                                 <a href="https://www.instagram.com/p/BhalkgoAJ3L/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;"
                                     target="_blank">Stumbled on to this neat little abandoned dock this evening. #brokenbeautiful #springstrolls
-                                    #baystreet</a>
+                                    #baystreet
+                                </a>
                             </p>
                             <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by
                                 <a href="https://www.instagram.com/uncheckederror/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;"
@@ -201,12 +242,13 @@
                     <script async defer src="https://www.instagram.com/embed.js"></script>
                 </section>
                 <section id='pnw' class="col-xs-12">
-                    <h3>#PNWLife
-                        <h3></h3>
-                        <p>I'm the tallest one. :P</p>
-                        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto.php%3Ffbid%3D1324506100900786%26set%3Dt.1172516788%26type%3D3%26theater&width=500&show_text=true&height=333&appId"
-                            width="500" height="333" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"
-                            allow="encrypted-media" ></iframe>
+                    <h3>
+                        <b>#PNWLife</b>
+                    </h3>
+                    <p>I'm the tallest one. :P</p>
+                    <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto.php%3Ffbid%3D1324506100900786%26set%3Dt.1172516788%26type%3D3%26theater&width=500&show_text=true&height=333&appId"
+                        width="100%" height="333" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"
+                        allow="encrypted-media"></iframe>
                 </section>
             </div>
         </div>
@@ -220,7 +262,7 @@
             bearing: -0,
             center: [-108.866174, 49.272291],
             zoom: 2,
-            speed: 0.8,
+            speed: 1,
             pitch: 0
         });
         var chapters = {
@@ -228,35 +270,35 @@
                 bearing: -0,
                 center: [-108.866174, 49.272291],
                 zoom: 2,
-                speed: 0.8,
+                speed: 1,
                 pitch: 0
             },
             'ballard': {
                 bearing: 60.00,
                 center: [-122.375298, 47.676809],
                 zoom: 17.32,
-                speed: 0.6,
+                speed: 1,
                 pitch: 46.50
             },
             'central': {
                 center: [-122.321822, 47.616332],
                 bearing: 48.52,
                 zoom: 18.35,
-                speed: 0.6,
+                speed: 1,
                 pitch: 53.00
             },
             'uw': {
                 bearing: 87.64,
                 center: [-122.307233, 47.656627],
                 zoom: 18.80,
-                speed: 0.6,
+                speed: 1,
                 pitch: 39.50
             },
             'summer': {
                 bearing: 19.35,
                 center: [-122.329680, 47.604928],
                 zoom: 18.34,
-                speed: 0.6,
+                speed: 1,
                 pitch: 41.00
             },
             'apple': {
@@ -264,20 +306,20 @@
                 center: [-97.735530, 30.431385],
                 zoom: 18.20,
                 pitch: 59.50,
-                speed: 0.8
+                speed: 1
             },
             'kitsap': {
                 bearing: 141.01,
                 center: [-122.638506, 47.537761],
                 zoom: 18.82,
                 pitch: 58.00,
-                speed: 0.6
+                speed: 1
             },
             'pnw': {
                 bearing: -14.76,
                 center: [-121.170181, 46.403582],
                 zoom: 6.55,
-                speed: 0.8,
+                speed: 1,
                 pitch: 58.00
             },
         };
