@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <!--
+Hello there.
+You're a bold one; hitting that inspect button.
 (•_• )
 ( •_•)
 ( •_•)>⌐■-■
 (⌐■_■)
-Say heeello to my hand-crafted DOM.
+Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
 Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
@@ -13,55 +15,74 @@ Designed in Seattle, forged in Puget Sound.
 <head>
     <title>Tom the bomb on CD-ROM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- This font is most of the page weight, but I love the look. -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <!-- Embedding the CSS here allows me to skip out on a request to the webserver, improving the page load latency. -->
     <style type="text/css">
         body {
-            font-family: 'Open Sans', sans-serif;
+            /* Compatible with everything, and any thing. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
             background-color: #f9f9f9;
             margin: auto;
             padding: 0 10% 10% 10%;
             max-width: 700px;
         }
 
-        h1 {
-            letter-spacing: 0.2rem;
+        h1, h1.a {
+            letter-spacing: 0.1rem;
             font-style: normal;
             font-size: 4em;
-            word-spacing: 100vw;
+            word-spacing: 5em;
             line-height: 1.1em;
         }
 
+        footer {
+            float: right;
+            text-align: right;
+        }
+
         h3 {
-            letter-spacing: 0.01rem;
+            letter-spacing: 0.01em;
             font-style: normal;
             font-size: 1.1em;
         }
 
-        p {
-            font-size: 1em;
-            letter-spacing: 0rem;
-            white-space: normal;
+        a:link {
+            color: black;
         }
 
-        img {
-            width: 50%;
-            position: relative;
-            float: right;
+        .underline {
+            text-decoration: none;
+        }
 
+        a:visited {
+            color: black;
+        }
+
+        a:hover {
+            color: grey;
+        }
+
+        a:active {
+            color: grey;
+        }
+
+        p {
+            font-size: 1em;
+            letter-spacing: 0em;
+            white-space: normal;
+            line-height: 1.4em;
         }
     </style>
 </head>
-
+<header>
+        <h1>Thomas August Ryan</h1>
+</header>
 <body>
-    <!-- <img src="https://www.thomasryan.xyz/wp-content/uploads/2018/10/DSC04706.jpg" alt="It's a me, tommy!"> -->
-    <h1>Thomas August Ryan</h1>
     <p>Hi! People call me Tom. I'm a tallish mid twenties white dude from the Northwest.</p>
+    <p>I won't send nudes, but you can <a href="https://www.facebook.com/uncheckederror/photos_of">click for a pic.</a></p>
     <p>Right now I'm working on a data connector that pulls data from an MS-SQL database, formats the data, submits it
-        to a vendor's borderline undocumented REST API, and reports back to a logging system.</p>
+        to a vendor's borderline undocumented private REST API, and reports back to a logging system.</p>
     <h3>Parcel Details</h3>
-    <p>Outside of projects, I maintain the County's public Parcel information system. Parcel Details is a web app that
+    <p>Outside of projects, I maintain the County's public parcel information system. Parcel Details is a web app that
         allows anyone to look up a tax parcel. Plats Search is another web app that allows you to look up survey and
         plat documents related to a tax parcel. </p>
     <p>Parcel Details was originally an ASP.NET 4 project that used rapid application development tools provided by a
@@ -91,6 +112,6 @@ Designed in Seattle, forged in Puget Sound.
             on GitHub.</a></p>
 </body>
 <footer>
+        <h1><a href="posts" class="underline">Posts</a> <a href="photos" class="underline">Photos</a> <a href="resume" class="underline">Resume</a></h1>
 </footer>
-
 </html>
