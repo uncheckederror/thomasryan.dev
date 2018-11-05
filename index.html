@@ -15,6 +15,8 @@ Designed in Seattle, forged in Puget Sound.
 <head>
     <title>Tom the bomb on CD-ROM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Skip the favicon. -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <style type="text/css">
         body {
             /* Compatible with everything, and any thing. */
@@ -26,17 +28,13 @@ Designed in Seattle, forged in Puget Sound.
             max-width: 700px;
         }
 
-        h1, h1.a {
-            letter-spacing: 0.1rem;
+        h1,
+        h1.a {
+            letter-spacing: 0.03em;
             font-style: normal;
             font-size: 4em;
             word-spacing: 5em;
             line-height: 1.1em;
-        }
-
-        footer {
-            float: right;
-            text-align: right;
         }
 
         h3 {
@@ -45,46 +43,46 @@ Designed in Seattle, forged in Puget Sound.
             font-size: 1.1em;
         }
 
-        a:link {
-            color: black;
-        }
-
-        .underline {
-            text-decoration: none;
-        }
-
-        a:visited {
-            color: black;
-        }
-
-        a:hover {
-            color: grey;
-        }
-
-        a:active {
-            color: grey;
-        }
-
         p {
             font-size: 1em;
             letter-spacing: 0em;
             white-space: normal;
             line-height: 1.4em;
         }
+
+        a:link,
+        a:visited {
+            color: black;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+
+        .underline {
+            text-decoration: none;
+        }
+
+        footer {
+            float: right;
+            text-align: right;
+        }
     </style>
 </head>
 <header>
-        <h1>Thomas August Ryan</h1>
+    <h1>Thomas August Ryan</h1>
 </header>
+
 <body>
     <p>Hi! People call me Tom. I'm a tallish mid twenties white dude from the Northwest.</p>
     <p>I won't send nudes, but you can <a href="https://www.facebook.com/uncheckederror/photos_of">click for a pic.</a></p>
     <p>Right now I'm working on a data connector that pulls data from an MS-SQL database, formats the data, submits it
-        to a vendor's borderline undocumented private REST API, and reports back to a logging system.</p>
+        to a vendor's borderline undocumented private REST API, and reports back to a custom logging system.</p>
     <h3>Parcel Details</h3>
-    <p>Outside of projects, I maintain the County's public parcel information system. Parcel Details is a web app that
-        allows anyone to look up a tax parcel. Plats Search is another web app that allows you to look up survey and
-        plat documents related to a tax parcel. </p>
+    <p>Outside of that project, I maintain the County's public parcel information system. <a href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-066-0008&page=landlocation">Parcel
+            Details</a> is a web app that allows anyone to look up a tax parcel.</p>
     <p>Parcel Details was originally an ASP.NET 4 project that used rapid application development tools provided by a
         vendor to define its business logic and user interface. Since I took over it's maintenance, I've upgrade the
         project to .NET 4.7, lead a redesign of the user interface, rewrote the business logic and views to remove all
@@ -94,7 +92,9 @@ Designed in Seattle, forged in Puget Sound.
         achieved despite the addition of a responsive CSS framework (Bootstrap 3.3.7), button icons, and a variety of
         new interactive features.</p>
     <h3>Plats Search</h3>
-    <p>Plat Search is an ASP.NET Core 2.1 project that I wrote from the ground up. Razor pages are used to define the
+    <p><a href="https://psearch.kitsapgov.com/PlatsSearch/?SearchString=5432">Plats Search</a> is another web app that
+        allows you to look up survey and plat documents related to a tax parcel.</p>
+    <p>It's an ASP.NET Core 2.1 project that I wrote from the ground up. Razor pages are used to define the
         views, Bootstrap is used to style the views, and Entity Framework Core is the ORM.</p>
     <p>Getting a hold of Plat Records from most County's in Washington requires going through the records request
         process. Plats Search circumvents this process by allowing people to search for Plats related to a tax parcel
@@ -112,6 +112,9 @@ Designed in Seattle, forged in Puget Sound.
             on GitHub.</a></p>
 </body>
 <footer>
-        <h1><a href="posts" class="underline">Posts</a> <a href="photos" class="underline">Photos</a> <a href="resume" class="underline">Resume</a></h1>
+    <!-- <p><a href="https://github.com/uncheckederror">Github</a> <a href="https://twitter.com/UncheckedError">Twitter</a> <a href="https://medium.com/@UncheckedError">Medium</a> <a href="https://www.linkedin.com/in/uncheckederror">LinkedIn</a> <a href="https://www.instagram.com/uncheckederror/?hl=en">Instagram</a> <a href="https://www.pcworld.com/author/Thomas-Ryan/">PCWorld</a></p> -->
+    <h1><a href="posts.html" class="underline">Posts</a> <a href="photos.html" class="underline">Photos</a> <a href="resume.pdf"
+            class="underline">Resume</a></h1>
 </footer>
+
 </html>
