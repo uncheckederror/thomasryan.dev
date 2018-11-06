@@ -31,7 +31,6 @@ Designed in Seattle, forged in Puget Sound.
         h1,
         h1.a {
             letter-spacing: 0.03em;
-            font-style: normal;
             font-size: 4em;
             word-spacing: 5em;
             line-height: 1.1em;
@@ -39,12 +38,11 @@ Designed in Seattle, forged in Puget Sound.
 
         h3 {
             letter-spacing: 0.01em;
-            font-style: normal;
-            font-size: 1.1em;
+            font-size: 2em;
         }
 
         p {
-            font-size: 1em;
+            font-size: 1.3em;
             letter-spacing: 0em;
             white-space: normal;
             line-height: 1.4em;
@@ -71,50 +69,74 @@ Designed in Seattle, forged in Puget Sound.
         }
     </style>
 </head>
-<header>
-    <h1>Thomas August Ryan</h1>
-</header>
 
 <body>
-    <p>Hi! People call me Tom. I'm a tallish mid twenties white dude from the Northwest.</p>
-    <p>I won't send nudes, but you can <a href="https://www.facebook.com/uncheckederror/photos_of">click for a pic.</a></p>
-    <p>Right now I'm working on a data connector that pulls data from an MS-SQL database, formats the data, submits it
-        to a vendor's borderline undocumented private REST API, and reports back to a custom logging system.</p>
-    <h3>Parcel Details</h3>
-    <p>Outside of that project, I maintain the County's public parcel information system. <a href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-066-0008&page=landlocation">Parcel
-            Details</a> is a web app that allows anyone to look up a tax parcel.</p>
-    <p>Parcel Details was originally an ASP.NET 4 project that used rapid application development tools provided by a
-        vendor to define its business logic and user interface. Since I took over it's maintenance, I've upgrade the
-        project to .NET 4.7, lead a redesign of the user interface, rewrote the business logic and views to remove all
-        dependencies on the vendors tools, and migrated the database calls from ADO.NET Datasets to an Object
-        Relational Mapper (ORM) called Dapper.</p>
-    <p>What I'm most proud of is getting the average page weight down from 6 MBs to less than 200 KBs. This was
-        achieved despite the addition of a responsive CSS framework (Bootstrap 3.3.7), button icons, and a variety of
-        new interactive features.</p>
-    <h3>Plats Search</h3>
-    <p><a href="https://psearch.kitsapgov.com/PlatsSearch/?SearchString=5432">Plats Search</a> is another web app that
-        allows you to look up survey and plat documents related to a tax parcel.</p>
-    <p>It's an ASP.NET Core 2.1 project that I wrote from the ground up. Razor pages are used to define the
-        views, Bootstrap is used to style the views, and Entity Framework Core is the ORM.</p>
-    <p>Getting a hold of Plat Records from most County's in Washington requires going through the records request
-        process. Plats Search circumvents this process by allowing people to search for Plats related to a tax parcel
-        and directly download scans of those source documents.</p>
-    <h3>Other Stuff</h3>
-    <p>I enjoy camping in the Olympics at sites like Lake Cushman, Deep Park, and the coastline around Lake Ozette. I'm
-        also looking forward to ski season this winter.</p>
-    <p>For fun I've reimagined Kitsap County's parcel viewer as a 3D web map built on top of <a href="https://github.com/uncheckederror/KitsapParcelViewer">the
-            Mapbox.js library and the County's open data dumps.</a></p>
-    <p>I also know a bit about photography. <a href="https://www.flickr.com/photos/uncheckederror/">You can see my work
-            on Flikr.</a> Right now I'm shooting with a Sony RX100 MKIV and gorilla pod.</p>
-    <p>As of November 2018 I am the author of the top text result on Google for "How to install RAM". Although I don't
-        write product reviews anymore, I still have a deep interest in computer hardware.</p>
-    <p>I'm helping my dad rebuild his old pickup truck. You can see my project tracking <a href="https://github.com/uncheckederror/toyotapickup/issues">repo
-            on GitHub.</a></p>
+    <header>
+        <h1>Thomas August Ryan</h1>
+    </header>
+    <article>
+        <p>Hi! People call me Tom. I'm a tallish mid twenties white dude from the Northwest.</p>
+        <p>I won't send nudes, but you can <a href="https://www.facebook.com/uncheckederror/photos_of">click for some
+                pics.</a></p>
+        <p>Right now I'm working on a data connector that pulls data from an MS-SQL database, formats the data, submits
+            it
+            to a vendor's borderline undocumented private REST API, and then reports back to a custom logging system.</p>
+        <h3>Parcel Details</h3>
+        <p>My primary responsiblity is maintaining the County's public parcel information system. <a href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-066-0008&page=landlocation">Parcel
+                Details</a> is a web app that allows anyone to look up a tax parcel in Kitsap County.</p>
+        <p>Parcel Details was originally an ASP.NET 4 project that used rapid application development tools provided by
+            a
+            vendor to define its business logic and user interface. Since I took over it's maintenance, I've upgraded
+            the
+            project to .NET 4.7.2, lead a redesign of the user interface, rewrote the business logic and views to
+            remove
+            all dependencies on the vendor's tools, and migrated the database calls from ancient ADO.NET Datasets to an
+            Object Relational Mapper (ORM) called Dapper.</p>
+        <p>What I'm most proud of is getting the average page weight down from 6 MBs to less than 200 KBs. This was
+            achieved despite the addition of a responsive CSS framework (Bootstrap 3.3.7), helpful icons, and a variety
+            of
+            new interactive features.</p>
+        <h3>Plats Search</h3>
+        <p><a href="https://psearch.kitsapgov.com/PlatsSearch/?SearchString=5432">Plats Search</a> is web app that
+            allows you to look up survey and plat documents related to a tax parcel.</p>
+        <p>It's an ASP.NET Core 2.1 project that I wrote from the ground up. Razor pages are used to define the
+            views, Bootstrap is used to style the views, and Entity Framework Core 2.1 is the ORM.</p>
+        <p>Getting a hold of Plat Records from most Counties in Washington requires going through the formal records
+            request process. Plats Search circumvents this process by allowing people to search for Plats related to a
+            tax parcel and directly download scans of those source documents.</p>
+        <h3>Other Stuff</h3>
+        <p>I like camping. Often I'll go out to the Olympics and stay at sites like Lake Cushman, Deer Park, and the
+            coastline around Lake Ozette. I'm also looking forward to ski season this winter.</p>
+        <p>For fun I've reimagined Kitsap County's parcel viewer as a 3D web map built on top of <a href="https://github.com/uncheckederror/KitsapParcelViewer">the
+                Mapbox.js library</a> and the County's open data dumps.</p>
+        <p>I also know a bit about photography. <a href="https://www.flickr.com/photos/uncheckederror/">You can see my
+                work
+                on Flikr.</a> Right now I'm shooting with a Sony RX100 MKIV, a polarizing filter, and gorilla pod.</p>
+        <p>As of November 2018 I am the author of the top text result on Google for "How to install RAM". Although I
+            don't
+            write product reviews anymore, I still have a deep interest in computer hardware.</p>
+        <p>I'm helping my dad rebuild his old pickup truck. You can see my project tracking <a href="https://github.com/uncheckederror/toyotapickup/issues">repo
+                on GitHub.</a></p>
+        <h3>This Site</h3>
+        <p>Performance is a feature. Identifying the most effective compromise often begins with a clear understanding
+            of a
+            project's purpose and constraints.</p>
+        <p>This is a personal website intended to give new friends an introduction to my world. It's not a social
+            network,
+            it's not a news outlet, and it's not SaaS startup.</p>
+        <p>To that end this page weighs in at about 3 kilobytes and loads with a single request to the web server.</p>
+        <p>I've opted not use a JavaScript framework, nor a CSS framework, nor even server-side rendering like I'm used
+            to
+            with ASP.NET.</p>
+        <p>Instead this page is hand-crafted. The style sheet in embedded in the head. And there's no JavaScript,
+            polyfills, or images to speak of.</p>
+        <p>It's lighting fast and purpose built.</p>
+    </article>
+    <footer>
+        <!-- <p><a href="https://github.com/uncheckederror">Github</a> <a href="https://twitter.com/UncheckedError">Twitter</a> <a href="https://medium.com/@UncheckedError">Medium</a> <a href="https://www.linkedin.com/in/uncheckederror">LinkedIn</a> <a href="https://www.instagram.com/uncheckederror/?hl=en">Instagram</a> <a href="https://www.pcworld.com/author/Thomas-Ryan/">PCWorld</a></p> -->
+        <h1><a href="posts.html" class="underline">Posts</a> <a href="photos.html" class="underline">Photos</a> <a href="resume.pdf"
+                class="underline">Resume</a></h1>
+    </footer>
 </body>
-<footer>
-    <!-- <p><a href="https://github.com/uncheckederror">Github</a> <a href="https://twitter.com/UncheckedError">Twitter</a> <a href="https://medium.com/@UncheckedError">Medium</a> <a href="https://www.linkedin.com/in/uncheckederror">LinkedIn</a> <a href="https://www.instagram.com/uncheckederror/?hl=en">Instagram</a> <a href="https://www.pcworld.com/author/Thomas-Ryan/">PCWorld</a></p> -->
-    <h1><a href="posts.html" class="underline">Posts</a> <a href="photos.html" class="underline">Photos</a> <a href="resume.pdf"
-            class="underline">Resume</a></h1>
-</footer>
 
 </html>
