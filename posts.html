@@ -14,9 +14,9 @@ Designed in Seattle, forged in Puget Sound.
 <head>
     <title>Tom the bomb on CD-ROM</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Thomas August Ryan is a Full Stack Developer from Seattle, WA.">
-    <meta name="keywords" content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps">
-    <meta name="author" content="Thomas August Ryan">
+    <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
+    <meta name="keywords" content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="author" content="Thomas August Ryan @UncheckedError">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Skip the favicon. -->
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
@@ -37,6 +37,10 @@ Designed in Seattle, forged in Puget Sound.
             word-spacing: 5em;
             line-height: 1.1em;
         }
+        h2 {
+            letter-spacing: 0.01em;
+            font-size: 1.4em;
+        }
         h3 {
             letter-spacing: 0.01em;
             font-size: 2em;
@@ -56,10 +60,15 @@ Designed in Seattle, forged in Puget Sound.
             color: grey;
         }
         .clear {
-	    clear: both;
-		}
+            clear: both;
+        }
         .underline {
             text-decoration: none;
+        }
+        blockquote {
+            background: #ffffff;
+            border-radius: 5px;
+            padding: 5%;
         }
         footer {
             float: right;
@@ -67,32 +76,21 @@ Designed in Seattle, forged in Puget Sound.
         }
     </style>
 </head>
-<body>   
+<body>
 <header>
     <h1><a href="./index.html" class="underline">Thomas August Ryan</a></h1>
 </header>
 <article>
-    <h3>A Most Disappointing Bug Report Button</h3>
-    <p>I've been reading a lot of HackerNews the last few months. One of the ideas that I've picked up from reading the comments there has been the idea of creating short feedback loops.</p>
-    <p>Traditionally changes to Parcel Details have been motivated by request from elected officials and internal complaints. This is a long feedback loop.</p>
-    <p>The question I'm struggling with is, "How do I shorten this feedback loop?"</p>
-    <p>My solution was to add a large high contrast button to the footer of the website that was labeled "File a Bug Report". It contains a mailto link that directs you to the helpdesk email address.</p>
-    <p>When I implemented this bug report button. I limited it to just appearing to IPs on our internal network because my position isn't rated to interact directly with the public.</p>
-    <p>I don't believe this is a significant issue, because more than half of the users for Parcel Details are browsing via IE 11, which is the County's standard browser. Implying that targeting just internal users should be a large enough sample size to get good feedback.</p>
-    <p>So I pushed the build and waited. And then I waited some more. Then I received a few change requests through the normal feedback channels. But the helpdesk hadn't forwarded me any File a bug Report emails. 🤔</p>
-    <p>In the end I waited about a month before I gave up on the helpdesk and swapped their email for my own. They must not be triaging the pile of incoming bug reports the users are submitting, or so I thought.</p>
-    <p>It's been another month since I set the report button to my own email. I have recieved exactly one email through this feedback funnel.</p>
-    <p>
-       <quote>From: Worky McWorkerson<br>To: Me<br>Subject: {AppName} Bug Report {TimeAndDateStamp}<br><br>Not working today</quote>
-    </p>
-    <p>😖</p>
-    <p>Most stories like this have a happy ending. This one doesn't. I've spent a significant amount of screen real estate on a feature that doesn't help the users or shorten the feedback loop.</p>
-    <p>I intend to keep iterating on this. But right now I'm just a bit bummed out.</p>
+    <time datetime="2018"><h2>2018</h2></time>
+    <p><a href="./2018/11/07/a-most-disappointing-report-button.html" class="underline"><h3>A Most Disappointing Bug Report Button</h3></a></p>
+    <p><a href="./2018/06/17/buttons-as-actions.html" class="underline"><h3>Buttons As Actions</h3></a></p>
+    <p><a href="./2018/06/15/modernizing-kitsap-countys-parcel-details.html" class="underline"><h3>Modernizing Kitsap County’s Parcel Details</h3></a></p>
 </article>
+<div class="clear"></div>
+<!-- Fixes a floating bug in Desktop Safari only :/ -->
 <footer>
     <!-- <p><a href="https://github.com/uncheckederror">Github</a> <a href="https://twitter.com/UncheckedError">Twitter</a> <a href="https://medium.com/@UncheckedError">Medium</a> <a href="https://www.linkedin.com/in/uncheckederror">LinkedIn</a> <a href="https://www.instagram.com/uncheckederror/?hl=en">Instagram</a> <a href="https://www.pcworld.com/author/Thomas-Ryan/">PCWorld</a></p> -->
-    <h1><a href="./posts.html" class="underline">Posts</a> <a href="./photos.html" class="underline">Photos</a> <a href="./resume.pdf"
-            class="underline">Resume</a></h1>
+    <h1><a href="posts.html" class="underline">Posts</a> <a href="photos.html" class="underline">Photos</a> <a href="resume.pdf" class="underline">Resumé</a></h1>
 </footer>
 </body>
 </html>

@@ -55,14 +55,13 @@ Designed in Seattle, forged in Puget Sound.
         a:visited {
             color: black;
         }
-
         a:hover,
         a:active {
             color: grey;
         }
         .clear {
-            clear: both;
-        }
+	    clear: both;
+		}
         .underline {
             text-decoration: none;
         }
@@ -70,23 +69,34 @@ Designed in Seattle, forged in Puget Sound.
             background: #ffffff;
             border-radius: 5px;
             padding: 5%;
-        }
+            margin: 0%;
+        }     
         footer {
             float: right;
             text-align: right;
         }
     </style>
 </head>
-<body>
+<body>   
 <header>
     <h1><a href="./../../../index.html" class="underline">Thomas August Ryan</a></h1>
 </header>
 <article>
     <time datetime="2018-11-07"><h2>November 7, 2018</h2></time>
-    <h3>Title</h3>
-    <p>
-        <!-- Add content here. -->
-    </p>
+    <h3>A Most Disappointing Bug Report Button</h3>
+    <p>I've been reading a lot of HackerNews the last few months. One of the ideas that I've picked up from reading the comments there has been the idea of creating short feedback loops.</p>
+    <p>Traditionally changes to Parcel Details have been motivated by requests from elected officials and internal complaints. This is a long feedback loop.</p>
+    <p>The question I'm struggling with is, "How do I shorten this feedback loop?"</p>
+    <p>My solution was to add a large high contrast button to the footer of the website that was labeled "File a Bug Report". It contains a mailto link that directs you to the helpdesk email address.</p>
+    <p>When I implemented this bug report button. I limited it to just appearing to IPs on our internal network because my position isn't rated to interact directly with the public.</p>
+    <p>I don't believe this is a significant issue, because more than half of the users for Parcel Details are browsing via IE 11, which is the County's standard browser. Implying that targeting just internal users should be a large enough sample size to get good feedback.</p>
+    <p>So I pushed the build and waited. And then I waited some more. Then I received a few change requests through the normal feedback channels. But the helpdesk hadn't forwarded me any File a bug Report emails. 🤔</p>
+    <p>In the end I waited about a month before I gave up on the helpdesk and swapped their email for my own. They must not be triaging the pile of incoming bug reports the users are submitting, or so I thought.</p>
+    <p>It's been another month since I set the report button to my own email. I have recieved exactly one email through this feedback funnel.</p>
+    <blockquote>From: Worky McWorkerson<br>To: Thomas August Ryan (Me)<br>Subject: {AppName} Bug Report {TimeAndDateStamp}<br><br>Not working today</blockquote>
+    <p>😖</p>
+    <p>Most stories like this have a happy ending. This one doesn't. I've spent a significant amount of screen real estate on a feature that doesn't help the users or shorten the feedback loop.</p>
+    <p>I intend to keep iterating on this. But right now I'm just a bit bummed out.</p>
 </article>
 <div class="clear"></div>
 <!-- Fixes a floating bug in Desktop Safari only :/ -->

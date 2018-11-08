@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+Hello there.
+You're a bold one; hitting that inspect button.
+(•_• )
+( •_•)
+( •_•)>⌐■-■
+(⌐■_■)
+Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
+Designed in Seattle, forged in Puget Sound.
+@UncheckedError
+-->
+<html>
+<head>
+    <title>Tom the bomb on CD-ROM</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
+    <meta name="keywords" content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="author" content="Thomas August Ryan @UncheckedError">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Skip the favicon. -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style type="text/css">
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #f9f9f9;
+            margin: auto;
+            padding: 0 10% 10% 10%;
+            max-width: 700px;
+        }
+        h1,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+        }
+        h2 {
+            letter-spacing: 0.01em;
+            font-size: 1.4em;
+        }
+        h3 {
+            letter-spacing: 0.01em;
+            font-size: 2em;
+        }
+        p {
+            font-size: 1.3em;
+            letter-spacing: 0em;
+            white-space: normal;
+            line-height: 1.4em;
+        }
+        a:link,
+        a:visited {
+            color: black;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+        .clear {
+            clear: both;
+        }
+        .underline {
+            text-decoration: none;
+        }
+        blockquote {
+            background: #ffffff;
+            border-radius: 5px;
+            padding: 5%;
+        }
+        footer {
+            float: right;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1><a href="./../../../index.html" class="underline">Thomas August Ryan</a></h1>
+</header>
+<article>
+    <time datetime="2018-11-07"><h2>June 17, 2018</h2></time>
+    <h3>Buttons As Actions</h3>
+    <p>One of the UX issues I’ve been struggling with is designing my web apps to make their workflow as clear as possible. Most web-pages will use a combination of buttons, links, icons, and outlines to establish a visual hierarchy of elements. The web apps that I maintain for the County are essentially information portals. They allow you to search for content, see the results of your query, look at information specific to one of the results of your query, and link you out to other information related to that result. The user flow here is Search, Find, Read, Extend. This is the core work flow loop for both Parcel Details and Parcel Search.</p>
+    <p>This is the old general page of Parcel Details. Inside of the four step workflow this page would be step 3: Read. How does the user move from consuming the information on the page to extending from this information out to other county services? They’d need to use the nav bar at the top or click on one of the two in-text hyperlinks on this page. Any thing that takes you away from this page is an extend action of the page.</p>
+    <h3>Rethinking Hyperlinks</h3>
+    <p>The issue here is that the only visual signals this page uses to flag those links are brackets and the light blue text coloring typical of hyperlinks. Based on the feedback (questions from citizens) we’ve received this was not enough to guide users in the right direction.</p>
+    <p>How do we make it crystal clear what parts of this page are devoted to the Read step of the loop and what parts of the page are devoted to the Extend step? Buttons as Actions.</p>
+    <p>Styling links that change the context from one page to another as button is an effective and consistent way to highlight options for the user and set their expectations for what will occur if they click on it.</p>
+    <p>Here is the current version of this page. We’ve converted the small “(Change Mailing Address)” hyperlink to a button and removed the unnecessary county code link to reduce clutter. The number of users that send us emails asking how to change their tax payer name or address has dropped from a half dozen a month to zero.</p>
+    <h3>Minimizing the Footer</h3>
+    <p>You’ll notice that we are not applying this buttons-as-actions theme to the hyperlink in the page footer. They remain the same as before in an attempt to de-emphasize their importance. If the user is actively engaging with the page footer this means that something has gone wrong. They’re lost, the app is broken, and we need to provide them with a safety railing to bump up against.</p>
+    <p>If Parcel Details is working as intended the footer is noise. We need to have a safety railing for failure states, but we want to minimize the visual and informational noise on the page. Right now the best way to accomplish this is to leave the footer as a block of small, unassuming, text and hyperlinks.</p>
+    <h3>Menu Carrots?</h3>
+    <p>The other significant change is that we’ve added carrots back into the navbar menu items that expand into drop downs. Internally we’ve gone back and forth on the necessity of these carrots. Minimalism is an important and worth while goal. But we also need to give the users hints about what to expect when the click on a menu item.</p>
+    <p>As a developer, I’ve found that it’s easy to get distracted from the hurtles and pain-points that a first-time or occasional user faces. The feedback that’s most easy to solicit is our own and we already know the app. The next easiest feedback is that of our internal customers and power users because they’re happy to tell us what they want. Finally we have everyone else, for which we don’t have good methods of collecting feedback from outside of support requests and complaints.</p>
+    <p>One thing that we can always do to make our apps more approachable is to piggy back on standards. The menu carrot is visual noise, but it’s a UX standard that people know and understand. The way it improves usability is a bigger benefit that the cost of the space it consumes.</p>
+    <p>This is another example of how buttons-as-action makes it clear that clicking on a Parcel number will extend the user’s understanding of their property and its context.</p>
+    <p>UX design rules are always changing but defining buttons-as-action is one of the clearest lessons that I’ve learned over the past year of maintaining Parcel Details.</p>
+</article>
+<div class="clear"></div>
+<!-- Fixes a floating bug in Desktop Safari only :/ -->
+
+<footer>
+    <h1><a href="./../../../posts.html" class="underline">Posts</a> <a href="./../../../photos.html" class="underline">Photos</a> <a href="./../../../resume.pdf" class="underline">Resumé</a></h1>
+</footer>
+</body>
+</html>
