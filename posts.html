@@ -21,13 +21,20 @@ Designed in Seattle, forged in Puget Sound.
     <!-- Skip the favicon. -->
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <style type="text/css">
+        .center {
+            background: #ffffff;
+            border-radius: 5px;
+            padding: 5%;
+            margin: 3% 0% 3% 0%;
+            /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);            }
         body {
             /* Compatible with everything, and anything. */
             font-family: sans-serif;
             /* Off white to reduce eye strain. */
-            background-color: #f9f9f9;
+            background-color: #DCDCDC;
             margin: auto;
-            padding: 0 10% 10% 10%;
+            padding: 0% 3% 0% 3%;
             max-width: 700px;
         }
         h1,
@@ -36,10 +43,7 @@ Designed in Seattle, forged in Puget Sound.
             font-size: 4em;
             word-spacing: 5em;
             line-height: 1.1em;
-        }
-        h2 {
-            letter-spacing: 0.01em;
-            font-size: 1.4em;
+            margin: 0%;
         }
         h3 {
             letter-spacing: 0.01em;
@@ -59,35 +63,37 @@ Designed in Seattle, forged in Puget Sound.
         a:active {
             color: grey;
         }
-        .clear {
-            clear: both;
-        }
         .underline {
             text-decoration: none;
-        }
+        }           
         blockquote {
             background: #ffffff;
             border-radius: 5px;
             padding: 5%;
-        }
+        }     
         footer {
+            clear: both;
+            background: #ffffff;
+            border-radius: 5px;
+            padding: 5%;
+            margin: 0% 0% 3% 0%;
             float: right;
             text-align: right;
+            /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
         }
     </style>
 </head>
 <body>
-<header>
+<header class="center">
     <h1><a href="./index.html" class="underline">Thomas August Ryan</a></h1>
 </header>
-<article>
+<article class="center">
     <time datetime="2018"><h2>2018</h2></time>
     <p><a href="./2018/11/07/a-most-disappointing-report-button.html" class="underline"><h3>A Most Disappointing Bug Report Button</h3></a></p>
     <p><a href="./2018/06/17/buttons-as-actions.html" class="underline"><h3>Buttons As Actions</h3></a></p>
     <p><a href="./2018/06/15/modernizing-kitsap-countys-parcel-details.html" class="underline"><h3>Modernizing Kitsap County’s Parcel Details</h3></a></p>
 </article>
-<div class="clear"></div>
-<!-- Fixes a floating bug in Desktop Safari only :/ -->
 <footer>
     <!-- <p><a href="https://github.com/uncheckederror">Github</a> <a href="https://twitter.com/UncheckedError">Twitter</a> <a href="https://medium.com/@UncheckedError">Medium</a> <a href="https://www.linkedin.com/in/uncheckederror">LinkedIn</a> <a href="https://www.instagram.com/uncheckederror/?hl=en">Instagram</a> <a href="https://www.pcworld.com/author/Thomas-Ryan/">PCWorld</a></p> -->
     <h1><a href="posts.html" class="underline">Posts</a> <a href="demos.html" class="underline">Demos</a> <a href="resume.pdf" class="underline">Resumé</a></h1>
