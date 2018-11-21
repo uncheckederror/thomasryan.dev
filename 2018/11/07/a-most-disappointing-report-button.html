@@ -21,13 +21,25 @@ Designed in Seattle, forged in Puget Sound.
     <!-- Skip the favicon. -->
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <style type="text/css">
+        .center {
+            background: #ffffff;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 3% 0% 3% 0%;
+            /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);            
+            }
+        .center:hover {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            }
         body {
             /* Compatible with everything, and anything. */
             font-family: sans-serif;
             /* Off white to reduce eye strain. */
-            background-color: #f9f9f9;
+            background-color: #DCDCDC;
             margin: auto;
-            padding: 0 10% 10% 10%;
+            padding: 0% 3% 0% 3%;
             max-width: 700px;
         }
         h1,
@@ -36,10 +48,7 @@ Designed in Seattle, forged in Puget Sound.
             font-size: 4em;
             word-spacing: 5em;
             line-height: 1.1em;
-        }
-        h2 {
-            letter-spacing: 0.01em;
-            font-size: 1.4em;
+            margin: 0%;
         }
         h3 {
             letter-spacing: 0.01em;
@@ -51,6 +60,10 @@ Designed in Seattle, forged in Puget Sound.
             white-space: normal;
             line-height: 1.4em;
         }
+        body > article > p > a {
+            text-decoration: none;
+            border-bottom: 1px solid black;
+        }
         a:link,
         a:visited {
             color: black;
@@ -59,29 +72,25 @@ Designed in Seattle, forged in Puget Sound.
         a:active {
             color: grey;
         }
-        .clear {
-	    clear: both;
-		}
         .underline {
             text-decoration: none;
-        }
+        }           
         blockquote {
-            background: #ffffff;
+            background: #f5f5f5;
             border-radius: 5px;
             padding: 5%;
-            margin: 0%;
         }     
         footer {
-            float: right;
+            clear: both;
             text-align: right;
         }
     </style>
 </head>
 <body>   
-<header>
+<header class="center">
     <h1><a href="./../../../index.html" class="underline">Thomas August Ryan</a></h1>
 </header>
-<article>
+<article class="center">
     <time datetime="2018-11-07"><h2>November 7, 2018</h2></time>
     <h3>A Most Disappointing Bug Report Button</h3>
     <p>I've been reading a lot of HackerNews the last few months. One of the ideas that I've picked up from reading the comments there has been the idea of creating short feedback loops.</p>
@@ -98,9 +107,7 @@ Designed in Seattle, forged in Puget Sound.
     <p>Most stories like this have a happy ending. This one doesn't. I've spent a significant amount of screen real estate on a feature that doesn't help the users or shorten the feedback loop.</p>
     <p>I intend to keep iterating on this. But right now I'm just a bit bummed out.</p>
 </article>
-<div class="clear"></div>
-<!-- Fixes a floating bug in Desktop Safari only :/ -->
-<footer>
+<footer class="center">
     <h1><a href="./../../../posts.html" class="underline">Posts</a> <a href="./../../../photos.html" class="underline">Photos</a> <a href="./../../../resume.pdf" class="underline">Resumé</a></h1>
 </footer>
 </body>
