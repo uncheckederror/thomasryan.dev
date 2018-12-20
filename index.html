@@ -42,27 +42,31 @@ Designed in Seattle, forged in Puget Sound.
                 background-color: #DCDCDC;
                 margin: auto;
                 padding: 0% 3% 0% 3%;
-                max-width: 700px;
+                max-width: 650px;
             }
             h1,
             h1.a {
                 letter-spacing: 0.03em;
-                font-size: 4em;
+                font-size: 4.5em;
                 word-spacing: 5em;
                 line-height: 1.1em;
                 margin: 0%;
+                font-weight: 100;
             }
             h3 {
                 letter-spacing: 0.01em;
-                font-size: 2em;
+                font-size: 3em;
+                font-weight: 100;
+                margin: 5% 0% 5% 0%;
             }
             ul li {
                 letter-spacing: 0.001em;
-                font-size: 1.3em;
-                font-weight: 600;              
+                font-size: 1.8em;
+                font-weight: 100;
+                line-height: 1.5em;              
             }
             p {
-                font-size: 1.3em;
+                font-size: 1.8em;
                 letter-spacing: 0em;
                 white-space: normal;
                 line-height: 1.4em;
@@ -101,6 +105,8 @@ Designed in Seattle, forged in Puget Sound.
         <p>Hi! People call me <a href="https://www.facebook.com/uncheckederror/photos_of">Tom</a>.</p>
         <p>I'm a tallish mid twenties white dude from the Northwest.</p>
         <p>Right now I'm working on a data connector that pulls data from an MS-SQL database, formats the data, submits it to a vendor's borderline undocumented private REST API, and then reports back to a custom logging system.</p>
+    </article>
+    <article class="center">
         <h3>Parcel Details</h3>
         <ul>
             <li>21.3K Users a Month</li>
@@ -110,6 +116,8 @@ Designed in Seattle, forged in Puget Sound.
         <p>My primary responsibility is maintaining the County's public parcel information system. <a href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-066-0008&page=landlocation">Parcel Details</a> is a web app that allows anyone to look up a tax parcel in Kitsap County.</p>
         <p>Parcel Details was originally an ASP.NET 4 project that used rapid application development tools provided by a vendor to define its business logic and user interface. Since I took over it's maintenance, I've upgraded the project to .NET 4.7.2, lead a redesign of the user interface, rewrote the business logic and views to remove all dependencies on the vendor's tools, and migrated the database calls from ancient ADO.NET Datasets to an Object Relational Mapper (ORM) called Dapper.</p>
         <p>What I'm most proud of is getting the average page weight down from 6 MBs to less than 200 KBs. This was achieved despite the addition of a responsive CSS framework (Bootstrap 3.3.7), helpful icons, and a variety of new interactive features.</p>
+    </article>
+    <article class="center">
         <h3>Plats Search</h3>
         <ul>
             <li>1.1K Users a Month</li>
@@ -119,12 +127,16 @@ Designed in Seattle, forged in Puget Sound.
         <p><a href="https://psearch.kitsapgov.com/PlatsSearch/?SearchString=5432">Plats Search</a> is web app that allows you to look up survey and plat documents related to a tax parcel.</p>
         <p>It's an ASP.NET Core 2.1 project that I wrote from the ground up. Razor pages are used to define the views, Bootstrap is used to style the views, and Entity Framework Core 2.1 is the ORM.</p>
         <p>Getting a hold of Plat Records from most Counties in Washington requires going through the formal records request process. Plats Search circumvents this process by allowing people to search for Plats related to a tax parcel and directly download scans of those source documents.</p>
+    </article>
+    <article class="center">
         <h3>Other Stuff</h3>
         <p>I like camping. Often I'll go out to the Olympics and stay at sites like Lake Cushman, Deer Park, and the coastline around Lake Ozette. I'm also looking forward to ski season this winter.</p>
         <p>For fun I've reimagined Kitsap County's parcel viewer as a 3D web map built on top of the <a href="./demos/indexlayers.html">MapboxGL.js library</a> and the County's open data dumps.</p>
         <p>I also know a bit about photography. You can see my work <a href="https://www.flickr.com/photos/uncheckederror/">on Flikr.</a> Right now I'm shooting with a Sony RX100 MKIV, a polarizing filter, and gorilla pod.</p>
         <p>As of November 2018 I am the author of the top text result on Google for "<a href="https://www.google.com/search?q=how+to+install+ram">How to install RAM</a>". Although I don't write product reviews anymore, I still have a deep interest in computer hardware.</p>
         <p>I'm helping my dad rebuild his old pickup truck. You can see my project tracking repo <a href="https://github.com/uncheckederror/toyotapickup/issues">on GitHub.</a></p>
+    </article>
+    <article class="center">
         <h3>This Site</h3>
         <p>Performance is a feature. Identifying the most effective compromise often begins with a clear understanding of a project's purpose and constraints.</p>
         <p>This is a personal website intended to give new friends an introduction to my world. It's not a social network, it's not a news outlet, and it's not SaaS startup.</p>
