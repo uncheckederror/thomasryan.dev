@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--
+Hello there.
+You're a bold one; hitting that inspect button.
+(•_• )
+( •_•)
+( •_•)>⌐■-■
+(⌐■_■)
+Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
+Designed in Seattle, forged in Puget Sound.
+@UncheckedError
+-->
+<html>
+<head>
+    <title>Tom the bomb on CD-ROM</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
+    <meta name="keywords" content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="author" content="Thomas August Ryan @UncheckedError">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Skip the favicon. -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style type="text/css">
+        .center {
+            background: #ffffff;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 3% 0% 3% 0%;
+            /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);            
+            }
+        .center:hover {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            }
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 650px;
+        }
+        h1,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+        h3 {
+            letter-spacing: 0.01em;
+            font-size: 3em;
+            font-weight: 100;
+            margin: 5% 0% 5% 0%;
+        }
+        ul li {
+            letter-spacing: 0.001em;
+            font-size: 1.8em;
+            font-weight: 100;
+            line-height: 1.5em;              
+        }
+        p {
+            font-size: 1.8em;
+            letter-spacing: 0em;
+            white-space: normal;
+            line-height: 1.4em;
+        }
+        body > article > p > a {
+            text-decoration: none;
+            border-bottom: 1px solid black;
+        }
+        a:link,
+        a:visited {
+            color: black;
+        }
+        a:hover,
+        a:active {
+            color: grey;
+        }
+        .underline {
+            text-decoration: none;
+        }           
+        blockquote {
+            background: #ffffff;
+            border-radius: 5px;
+            padding: 5%;
+        }     
+        footer {
+            clear: both;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<header class="center">
+    <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
+</header>
+<article class="center">
+    <time datetime="2019-01-04"><h2>January 4, 2019</h2></time>
+    <h3>Parsing Tax Descriptions</h3>
+    <p>Tax Descriptions are extremely difficult to parse, let alone meaningfully understand, if you're not a surveyor or parcel specialist.</p>
+    <p>To that end I've spent quite a while trying to think of ways to make Tax Descriptions useful to the public.</p>
+    <p>Recently I discovered that the County's Public Works department had a publicly accessible FTP server with hundreds of scanned copies of documents referenced in Kitsap County Tax Descriptions.</p>
+    <p>These scanned documents were broken up into five folders (Plats, Short Plats, Large Lots, Condos, and Surveys) and their filenames followed a relatively regular pattern.</p>
+    <p>The first character in the document's filename is a shorthand for it's type. For example the Plat documents started with a 'p'.</p>
+    <p>The next six characters were broken up into 2, 3 digit groups. Where the first group was a Volume number and the second group was a Page number.</p>
+    <p>Finally the rest of the filename was '.tif'; the file type.</p>
+    <p>Once I knew where these files were kept and I'd worked how to parse their filenames it was relatively simple to write an extension for an existing app that indexed the contents of the FTP server and allowed you to search by Volume and Page number for a specific document type.</p>
+    <p>Because of the way I structured the FTP index pages, you can provide all three search parameters (Volume, Page, and Document Type) as a QueryString in a URL to link the user to a search for a specific scanned document.</p>
+    <p>Of course we still need to figure out what those search parameters are based on the text of a Tax Description.</p>
+    <p>This is a job for regular expressions or RegEx.</p>
+    <p>The workflow here was to execute a RegEx pattern against the Tax Description. Check if it found any matches and then use those matches to generate a link to the correct scanned document or move on to the next RegEx pattern.</p>
+    <p>To make sure this process worked correctly I walked through a list of weird Parcel's in Kitsap County that I keep around for testing scenarios like this.</p>
+    <p>Since the formal requirements for a Tax Description are pretty lax I found seven different ways these three parameters were recorded in Tax Descriptions. Here's a <a href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-058-0008&page=taxdescription">parcel</a> on Bainbridge Island where this method works.</p>
+    <p>Even then some of the Tax Descriptions don't contain a reference to related documents of any kind.</p>
+    <p>The biggest culprit seems to be the parcel's that were defined using a kind of vowel-less shorthand and like this <a href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=4053-013-005-0006&page=taxdescription">parcel</a>.</p>
+    <p>To some degree parsing these Tax Descriptions will always be a work in-progress. But I'm pleased with this first draft.</p>
+</article>
+<footer class="center">
+    <h1><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html" class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Resumé</a></h1>
+</footer>
+</body>
+</html>
