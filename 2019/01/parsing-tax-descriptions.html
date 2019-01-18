@@ -105,6 +105,9 @@ Designed in Seattle, forged in Puget Sound.
     <p>Tax Descriptions are extremely difficult to parse, let alone meaningfully understand, if you're not a surveyor or parcel specialist.</p>
     <p>To that end I've spent quite a while trying to think of ways to make Tax Descriptions useful to the public.</p>
     <p>Recently I discovered that the County's Public Works department had a publicly accessible FTP server with hundreds of scanned copies of documents referenced in Kitsap County Tax Descriptions.</p>
+</article>
+<article class="center">
+    <h3>Pattern Matching</h3>
     <p>These scanned documents were broken up into five folders (Plats, Short Plats, Large Lots, Condos, and Surveys) and their filenames followed a relatively regular pattern.</p>
     <p>The first character in the document's filename is a shorthand for it's type. For example the Plat documents started with a 'p'.</p>
     <p>The next six characters were broken up into 2, 3 digit groups. Where the first group was a Volume number and the second group was a Page number.</p>
@@ -115,6 +118,9 @@ Designed in Seattle, forged in Puget Sound.
     <p>This is a job for regular expressions or RegEx.</p>
     <p>The workflow here was to execute a RegEx pattern against the Tax Description. Check if it found any matches and then use those matches to generate a link to the correct scanned document or move on to the next RegEx pattern.</p>
     <p>To make sure this process worked correctly I walked through a list of weird Parcel's in Kitsap County that I keep around for testing scenarios like this.</p>
+</article>
+<article class="center">
+    <h3>Road Blocks</h3> 
     <p>Since the formal requirements for a Tax Description are pretty lax I found seven different ways these three parameters were recorded in Tax Descriptions. Here's a <a href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-058-0008&page=taxdescription">parcel</a> on Bainbridge Island where this method works.</p>
     <p>Even then some of the Tax Descriptions don't contain a reference to related documents of any kind.</p>
     <p>The biggest culprit seems to be the parcel's that were defined using a kind of vowel-less shorthand and like this <a href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=4053-013-005-0006&page=taxdescription">parcel</a>.</p>

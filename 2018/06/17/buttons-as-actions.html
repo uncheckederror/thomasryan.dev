@@ -104,14 +104,20 @@ Designed in Seattle, forged in Puget Sound.
     <h3>Buttons As Actions</h3>
     <p>One of the UX issues I’ve been struggling with is designing my web apps to make their workflow as clear as possible. Most web-pages will use a combination of buttons, links, icons, and outlines to establish a visual hierarchy of elements. The web apps that I maintain for the County are essentially information portals. They allow you to search for content, see the results of your query, look at information specific to one of the results of your query, and link you out to other information related to that result. The user flow here is Search, Find, Read, Extend. This is the core work flow loop for both Parcel Details and Parcel Search.</p>
     <p>This is the old general page of Parcel Details. Inside of the four step workflow this page would be step 3: Read. How does the user move from consuming the information on the page to extending from this information out to other county services? They’d need to use the nav bar at the top or click on one of the two in-text hyperlinks on this page. Any thing that takes you away from this page is an extend action of the page.</p>
+</article>
+<article class="center">
     <h3>Rethinking Hyperlinks</h3>
     <p>The issue here is that the only visual signals this page uses to flag those links are brackets and the light blue text coloring typical of hyperlinks. Based on the feedback (questions from citizens) we’ve received this was not enough to guide users in the right direction.</p>
     <p>How do we make it crystal clear what parts of this page are devoted to the Read step of the loop and what parts of the page are devoted to the Extend step? Buttons as Actions.</p>
     <p>Styling links that change the context from one page to another as button is an effective and consistent way to highlight options for the user and set their expectations for what will occur if they click on it.</p>
     <p>Here is the current version of this page. We’ve converted the small “(Change Mailing Address)” hyperlink to a button and removed the unnecessary county code link to reduce clutter. The number of users that send us emails asking how to change their tax payer name or address has dropped from a half dozen a month to zero.</p>
+</article>
+<article class="center">
     <h3>Minimizing the Footer</h3>
     <p>You’ll notice that we are not applying this buttons-as-actions theme to the hyperlink in the page footer. They remain the same as before in an attempt to de-emphasize their importance. If the user is actively engaging with the page footer this means that something has gone wrong. They’re lost, the app is broken, and we need to provide them with a safety railing to bump up against.</p>
     <p>If Parcel Details is working as intended the footer is noise. We need to have a safety railing for failure states, but we want to minimize the visual and informational noise on the page. Right now the best way to accomplish this is to leave the footer as a block of small, unassuming, text and hyperlinks.</p>
+</article>
+<article class="center">
     <h3>Menu Carrots?</h3>
     <p>The other significant change is that we’ve added carrots back into the navbar menu items that expand into drop downs. Internally we’ve gone back and forth on the necessity of these carrots. Minimalism is an important and worth while goal. But we also need to give the users hints about what to expect when the click on a menu item.</p>
     <p>As a developer, I’ve found that it’s easy to get distracted from the hurtles and pain-points that a first-time or occasional user faces. The feedback that’s most easy to solicit is our own and we already know the app. The next easiest feedback is that of our internal customers and power users because they’re happy to tell us what they want. Finally we have everyone else, for which we don’t have good methods of collecting feedback from outside of support requests and complaints.</p>
