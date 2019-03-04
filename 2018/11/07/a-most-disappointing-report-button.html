@@ -11,28 +11,33 @@ Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
 <html>
+
 <head>
     <title>Tom the bomb on CD-ROM</title>
     <meta charset="UTF-8">
     <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
-    <meta name="keywords" content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="keywords"
+        content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
     <meta name="author" content="Thomas August Ryan @UncheckedError">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Skip the favicon. -->
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <style type="text/css">
         .center {
-            background: #ffffff;
+            /* Off white to reduce eye strain. */
+            background: #FDFDFD;
             border-radius: 2px;
             padding: 5%;
             margin: 3% 0% 3% 0%;
             /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            transition: all 0.3s cubic-bezier(.25,.8,.25,1);            
-            }
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
         .center:hover {
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-            }
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
         body {
             /* Compatible with everything, and anything. */
             font-family: sans-serif;
@@ -41,7 +46,10 @@ Designed in Seattle, forged in Puget Sound.
             margin: auto;
             padding: 0% 3% 0% 3%;
             max-width: 650px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
         }
+
         h1,
         h1.a {
             letter-spacing: 0.03em;
@@ -51,80 +59,111 @@ Designed in Seattle, forged in Puget Sound.
             margin: 0%;
             font-weight: 100;
         }
+
         h3 {
             letter-spacing: 0.01em;
             font-size: 3em;
             font-weight: 100;
             margin: 5% 0% 5% 0%;
         }
+
         ul li {
             letter-spacing: 0.001em;
             font-size: 1.8em;
             font-weight: 100;
-            line-height: 1.5em;              
+            line-height: 1.5em;
         }
+
         p {
             font-size: 1.8em;
             letter-spacing: 0em;
             white-space: normal;
             line-height: 1.4em;
         }
-        body > article > p > a {
+
+        body>article>p>a {
             text-decoration: none;
             border-bottom: 1px solid black;
         }
+
         a:link,
         a:visited {
             color: black;
         }
+
         a:hover,
         a:active {
             color: grey;
         }
+
         .underline {
             text-decoration: none;
-        }           
+        }
+
         blockquote {
             background: #f5f5f5;
             border-radius: 2px;
             padding: 5%;
             margin: 0% 0% 0% 0%;
-        }     
+        }
+
         footer {
             clear: both;
             text-align: right;
         }
     </style>
-<body>   
-<header class="center">
-    <h1><a href="./../../../index.html" class="underline">Thomas August Ryan</a></h1>
-</header>
-<article class="center">
-    <time datetime="2018-11-07"><h2>November 7, 2018</h2></time>
-    <h3>A Most Disappointing Bug Report Button</h3>
-    <p>I've been reading a lot of HackerNews the last few months. One of the ideas that I've picked up from reading the comments there has been the idea of creating short feedback loops.</p>
-    <p>Traditionally changes to Parcel Details have been motivated by requests from elected officials and internal complaints. This is a long feedback loop.</p>
-    <p>The question I'm struggling with is, "How do I shorten this feedback loop?"</p>
-    <p>My solution was to add a large high contrast button to the footer of the website that was labeled "File a Bug Report". It contains a mailto link that directs you to the helpdesk email address.</p>
-    <p>When I implemented this bug report button. I limited it to just appearing to IPs on our internal network because my position isn't rated to interact directly with the public.</p>
-    <p>I don't believe this is a significant issue, because more than half of the users for Parcel Details are browsing via IE 11, which is the County's standard browser. Implying that targeting just internal users should be a large enough sample size to get good feedback.</p>
-    <p>So I pushed the build to production and waited. And then I waited some more. Then I received a few change requests through the normal feedback channels. But the helpdesk hadn't forwarded me any File a bug Report emails. 🤔</p>
-    <p>In the end I waited about a month before I gave up on the helpdesk and swapped their email for my own. They must not be triaging the pile of incoming bug reports the users are submitting, or so I thought.</p>
-    <p>It's been another month since I set the report button to my own email. I have recieved exactly one email through this feedback funnel.</p>
-    <blockquote>From: Worky McWorkerson<br>To: Thomas August Ryan (Me)<br>Subject: {AppName} Bug Report {TimeAndDateStamp}<br><br>Not working today</blockquote>
-    <p>😖</p>
-    <p>Most stories like this have a happy ending. This one doesn't. I've spent a significant amount of screen real estate on a feature that doesn't help the users or shorten the feedback loop.</p>
-    <p>I intend to keep iterating on this. But right now I'm just a bit bummed out.</p>
-</article>
-<article class="center">
-    <time datetime="2019-01-05"><h2>January 5, 2019</h2></time>   
-    <h3>New Years 2019 Update</h3>
-    <p>Another quarter has past and still this funnel is failing to provide any useful feedback at all. I'm continuing to keep it for now.</p>
-    <p>Recently I changed the label on this button from "File a Bug Report" to the much more direct "Problem?". I also added it to the custom 404/Error page in Parcel Details. This hasn't resulted in a significant increase in it's use.</p>
-    <p>I'll keep trying, but it's hard to justify continuing to head down this path. 🤔</p>
-</article>
-<footer class="center">
-    <h1><a href="./../../../posts.html" class="underline">Posts</a> <a href="./../../../demos.html" class="underline">Demos</a> <a href="./../../../resume.pdf" class="underline">Resumé</a></h1>
-</footer>
+
+<body>
+    <header class="center">
+        <h1><a href="./../../../index.html" class="underline">Thomas August Ryan</a></h1>
+    </header>
+    <article class="center">
+        <time datetime="2018-11-07">
+            <h2>November 7, 2018</h2>
+        </time>
+        <h3>A Most Disappointing Bug Report Button</h3>
+        <p>I've been reading a lot of HackerNews the last few months. One of the ideas that I've picked up from reading
+            the comments there has been the idea of creating short feedback loops.</p>
+        <p>Traditionally changes to Parcel Details have been motivated by requests from elected officials and internal
+            complaints. This is a long feedback loop.</p>
+        <p>The question I'm struggling with is, "How do I shorten this feedback loop?"</p>
+        <p>My solution was to add a large high contrast button to the footer of the website that was labeled "File a Bug
+            Report". It contains a mailto link that directs you to the helpdesk email address.</p>
+        <p>When I implemented this bug report button. I limited it to just appearing to IPs on our internal network
+            because my position isn't rated to interact directly with the public.</p>
+        <p>I don't believe this is a significant issue, because more than half of the users for Parcel Details are
+            browsing via IE 11, which is the County's standard browser. Implying that targeting just internal users
+            should be a large enough sample size to get good feedback.</p>
+        <p>So I pushed the build to production and waited. And then I waited some more. Then I received a few change
+            requests through the normal feedback channels. But the helpdesk hadn't forwarded me any File a bug Report
+            emails. 🤔</p>
+        <p>In the end I waited about a month before I gave up on the helpdesk and swapped their email for my own. They
+            must not be triaging the pile of incoming bug reports the users are submitting, or so I thought.</p>
+        <p>It's been another month since I set the report button to my own email. I have recieved exactly one email
+            through this feedback funnel.</p>
+        <blockquote>From: Worky McWorkerson<br>To: Thomas August Ryan (Me)<br>Subject: {AppName} Bug Report
+            {TimeAndDateStamp}<br><br>Not working today</blockquote>
+        <p>😖</p>
+        <p>Most stories like this have a happy ending. This one doesn't. I've spent a significant amount of screen real
+            estate on a feature that doesn't help the users or shorten the feedback loop.</p>
+        <p>I intend to keep iterating on this. But right now I'm just a bit bummed out.</p>
+    </article>
+    <article class="center">
+        <time datetime="2019-01-05">
+            <h2>January 5, 2019</h2>
+        </time>
+        <h3>New Years 2019 Update</h3>
+        <p>Another quarter has past and still this funnel is failing to provide any useful feedback at all. I'm
+            continuing to keep it for now.</p>
+        <p>Recently I changed the label on this button from "File a Bug Report" to the much more direct "Problem?". I
+            also added it to the custom 404/Error page in Parcel Details. This hasn't resulted in a significant increase
+            in it's use.</p>
+        <p>I'll keep trying, but it's hard to justify continuing to head down this path. 🤔</p>
+    </article>
+    <footer class="center">
+        <h1><a href="./../../../posts.html" class="underline">Posts</a> <a href="./../../../demos.html"
+                class="underline">Demos</a> <a href="./../../../resume.pdf" class="underline">Resumé</a></h1>
+    </footer>
 </body>
+
 </html>

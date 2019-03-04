@@ -11,28 +11,33 @@ Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
 <html>
+
 <head>
     <title>Tom the bomb on CD-ROM</title>
     <meta charset="UTF-8">
     <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
-    <meta name="keywords" content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="keywords"
+        content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
     <meta name="author" content="Thomas August Ryan @UncheckedError">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Skip the favicon. -->
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <style type="text/css">
         .center {
-            background: #ffffff;
+            /* Off white to reduce eye strain. */
+            background: #FDFDFD;
             border-radius: 2px;
             padding: 5%;
             margin: 3% 0% 3% 0%;
             /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            transition: all 0.3s cubic-bezier(.25,.8,.25,1);            
-            }
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
         .center:hover {
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-            }
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
         body {
             /* Compatible with everything, and anything. */
             font-family: sans-serif;
@@ -41,7 +46,10 @@ Designed in Seattle, forged in Puget Sound.
             margin: auto;
             padding: 0% 3% 0% 3%;
             max-width: 650px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
         }
+
         h1,
         h1.a {
             letter-spacing: 0.03em;
@@ -51,83 +59,125 @@ Designed in Seattle, forged in Puget Sound.
             margin: 0%;
             font-weight: 100;
         }
+
         h3 {
             letter-spacing: 0.01em;
             font-size: 3em;
             font-weight: 100;
             margin: 5% 0% 5% 0%;
         }
+
         ul li {
             letter-spacing: 0.001em;
             font-size: 1.8em;
             font-weight: 100;
-            line-height: 1.5em;              
+            line-height: 1.5em;
         }
+
         p {
             font-size: 1.8em;
             letter-spacing: 0em;
             white-space: normal;
             line-height: 1.4em;
         }
-        body > article > p > a {
+
+        body>article>p>a {
             text-decoration: none;
             border-bottom: 1px solid black;
         }
+
         a:link,
         a:visited {
             color: black;
         }
+
         a:hover,
         a:active {
             color: grey;
         }
+
         .underline {
             text-decoration: none;
-        }           
+        }
+
         blockquote {
             background: #f5f5f5;
             border-radius: 2px;
             padding: 5%;
             margin: 0% 0% 0% 0%;
-        }    
+        }
+
         footer {
             clear: both;
             text-align: right;
         }
     </style>
 </head>
+
 <body>
-<header class="center">
-    <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
-</header>
-<article class="center">
-    <time datetime="2019-01-17"><h2>January 17, 2019</h2></time>
-    <h3>Making Zoning Codes Useful</h3>
-    <p>Big pushes are being made in major cities across the Northwest to rethink their zoning codes. Vancouver, BC for example up zoned all its single-family housing into multifamily housing in fall of 2018.</p>
-    <p>In Kitsap County the housing pressures that are breaking big cities aren’t of the same order of magnitude. But the core problems that citizens face are largely the same.</p>
-</article>
-<article class="center">
-    <h3>Starved for Information</h3>
+    <header class="center">
+        <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
+    </header>
+    <article class="center">
+        <time datetime="2019-01-17">
+            <h2>January 17, 2019</h2>
+        </time>
+        <h3>Making Zoning Codes Useful</h3>
+        <p>Big pushes are being made in major cities across the Northwest to rethink their zoning codes. Vancouver, BC
+            for example up zoned all its single-family housing into multifamily housing in fall of 2018.</p>
+        <p>In Kitsap County the housing pressures that are breaking big cities aren’t of the same order of magnitude.
+            But the core problems that citizens face are largely the same.</p>
+    </article>
+    <article class="center">
+        <h3>Starved for Information</h3>
         <ul>
             <li>What zoning code(s) apply to my home?</li>
             <li>What does that code mean?</li>
             <li>Seriously, what can I build on my property?</li>
         </ul>
-        <p>Right now, to get the answer to most of these questions a citizen would have to look up the zoning map for their city or county, find a colored polygon on a PDF of a large map, and then hunt through a tiny legend to find a couple of letters like R2 or NMU that matched with the color of their parcel.</p>
-        <p>This <a href="https://storage.googleapis.com/proudcity/portorchardwa/uploads/2018/10/2018-Revised-Zoning-Code-Map-w-Proposed-Rezones1.pdf" target="_blank">2018 revised zoning map</a> from the City of Port Orchard is a good example of how unintuitive this process is. You must know exactly where your parcel is even before you open this map because it can’t do anything to help you find it.</p>
-        <p>Once you've found the zoning code that applies to your property then you must find a separate look up table in the municipal or county code that describes what the heck terms like NMU mean. Finally you’ll end up calling the help line in exasperation and get setup with an appointment to talk to a permitting technician who can translate for you.</p>
-        <p>For professional planners and people that work in various departments of community development this isn’t a big deal, perhaps it’s even considered normal. But for a first-time property owner who wants to know if they can build a shack for their uncle out back, it’s a confusing and time-consuming process.</p>    
-</article>
-<article class="center">
-    <h3>Reducing Friction</h3>
-        <p>To make this process easier for residents in Kitsap County we recently updated our Parcel Details application.</p>
-        <p>Here the user can start by looking up their property using a familiar search page. Then they can use the details dropdown to select the <a href="https://psearch.kitsapgov.com/pdetails/details.aspx?parcel=132402-2-006-1003&page=landlocation" target="_blank">land & location</a> page. In the right-hand column, we now give you everything you need to make meaning from Kitsap County’s zoning codes.</p>
-        <p>Next to the zoning label in the table you’ll find every single zoning code that applies to your parcel. What’s more each zoning code is a button that links you to a <a href="https://www.kitsapgov.com/dcd/Pages/Rural_Residential_Zone.aspx" target="_blank">quick reference</a> guide created by the County’s Department of Community Development that tells you what the rules are for your specific zone.</p>
-        <p>On these pages you can read about what set backs are required, what the minimum and maximum lot sizes are, what the maximum allowable height for a structure is, and find out if building that shack is actually legal. This quick reference guide also directs you to submission pages where you can apply for a permit when you’re ready.</p>
-        <p>Today you don’t have to fight through the County Code, you don’t have to look up any special zoning maps, and you don’t have write anything down. You just look up your parcel the same way you would to pay your taxes and then click over to the same page where you’ve always found your zoning before. Except now these zone codes are here to help you, not to fight you.</p>   
-</article>
-<footer class="center">
-    <h1><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html" class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Resumé</a></h1>
-</footer>
+        <p>Right now, to get the answer to most of these questions a citizen would have to look up the zoning map for
+            their city or county, find a colored polygon on a PDF of a large map, and then hunt through a tiny legend to
+            find a couple of letters like R2 or NMU that matched with the color of their parcel.</p>
+        <p>This <a
+                href="https://storage.googleapis.com/proudcity/portorchardwa/uploads/2018/10/2018-Revised-Zoning-Code-Map-w-Proposed-Rezones1.pdf"
+                target="_blank">2018 revised zoning map</a> from the City of Port Orchard is a good example of how
+            unintuitive this process is. You must know exactly where your parcel is even before you open this map
+            because it can’t do anything to help you find it.</p>
+        <p>Once you've found the zoning code that applies to your property then you must find a separate look up table
+            in the municipal or county code that describes what the heck terms like NMU mean. Finally you’ll end up
+            calling the help line in exasperation and get setup with an appointment to talk to a permitting technician
+            who can translate for you.</p>
+        <p>For professional planners and people that work in various departments of community development this isn’t a
+            big deal, perhaps it’s even considered normal. But for a first-time property owner who wants to know if they
+            can build a shack for their uncle out back, it’s a confusing and time-consuming process.</p>
+    </article>
+    <article class="center">
+        <h3>Reducing Friction</h3>
+        <p>To make this process easier for residents in Kitsap County we recently updated our Parcel Details
+            application.</p>
+        <p>Here the user can start by looking up their property using a familiar search page. Then they can use the
+            details dropdown to select the <a
+                href="https://psearch.kitsapgov.com/pdetails/details.aspx?parcel=132402-2-006-1003&page=landlocation"
+                target="_blank">land & location</a> page. In the right-hand column, we now give you everything you need
+            to make meaning from Kitsap County’s zoning codes.</p>
+        <p>Next to the zoning label in the table you’ll find every single zoning code that applies to your parcel.
+            What’s more each zoning code is a button that links you to a <a
+                href="https://www.kitsapgov.com/dcd/Pages/Rural_Residential_Zone.aspx" target="_blank">quick
+                reference</a> guide created by the County’s Department of Community Development that tells you what the
+            rules are for your specific zone.</p>
+        <p>On these pages you can read about what set backs are required, what the minimum and maximum lot sizes are,
+            what the maximum allowable height for a structure is, and find out if building that shack is actually legal.
+            This quick reference guide also directs you to submission pages where you can apply for a permit when you’re
+            ready.</p>
+        <p>Today you don’t have to fight through the County Code, you don’t have to look up any special zoning maps, and
+            you don’t have write anything down. You just look up your parcel the same way you would to pay your taxes
+            and then click over to the same page where you’ve always found your zoning before. Except now these zone
+            codes are here to help you, not to fight you.</p>
+    </article>
+    <footer class="center">
+        <h1><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
+                class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Resumé</a></h1>
+    </footer>
 </body>
+
 </html>

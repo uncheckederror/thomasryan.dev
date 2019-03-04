@@ -11,28 +11,33 @@ Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
 <html>
+
 <head>
     <title>Tom the bomb on CD-ROM</title>
     <meta charset="UTF-8">
     <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
-    <meta name="keywords" content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="keywords"
+        content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
     <meta name="author" content="Thomas August Ryan @UncheckedError">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Skip the favicon. -->
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <style type="text/css">
         .center {
-            background: #ffffff;
+            /* Off white to reduce eye strain. */
+            background: #FDFDFD;
             border-radius: 2px;
             padding: 5%;
             margin: 3% 0% 3% 0%;
             /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            transition: all 0.3s cubic-bezier(.25,.8,.25,1);            
-            }
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
         .center:hover {
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-            }
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
         body {
             /* Compatible with everything, and anything. */
             font-family: sans-serif;
@@ -41,7 +46,10 @@ Designed in Seattle, forged in Puget Sound.
             margin: auto;
             padding: 0% 3% 0% 3%;
             max-width: 650px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
         }
+
         h1,
         h1.a {
             letter-spacing: 0.03em;
@@ -51,88 +59,149 @@ Designed in Seattle, forged in Puget Sound.
             margin: 0%;
             font-weight: 100;
         }
+
         h3 {
             letter-spacing: 0.01em;
             font-size: 3em;
             font-weight: 100;
             margin: 5% 0% 5% 0%;
         }
+
         ul li {
             letter-spacing: 0.001em;
             font-size: 1.8em;
             font-weight: 100;
-            line-height: 1.5em;              
+            line-height: 1.5em;
         }
+
         p {
             font-size: 1.8em;
             letter-spacing: 0em;
             white-space: normal;
             line-height: 1.4em;
         }
-        body > article > p > a {
+
+        body>article>p>a {
             text-decoration: none;
             border-bottom: 1px solid black;
         }
+
         a:link,
         a:visited {
             color: black;
         }
+
         a:hover,
         a:active {
             color: grey;
         }
+
         .underline {
             text-decoration: none;
-        }           
+        }
+
         blockquote {
             background: #f5f5f5;
             border-radius: 2px;
             padding: 5%;
             margin: 0% 0% 0% 0%;
-        }      
+        }
+
         footer {
             clear: both;
             text-align: right;
         }
     </style>
 </head>
+
 <body>
-<header class="center">
-    <h1><a href="./../../../index.html" class="underline">Thomas August Ryan</a></h1>
-</header>
-<article class="center">
-    <time datetime="2018-06-15"><h2>June 15, 2018</h2></time>
-    <h3>Modernizing Kitsap County’s Parcel Details</h3>
-    <p>Parcel Details is a public service offered by Kitsap County that allows anyone to look up information on a parcel of land using a tax account, street address, or parcel ID number. Originally this application built over a period of about a year by a single developer. As part of my role with the County I took over as the maintainer of this web app in February of 2018.</p>
-    <p>In the gallery above you can see the current release of Parcel Details that I created over the past couple of months. In the gallery below you can see what the public release of this web app looked like when I took it over.</p>
-    <p>There are some really clear differences between these two versions of the app, but for me, the biggest difference is adding responsive design in the current build. Before the current release, Parcel Details was a fixed width web app; now it scales from phones to 21:9 desktop monitors. This is all thanks to scaffolding Bootstrap 3.3 over the top of the custom UI elements provided by a company called Telerik.</p>
-</article>
-<article class="center">
-    <h3>Integrating Responsive Design</h3>
-    <p>The creator of Parcel Details built it using rapid application development or RAD tools from Telerik. These tools are drag and drop UI elements made available through a Visual Studio extension and a licensing fee. The database connections are made using Table Adapters and then the application sits on top of ASP.NET and .NET 4.0. In the current iteration you’ll see that it’s been upgraded to the latest 4.7.x release of .NET.</p>
-    <p>If you use Chrome’s inspect tool you’ll see that the pages are structured as a series of tables nested inside of other tables. At times this nesting is up to four layers deep. This complicated the process of applying bootstrap to this project and required me to spend some time removing unnecessary table nesting on the master page and in the views which when present either broke Bootstrap’s container system or signaled for line break elements where they weren’t necessary.</p>
-    <p>Another wrinkle to this process was trying to understand how Telerik’s RAD UI elements were styled. Simply referencing an element by its class tag in CSS resulted in no changes. The styling profile that Telerik was providing as a linked script was overriding those changes. To disable the default UI style I had to go element by element and table by table to add a flag to disable the built-in styling and give the element the tags it need to get styled by Bootstrap. Needless to say, this was a time-intensive trial and error prone process.</p>
-</article>
-<article class="center">
-    <h3>Trial and Error</h3>
-    <p>The menu structure for this application is also unusual in that the nav button elements are generated by a loop at runtime that iterates through an XML list of parent and child navigation nodes. For web apps I’m used to seeing navigation elements defined as part of a static list rather generated through a loop, so this was rather confusing for me. Once I realized what was going on it was only a matter of finding the navigation generation class and having it assign each node a CSS class that Bootstrap could style like "btn btn-primary col-xs-4".</p>
-    <p>Finally, there was a lot of trial and error in tuning of this UX. Because I was going through and modifying the elements individually there were a number of times when I found a new page in Parcel Details that had unstyled or incorrectly styled elements. Additionally working through and controlling how the menu elements reflowed at different window widths is a process that requires a fair bit of experimentation.</p>
-    <p>With those major issues worked out I overrode the Bootstrap’s primary color with the County’s shade of blue, implemented a header bar with the logo, and added the footer from the main website. The purpose of these changes was to give Parcel Detail’s a look and feel that was consistent with the rest of the County’s online presence.</p>
-</article>
-<article class="center"> 
-    <h3>Adding Telemetry and Logging</h3>
-    <p>The last step was to take advantage of the free services that Microsoft offers through its Azure platform and add Application Insights to this project. This tool handles all the logging and profiling that this app previously used a custom service to handle and dumps it into a nicely styled dashboard on my Azure account that I can share with my coworkers.</p>
-    <p>I can also use the telemetry it provides to trigger custom events like email blasts tied to downtime events. The catch is that you can only log up to a 1 GB of data per month per app before Azure will bill your account. This is a cap that was fine for testing and development but was surpassed in production. Luckily my account is credited with $50 a month thanks to my MSDN subscription which is more than enough to cover the $0.30 Azure is charging me.</p>
-    <p>For my purposes, Application Insights is a perfect fit and it has really streamlined my process for dealing with logs and troubleshooting exceptions. Often times I’m able to identify a service interruption or broken page using Application Insights before the help desk starts getting reports.</p>
-</article>
-<article class="center">
-    <h3>A Roadmap for the Future</h3>
-    <p>With this mobile friendly conversion of the front-end of Parcel Details the next steps are to improve the page load performance of the application, improve the stability of this app’s server infrastructure, modernize the deployment model, and build out a suite of unit tests to prevent regressions. I call this a user-first application improvement roadmap. I’m starting with the changes that will have the biggest impact on the public’s perception of the application first, and then moving toward the items that will improve my perception of the application’s quality.</p>
-    <p>You can head over the see the public version of <a href="https://psearch.kitsapgov.com/pdetails/">Parcel Details.</a></p>
-    <p>Kick the tires and ping me if you find anything. 😀</p>
-</article>
-<footer class="center">
-    <h1><a href="./../../../posts.html" class="underline">Posts</a> <a href="./../../../demos.html" class="underline">Demos</a> <a href="./../../../resume.pdf" class="underline">Resumé</a></h1>
-</footer>
+    <header class="center">
+        <h1><a href="./../../../index.html" class="underline">Thomas August Ryan</a></h1>
+    </header>
+    <article class="center">
+        <time datetime="2018-06-15">
+            <h2>June 15, 2018</h2>
+        </time>
+        <h3>Modernizing Kitsap County’s Parcel Details</h3>
+        <p>Parcel Details is a public service offered by Kitsap County that allows anyone to look up information on a
+            parcel of land using a tax account, street address, or parcel ID number. Originally this application built
+            over a period of about a year by a single developer. As part of my role with the County I took over as the
+            maintainer of this web app in February of 2018.</p>
+        <p>In the gallery above you can see the current release of Parcel Details that I created over the past couple of
+            months. In the gallery below you can see what the public release of this web app looked like when I took it
+            over.</p>
+        <p>There are some really clear differences between these two versions of the app, but for me, the biggest
+            difference is adding responsive design in the current build. Before the current release, Parcel Details was
+            a fixed width web app; now it scales from phones to 21:9 desktop monitors. This is all thanks to scaffolding
+            Bootstrap 3.3 over the top of the custom UI elements provided by a company called Telerik.</p>
+    </article>
+    <article class="center">
+        <h3>Integrating Responsive Design</h3>
+        <p>The creator of Parcel Details built it using rapid application development or RAD tools from Telerik. These
+            tools are drag and drop UI elements made available through a Visual Studio extension and a licensing fee.
+            The database connections are made using Table Adapters and then the application sits on top of ASP.NET and
+            .NET 4.0. In the current iteration you’ll see that it’s been upgraded to the latest 4.7.x release of .NET.
+        </p>
+        <p>If you use Chrome’s inspect tool you’ll see that the pages are structured as a series of tables nested inside
+            of other tables. At times this nesting is up to four layers deep. This complicated the process of applying
+            bootstrap to this project and required me to spend some time removing unnecessary table nesting on the
+            master page and in the views which when present either broke Bootstrap’s container system or signaled for
+            line break elements where they weren’t necessary.</p>
+        <p>Another wrinkle to this process was trying to understand how Telerik’s RAD UI elements were styled. Simply
+            referencing an element by its class tag in CSS resulted in no changes. The styling profile that Telerik was
+            providing as a linked script was overriding those changes. To disable the default UI style I had to go
+            element by element and table by table to add a flag to disable the built-in styling and give the element the
+            tags it need to get styled by Bootstrap. Needless to say, this was a time-intensive trial and error prone
+            process.</p>
+    </article>
+    <article class="center">
+        <h3>Trial and Error</h3>
+        <p>The menu structure for this application is also unusual in that the nav button elements are generated by a
+            loop at runtime that iterates through an XML list of parent and child navigation nodes. For web apps I’m
+            used to seeing navigation elements defined as part of a static list rather generated through a loop, so this
+            was rather confusing for me. Once I realized what was going on it was only a matter of finding the
+            navigation generation class and having it assign each node a CSS class that Bootstrap could style like "btn
+            btn-primary col-xs-4".</p>
+        <p>Finally, there was a lot of trial and error in tuning of this UX. Because I was going through and modifying
+            the elements individually there were a number of times when I found a new page in Parcel Details that had
+            unstyled or incorrectly styled elements. Additionally working through and controlling how the menu elements
+            reflowed at different window widths is a process that requires a fair bit of experimentation.</p>
+        <p>With those major issues worked out I overrode the Bootstrap’s primary color with the County’s shade of blue,
+            implemented a header bar with the logo, and added the footer from the main website. The purpose of these
+            changes was to give Parcel Detail’s a look and feel that was consistent with the rest of the County’s online
+            presence.</p>
+    </article>
+    <article class="center">
+        <h3>Adding Telemetry and Logging</h3>
+        <p>The last step was to take advantage of the free services that Microsoft offers through its Azure platform and
+            add Application Insights to this project. This tool handles all the logging and profiling that this app
+            previously used a custom service to handle and dumps it into a nicely styled dashboard on my Azure account
+            that I can share with my coworkers.</p>
+        <p>I can also use the telemetry it provides to trigger custom events like email blasts tied to downtime events.
+            The catch is that you can only log up to a 1 GB of data per month per app before Azure will bill your
+            account. This is a cap that was fine for testing and development but was surpassed in production. Luckily my
+            account is credited with $50 a month thanks to my MSDN subscription which is more than enough to cover the
+            $0.30 Azure is charging me.</p>
+        <p>For my purposes, Application Insights is a perfect fit and it has really streamlined my process for dealing
+            with logs and troubleshooting exceptions. Often times I’m able to identify a service interruption or broken
+            page using Application Insights before the help desk starts getting reports.</p>
+    </article>
+    <article class="center">
+        <h3>A Roadmap for the Future</h3>
+        <p>With this mobile friendly conversion of the front-end of Parcel Details the next steps are to improve the
+            page load performance of the application, improve the stability of this app’s server infrastructure,
+            modernize the deployment model, and build out a suite of unit tests to prevent regressions. I call this a
+            user-first application improvement roadmap. I’m starting with the changes that will have the biggest impact
+            on the public’s perception of the application first, and then moving toward the items that will improve my
+            perception of the application’s quality.</p>
+        <p>You can head over the see the public version of <a href="https://psearch.kitsapgov.com/pdetails/">Parcel
+                Details.</a></p>
+        <p>Kick the tires and ping me if you find anything. 😀</p>
+    </article>
+    <footer class="center">
+        <h1><a href="./../../../posts.html" class="underline">Posts</a> <a href="./../../../demos.html"
+                class="underline">Demos</a> <a href="./../../../resume.pdf" class="underline">Resumé</a></h1>
+    </footer>
 </body>
+
 </html>

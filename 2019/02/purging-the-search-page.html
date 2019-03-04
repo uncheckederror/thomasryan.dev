@@ -11,28 +11,33 @@ Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
 <html>
+
 <head>
     <title>Tom the bomb on CD-ROM</title>
     <meta charset="UTF-8">
     <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
-    <meta name="keywords" content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="keywords"
+        content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
     <meta name="author" content="Thomas August Ryan @UncheckedError">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Skip the favicon. -->
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <style type="text/css">
         .center {
-            background: #ffffff;
+            /* Off white to reduce eye strain. */
+            background: #FDFDFD;
             border-radius: 2px;
             padding: 5%;
             margin: 3% 0% 3% 0%;
             /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            transition: all 0.3s cubic-bezier(.25,.8,.25,1);            
-            }
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
         .center:hover {
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-            }
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
         body {
             /* Compatible with everything, and anything. */
             font-family: sans-serif;
@@ -41,7 +46,10 @@ Designed in Seattle, forged in Puget Sound.
             margin: auto;
             padding: 0% 3% 0% 3%;
             max-width: 650px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
         }
+
         h1,
         h1.a {
             letter-spacing: 0.03em;
@@ -51,85 +59,116 @@ Designed in Seattle, forged in Puget Sound.
             margin: 0%;
             font-weight: 100;
         }
+
         h3 {
             letter-spacing: 0.01em;
             font-size: 3em;
             font-weight: 100;
             margin: 5% 0% 5% 0%;
         }
+
         ul li {
             letter-spacing: 0.001em;
             font-size: 1.8em;
             font-weight: 100;
-            line-height: 1.5em;              
+            line-height: 1.5em;
         }
+
         p {
             font-size: 1.8em;
             letter-spacing: 0em;
             white-space: normal;
             line-height: 1.4em;
         }
+
         img {
             width: 100%;
             max-width: 100%;
             height: auto;
         }
-        body > article > p > a {
+
+        body>article>p>a {
             text-decoration: none;
             border-bottom: 1px solid black;
         }
+
         a:link,
         a:visited {
             color: black;
         }
+
         a:hover,
         a:active {
             color: grey;
         }
+
         .underline {
             text-decoration: none;
-        }           
+        }
+
         blockquote {
             background: #f5f5f5;
             border-radius: 2px;
             padding: 5%;
             margin: 0% 0% 0% 0%;
-        }     
+        }
+
         footer {
             clear: both;
             text-align: right;
         }
     </style>
 </head>
+
 <body>
-<header class="center">
-    <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
-</header>
-<article class="center">
-    <time datetime="2019-02-07"><h2>Feburary 7, 2019</h2></time>
-    <h3>Purging the Search Page</h3>
-    <p>About 60 percent of its users enter <a href="https://psearch.kitsapgov.com/pdetails/">Parcel Details</a> through the search page. The search page calls out to a SOAP service with query and then it’s returned a JSON payload of results.</p>
-    <p>If there is a single result it bumps you out to the account, if there are multiple it displays a table of results, and if there are none it tells you so. This is relatively straight forward workflow.</p>
-    <p>Why then does this page require almost 500 KBs of data, 19 HTTP requests, and 1.74 seconds to render?</p>
-</article>
-<article class="center">
-    <h3>Dependencies</h3> 
-    <p>The answer is that it was originally built using rapid application tools from a vendor. These tools offered a drag and drop interface for UI elements like the search box and results table.</p>
-    <p>They also offered a GUI for attaching these UI elements to client-side actions like querying a SOAP service and server-side actions like gathering data for a list of accounts into a results table.</p>
-    <p>Unfortunately, these UI elements and the framework that supported them required the inclusion of a license from the vendor and series of vendor specific JavaScript and CSS libraries that had to be included on every page for the UI elements to function.</p>
-</article>
-<article class="center">
-    <h3>Road Blocks</h3> 
-    <p>The solution to this problem required a lot of repetitive work. But replacing all the vendor’s UI elements and data formatting methods resulted in a significant performance boost for Parcel Detail’s search page.</p>
-    <p>The gain in <a href="https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fpsearch.kitsapgov.com%2Fpdetails%2F">Google’s PageSpeed Insights</a> from the low 80s before up to 99/100 is quite gratifying.</p>
-    <a href="PageSpeedComparisonParcelDetails.png" title="Google’s PageSpeed Insights Benchmark Before/After"><img src="PageSpeedComparisonParcelDetails.png" alt="Google’s PageSpeed Insights Benchmark Before/After"></a>
-    <p>By choosing a specific search result that was ambiguous enough to fill out the search results table I found a sort of stress test for this page. Thanks to the removal of the vendor’s UI elements the rebuilt search page has an order or magnitude fewer DOM nodes than the original.</p>
-    <a href="DOMNodeComparisonParcelDetails.png" title="Chrome Inspect DOM Stats Before/After"><img src="DOMNodeComparisonParcelDetails.png" alt="Chrome Inspect DOM Stats Before/After"></a>
-    <p>From 500 KBs this page is now slimmed down to 218 KBs, from 19 HTTP requests it’s now at 12, and from a 1.74 second page load time we’re down to 881 milliseconds.</p>
-    <p>It’s always difficult to justify refactoring an existing application but when you’re working with a web app where performance gains are this accessible it almost feels like malpractice not to try.</p>
-</article>
-<footer class="center">
-    <h1><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html" class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Resumé</a></h1>
-</footer>
+    <header class="center">
+        <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
+    </header>
+    <article class="center">
+        <time datetime="2019-02-07">
+            <h2>Feburary 7, 2019</h2>
+        </time>
+        <h3>Purging the Search Page</h3>
+        <p>About 60 percent of its users enter <a href="https://psearch.kitsapgov.com/pdetails/">Parcel Details</a>
+            through the search page. The search page calls out to a SOAP service with query and then it’s returned a
+            JSON payload of results.</p>
+        <p>If there is a single result it bumps you out to the account, if there are multiple it displays a table of
+            results, and if there are none it tells you so. This is relatively straight forward workflow.</p>
+        <p>Why then does this page require almost 500 KBs of data, 19 HTTP requests, and 1.74 seconds to render?</p>
+    </article>
+    <article class="center">
+        <h3>Dependencies</h3>
+        <p>The answer is that it was originally built using rapid application tools from a vendor. These tools offered a
+            drag and drop interface for UI elements like the search box and results table.</p>
+        <p>They also offered a GUI for attaching these UI elements to client-side actions like querying a SOAP service
+            and server-side actions like gathering data for a list of accounts into a results table.</p>
+        <p>Unfortunately, these UI elements and the framework that supported them required the inclusion of a license
+            from the vendor and series of vendor specific JavaScript and CSS libraries that had to be included on every
+            page for the UI elements to function.</p>
+    </article>
+    <article class="center">
+        <h3>Road Blocks</h3>
+        <p>The solution to this problem required a lot of repetitive work. But replacing all the vendor’s UI elements
+            and data formatting methods resulted in a significant performance boost for Parcel Detail’s search page.</p>
+        <p>The gain in <a
+                href="https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fpsearch.kitsapgov.com%2Fpdetails%2F">Google’s
+                PageSpeed Insights</a> from the low 80s before up to 99/100 is quite gratifying.</p>
+        <a href="PageSpeedComparisonParcelDetails.png" title="Google’s PageSpeed Insights Benchmark Before/After"><img
+                src="PageSpeedComparisonParcelDetails.png" alt="Google’s PageSpeed Insights Benchmark Before/After"></a>
+        <p>By choosing a specific search result that was ambiguous enough to fill out the search results table I found a
+            sort of stress test for this page. Thanks to the removal of the vendor’s UI elements the rebuilt search page
+            has an order or magnitude fewer DOM nodes than the original.</p>
+        <a href="DOMNodeComparisonParcelDetails.png" title="Chrome Inspect DOM Stats Before/After"><img
+                src="DOMNodeComparisonParcelDetails.png" alt="Chrome Inspect DOM Stats Before/After"></a>
+        <p>From 500 KBs this page is now slimmed down to 218 KBs, from 19 HTTP requests it’s now at 12, and from a 1.74
+            second page load time we’re down to 881 milliseconds.</p>
+        <p>It’s always difficult to justify refactoring an existing application but when you’re working with a web app
+            where performance gains are this accessible it almost feels like malpractice not to try.</p>
+    </article>
+    <footer class="center">
+        <h1><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
+                class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Resumé</a></h1>
+    </footer>
 </body>
+
 </html>
