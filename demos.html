@@ -111,6 +111,45 @@ Designed in Seattle, forged in Puget Sound.
             clear: both;
             text-align: right;
         }
+
+        /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
+        @media (prefers-color-scheme: dark),
+        only screen and (min-width: 1920px) {
+            .center {
+                /* Off white to reduce eye strain. */
+                background: #242424;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+
+            body {
+                /* Off black to reduce eye strain. */
+                background-color: #171717;
+                /* Off white to reduce eye strain. */
+                color: #e3e3e3;
+            }
+
+            blockquote {
+                background: #2e2e2e;
+                border-radius: 2px;
+                padding: 5%;
+                margin: 0% 0% 0% 0%;
+            }
+
+            body>article>p>a {
+                text-decoration: none;
+                border-bottom: 1px solid #4db2ff;
+            }
+
+            a:link,
+            a:visited {
+                color: #4db2ff;
+            }
+
+            a:hover,
+            a:active {
+                color: #0091ff;
+            }
+        }
     </style>
 </head>
 
@@ -120,17 +159,19 @@ Designed in Seattle, forged in Puget Sound.
     </header>
     <article class="center">
         <h2>CSS Grid</h2>
-        <p><a href="https://codepen.io/uncheckederror/full/XGNPrJ" target="_blank" rel="noopener noreferrer" class="underline">
-            <h3>The Declaration of Independence</h3>
-        </a></p>
+        <p><a href="https://codepen.io/uncheckederror/full/XGNPrJ" target="_blank" rel="noopener noreferrer"
+                class="underline">
+                <h3>The Declaration of Independence</h3>
+            </a></p>
     </article>
     <article class="center">
         <h2>Web Apps</h2>
-        <p><a href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-060-0004&page=landlocation" target="_blank" rel="noopener noreferrer"
-                class="underline">
+        <p><a href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-060-0004&page=landlocation"
+                target="_blank" rel="noopener noreferrer" class="underline">
                 <h3>Land & Location in Parcel Details</h3>
             </a></p>
-        <p><a href="https://psearch.kitsapgov.com/PlatsSearch/?SearchString=5432" target="_blank" rel="noopener noreferrer" class="underline">
+        <p><a href="https://psearch.kitsapgov.com/PlatsSearch/?SearchString=5432" target="_blank"
+                rel="noopener noreferrer" class="underline">
                 <h3>Plat 5432 in Plats Search</h3>
             </a></p>
     </article>

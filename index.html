@@ -109,9 +109,49 @@ Designed in Seattle, forged in Puget Sound.
             margin: 0% 0% 0% 0%;
         }
 
-        footer, .menu {
+        footer,
+        .menu {
             clear: both;
             text-align: right;
+        }
+
+        /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
+        @media (prefers-color-scheme: dark),
+        only screen and (min-width: 1920px) {
+            .center {
+                /* Off white to reduce eye strain. */
+                background: #242424;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+
+            body {
+                /* Off black to reduce eye strain. */
+                background-color: #171717;
+                /* Off white to reduce eye strain. */
+                color: #e3e3e3;
+            }
+
+            blockquote {
+                background: #2e2e2e;
+                border-radius: 2px;
+                padding: 5%;
+                margin: 0% 0% 0% 0%;
+            }
+
+            body>article>p>a {
+                text-decoration: none;
+                border-bottom: 1px solid #4db2ff;
+            }
+
+            a:link,
+            a:visited {
+                color: #4db2ff;
+            }
+
+            a:hover,
+            a:active {
+                color: #0091ff;
+            }
         }
     </style>
 </head>
@@ -129,8 +169,8 @@ Designed in Seattle, forged in Puget Sound.
         </p>
     </article>
     <article class="center">
-        <h1 class="menu"><a href="posts.html" class="underline">Posts</a> <a href="demos.html" class="underline">Demos</a> <a
-            href="resume.pdf" class="underline">Resumé</a></h1>
+        <h1 class="menu"><a href="posts.html" class="underline">Posts</a> <a href="demos.html"
+                class="underline">Demos</a> <a href="resume.pdf" class="underline">Resumé</a></h1>
     </article>
     <article class="center">
         <h3>Kitsap API</h3>
