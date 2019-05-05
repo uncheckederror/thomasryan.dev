@@ -117,6 +117,45 @@ Designed in Seattle, forged in Puget Sound.
             clear: both;
             text-align: right;
         }
+
+        /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
+        @media (prefers-color-scheme: dark),
+        only screen and (min-width: 1920px) {
+            .center {
+                /* Off white to reduce eye strain. */
+                background: #242424;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+
+            body {
+                /* Off black to reduce eye strain. */
+                background-color: #171717;
+                /* Off white to reduce eye strain. */
+                color: #e3e3e3;
+            }
+
+            blockquote {
+                background: #2e2e2e;
+                border-radius: 2px;
+                padding: 5%;
+                margin: 0% 0% 0% 0%;
+            }
+
+            body>article>p>a {
+                text-decoration: none;
+                border-bottom: 1px solid #4db2ff;
+            }
+
+            a:link,
+            a:visited {
+                color: #4db2ff;
+            }
+
+            a:hover,
+            a:active {
+                color: #0091ff;
+            }
+        }
     </style>
 </head>
 
@@ -128,59 +167,59 @@ Designed in Seattle, forged in Puget Sound.
         <time datetime="2019-03-21">
             <h2>March 21, 2019</h2>
         </time>
-            <h3>In Praise of Sticky Notes</h3>
-            <p>The sticky note is my favorite personal management tool. It seems to me that many consider the sticky
-                note to be an archaic tool. But I love it dearly.</p>
-            <p>If you write a work item down on it, that text is permanently paired with that slightly sticky square of
-                paper. The often-bright paper colors serve to isolate that packet of information on the note from its
-                often-drab surroundings. </p>
-            <p>As the notes accumulate into stacks, rows, or columns you get a tangible sense for what is being
-                accomplished.</p>
-            <p>As you get less and less careful about how you place the notes into a grid they develop a sense of
-                imperfection, and perhaps even clutter. Products are imperfect, work items and ideas do get cluttered as
-                they multiply. In this way the sticky note’s limitations as a physical item are integral to its value
-                proposition. </p>
-            <p>The physical actions that I take to write an item down on a note, and then post it to my board give the
-                work item a sense of meaning. This is not to say that sticky notes should be treated with a special
-                reverence, but rather the that there is value in the process of condensing an idea down to something
-                that can be reasonable read from a distance. </p>
-            <p>The limitations that a sticky note imposes upon your thought process are valuable because the bring focus
-                to the conversation. </p>
-            <p>In the same way that tweets are not a replacement for a thoughtful debate, sticky notes are the wrong
-                tool for product documentation or gathering requirements from a customer. But if you wanted to outline
-                specific work items that needed to be present in your product’s documentation like how a serial number
-                is created or the need for a specific feature based on a conversation with a customer then sticky notes
-                are perfect.</p>
-            <p>Sticky notes are easy to create and destroy. Yet they are still a physical object. When you realize that
-                the work item on the board is bigger than it seems you can stop, reassess the situation, and replace it.
-            </p>
-            <p>The process of writing out multiple sticky notes to replace an existing item, then tearing it off the
-                board and discarding it is tactile reminder that you are in control of your workflow. More importantly
-                this process sets your expectations for what you can accomplish.</p>
-            <p>The value of sticky notes is that they give you consistent, predictable, physical control. Sticky notes
-                don’t change, they don’t delete themselves at random, their security is a physical issue, not a
-                technical one.</p>
-            <p>Sticky notes act as an abstraction over whatever you can conceptualize as your work items or work flow.
-                If you want to try out a new work flow you can rearrange your columns. If you want to adjust the
-                priority of an item, just move it around. </p>
-            <p>I don’t believe that sticky notes are transferable between authors. For specific information like phone
-                numbers, passwords, or emails they can serve a purpose. But handing your coworker a sticky note with a
-                work item that you wrote is a mistake. Rather the best method here is act as resource for their
-                questions as they go through the sticky note creation process. </p>
-            <p>This is because sticky notes are personal to their creator. Often this gets lost when items are drafted
-                from a ticketing system on to a digital kanban board. Rather than being authored by those responsible
-                for them, these imitations are a product of the system created them. The priorities and values of
-                ticketing system are not the same as those of a human, and they are expressly non-human.</p>
-            <p>It’s naive to expect that a human would have much empathy and investment in a receipt from a machine as
-                they would in a square of paper that they conceptualized and wrote themselves. In this way the process
-                of creation, the process of physical creation, is deeply tied to the sense of self involved in working.
-                It is because of these factors that the austere sticky note is such an effective way to engage with and
-                understand your own workflow.</p>
-        </article>
-        <footer class="center">
-            <h1><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
-                    class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Resumé</a></h1>
-        </footer>
+        <h3>In Praise of Sticky Notes</h3>
+        <p>The sticky note is my favorite personal management tool. It seems to me that many consider the sticky
+            note to be an archaic tool. But I love it dearly.</p>
+        <p>If you write a work item down on it, that text is permanently paired with that slightly sticky square of
+            paper. The often-bright paper colors serve to isolate that packet of information on the note from its
+            often-drab surroundings. </p>
+        <p>As the notes accumulate into stacks, rows, or columns you get a tangible sense for what is being
+            accomplished.</p>
+        <p>As you get less and less careful about how you place the notes into a grid they develop a sense of
+            imperfection, and perhaps even clutter. Products are imperfect, work items and ideas do get cluttered as
+            they multiply. In this way the sticky note’s limitations as a physical item are integral to its value
+            proposition. </p>
+        <p>The physical actions that I take to write an item down on a note, and then post it to my board give the
+            work item a sense of meaning. This is not to say that sticky notes should be treated with a special
+            reverence, but rather the that there is value in the process of condensing an idea down to something
+            that can be reasonable read from a distance. </p>
+        <p>The limitations that a sticky note imposes upon your thought process are valuable because the bring focus
+            to the conversation. </p>
+        <p>In the same way that tweets are not a replacement for a thoughtful debate, sticky notes are the wrong
+            tool for product documentation or gathering requirements from a customer. But if you wanted to outline
+            specific work items that needed to be present in your product’s documentation like how a serial number
+            is created or the need for a specific feature based on a conversation with a customer then sticky notes
+            are perfect.</p>
+        <p>Sticky notes are easy to create and destroy. Yet they are still a physical object. When you realize that
+            the work item on the board is bigger than it seems you can stop, reassess the situation, and replace it.
+        </p>
+        <p>The process of writing out multiple sticky notes to replace an existing item, then tearing it off the
+            board and discarding it is tactile reminder that you are in control of your workflow. More importantly
+            this process sets your expectations for what you can accomplish.</p>
+        <p>The value of sticky notes is that they give you consistent, predictable, physical control. Sticky notes
+            don’t change, they don’t delete themselves at random, their security is a physical issue, not a
+            technical one.</p>
+        <p>Sticky notes act as an abstraction over whatever you can conceptualize as your work items or work flow.
+            If you want to try out a new work flow you can rearrange your columns. If you want to adjust the
+            priority of an item, just move it around. </p>
+        <p>I don’t believe that sticky notes are transferable between authors. For specific information like phone
+            numbers, passwords, or emails they can serve a purpose. But handing your coworker a sticky note with a
+            work item that you wrote is a mistake. Rather the best method here is act as resource for their
+            questions as they go through the sticky note creation process. </p>
+        <p>This is because sticky notes are personal to their creator. Often this gets lost when items are drafted
+            from a ticketing system on to a digital kanban board. Rather than being authored by those responsible
+            for them, these imitations are a product of the system created them. The priorities and values of
+            ticketing system are not the same as those of a human, and they are expressly non-human.</p>
+        <p>It’s naive to expect that a human would have much empathy and investment in a receipt from a machine as
+            they would in a square of paper that they conceptualized and wrote themselves. In this way the process
+            of creation, the process of physical creation, is deeply tied to the sense of self involved in working.
+            It is because of these factors that the austere sticky note is such an effective way to engage with and
+            understand your own workflow.</p>
+    </article>
+    <footer class="center">
+        <h1><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
+                class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Resumé</a></h1>
+    </footer>
 </body>
 
 </html>
