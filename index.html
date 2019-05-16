@@ -173,8 +173,8 @@ Designed in Seattle, forged in Puget Sound.
                 class="underline">Demos</a> <a href="resume.pdf" class="underline">Resumé</a></h1>
     </article>
     <article class="center">
-        <h3>Kitsap API</h3>
-        <p>Right now I'm working on a data syncing tool that can be run via browser, console, or scheduled task. It
+        <h3>Data Syncing Service</h3>
+        <p>Right now I'm working on a data syncing tool for the County that can be run via browser, console, or scheduled task. It
             pulls account valuations and related data from an old MS-SQL database, formats the data, and then submits it
             to a vendor's borderline undocumented private REST API.</p>
     </article>
@@ -182,7 +182,7 @@ Designed in Seattle, forged in Puget Sound.
         <h3>Parcel Details</h3>
         <blockquote>
             <ul>
-                <li>21.3K Users a Month</li>
+                <li>28.1K Users a Month</li>
                 <li>~50% of Users on IE 11 or Below</li>
                 <li>Average Page Load Time of 765ms</li>
             </ul>
@@ -190,11 +190,11 @@ Designed in Seattle, forged in Puget Sound.
         <p>My primary responsibility is maintaining the County's public parcel information system. <a
                 href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-066-0008&page=landlocation">Parcel
                 Details</a> is a web app that allows anyone to look up a tax parcel in Kitsap County.</p>
-        <p>Parcel Details was originally an ASP.NET 4 project that used rapid application development tools provided by
+        <p>Parcel Details was originally an ASP.NET 4 WebForms project that used rapid application development tools provided by
             a vendor to define its business logic and user interface. Since I took over it's maintenance, I've upgraded
             the project to .NET 4.7.2, lead a redesign of the user interface, rewrote the business logic and views to
             remove all dependencies on the vendor's tools, and migrated the database calls from ancient ADO.NET Datasets
-            to an Object Relational Mapper (ORM) called Dapper.</p>
+            to a micro Object Relational Mapper (ORM) called Dapper.</p>
         <p>What I'm most proud of is getting the average page weight down from 6 MBs to less than 200 KBs. This was
             achieved despite the addition of a responsive CSS framework (Bootstrap 3.3.7), helpful icons, and a variety
             of new interactive features.</p>
@@ -203,9 +203,9 @@ Designed in Seattle, forged in Puget Sound.
         <h3>Plats Search</h3>
         <blockquote>
             <ul>
-                <li>1.1K Users a Month</li>
+                <li>1.5K Users a Month</li>
                 <li>25.35ms Server Response Time</li>
-                <li>Average Page Load Time of 669ms</li>
+                <li>Average Page Load Time of 516ms</li>
             </ul>
         </blockquote>
         <p><a href="https://psearch.kitsapgov.com/PlatsSearch/?SearchString=5432">Plats Search</a> is web app that
@@ -240,7 +240,7 @@ Designed in Seattle, forged in Puget Sound.
             of a project's purpose and constraints.</p>
         <p>This is a personal website intended to give new friends an introduction to my world. It's not a social
             network, it's not a news outlet, and it's not SaaS startup.</p>
-        <p>To that end this page weighs in at about 3 kilobytes and loads with a single request to the web server.</p>
+        <p>To that end this page weighs in at about 5 kilobytes and loads with a single request to the web server.</p>
         <p>I've opted not use a JavaScript framework, nor a CSS framework, nor even server-side rendering like I'm used
             to with ASP.NET.</p>
         <p>Instead this page is hand-crafted. The style sheet is embedded in the head. And there's no JavaScript,
