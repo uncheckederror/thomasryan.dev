@@ -221,7 +221,7 @@ Designed in Seattle, forged in Puget Sound.
             meet new customer requirements trivial. Plus the knowledge base and community that’s built up around EF Core
             over the past few years is pretty good.</p>
         <p>For existing apps like my own I think #2 makes the most sense. I don’t want to reinvent the wheel. I don’t
-            want to provide training or documentation on implementation of non-business related aspects of my database
+            want to provide training or documentation on the boilerplate of my database
             interaction layer.</p>
         <p>I would much rather point someone to a tutorial on using Dapper, and then once they’re
             comfortable with the library walk them through how I’ve mobilized its capabilities in my specific
@@ -240,14 +240,14 @@ Designed in Seattle, forged in Puget Sound.
             play nice with our data models. Because EF Core doesn’t have a provider that supports our specific and
             admittedly quite old, Oracle database, I ruled it out. Thanks to its simplicity Dapper does not suffer from
             this flaw and I can use Oracle.ManagedDataAccess, an existing ADO.NET database provider.</p>
-        <p>Better yet to switch a data access method from one database to another all I have to do is swap the name of
-            the database provider for that specific method and then rewrite the SQL statement a syntax compatible with
+        <p>If I need to switch a data access method from one database to another all I have to do is swap the name of
+            the database provider for that specific method and then rewrite the SQL statement in a syntax compatible with
             the new database provider. The structure and responsibilities of the data access method stay the same. I
             find this quite satisfying from an object-oriented programming PoV.</p>
     </article>
     <article class="center">
         <h3>DataSets to data models</h3>
-        <p>I had seven DataSets that I need to convert into data models. I started by creating a new DataAccess folder
+        <p>I had seven DataSets that I needed to convert into data models. I started by creating a new DataAccess folder
             inside the project and then I created a folder for each of the databases this app needs to talk to.</p>
         <p>For
             simplicities sake I kept the namespace of all of these models limited to {appName}.DataAccess rather than
