@@ -169,9 +169,9 @@ Designed in Seattle, forged in Puget Sound.
         </time>
         <h3>How I Converted ADO.NET DataSets into Dapper data models</h3>
         <p>Parcel Details is a monolithic .NET web app written using the now deprecated <a
-                href="https://docs.microsoft.com/en-us/aspnet/web-forms/what-is-web-forms" target="_blank">Web Forms</a>
+                href="https://docs.microsoft.com/en-us/aspnet/web-forms/what-is-web-forms" target="_blank" rel="noopener noreferrer">Web Forms</a>
             framework that Microsoft introduced in 2002. For data access this project uses a technology called <a
-                href="https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/ado-net-datasets">ADO.NET
+                href="https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/ado-net-datasets" target="_blank" rel="noopener noreferrer">ADO.NET
                 DataSets</a>. In this article
             I’ll walk you through how I silently replaced the entire data access layer of this web app with Dapper-based
             data models.</p>
@@ -278,7 +278,7 @@ Designed in Seattle, forged in Puget Sound.
             they all shared the DataAccess namespace. Getters and Setter are great but we need a data access method to
             make this data model useful.</p>
         <p>For this I followed the first example from this <a href="https://dapper-tutorial.net/dapper"
-                target="_blank">Dapper Tutorials</a> site. It’s a static method that returns an instance of the data
+            target="_blank" rel="noopener noreferrer">Dapper Tutorials</a> site. It’s a static method that returns an instance of the data
             model. It wraps the Dapper call in a using block that creates an instance of the ADO.NET database
             provider that Dapper then uses to execute the SQL statement that was defined in this method as a string and
             passed into the
