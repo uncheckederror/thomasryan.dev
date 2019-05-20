@@ -169,9 +169,11 @@ Designed in Seattle, forged in Puget Sound.
         </time>
         <h3>How I Converted ADO.NET DataSets into Dapper data models</h3>
         <p>Parcel Details is a monolithic .NET web app written using the now deprecated <a
-                href="https://docs.microsoft.com/en-us/aspnet/web-forms/what-is-web-forms" target="_blank" rel="noopener noreferrer">Web Forms</a>
+                href="https://docs.microsoft.com/en-us/aspnet/web-forms/what-is-web-forms" target="_blank"
+                rel="noopener noreferrer">Web Forms</a>
             framework that Microsoft introduced in 2002. For data access this project uses a technology called <a
-                href="https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/ado-net-datasets" target="_blank" rel="noopener noreferrer">ADO.NET
+                href="https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/ado-net-datasets" target="_blank"
+                rel="noopener noreferrer">ADO.NET
                 DataSets</a>. In this article
             I’ll walk you through how I silently replaced the entire data access layer of this web app with Dapper-based
             data models.</p>
@@ -241,7 +243,8 @@ Designed in Seattle, forged in Puget Sound.
             admittedly quite old, Oracle database, I ruled it out. Thanks to its simplicity Dapper does not suffer from
             this flaw and I can use Oracle.ManagedDataAccess, an existing ADO.NET database provider.</p>
         <p>If I need to switch a data access method from one database to another all I have to do is swap the name of
-            the database provider for that specific method and then rewrite the SQL statement in a syntax compatible with
+            the database provider for that specific method and then rewrite the SQL statement in a syntax compatible
+            with
             the new database provider. The structure and responsibilities of the data access method stay the same. I
             find this quite satisfying from an object-oriented programming PoV.</p>
     </article>
@@ -249,8 +252,8 @@ Designed in Seattle, forged in Puget Sound.
         <h3>DataSets to data models</h3>
         <p>I had seven DataSets that I needed to convert into data models. I started by creating a new DataAccess folder
             inside the project and then I created a folder for each of the databases this app needs to talk to.</p>
-        <p>For
-            simplicities sake I kept the namespace of all of these models limited to {appName}.DataAccess rather than
+        <p>For the sake of simplicity I kept the namespace of all of these models limited to {appName}.DataAccess rather
+            than
             what Visual Studio defaults to when you create a new class {appName}.DataAccess.{databaseFolderName}, which
             mirrors the folder structure of the application. I find that this practice reduces the amount of cognitive
             load involved when referencing a data model while maintaining a workable folder structure as opposed to a
@@ -258,7 +261,8 @@ Designed in Seattle, forged in Puget Sound.
         <a href="TableAdapterSQL.png" title="Extracting an SQL statement from a TableAdapter"><img
                 src="TableAdapterSQL.png" alt="Extracting an SQL statement from a TableAdapter"></a>
         <p>Then I opened up one of the smaller DataSets that modeled just a couple of tables and went to work. When
-            looking at a TableAdapter, if you click on the specific data access method you’re interested in its name and
+            looking at a TableAdapter, if you click on the specific data access method you’re interested in; its name
+            and
             the SQL statement it uses will appear in the properties panel in Visual Studio. From there you can copy the
             name, and extract the raw SQL it use to query the database.</p>
         <a href="OracleSQLDeveloper.png" title="Testing PL-SQL statements"><img src="OracleSQLDeveloper.png"
@@ -277,8 +281,9 @@ Designed in Seattle, forged in Puget Sound.
             that result. As a matter of convention, I kept each of the data models in their own class file, although
             they all shared the DataAccess namespace. Getters and Setter are great but we need a data access method to
             make this data model useful.</p>
-        <p>For this I followed the first example from this <a href="https://dapper-tutorial.net/dapper"
-            target="_blank" rel="noopener noreferrer">Dapper Tutorials</a> site. It’s a static method that returns an instance of the data
+        <p>For this I followed the first example from this <a href="https://dapper-tutorial.net/dapper" target="_blank"
+                rel="noopener noreferrer">Dapper Tutorials</a> site. It’s a static method that returns an instance of
+            the data
             model. It wraps the Dapper call in a using block that creates an instance of the ADO.NET database
             provider that Dapper then uses to execute the SQL statement that was defined in this method as a string and
             passed into the
@@ -292,9 +297,11 @@ Designed in Seattle, forged in Puget Sound.
                 <li>An exception.</li>
             </ol>
         </blockquote>
-        <p>3 and 4 are configurable within Dapper based on which query you use.</p>
-        <p>For example QueryFirstOrDefault will never return 4 but QuerySingle will return an exception if the database
-            responded with more than one row or it responds with no rows. This is a pick your poison moment, but I
+        <p>#3 and #4 are configurable within Dapper based on which query you use.</p>
+        <p>For example QueryFirstOrDefault will never return an exception but QuerySingle will return an exception if
+            the database
+            responded with more than one row or it responds with no rows. </p>
+        <p>This is a pick your poison moment, but I
             prefer to write my flow control around checking for specific ranges of valid values as opposed to checking
             for nulls or wrapping calls in try catch statements to handle exceptions thrown by the data model.</p>
         <p>Often
@@ -311,7 +318,7 @@ Designed in Seattle, forged in Puget Sound.
         <a href="BeforeAndAfterDataSets2DataModels.png" title="After and before"><img
                 src="BeforeAndAfterDataSets2DataModels.png" alt="After and before"></a>
         <p>On the left we have the version of this function where I’ve used a data model and on the right we have the
-            older version that uses a TableAdapter. The key points to note here are that the version with data model is
+            older version that uses a TableAdapter. The key points to note here are that the version with a data model is
             more succinct, doesn’t require nested using blocks, a DataTable, or DataRows. The data model is a much
             simpler abstraction which makes it easier to pick out flaws like bad variable naming (ex. OtherAssessments
             and otherAssessements), oops.</p>
@@ -319,7 +326,7 @@ Designed in Seattle, forged in Puget Sound.
             string is set inside each foreach loop you can see that in the version on the right I have to treat the
             DataRow like an array and I’m calling the ToString method because who knows what’s really in row[2]? In the
             version on the left I’m just grabbing a property of the data model and I don’t have to do any conversion
-            because it’s already a strongly-typed string. In this way the data model makes it easier to reason about the
+            because it’s already a string. In this way the data model makes it easier to reason about the
             data it contains and prevent simple mistakes.</p>
         <p>To flip this on its head for a moment, the use of relatively complicated structures like a TableAdapter and a
             DataTable didn’t help the original author to write better code. Worse yet, they actively made it difficult
@@ -330,7 +337,7 @@ Designed in Seattle, forged in Puget Sound.
             in this web app’s code base. Of course, it wasn’t a completely painless transition. In the week following
             the introduction of this new DataAccess layer I triaged about 7 new bugs that our telemetry picked up in
             production. These issues were mostly due to the data models attempting to serialize poorly formatted data
-            from the database into strong data types.</p>
+            from the database into static types.</p>
         <p>Specifically, one table kept returning poorly formatted dates that would occasionally fail to be serialized
             into DateTimes. The solution here was to serialize it as a private string and then use the
             DateTime.TryParse() technique to set a similarly named public field in the data model.</p>
