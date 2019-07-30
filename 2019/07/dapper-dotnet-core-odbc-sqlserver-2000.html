@@ -67,11 +67,11 @@ Designed in Seattle, forged in Puget Sound.
             margin: 5% 0% 5% 0%;
         }
 
-        ul li {
+        ol li {
             letter-spacing: 0.001em;
             font-size: 1.8em;
             font-weight: 100;
-            line-height: 1.5em;
+            line-height: 1.6em;
         }
 
         p {
@@ -79,6 +79,12 @@ Designed in Seattle, forged in Puget Sound.
             letter-spacing: 0em;
             white-space: normal;
             line-height: 1.4em;
+        }
+
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
         }
 
         body>article>p>a {
@@ -155,49 +161,75 @@ Designed in Seattle, forged in Puget Sound.
 
 <body>
     <header class="center">
-        <h1><a href="./index.html" class="underline">Thomas August Ryan</a></h1>
+        <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
     </header>
     <article class="center">
-        <time datetime="2019">
-            <h2>2019</h2>
+        <time datetime="2019-07-30">
+            <h2>July 30, 2019</h2>
         </time>
-        <p><a href="./2019/07/dapper-dotnet-core-odbc-sqlserver-2000.html" class="underline">
-            <h3>Using Dapper and .NET Core to pull data from SQL Server 2000</h3>
-        </a></p>
-        <p><a href="./2019/05/webforms-datasets-to-dapper.html" class="underline">
-            <h3>How I Converted ADO.NET DataSets into Dapper data models</h3>
-        </a></p>
-        <p><a href="./2019/03/in-praise-of-sticky-notes.html" class="underline">
-                <h3>In Praise of Sticky Notes</h3>
-            </a></p>
-        <p><a href="./2019/02/purging-the-search-page.html" class="underline">
-                <h3>Purging the Search Page</h3>
-            </a></p>
-        <p><a href="./2019/01/making-zoning-codes-useful.html" class="underline">
-                <h3>Making Zoning Codes Useful</h3>
-            </a></p>
-        <p><a href="./2019/01/parsing-tax-descriptions.html" class="underline">
-                <h3>Parsing Tax Descriptions</h3>
-            </a></p>
-    </article>
-    <article class="center">
-        <time datetime="2018">
-            <h2>2018</h2>
-        </time>
-        <p><a href="./2018/11/07/a-most-disappointing-report-button.html" class="underline">
-                <h3>A Most Disappointing Bug Report Button</h3>
-            </a></p>
-        <p><a href="./2018/06/17/buttons-as-actions.html" class="underline">
-                <h3>Buttons As Actions</h3>
-            </a></p>
-        <p><a href="./2018/06/15/modernizing-kitsap-countys-parcel-details.html" class="underline">
-                <h3>Modernizing Kitsap County’s Parcel Details</h3>
-            </a></p>
+        <h3>Using Dapper and .NET Core to pull data from SQL Server 2000</h3>
+        <p>I’m in the process of porting a web app from .NET Framework to dotnet core. One of the issues I’ve found is
+            that the dotnet core version of System.Data doesn’t support connecting to versions of SQL Server older than
+            the 2005 edition. Unfortunately for me, this application requires data stored in an SQL Server 2000
+            instance.</p>
+        <p>A quick Google for the error message returned by ASP.NET Core lead me to this <a
+                href="https://stackoverflow.com/questions/45412345/the-sql-server-instance-returned-an-invalid-or-unsupported-protocol-version-duri"
+                target="_blank" rel="noopener noreferrer">insightful StackOverflow post</a>.
+        </p>
+        <blockquote>
+            <p>“.NET Core does not support SQL Server versions lower than SQL Server 2005. Or rather, it does not
+                support TDS protocol versions lower than TDS 7.2 (the version introduced by SQL Server 2005).”</p>
+        </blockquote>
+        <p>A little further down we can see the solution that I ended up pursuing:</p>
+        <blockquote>
+            <p>“…now with dotnetcore 2.2 released, OdbcConnection is supported, which will let you use any old Odbc
+                drivers”</p>
+        </blockquote>
+        <p>The existing code looked like this:</p>
+        <pre><code>
+        using (var connection = new SqlConnection(connectionString))
+        {
+            string sql = $@"SELECT [Excise],
+                                    [RECID],
+                                    [PAGECOUNT]
+                            FROM [Stellent_Context].[dbo].[TRExciseMain]
+                            WHERE [Excise] = '{exciseNumber}'";
+
+            var result = connection.QuerySingleOrDefault<StellentExciseDocument>(sql)
+                 ?? new StellentExciseDocument();
+
+            result.Excise =
+            string.IsNullOrWhiteSpace(result.Excise)
+            ? "" : result.Excise.Trim();
+
+            return result;
+        }
+        </code></pre>
+        <p>I then added System.Data.Odbc from Nuget to my project and then a using directive to the namespace.</p>
+        <p>To make the switch to the Odbc connection all I had to do was swap “SqlConnection” for “OdbcConnection” to
+            create:</p>
+        <pre><code>using (var connection = new OdbcConnection(connectionString)) { // The rest }</code></pre>
+        <p>It’s worth noting at this point that the ODBC connection uses a different format for its connection string
+            than SQL Server.</p>
+        <p>The SQL Server connection string looked like this:</p>
+        <pre><code>connectionString=
+            "Server=EDISPRDSQL;Database=Stellent_Context;
+            Uid=HeyItsMe;Pwd=UrBrother"</code></pre>
+        <p>And the OBDC version is this:</p>
+        <pre><code>"EDISPRDSQL": 
+            "Driver={SQL Server};Server=EDISPRDSQL;
+            Database=Stellent_Context;
+            Uid=HeyItsMe;Pwd=UrBrother;"</code></pre>
+        <p>Thanks to this little spell I was back in business with my port to dotnet core. Our internal schedule says that this
+            old database server is set to be retired in a few months. Hopefully when that transition to a more modern
+            software stack happens, I won’t have to keep using work arounds like this.</p>
+        <p>For more entertainment here’s a <a href="https://github.com/StackExchange/Dapper/issues/687" target="_blank"
+                rel="noopener noreferrer">bug report</a> that was filed against the Dapper for this issue. (hint: it’s
+            not Dapper specific)</p>
     </article>
     <footer class="center">
-        <!-- <p><a href="https://github.com/uncheckederror">Github</a> <a href="https://twitter.com/UncheckedError">Twitter</a> <a href="https://medium.com/@UncheckedError">Medium</a> <a href="https://www.linkedin.com/in/uncheckederror">LinkedIn</a> <a href="https://www.instagram.com/uncheckederror/?hl=en">Instagram</a> <a href="https://www.pcworld.com/author/Thomas-Ryan/">PCWorld</a></p> -->
-        <h1><a href="posts.html" class="underline">Posts</a> <a href="demos.html" class="underline">Demos</a> <a
-                href="resume.pdf" class="underline">Resumé</a></h1>
+        <h1><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
+                class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Resumé</a></h1>
     </footer>
 </body>
 
