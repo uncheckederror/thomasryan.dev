@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--
+Hello there.
+You're a bold one; hitting that inspect button.
+(•_• )
+( •_•)
+( •_•)>⌐■-■
+(⌐■_■)
+Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
+Designed in Seattle, forged in Puget Sound.
+@UncheckedError
+-->
+<html>
+
+<head>
+    <title>Tom the bomb on CD-ROM</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
+    <meta name="keywords"
+        content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="author" content="Thomas August Ryan @UncheckedError">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Skip the favicon. -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style type="text/css">
+        .center {
+            /* Off white to reduce eye strain. */
+            background: #FDFDFD;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 3% 0% 3% 0%;
+            /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .center:hover {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 650px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        h3 {
+            letter-spacing: 0.01em;
+            font-size: 3em;
+            font-weight: 100;
+            margin: 5% 0% 5% 0%;
+        }
+
+        ol li {
+            letter-spacing: 0.001em;
+            font-size: 1.8em;
+            font-weight: 100;
+            line-height: 1.6em;
+        }
+
+        p {
+            font-size: 1.8em;
+            letter-spacing: 0em;
+            white-space: normal;
+            line-height: 1.4em;
+        }
+
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        body>article>p>a {
+            text-decoration: none;
+            border-bottom: 1px solid black;
+        }
+
+        a:link,
+        a:visited {
+            color: black;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        .underline {
+            text-decoration: none;
+        }
+
+        blockquote {
+            background: #f5f5f5;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 0% 0% 0% 0%;
+        }
+
+        footer {
+            clear: both;
+            text-align: right;
+        }
+
+        /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
+        @media (prefers-color-scheme: dark),
+        only screen and (min-width: 1920px) {
+            .center {
+                /* Off white to reduce eye strain. */
+                background: #242424;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+
+            body {
+                /* Off black to reduce eye strain. */
+                background-color: #171717;
+                /* Off white to reduce eye strain. */
+                color: #e3e3e3;
+            }
+
+            blockquote {
+                background: #2e2e2e;
+                border-radius: 2px;
+                padding: 5%;
+                margin: 0% 0% 0% 0%;
+            }
+
+            body>article>p>a {
+                text-decoration: none;
+                border-bottom: 1px solid #4db2ff;
+            }
+
+            a:link,
+            a:visited {
+                color: #4db2ff;
+            }
+
+            a:hover,
+            a:active {
+                color: #0091ff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="center">
+        <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
+    </header>
+    <article class="center">
+        <time datetime="2019-09-01">
+            <h2>September 1, 2019</h2>
+        </time>
+        <h3>Making Buildings in Kitsap County by Year </h3>
+        <p>While scrolling through Twitter a couple weeks ago I saw <a
+                href="https://parallel.co.uk/netherlands/#13.8/52.365/4.9/0/40" target="_blank"
+                rel="noopener noreferrer">this map of building ages</a> in the Netherlands. I
+            really like this map and I had a lot of fun poking around it. My first thought after I closed it was, “Why
+            can’t we have nice things like that?”. It turns out that we can.</p>
+        <p><a href="../../demos/KitsapBuildingsv3.html" target="_blank" rel="noopener noreferrer">Buildings by Year
+                Built in Kitsap County</a> is an interactive web map similar in concept to the map of the
+            Netherlands that I mentioned above but tighter in its focus on the core value proposition as a data
+            visualization tool.</p>
+    </article>
+    <article class="center">
+        <h3>Simplify the Message</h3>
+        <p>Rather than categorizing buildings into groups using 12 different colors I’ve opted for a simpler 2 color
+            gradient that starts with a dark blue to represent the oldest buildings and a lighter red to represent
+            buildings built in 2019. The spectrum of hues in-between indicates a building’s position in the time scale
+            between the late 1800’s and today.</p>
+        <p>Using this visualization method makes it really easy to pick out what buildings have been redeveloped in the
+            Bremerton core and identify how new most of the suburban development is in East Bremerton, Silverdale, and
+            South Kitsap.</p>
+        <p>For the basemap I’ve opted to go with Mapbox’s Outdoor style. Initially I was really enamored with the Dark
+            theme used in the Netherlands map but I found it difficult to settle on the right two-color gradient to use
+            for the buildings on a dark background. Additionally, one of the initial bits of feedback on the prototypes
+            was a request for more context or even a 3D terrain model for the base map.</p>
+        <p>To that end I explored 2 options which I ended up rejecting. Using a 3D terrain model was rejected because it
+            was too slow to load and didn’t actually add much texture to the map. Applying a hillshade based on the
+            terrain model was also rejected because I found it distracting especially at high zoom levels where the
+            limits of its resolution became clear. In the end I settled on just using the Outdoor style with its mild
+            contour lines and place markers.</p>
+        <p>To help users understand exactly what the differences in building colors represent I did two things. First, I
+            added a legend. This was a tough call because in general I don’t care for the sort of UI clutter that
+            permanent panels add to a map. But I received a number of questions in early testing about what exactly the
+            building colors represented so I decided that it was important to be as specific as possible. To mitigate
+            some of the blow to useable screen space and contextualize the legend I made the background of the panel
+            highly transparent.</p>
+        <p>The second technique was adding labels to the buildings at high zoom levels. This is helpful because it
+            allows you to quickly graze for information on the specific ages of the buildings without directly
+            inspecting them by clicking on them. Picking the right zoom level to limit a layer or set of labels too is
+            always tough; but I opted to make these year-built labels visible only when you’re zoomed into or below the
+            point at which a whole neighborhood is visible.</p>
+        <p>As I mentioned earlier you can see specific information about a building by clicking on it. Doing so rewards
+            you with a small pop up that lists the height of the building and the year it was built. I added this to
+            limit the potential for confusion. If you’re interested in or surprised by the visible properties of a
+            building just click on to see its exact values.</p>
+    </article>
+    <article class="center">
+        <h3>Dealing with Data Quality</h3>
+        <p>Finally let’s discuss how I extrapolated the building heights and the data quality issues present in this
+            visualization. The buildings are extruded from 2D building footprints that were digitized by Kitsap County
+            and recently updated using 6-inch imagery captured in 2018.</p>
+        <p>This means that only buildings that were visible from aerial imagery are present in this map. For dense areas
+            like cities this is fine, where it becomes a problem is in the far reaches of Kitsap County which are
+            heavily forested and thus this data set is likely to under-represent buildings in those areas.</p>
+        <p>There is also the problem of multiple buildings on a single parcel of land. Currently the assessment of
+            buildings is not tied to the building footprints data maintained by Kitsap County. Rather the building’s
+            data is tied to the tax account number of a parcel polygon. The relationship between the year a structure
+            was built and how many stories tall it is, has to be inferred from the data for the parcel polygon that it
+            sits on.</p>
+        <p>This is a lossy and error prone process that will for example give a set of five buildings on the same parcel
+            the same height and year-built attributes. It’s perfectly fine when you only have a single building on a
+            parcel but it handles scenarios like the condo complexes in downtown Bremerton poorly. Representing them
+            with the values of only a single tax account rather than the sum of all tax accounts in the building.</p>
+        <p>Ideally a building footprint would have its tax account and building extension id as attributes so it could
+            be related directly to the assessment data but that’s not something that exists right now.</p>
+        <p>The other issue with building heights is that Kitsap County hasn’t made a wide-scale effort to collect this
+            data. Instead we have to infer the heights of these buildings based on the number of stories these buildings
+            are assessed to have. For the purposes of this map I make the assumption that a single story is worth about
+            3 meters of height and I assume that buildings that don’t have any data are at least a single-story tall.
+        </p>
+        <p>With those design decisions and data caveats in mind I present to you Buildings by Year Built in Kitsap
+            County, enjoy!</p>
+    </article>
+    <footer class="center">
+        <h1><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
+                class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Resumé</a></h1>
+    </footer>
+</body>
+
+</html>
