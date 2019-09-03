@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html>
+<!--
+Hello there.
+You're a bold one; hitting that inspect button.
+(•_• )
+( •_•)
+( •_•)>⌐■-■
+(⌐■_■)
+Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
+Designed in Seattle, forged in Puget Sound.
+@UncheckedError
+-->
 
 <head>
     <meta charset='utf-8' />
@@ -94,11 +105,10 @@
         <h2 style="text-align: center; letter-spacing: 0.1rem; font-size: 24px;">Buildings by Year Built</h2>
         <p style="text-align: center; font-size: 18px;">in Kitsap County</p>
     </div>
-    <!-- <div class='map-overlay' id='legend'></div> -->
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoidW5jaGVja2VkZXJyb3IiLCJhIjoiTkNzaWFqOCJ9.fqhZgsGh60h8OdWjVqbYhg';
 
-        // Set bounds to New York, New York
+        // Set bounds to Bremerton, WA
         var bounds = [
             [-123.1, 47.3], // Southwest coordinates
             [-122.3, 48.0]  // Northeast coordinates
@@ -169,6 +179,7 @@
             map.getCanvas().style.cursor = '';
         });
 
+        // Define the legend.
         var w = 250, h = 50;
 
         var key = d3.select("#features")
