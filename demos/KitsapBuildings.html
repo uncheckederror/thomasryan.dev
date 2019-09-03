@@ -6,6 +6,7 @@
     <title>Buildings in Kitsap by Year Built</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js'></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet' />
     <style>
         body {
@@ -13,17 +14,87 @@
             padding: 0;
         }
 
+        h2,
+        h3 {
+            margin: 10px;
+            font-size: 1.2em;
+        }
+
+        h3 {
+            font-size: 1em;
+        }
+
+        p {
+            font-size: 0.85em;
+            margin: 10px;
+            text-align: left;
+        }
+
+        /**
+        * Create a position for the map
+        * on the page */
         #map {
             position: absolute;
             top: 0;
             bottom: 0;
             width: 100%;
         }
+
+        /**
+        * Set rules for how the map overlays
+        * (information box and legend) will be displayed
+        * on the page. */
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.85);
+            margin-right: 20px;
+            font-family: system-ui, sans-serif;
+            overflow: auto;
+            border-radius: 3px;
+        }
+
+        #features {
+            top: 0;
+            height: 160px;
+            margin-top: 20px;
+            width: 340px;
+        }
+
+        @media screen and (max-width: 376px) {
+            #features {
+                top: 0;
+                height: 180px;
+                margin: 3%;
+                width: 95%;
+            }
+        }
+
+        .axis text {
+            font: 14px system-ui;
+        }
+
+        .axis line,
+        .axis path {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+
+        svg {
+            padding-left: 50px;
+        }
     </style>
 </head>
 
 <body>
     <div id='map'></div>
+    <div class='map-overlay' id='features'>
+        <h2 style="text-align: center; letter-spacing: 0.1rem; font-size: 24px;">Buildings by Year Built</h2>
+        <p style="text-align: center; font-size: 18px;">in Kitsap County</p>
+    </div>
+    <!-- <div class='map-overlay' id='legend'></div> -->
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoidW5jaGVja2VkZXJyb3IiLCJhIjoiTkNzaWFqOCJ9.fqhZgsGh60h8OdWjVqbYhg';
 
@@ -35,28 +106,33 @@
 
         var map = new mapboxgl.Map({
             container: 'map', // container id
-            style: 'mapbox://styles/uncheckederror/cjzt6r50u0o901coglv25vfen', // stylesheet location
-            center: [-122.584744, 47.543532], // starting position [lng, lat]
-            pitch: 60.00, // pitch in degrees
-            bearing: -39.20, // bearing in degrees
-            zoom: 12, // starting zoom
-            maxBounds: bounds // Sets bounds as max
+            style: 'mapbox://styles/uncheckederror/cjzup34cd0fbe1cmwuvp6994y', // stylesheet location
+            center: [-122.625723, 47.563602], // starting position [lng, lat]
+            pitch: 46.50, // pitch in degrees
+            bearing: -17.37, // bearing in degrees
+            zoom: 16, // starting zoom
+            maxBounds: bounds, // Sets bounds as max
+            attributionControl: false
         });
 
-        map.on('style.load', function () {
+        map.on('load', function () {
 
             // Add the buildings layer to the map.
             map.addSource('buildings', {
                 "type": "vector",
-                "url": "mapbox://uncheckederror.0oi5qhmz"
+                "url": "mapbox://uncheckederror.c5ezpsoj"
             });
 
             map.addLayer({
                 "id": "Buildings",
                 "type": "fill",
                 "source": "buildings",
-                "source-layer": "YearStories-0ta6xz",
+                "source-layer": "NonZeroBuildingYears-82cf9h",
                 "minzoom": 13,
+                'paint': {
+                    'fill-color': '#f08',
+                    'fill-opacity': 0
+                }
             });
         });
 
@@ -66,10 +142,17 @@
             closeOnClick: false
         });
 
+        map.addControl(new mapboxgl.AttributionControl({
+            customAttribution: "Kitsap County 2019"
+        }), 'bottom-right');
+
+        // Add zoom and rotation controls to the map.
+        map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+
         // When a click event occurs on a feature in the states layer, open a popup at the
         // location of the click, with description HTML from its properties.
         map.on('click', 'Buildings', function (e) {
-            let pdetails = "Built in " + e.features[0].properties.YEAR_BUILT;
+            let pdetails = e.features[0].properties.STORIES + " story building" + "<br/>" + "Built in " + e.features[0].properties.YEAR_BUILT;
             new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML(pdetails)
@@ -86,6 +169,57 @@
             map.getCanvas().style.cursor = '';
         });
 
+        var w = 250, h = 50;
+
+        var key = d3.select("#features")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        var legend = key.append("defs")
+            .append("svg:linearGradient")
+            .attr("id", "gradient")
+            .attr("x1", "0%")
+            .attr("y1", "100%")
+            .attr("x2", "100%")
+            .attr("y2", "100%")
+            .attr("spreadMethod", "pad");
+
+        legend.append("stop")
+            .attr("offset", "0%")
+            .attr("stop-color", "#1100c7")
+            .attr("stop-opacity", 1);
+
+        legend.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#ff3333")
+            .attr("stop-opacity", 1);
+
+        key.append("rect")
+            .attr("width", w)
+            .attr("height", h - 30)
+            .style("fill", "url(#gradient)")
+            .attr("transform", "translate(0,10)");
+
+        var y = d3.scaleTime()
+            .domain([new Date(1900, 0, 1), new Date(2018, 0, 1)])
+            .range([0, 225]);
+
+        var yAxis = d3.axisBottom()
+            .scale(y)
+            .ticks(6);
+
+        key.append("g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(15,31)")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "translate(30,0)")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("axis title");
     </script>
 </body>
 
