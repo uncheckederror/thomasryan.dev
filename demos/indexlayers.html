@@ -1,418 +1,443 @@
 <!DOCTYPE html>
+
 <html>
+<!--
+Hello there.
+You're a bold one; hitting that inspect button.
+(•_• )
+( •_•)
+( •_•)>⌐■-■
+(⌐■_■)
+Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
+Designed in Seattle, forged in Puget Sound.
+@UncheckedError
+-->
+
 <head>
     <meta charset='utf-8' />
     <title>Kitsap Parcel Viewer</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.js'></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.min.js'></script>
+    <script
+        src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.min.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.41.0/mapbox-gl.css' rel='stylesheet' />
-    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.css' type='text/css' />
+    <link rel='stylesheet'
+        href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.1.1/mapbox-gl-geocoder.css'
+        type='text/css' />
     <style>
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
+
 <body>
 
-<style>
-
-  .mapboxgl-popup {
-      max-width: 50%;
-      font: 16px 'Open Sans', sans-serif;
-  }
-
-  .mapboxgl-ctrl-geocoder {
-      font:15px/20px 'Open Sans', sans-serif;
-      min-width:190px;
-  }
-
-  #layersMenu {
-       background: #6A6C6E;
-       position: absolute;
-       z-index: 1;
-       top: 10px;
-       right: 10px;
-       border-radius: 4px;
-       -moz-box-shadow: 0px 0px 2px rgba(0,0,0,0.1);
-       -webkit-box-shadow: 0px 0px 2px rgba(0,0,0,0.1);
-       box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.1);
-       border-bottom: 1px solid #ddd;
-       width: 120px;
-       border: 2px solid rgba(248,248,248,1);
-       font-family: 'Open Sans', sans-serif;
-   }
-
-   #layersMenu a {
-       font-size: 14px;
-       color: #FFFFFF;
-       display: block;
-       margin: 0;
-       padding: 0;
-       padding: 10px;
-       text-decoration: none;
-       text-align: center;
-   }
-
-   #layersMenu a:last-child {
-       border: none;
-   }
-
-   #layersMenu a:hover {
-       background-color: #FFFFFF;
-       color: #000000;
-   }
-
-   #layersMenu a.active {
-       background-color: #ffffff;
-       color: #000000;
-   }
-
-   #layersMenu a.active:hover {
-       background: #6A6C6E;
-       color: #FFFFFF;
-   }
-
-   #basemapMenu {
-     background: #FFFFFF;
-     position: absolute;
-     font-size: 14px;
-     z-index: 1;
-     top: 325px;
-     right: 10px;
-     margin: 0;
-     padding: 10px;
-     width: 100px;
-     text-decoration: none;
-     border-radius: 4px;
-     -moz-box-shadow: 0px 0px 2px rgba(0,0,0,0.1);
-     -webkit-box-shadow: 0px 0px 2px rgba(0,0,0,0.1);
-     box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.1);
-     border-bottom: 1px solid #ddd;
-     display: block;
-     border: 2px solid rgba(248,248,248,1);
-     font-family: 'Open Sans', sans-serif;
-     text-align: justify-all;
-     line-height: 1.5em;
-    }
-
-</style>
-
-<div id='map'></div>
-<nav id="layersMenu"></nav>
-<div id='basemapMenu'>
-    <input id='labels' type='radio' name='rtoggle' value='labels'>
-    <label for='labels'>Labels</label>
-    <br><input id='streets' type='radio' name='rtoggle' value='streets'>
-    <label for='streets'>No Labels</label>
-    <br><input id='outdoors' type='radio' name='rtoggle' value='outdoors'>
-    <label for='outdoors'>Contours</label>
-    <br><input id='satellite-streets' type='radio' name='rtoggle' value='satellite-streets'>
-    <label for='satellite-streets'>Satellite</label>
-</div>
-
-<script>
-
-//Draw the menus.
-var layerList = document.getElementById('basemapMenu');
-var inputs = layerList.getElementsByTagName('input');
-
-//Create the ability to switch between layers.
-function switchLayer(layer) {
-    var layerId = layer.target.id;
-    if (layerId === "labels") {
-        map.setStyle('mapbox://styles/uncheckederror/cj9cznr7p5qhg2sp4d20eyf3n');
-    } else {
-        map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
-    }
-}
-
-//Fire off the switch layer function on click.
-for (var i = 0; i < inputs.length; i++) {
-    inputs[i].onclick = switchLayer;
-}
-
-// Set bounds to Kitsap County.
-var bounds = [
-    // Southwest coordinates
-    [-123.7, 46.9],
-    [-121.8, 48.3]  // Northeast coordinates
-];
-
-//Draw the map.
-mapboxgl.accessToken = 'pk.eyJ1IjoidW5jaGVja2VkZXJyb3IiLCJhIjoiTkNzaWFqOCJ9.fqhZgsGh60h8OdWjVqbYhg';
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/uncheckederror/cj9cznr7p5qhg2sp4d20eyf3n',
-    center: [-122.6766317, 47.6594091],
-    zoom: 9,
-    maxzoom: 8,
-    maxBounds: bounds // Sets bounds as max
-});
-
-//Draw all the layers and on the map and set the layers menu to show that all layers are now active.
-map.on('style.load', function() {
-
-    //Add the county parcels layer to the map.
-    map.addSource('parcels', {
-        "type": "vector",
-        "url": "mapbox://uncheckederror.drjw848r"
-    });
-
-    map.addLayer({
-        "id": "Tax Parcels",
-        "type": "fill",
-        "source": "parcels",
-        "source-layer": "parcels-ass2x1",
-        "minzoom": 13,
-        "paint": {
-            "fill-antialias": true,
-            "fill-color": "rgba(64,64,64,0)",
-            "fill-outline-color": "#404040",
+    <style>
+        .mapboxgl-popup {
+            max-width: 50%;
+            font: 16px 'Open Sans', sans-serif;
         }
-    }, 'waterway-label'); // Place polygon under these labels.
 
-    //Add the county plss grids to the map.
-    map.addSource('plss', {
-        "type": "vector",
-        "url": "mapbox://uncheckederror.1huxavg4"
-    });
-
-    map.addLayer({
-        "id": "PLSS Section-Township-Range",
-        "type": "fill",
-        "source": "plss",
-        "source-layer": "tileboundary-0wqn6f",
-        "maxzoom": 13,
-        "minzoom": 10,
-        "paint": {
-            "fill-outline-color": "rgba(64,64,64,1)",
-            "fill-color": "rgba(0,0,0,0)"
+        .mapboxgl-ctrl-geocoder {
+            font: 15px/20px 'Open Sans', sans-serif;
+            min-width: 190px;
         }
-    }, 'waterway-label'); // Place polygon under these labels.
 
-    //Add the address points to the map.
-    map.addSource('address', {
-        "type": "vector",
-        "url": "mapbox://uncheckederror.04e1e6tl"
-    });
-
-    map.addLayer({
-        "id": "Address Points",
-        "type": "circle",
-        "source": "address",
-        "source-layer": "AddressPoints-8ptnsf",
-        "minzoom": 15,
-        "paint": {
-            "circle-radius": 3,
-            "circle-color": "#222b30",
-
+        #layersMenu {
+            background: #6A6C6E;
+            position: absolute;
+            z-index: 1;
+            top: 10px;
+            right: 10px;
+            border-radius: 4px;
+            -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+            -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #ddd;
+            width: 120px;
+            border: 2px solid rgba(248, 248, 248, 1);
+            font-family: 'Open Sans', sans-serif;
         }
-    }); // Place polygon under these labels.
 
-    //Add the First nations reservations to the map.
-    map.addSource('ires', {
-        "type": "vector",
-        "url": "mapbox://uncheckederror.9j0gtmay"
-    });
-
-    map.addLayer({
-        "id": "First Nations Reservations",
-        "type": "fill",
-        "source": "ires",
-        "source-layer": "ires-ddf6wd",
-        "paint": {
-          "fill-outline-color": "rgba(0,0,0,0.2)",
-          "fill-color": "rgba(0,0,0,0.1)"
-          }
-    }, 'waterway-label'); // Place polygon under these labels.
-
-    //Add the building footprints to the map.
-    map.addSource('buildings', {
-        "type": "vector",
-        "url": "mapbox://uncheckederror.23c8dotv"
-    });
-
-    map.addLayer({
-        "id": "Buildings",
-        "type": "fill-extrusion",
-        "source": "buildings",
-        "source-layer": "footprint-1kehi7",
-        "minzoom": 15,
-        "paint": {
-            "fill-extrusion-opacity": 1,
-            "fill-extrusion-color": "#eee",
-            "fill-extrusion-height": 7,
-            "fill-extrusion-opacity": 0.9
+        #layersMenu a {
+            font-size: 14px;
+            color: #FFFFFF;
+            display: block;
+            margin: 0;
+            padding: 0;
+            padding: 10px;
+            text-decoration: none;
+            text-align: center;
         }
-      }, 'waterway-label'
-    ); // Place polygon under these labels.
 
-    //Add the boundaries for Cities to the map.
-    map.addSource('cities', {
-        "type": "vector",
-        "url": "mapbox://uncheckederror.6m6ole62"
-    });
-
-    map.addLayer({
-        "id": "City Boundaries",
-        "type": "fill",
-        "source": "cities",
-        "source-layer": "cities-6cuo07",
-        "paint": {
-          "fill-outline-color": "rgba(0,0,0,0.2)",
-          "fill-color": "rgba(0,0,0,0.1)"
+        #layersMenu a:last-child {
+            border: none;
         }
-    }, 'waterway-label'); // Place polygon under these labels.
 
-    //Reset the layers menu to show that all layers are active.
-    var node = document.getElementById('layersMenu');
-    i = 0
-    while (i < node.children.length) {
-        node.children[i].className = 'active';
-        i += 1;
-    }
-
-    //Add the boundaries for Zipcodes to the map.
-    map.addSource('zipcodes', {
-        "type": "vector",
-        "url": "mapbox://uncheckederror.dwfirxjs"
-    });
-
-    map.addLayer({
-        "id": "Zipcodes",
-        "type": "fill",
-        "source": "zipcodes",
-        "source-layer": "zipcodes-5tijqq",
-        "maxzoom": 12,
-        "paint": {
-          "fill-outline-color": "rgba(64,64,64,1)",
-          "fill-color": "rgba(0,0,0,0)"
+        #layersMenu a:hover {
+            background-color: #FFFFFF;
+            color: #000000;
         }
-    }, 'waterway-label'); // Place polygon under these labels.
 
-    //Reset the layers menu to show that all layers are active.
-    var node = document.getElementById('layersMenu');
-    i = 0
-    while (i < node.children.length) {
-        node.children[i].className = 'active';
-        i += 1;
-    }
-
-});
-
-// Add search by address to the map.
-map.addControl(new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken
-}), 'top-left');
-
-// Add zoom and rotation controls to the map.
-map.addControl(new mapboxgl.NavigationControl(),
-    'top-left');
-
-// Add the ability to geolocate the user.
-map.addControl(new mapboxgl.GeolocateControl({
-    positionOptions: {
-        enableHighAccuracy: true
-    },
-    trackUserLocation: true
-}), 'top-left');
-
-// Display map scale.
-map.addControl(new mapboxgl.ScaleControl({
-    maxWidth: 80,
-    unit: 'imperial'
-}), 'bottom-left');
-
-//Define the layer IDs for toggeling.
-var toggleableLayerIds = ['Buildings',
-                          'Address Points',
-                          'Tax Parcels',
-                          'First Nations Reservations',
-                          'Zipcodes',
-                          'City Boundaries',
-                          'PLSS Section-Township-Range'];
-
-//Fire off the layer toggle function on click.
-for (var i = 0; i < toggleableLayerIds.length; i++) {
-    var id = toggleableLayerIds[i];
-
-    var link = document.createElement('a');
-    link.href = '#';
-    link.className = 'active';
-    link.textContent = id;
-
-    link.onclick = function (e) {
-        var clickedLayer = this.textContent;
-        e.preventDefault();
-        e.stopPropagation();
-
-        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
-        if (visibility === 'none') {
-            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-            this.className = 'active';
-        } else {
-            this.className = 'none';
-            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+        #layersMenu a.active {
+            background-color: #ffffff;
+            color: #000000;
         }
-    };
 
-    var layers = document.getElementById('layersMenu');
-    layers.appendChild(link);
-}
+        #layersMenu a.active:hover {
+            background: #6A6C6E;
+            color: #FFFFFF;
+        }
 
-// Create a popup, but don't add it to the map yet.
-var popup = new mapboxgl.Popup({
-    closeButton: false,
-    closeOnClick: true
-});
+        #basemapMenu {
+            background: #FFFFFF;
+            position: absolute;
+            font-size: 14px;
+            z-index: 1;
+            top: 325px;
+            right: 10px;
+            margin: 0;
+            padding: 10px;
+            width: 100px;
+            text-decoration: none;
+            border-radius: 4px;
+            -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+            -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #ddd;
+            display: block;
+            border: 2px solid rgba(248, 248, 248, 1);
+            font-family: 'Open Sans', sans-serif;
+            text-align: justify-all;
+            line-height: 1.5em;
+        }
+    </style>
 
-// When a click event occurs on a feature in the states layer, open a popup at the
-// location of the click, with description HTML from its properties.
-map.on('click', 'Tax Parcels', function (e) {
-        let pdetails = "https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=" + e.features[0].properties.RP_ACCT_ID;
-        new mapboxgl.Popup()
-            .setLngLat(e.lngLat)
-            .setHTML("<iframe src='" + pdetails + "' height='815px' width='375px'></iframe>")
-            .addTo(map);
-});
+    <div id='map'></div>
+    <nav id="layersMenu"></nav>
+    <div id='basemapMenu'>
+        <input id='labels' type='radio' name='rtoggle' value='labels'>
+        <label for='labels'>Labels</label>
+        <br><input id='streets' type='radio' name='rtoggle' value='streets'>
+        <label for='streets'>No Labels</label>
+        <br><input id='outdoors' type='radio' name='rtoggle' value='outdoors'>
+        <label for='outdoors'>Contours</label>
+        <br><input id='satellite-streets' type='radio' name='rtoggle' value='satellite-streets'>
+        <label for='satellite-streets'>Satellite</label>
+    </div>
 
-// Change the cursor to a pointer when the mouse is over the parcel layer.
-map.on('mouseenter', 'Tax Parcels', function () {
-        map.getCanvas().style.cursor = 'pointer';
-});
+    <script>
 
-// Change it back to a pointer when it leaves.
-map.on('mouseleave', 'Tax Parcels', function () {
-        map.getCanvas().style.cursor = '';
-      });
+        //Draw the menus.
+        var layerList = document.getElementById('basemapMenu');
+        var inputs = layerList.getElementsByTagName('input');
 
-map.on('click', 'PLSS Section-Township-Range', function (e) {
-        new mapboxgl.Popup()
-            .setLngLat(e.lngLat)
-            .setHTML("Coordinates : " + e.lngLat.lng + ", " + e.lngLat.lat
-            + "<br>Section ID : " + e.features[0].properties.SID
-            + "<br>Section-Township-Range : " + e.features[0].properties.SEC_TWP_RG
-            + "<br>Section #: " + e.features[0].properties.SECTION
-            + "<br>Township #: " + e.features[0].properties.TOWNSHIP
-            + "<br>Range ID: " + e.features[0].properties.RANGE
-            + "<br>Section Area (Cubic Feet) : " + e.features[0].properties.SHAPE_AREA)
-            .addTo(map);
-});
+        //Create the ability to switch between layers.
+        function switchLayer(layer) {
+            var layerId = layer.target.id;
+            if (layerId === "labels") {
+                map.setStyle('mapbox://styles/uncheckederror/cj9cznr7p5qhg2sp4d20eyf3n');
+            } else {
+                map.setStyle('mapbox://styles/mapbox/' + layerId + '-v9');
+            }
+        }
 
-// Change the cursor to a pointer when the mouse is over the parcel layer.
-map.on('mouseenter', 'PLSS Section-Township-Range', function () {
-        map.getCanvas().style.cursor = 'pointer';
-});
+        //Fire off the switch layer function on click.
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].onclick = switchLayer;
+        }
 
-// Change it back to a pointer when it leaves.
-map.on('mouseleave', 'PLSS Section-Township-Range', function () {
-        map.getCanvas().style.cursor = '';
-});
+        // Set bounds to Kitsap County.
+        var bounds = [
+            // Southwest coordinates
+            [-123.7, 46.9],
+            [-121.8, 48.3]  // Northeast coordinates
+        ];
+
+        //Draw the map.
+        mapboxgl.accessToken = 'pk.eyJ1IjoidW5jaGVja2VkZXJyb3IiLCJhIjoiTkNzaWFqOCJ9.fqhZgsGh60h8OdWjVqbYhg';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/uncheckederror/cj9cznr7p5qhg2sp4d20eyf3n',
+            center: [-122.6766317, 47.6594091],
+            zoom: 9,
+            maxzoom: 8,
+            maxBounds: bounds // Sets bounds as max
+        });
+
+        //Draw all the layers and on the map and set the layers menu to show that all layers are now active.
+        map.on('style.load', function () {
+
+            //Add the county parcels layer to the map.
+            map.addSource('parcels', {
+                "type": "vector",
+                "url": "mapbox://uncheckederror.drjw848r"
+            });
+
+            map.addLayer({
+                "id": "Tax Parcels",
+                "type": "fill",
+                "source": "parcels",
+                "source-layer": "parcels-ass2x1",
+                "minzoom": 13,
+                "paint": {
+                    "fill-antialias": true,
+                    "fill-color": "rgba(64,64,64,0)",
+                    "fill-outline-color": "#404040",
+                }
+            }, 'waterway-label'); // Place polygon under these labels.
+
+            //Add the county plss grids to the map.
+            map.addSource('plss', {
+                "type": "vector",
+                "url": "mapbox://uncheckederror.1huxavg4"
+            });
+
+            map.addLayer({
+                "id": "PLSS Section-Township-Range",
+                "type": "fill",
+                "source": "plss",
+                "source-layer": "tileboundary-0wqn6f",
+                "maxzoom": 13,
+                "minzoom": 10,
+                "paint": {
+                    "fill-outline-color": "rgba(64,64,64,1)",
+                    "fill-color": "rgba(0,0,0,0)"
+                }
+            }, 'waterway-label'); // Place polygon under these labels.
+
+            //Add the address points to the map.
+            map.addSource('address', {
+                "type": "vector",
+                "url": "mapbox://uncheckederror.04e1e6tl"
+            });
+
+            map.addLayer({
+                "id": "Address Points",
+                "type": "circle",
+                "source": "address",
+                "source-layer": "AddressPoints-8ptnsf",
+                "minzoom": 15,
+                "paint": {
+                    "circle-radius": 3,
+                    "circle-color": "#222b30",
+
+                }
+            }); // Place polygon under these labels.
+
+            //Add the First nations reservations to the map.
+            map.addSource('ires', {
+                "type": "vector",
+                "url": "mapbox://uncheckederror.9j0gtmay"
+            });
+
+            map.addLayer({
+                "id": "First Nations Reservations",
+                "type": "fill",
+                "source": "ires",
+                "source-layer": "ires-ddf6wd",
+                "paint": {
+                    "fill-outline-color": "rgba(0,0,0,0.2)",
+                    "fill-color": "rgba(0,0,0,0.1)"
+                }
+            }, 'waterway-label'); // Place polygon under these labels.
+
+            //Add the building footprints to the map.
+            map.addSource('buildings', {
+                "type": "vector",
+                "url": "mapbox://uncheckederror.23c8dotv"
+            });
+
+            map.addLayer({
+                "id": "Buildings",
+                "type": "fill-extrusion",
+                "source": "buildings",
+                "source-layer": "footprint-1kehi7",
+                "minzoom": 15,
+                "paint": {
+                    "fill-extrusion-opacity": 1,
+                    "fill-extrusion-color": "#eee",
+                    "fill-extrusion-height": 7,
+                    "fill-extrusion-opacity": 0.9
+                }
+            }, 'waterway-label'
+            ); // Place polygon under these labels.
+
+            //Add the boundaries for Cities to the map.
+            map.addSource('cities', {
+                "type": "vector",
+                "url": "mapbox://uncheckederror.6m6ole62"
+            });
+
+            map.addLayer({
+                "id": "City Boundaries",
+                "type": "fill",
+                "source": "cities",
+                "source-layer": "cities-6cuo07",
+                "paint": {
+                    "fill-outline-color": "rgba(0,0,0,0.2)",
+                    "fill-color": "rgba(0,0,0,0.1)"
+                }
+            }, 'waterway-label'); // Place polygon under these labels.
+
+            //Reset the layers menu to show that all layers are active.
+            var node = document.getElementById('layersMenu');
+            i = 0
+            while (i < node.children.length) {
+                node.children[i].className = 'active';
+                i += 1;
+            }
+
+            //Add the boundaries for Zipcodes to the map.
+            map.addSource('zipcodes', {
+                "type": "vector",
+                "url": "mapbox://uncheckederror.dwfirxjs"
+            });
+
+            map.addLayer({
+                "id": "Zipcodes",
+                "type": "fill",
+                "source": "zipcodes",
+                "source-layer": "zipcodes-5tijqq",
+                "maxzoom": 12,
+                "paint": {
+                    "fill-outline-color": "rgba(64,64,64,1)",
+                    "fill-color": "rgba(0,0,0,0)"
+                }
+            }, 'waterway-label'); // Place polygon under these labels.
+
+            //Reset the layers menu to show that all layers are active.
+            var node = document.getElementById('layersMenu');
+            i = 0
+            while (i < node.children.length) {
+                node.children[i].className = 'active';
+                i += 1;
+            }
+
+        });
+
+        // Add search by address to the map.
+        map.addControl(new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken
+        }), 'top-left');
+
+        // Add zoom and rotation controls to the map.
+        map.addControl(new mapboxgl.NavigationControl(),
+            'top-left');
+
+        // Add the ability to geolocate the user.
+        map.addControl(new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            trackUserLocation: true
+        }), 'top-left');
+
+        // Display map scale.
+        map.addControl(new mapboxgl.ScaleControl({
+            maxWidth: 80,
+            unit: 'imperial'
+        }), 'bottom-left');
+
+        //Define the layer IDs for toggeling.
+        var toggleableLayerIds = ['Buildings',
+            'Address Points',
+            'Tax Parcels',
+            'First Nations Reservations',
+            'Zipcodes',
+            'City Boundaries',
+            'PLSS Section-Township-Range'];
+
+        //Fire off the layer toggle function on click.
+        for (var i = 0; i < toggleableLayerIds.length; i++) {
+            var id = toggleableLayerIds[i];
+
+            var link = document.createElement('a');
+            link.href = '#';
+            link.className = 'active';
+            link.textContent = id;
+
+            link.onclick = function (e) {
+                var clickedLayer = this.textContent;
+                e.preventDefault();
+                e.stopPropagation();
+
+                var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+                if (visibility === 'none') {
+                    map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+                    this.className = 'active';
+                } else {
+                    this.className = 'none';
+                    map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+                }
+            };
+
+            var layers = document.getElementById('layersMenu');
+            layers.appendChild(link);
+        }
+
+        // Create a popup, but don't add it to the map yet.
+        var popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: true
+        });
+
+        // When a click event occurs on a feature in the states layer, open a popup at the
+        // location of the click, with description HTML from its properties.
+        map.on('click', 'Tax Parcels', function (e) {
+            let pdetails = "https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=" + e.features[0].properties.RP_ACCT_ID;
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML("<iframe src='" + pdetails + "' height='815px' width='375px'></iframe>")
+                .addTo(map);
+        });
+
+        // Change the cursor to a pointer when the mouse is over the parcel layer.
+        map.on('mouseenter', 'Tax Parcels', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'Tax Parcels', function () {
+            map.getCanvas().style.cursor = '';
+        });
+
+        map.on('click', 'PLSS Section-Township-Range', function (e) {
+            new mapboxgl.Popup()
+                .setLngLat(e.lngLat)
+                .setHTML("Coordinates : " + e.lngLat.lng + ", " + e.lngLat.lat
+                    + "<br>Section ID : " + e.features[0].properties.SID
+                    + "<br>Section-Township-Range : " + e.features[0].properties.SEC_TWP_RG
+                    + "<br>Section #: " + e.features[0].properties.SECTION
+                    + "<br>Township #: " + e.features[0].properties.TOWNSHIP
+                    + "<br>Range ID: " + e.features[0].properties.RANGE
+                    + "<br>Section Area (Cubic Feet) : " + e.features[0].properties.SHAPE_AREA)
+                .addTo(map);
+        });
+
+        // Change the cursor to a pointer when the mouse is over the parcel layer.
+        map.on('mouseenter', 'PLSS Section-Township-Range', function () {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'PLSS Section-Township-Range', function () {
+            map.getCanvas().style.cursor = '';
+        });
 
 
-</script>
+    </script>
 
 </body>
+
 </html>
