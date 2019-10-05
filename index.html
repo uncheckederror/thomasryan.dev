@@ -116,8 +116,7 @@ Designed in Seattle, forged in Puget Sound.
         }
 
         /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
-        @media (prefers-color-scheme: dark),
-        only screen and (min-width: 1920px) {
+        @media (prefers-color-scheme: dark) {
             .center {
                 /* Off white to reduce eye strain. */
                 background: #242424;
@@ -161,11 +160,14 @@ Designed in Seattle, forged in Puget Sound.
         <h1>Thomas August Ryan</h1>
     </header>
     <article class="center">
-        <p>Hi! People call me <a href="https://www.facebook.com/uncheckederror/photos_of" target="_blank" rel="noopener noreferrer">Tom</a>.</p>
+        <p>Hi! People call me <a href="https://www.instagram.com/uncheckederror/" target="_blank"
+                rel="noopener noreferrer">Tom</a>.</p>
         <p>I'm a GIS Programmer at Kitsap County.</p>
-        <p>Working for the County is fun. Recently a tornado touched down a few blocks from my office. At the request of
-            the County Sheriff I helped make a map of the impacted area that first-responders used to assess the damage.
-            Then I built a front end for an FTP server to help the public lookup survey documents recorded in Kitsap.
+        <p>Working for the County is fun. Recently I migrated an ASP.NET Core 2.2 Web app to Core 3.0 with no impact on
+            the users. Then a coworker and I recreated an existing accounting report using a vendor's
+            reporting system and some custom code that matches exactly with the format required by the bank.
+            Finally I wrote integration tests for a set of REST endpoints provided by a vendor to help verify that their
+            API worked as discribed.
         </p>
     </article>
     <article class="center">
@@ -174,9 +176,9 @@ Designed in Seattle, forged in Puget Sound.
     </article>
     <article class="center">
         <h3>Data Syncing Service</h3>
-        <p>Right now I'm working on a data syncing tool for the County that can be run via browser, console, or scheduled task. It
-            pulls account valuations and related data from an old MS-SQL database, formats the data, and then submits it
-            to a vendor's borderline undocumented private REST API.</p>
+        <p>Currently I'm working on a data syncing tool for the County that can be run via browser, console, or
+            scheduled task. It pulls account valuations and related data from an old MS-SQL database, formats the data,
+            and then submits it to a vendor's borderline undocumented private REST API.</p>
     </article>
     <article class="center">
         <h3>Parcel Details</h3>
@@ -188,9 +190,11 @@ Designed in Seattle, forged in Puget Sound.
             </ul>
         </blockquote>
         <p>My primary responsibility is maintaining the County's public parcel information system. <a
-                href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-066-0008&page=landlocation" target="_blank" rel="noopener noreferrer">Parcel
+                href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-066-0008&page=landlocation"
+                target="_blank" rel="noopener noreferrer">Parcel
                 Details</a> is a web app that allows anyone to look up a tax parcel in Kitsap County.</p>
-        <p>Parcel Details was originally an ASP.NET 4 WebForms project that used rapid application development tools provided by
+        <p>Parcel Details was originally an ASP.NET 4 WebForms project that used rapid application development tools
+            provided by
             a vendor to define its business logic and user interface. Since I took over it's maintenance, I've upgraded
             the project to .NET 4.7.2, lead a redesign of the user interface, rewrote the business logic and views to
             remove all dependencies on the vendor's tools, and migrated the database calls from ancient ADO.NET Datasets
@@ -198,6 +202,11 @@ Designed in Seattle, forged in Puget Sound.
         <p>What I'm most proud of is getting the average page weight down from 6 MBs to less than 200 KBs. This was
             achieved despite the addition of a responsive CSS framework (Bootstrap 3.3.7), helpful icons, and a variety
             of new interactive features.</p>
+        <p>This summer I rebuilt Parcel Details as an ASP.NET Core 2.2 MVC project. It took about 300 hours port the
+            data access layer and then rebuild the business logic and views in the MVC format. To prevent service
+            interuptions this was a pixel perfect rebuild. This required careful testing to verify that there were no UX
+            impacts and the use of ASP.NET Routing middleware to remap the routes of the old app to the structure of the
+            new app.</p>
     </article>
     <article class="center">
         <h3>Plats Search</h3>
@@ -208,9 +217,10 @@ Designed in Seattle, forged in Puget Sound.
                 <li>Average Page Load Time of 516ms</li>
             </ul>
         </blockquote>
-        <p><a href="https://psearch.kitsapgov.com/PlatsSearch/?SearchString=5432" target="_blank" rel="noopener noreferrer">Plats Search</a> is web app that
+        <p><a href="https://psearch.kitsapgov.com/PlatsSearch/?SearchString=5432" target="_blank"
+                rel="noopener noreferrer">Plats Search</a> is web app that
             allows you to look up survey and plat documents related to a tax parcel.</p>
-        <p>It's an ASP.NET Core 2.2 project that I wrote from the ground up. Razor pages are used to define the views,
+        <p>It's an ASP.NET Core 3.0 project that I wrote from the ground up. Razor pages are used to define the views,
             Bootstrap is used to style the views, and Entity Framework Core 2.2 is the ORM we used to handle database
             interactions.</p>
         <p>Getting a hold of Plat Records from most Counties in Washington requires going through the formal records
@@ -222,15 +232,18 @@ Designed in Seattle, forged in Puget Sound.
         <p>I like camping. Often I'll go out to the Olympics and stay at sites like Lake Cushman, Deer Park, and the
             coastline around Lake Ozette. I'm also looking forward to ski season this winter.</p>
         <p>For fun I've reimagined Kitsap County's parcel viewer as a 3D web map built on top of the <a
-                href="./demos/indexlayers.html" target="_blank" rel="noopener noreferrer">MapboxGL.js library</a> and the County's open data dumps.</p>
+                href="./demos/indexlayers.html" target="_blank" rel="noopener noreferrer">MapboxGL.js library</a> and
+            the County's open data dumps.</p>
         <p>I also know a bit about photography. You can see my work <a
-                href="https://www.flickr.com/photos/uncheckederror/" target="_blank" rel="noopener noreferrer">on Flikr.</a> Right now I'm shooting with a Sony
-            RX100 MKIV, a polarizing filter, and gorilla pod.</p>
-        <p>As of November 2018 I am the author of the top text result on Google for "<a
-                href="https://www.google.com/search?q=how+to+install+ram" target="_blank" rel="noopener noreferrer">How to install RAM</a>". Although I don't
+                href="https://www.flickr.com/photos/uncheckederror/" target="_blank" rel="noopener noreferrer">on
+                Flikr.</a> Right now I'm shooting with a Sony RX1R MKII.</p>
+        <p>As of October 2019 I am the author of the top text result on Google for "<a
+                href="https://www.google.com/search?q=how+to+install+ram" target="_blank" rel="noopener noreferrer">How
+                to install RAM</a>". Although I don't
             write product reviews anymore, I still have a deep interest in computer hardware.</p>
         <p>I'm helping my dad rebuild his old pickup truck. You can see my project tracking repo <a
-                href="https://github.com/uncheckederror/toyotapickup/issues" target="_blank" rel="noopener noreferrer">on GitHub.</a></p>
+                href="https://github.com/uncheckederror/toyotapickup/issues" target="_blank"
+                rel="noopener noreferrer">on GitHub.</a></p>
     </article>
     <article class="center">
         <h3>This Site</h3>
@@ -245,9 +258,11 @@ Designed in Seattle, forged in Puget Sound.
             to with ASP.NET.</p>
         <p>Instead this page is hand-crafted. The style sheet is embedded in the head. And there's no JavaScript,
             polyfills, or images to speak of.</p>
-        <p>It's <a href="https://www.webpagetest.org/result/190310_P5_09c56373738ce5d1439c6f7376fa866e/" target="_blank" rel="noopener noreferrer">lightning
+        <p>It's <a href="https://www.webpagetest.org/result/190310_P5_09c56373738ce5d1439c6f7376fa866e/" target="_blank"
+                rel="noopener noreferrer">lightning
                 fast</a> and <a
-                href="https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fthomasryan.xyz%2F" target="_blank" rel="noopener noreferrer">purpose
+                href="https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fthomasryan.xyz%2F"
+                target="_blank" rel="noopener noreferrer">purpose
                 built</a>.</p>
     </article>
     <footer class="center">
