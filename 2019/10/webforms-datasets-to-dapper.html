@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!--
+Hello there.
+You're a bold one; hitting that inspect button.
+(•_• )
+( •_•)
+( •_•)>⌐■-■
+(⌐■_■)
+Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
+Designed in Seattle, forged in Puget Sound.
+@UncheckedError
+-->
+<html>
+
+<head>
+    <title>Tom the bomb on CD-ROM</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
+    <meta name="keywords"
+        content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="author" content="Thomas August Ryan @UncheckedError">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Skip the favicon. -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style type="text/css">
+        .center {
+            /* Off white to reduce eye strain. */
+            background: #FDFDFD;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 3% 0% 3% 0%;
+            /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .center:hover {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 650px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        h3 {
+            letter-spacing: 0.01em;
+            font-size: 3em;
+            font-weight: 100;
+            margin: 5% 0% 5% 0%;
+        }
+
+        ol li {
+            letter-spacing: 0.001em;
+            font-size: 1.8em;
+            font-weight: 100;
+            line-height: 1.6em;
+        }
+
+        p {
+            font-size: 1.8em;
+            letter-spacing: 0em;
+            white-space: normal;
+            line-height: 1.4em;
+        }
+
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        body>article>p>a {
+            text-decoration: none;
+            border-bottom: 1px solid black;
+        }
+
+        a:link,
+        a:visited {
+            color: black;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        .underline {
+            text-decoration: none;
+        }
+
+        blockquote {
+            background: #f5f5f5;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 0% 0% 0% 0%;
+        }
+
+        footer {
+            clear: none;
+            text-align: right;
+        }
+
+        /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
+        @media (prefers-color-scheme: dark) {
+            .center {
+                /* Off white to reduce eye strain. */
+                background: #242424;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+
+            body {
+                /* Off black to reduce eye strain. */
+                background-color: #171717;
+                /* Off white to reduce eye strain. */
+                color: #e3e3e3;
+            }
+
+            blockquote {
+                background: #2e2e2e;
+                border-radius: 2px;
+                padding: 5%;
+                margin: 0% 0% 0% 0%;
+            }
+
+            body>article>p>a {
+                text-decoration: none;
+                border-bottom: 1px solid #4db2ff;
+            }
+
+            a:link,
+            a:visited {
+                color: #4db2ff;
+            }
+
+            a:hover,
+            a:active {
+                color: #0091ff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="center">
+        <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
+    </header>
+    <article class="center">
+        <time datetime="2019-10-10">
+            <h2>October 10, 2019</h2>
+        </time>
+        <h3>Indexing File Directories in ASP.NET Core 3.0</h3>
+        <p>I recent upgraded an ASP.NET Core 2.2 web app to 3.0. As part of this process I took some time to review the
+            existing code base. One of the features of this application is to index and provide links to scanned
+            documents stored in a remote directory on the internal network.</p>
+        <p>This feature was implemented in haste just after Christmas of 2018 while most of my coworkers were on
+            vacation. The first bit of
+            feedback I recieved was that it was too slow to load. To solve this problem, I limited the scope of records
+            returned on the initial page load to just the first page of every volume in the directory. This got the page
+            load times down into the workable zone of less than 3 seconds.</p>
+        <p>In my excitement to upgrade this app to ASP.NET Core 3.0 I was expecting to see significant performance
+            differences in the Application Insights telemetry that was collected for the 2.2 version of this app versus
+            the 3.0 version of this app.</p>
+        <p> After a week a week or so of running the 3.0 version in production I was
+            disappointed to find that page load and server response times were basically the same. But in this moment, I
+            found the motivation to address the core problem; the file indexing process used by this app was slow.</p>
+        <p>As a baseline let’s remove the scope limiting to create a worst-case senario and then load
+            the page from a hard refresh.</p>
+        <a href="NaiveImplementation.png" title="Performance of the Naive Implementation"><img
+                src="NaiveImplementation.png" alt="Performance of the Naive Implementation"></a>
+        <p>Wow, a complete page load using this naïve implementation takes 36.11 seconds and transfers 11 MBs. That’s a
+            horrific user experience.</p>
+    </article>
+    <article class="center">
+        <h3>Doing needless work</h3>
+        <p>The crux of the issue is this function that gets a list of FileInfo objects to represent all the files in a
+            folder.</p>
+        <a href="NaiveImplementationCode.png" title="Code of the Naive Implementation"><img
+                src="NaiveImplementationCode.png" alt="Code of the Naive Implementation"></a>
+        <p>This is beginning to read like a confession, but I shamelessly stole <a
+                href="https://stackoverflow.com/a/17667185/10344352" target="_blank" rel="noopener noreferrer">this
+                code</a> from a StackOverflow post and then modified it to suit my use case.</p>
+        <p>When I wrote this, I hadn’t spent much time working with the System.IO library. Since then I’ve gotten
+            drastically more comfortable using it in other projects to create, copy, and move files around. Thanks to
+            this additional experience I knew that something was amiss when I saw this code.</p>
+        <p>This naïve implementation starts by getting an array of strings where each string is the name of a file in
+            the target directory. Then it creates and empty list and appends a newly created FileInfo object to the
+            empty list for each string in the array of file names.</p>
+        <p>This is inefficient because it requires looping over
+            the files in the directory twice, once when we get the name and a second time when we create a FileInfo
+            object from its properties. It’s also worth pointing out that we’re using arrays and lists here so we can’t
+            take advantage of LINQ and IEnumerable features like <a
+                href="https://blogs.msdn.microsoft.com/ericwhite/2006/10/04/lazy-evaluation-and-in-contrast-eager-evaluation/"
+                target="_blank" rel="noopener noreferrer">lazy evaluation.</a></p>
+        <a href="NaiveImplementationCode2.png" title="Code of the less Naive Implementation"><img
+                src="NaiveImplementationCode2.png" alt="Code of the less Naive Implementation"></a>
+        <p>Luckily there's a method like File.GetFiles() that returns an IEnumerable&lt;string&gt; called
+            Directory .EnumerateFiles(). Now instead of an array of strings we’re working with a lazily evaluated
+            collection of strings. But we’re still looping through that collection and using it to create FileInfo
+            objects.</p>
+        <p>What if we could just skip the middleman and get a lazily evaluated collection of FileInfo objects? Using the
+            DirectoryInfo object and its EnumerateFiles() method we can do exactly that.</p>
+        <a href="EnumerateImplementationCode.png" title="Code of the Enumerate Implementation"><img
+                src="EnumerateImplementationCode.png" alt="Code of the Enumerate Implementation"></a>
+        <p> As a bonus we can cut this
+            method down from 11 lines to 3. From a code cleanliness perspective there is some very satisfying
+            refactoring happening here.</p>
+        <a href="EnumerateImplementation.png" title="Performance of the Enumerate Implementation"><img
+                src="EnumerateImplementation.png" alt="Performance of the Enumerate Implementation"></a>
+        <p>What is the performance impact of this improved file indexing implementation? At 33 seconds we’ve cut the
+            page load time down by a solid 2 seconds when indexing all the files in the directory. Now we need put lazy
+            evaluation to work by limiting the number of files being indexed.</p>
+        <a href="NaiveImplementationTake1000.png" title="Performance of the Naive Implementation with 1000 files"><img
+                src="NaiveImplementationTake1000.png" alt="Performance of the Navie Implementation with 1000 files"></a>
+        <p>When just 1000 files are indexed using the naïve implementation the page load time drops to 8.6 seconds. This
+            is a big improvement, but 8 seconds is still an eternity from a user experience perspective.</p>
+        <a href="EnumerateImplementationTake1000.png" title="Performance of the Enumerate Implementation with 1000 files"><img
+                src="EnumerateImplementationTake1000.png" alt="Performance of the Enumerate Implementation with 1000 files"></a>
+        <p>Using the lazily evaluated file indexing implementation this same operation takes 945 milliseconds. This is
+            nearly a full order of magnitude reduction in page load time.</p>
+        <a href="NaiveImplementationTake10.png" title="Performance of the Naive Implementation with 10 files"><img
+                src="NaiveImplementationTake10.png" alt="Performance of the Navie Implementation with 10 files"></a>
+        <p>For an apples to apples comparison, let’s look at the before and after state for this web app where just 10
+            files are display on the page.</p>
+        <a href="EnumerateImplementationTake10.png" title="Performance of the Enumerate Implementation with 10 files"><img
+                src="EnumerateImplementationTake10.png" alt="Performance of the Enumerate Implementation with 10 files"></a>
+        <p> Using the naïve implementation, it takes 4.78 seconds to load the page. While
+            the lazily evaluated implementation finishes in just 645 milliseconds.</p>
+        <p>A good user experience starts with reasonable performance and ends with an app that helps the user get what
+            they need as quickly as possible. Using IEnumerable, LINQ, and lazy evaluation to index files is a technique
+            that accomplishes exactly that.</p>
+    </article>
+    <footer class="center">
+        <h1><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
+                class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Resumé</a></h1>
+    </footer>
+</body>
+
+</html>
