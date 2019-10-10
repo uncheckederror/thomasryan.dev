@@ -107,9 +107,11 @@ Designed in Seattle, forged in Puget Sound.
             margin: 0% 0% 0% 0%;
         }
 
-        footer {
-            clear: both;
-            text-align: right;
+        footer,
+        .menu {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: flex-end;
         }
 
         /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
@@ -216,7 +218,7 @@ Designed in Seattle, forged in Puget Sound.
             learned over the past year of maintaining Parcel Details.</p>
     </article>
     <footer class="center">
-        <h1><a href="./../../../posts.html" class="underline">Posts</a> <a href="./../../../demos.html"
+        <h1 class="menu"><a href="./../../../posts.html" class="underline">Posts</a> <a href="./../../../demos.html"
                 class="underline">Demos</a> <a href="./../../../resume.pdf" class="underline">Resumé</a></h1>
     </footer>
 </body>
