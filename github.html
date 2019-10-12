@@ -116,32 +116,6 @@ Designed in Seattle, forged in Puget Sound.
             align-items: flex-end;
         }
 
-        .links {
-            display: flex;
-            flex-flow: column wrap;
-            align-items: flex-end;
-            justify-content: space-between;
-        }
-
-        header>h1>a:link, header>h1>a:visited {
-            color: #f5f5f5;
-        }
-
-        header>h1>a:hover, header>h1>a:active {
-            color: grey;
-        }
-
-        .top {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        @media (max-width: 680px) {
-            .links {
-                display: none;
-            }
-        }
-
         /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
         @media (prefers-color-scheme: dark) {
             .center {
@@ -178,37 +152,22 @@ Designed in Seattle, forged in Puget Sound.
             a:active {
                 color: #0091ff;
             }
-
-            header>h1>a:link, header>h1>a:visited {
-                color: #2e2e2e;
-            }
-    
-            header>h1>a:hover, header>h1>a:active {
-                color: #4db2ff;
-            }
         }
     </style>
 </head>
 
 <body>
     <header class="center top">
-        <h1 class="name">Thomas August Ryan</h1>
-        <h1 class="links">
-            <a class="underline" href="https://github.com/uncheckederror" target="_blank" rel="noopener noreferrer">Github</a>
-            <a class="underline" href="https://twitter.com/UncheckedError" target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a class="underline" href="https://www.linkedin.com/in/uncheckederror/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
+        <h1>Thomas August Ryan</h1>
     </header>
     <article class="center">
         <p>Hi! People call me <a href="https://www.instagram.com/uncheckederror/" target="_blank"
                 rel="noopener noreferrer">Tom</a>.</p>
         <p>I'm a GIS Programmer at Kitsap County.</p>
         <p>Working for the County is fun. Recently I migrated an ASP.NET Core 2.2 Web app to Core 3.0 with no impact on
-            the users.</p>
-        <p>Then a coworker and I recreated an existing accounting report using a vendor's
+            the users. Then a coworker and I recreated an existing accounting report using a vendor's
             reporting system and some custom code that matches exactly with the format required by the bank.
-        </p>
-        <p>Finally I wrote integration tests for a set of REST endpoints provided by a vendor to help verify that their
+            Finally I wrote integration tests for a set of REST endpoints provided by a vendor to help verify that their
             API worked as discribed.
         </p>
     </article>
@@ -309,8 +268,8 @@ Designed in Seattle, forged in Puget Sound.
     </article>
     <footer class="center">
         <!-- <p><a href="https://github.com/uncheckederror">Github</a> <a href="https://twitter.com/UncheckedError">Twitter</a> <a href="https://medium.com/@UncheckedError">Medium</a> <a href="https://www.linkedin.com/in/uncheckederror">LinkedIn</a> <a href="https://www.instagram.com/uncheckederror/?hl=en">Instagram</a> <a href="https://www.pcworld.com/author/Thomas-Ryan/">PCWorld</a></p> -->
-        <h1 class="menu"><a href="posts.html" class="underline">Posts</a> <a href="demos.html"
-                class="underline">Demos</a> <a href="resume.pdf" class="underline">Resumé</a></h1>
+        <h1 class="menu"><a href="posts.html" class="underline">Posts</a> <a href="demos.html" class="underline">Demos</a> <a
+                href="resume.pdf" class="underline">Resumé</a></h1>
     </footer>
 </body>
 
