@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--
+Hello there.
+You're a bold one; hitting that inspect button.
+(•_• )
+( •_•)
+( •_•)>⌐■-■
+(⌐■_■)
+Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
+Designed in Seattle, forged in Puget Sound.
+@UncheckedError
+-->
+<html>
+
+<head>
+    <title>Tom the bomb on CD-ROM</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
+    <meta name="keywords"
+        content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="author" content="Thomas August Ryan @UncheckedError">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Skip the favicon. -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style type="text/css">
+        .center {
+            /* Off white to reduce eye strain. */
+            background: #FDFDFD;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 3% 0% 3% 0%;
+            /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .center:hover {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 650px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        h3 {
+            letter-spacing: 0.01em;
+            font-size: 3em;
+            font-weight: 100;
+            margin: 5% 0% 5% 0%;
+        }
+
+        ol li {
+            letter-spacing: 0.001em;
+            font-size: 1.8em;
+            font-weight: 100;
+            line-height: 1.6em;
+        }
+
+        p {
+            font-size: 1.8em;
+            letter-spacing: 0em;
+            white-space: normal;
+            line-height: 1.4em;
+        }
+
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        body>article>p>a {
+            text-decoration: none;
+            border-bottom: 1px solid black;
+        }
+
+        a:link,
+        a:visited {
+            color: black;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        .underline {
+            text-decoration: none;
+        }
+
+        blockquote {
+            background: #f5f5f5;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 0% 0% 0% 0%;
+        }
+
+        footer,
+        .menu {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: flex-end;
+        }
+
+        /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
+        @media (prefers-color-scheme: dark) {
+            .center {
+                /* Off white to reduce eye strain. */
+                background: #242424;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+
+            body {
+                /* Off black to reduce eye strain. */
+                background-color: #171717;
+                /* Off white to reduce eye strain. */
+                color: #e3e3e3;
+            }
+
+            blockquote {
+                background: #2e2e2e;
+                border-radius: 2px;
+                padding: 5%;
+                margin: 0% 0% 0% 0%;
+            }
+
+            body>article>p>a {
+                text-decoration: none;
+                border-bottom: 1px solid #4db2ff;
+            }
+
+            a:link,
+            a:visited {
+                color: #4db2ff;
+            }
+
+            a:hover,
+            a:active {
+                color: #0091ff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="center">
+        <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
+    </header>
+    <article class="center">
+        <time datetime="2019-11-29">
+            <h2>November 29, 2019</h2>
+        </time>
+        <h3>Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App</h3>
+        <p>Recently I built an ASP.NET Core 3.0 MVC Web app that acts as a front end for a group of APIs that are each
+            supported by a different third-party vendor. Unfortunately for me these APIs are all various degrees of
+            slow. The average latency for a response from the slowest of the APIs is about 4.5 seconds.</p>
+        <p>There are many ways to address a latency problem like this but the key piece of feedback I received from the
+            users was not to make the process faster. But rather just to show them what was happening so they could
+            understand why it was slow.</p>
+        <p>On the extreme end of the spectrum of solutions to this problem you have a real-time progress bar that
+            constantly spams the user with updates and process specific information using SignalR. On the other extreme
+            you have a bit of text that appears on the page that says, “Loading...”. In this scenario I’ve opted for
+            something closer to the later, but with more style.</p>
+        <p>The ASP.NET Core MVC template ships with the Bootstrap framework so let’s review what it offers for loading
+            icons. For real <a href="https://getbootstrap.com/docs/4.4/components/progress/" target="_blank"
+                rel="noopener noreferrer">progress bars</a> we have a wide variety of options to choose from. But
+            because we won’t
+            be doing any comms between the server and the client while we wait for the remote APIs to respond we
+            won’t have any data to populate into a progress bar like this.</p>
+        <p>Instead we’re going to use a simple
+            spinning animation that indicates that something unspecific is happening in the background. Again
+            Bootstrap 4 gives us a wide range of styles to pick from for our <a
+                href="https://getbootstrap.com/docs/4.4/components/spinners/" target="_blank"
+                rel="noopener noreferrer">spinner</a>. I opted for a
+            thin circular spinner with a notch in it; as it reminds me, and hopefully the users, of the
+            familiar spinners used in Windows.</p>
+        <p>Now that we know what resources we’re going to leverage from a design and content PoV let's look at the
+            actual implementation. I’m going to crib the main points from this post on <a
+                href="https://ml-software.ch/posts/creating-a-busy-indicator-for-an-asp-net-core-mvc-application"
+                target="_blank" rel="noopener noreferrer">Matteo’s Blog</a>.
+            We start by creating a new empty View in the “Views” => “Shared” folder of our MVC project. I’m calling
+            this new view “_LoadingPartial”.</p>
+        <pre><code>
+        &lt;div class="d-flex justify-content-center"&gt;
+            &lt;div class="spinner-border text-primary mb-3" 
+                style="width: 3rem; height: 3rem; display: none" 
+                role="status" id="loading"&gt;
+                &lt;span class="sr-only"&gt;Loading...&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        </code></pre>
+        <p>Inside of the new partial view we have just five lines of mark up to invoke the Bootstrap spinner, size it, and center it on the page.</p>
+        <pre><code>
+        function displayBusyIndicator() {
+            document.getElementById("loading").style.display = "block";
+        }
+        </code></pre>
+        <p>Then we’ll need to pop into our “site.js” file and add a new function called “displayBusyIndicator” that
+            reveals the loading spinner.</p>
+            <a href="onclick.png" title="Adding an event to a Button"><img
+                src="onclick.png" alt="Adding an event to a Button"></a>
+        <p>Now that we’ve added this function, we’ll need to pick a button to invoke it. I’ve done this by adding</p>
+        <pre><code>
+        onclick="displayBusyIndicator()"
+        </code></pre>
+        <p>to the button that submits back to the server as the slow server response
+            appears to the user as a long page load time for the next page.</p>
+            <a href="partialPosition.png" title="Positioning the Spinner on the DOM"><img
+                src="partialPosition.png" alt="Positioning the Spinner on the DOM"></a>
+        <p>Finally, we need to find the right spot on the page for our spinner to hide. I’ve opted to place it more or
+            less in the center of the page by adding a tag to load the “_LoadingPartial” partial View inside of my main
+            View below the search box and above the search results.</p>
+            <a href="workingSpinner.png" title="The Spinner in Action"><img
+                src="workingSpinner.png" alt="The Spinner in Action"></a>
+        <p>There you have it! We’ve gone from a slow API and little bit of user feedback to implementing a nearly
+            zero-cost spinner that requires just a hint about what the user is doing. Users expect web apps to
+            communicate their state and this loading animation accomplishes exactly that with little effort.</p>
+    </article>
+    <footer class="center">
+        <h1 class="menu"><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
+                class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Resumé</a></h1>
+    </footer>
+</body>
+
+</html>
