@@ -169,70 +169,52 @@ Designed in Seattle, forged in Puget Sound.
             <h2>March 3rd, 2020</h2>
         </time>
         <h3>Malicious Scraping and Account Number Schemes</h3>
-        <p>Recently I built an ASP.NET Core 3.0 MVC Web app that acts as a front end for a group of APIs that are each
-            supported by a different third-party vendor. Unfortunately for me these APIs are all various degrees of
-            slow. The average latency for a response from the slowest of the APIs is about 4.5 seconds.</p>
-        <p>There are many ways to address a latency problem like this but the key piece of feedback I received from the
-            users was not to make the process faster. But rather just to show them what was happening so they could
-            understand why it was slow.</p>
-        <p>On the extreme end of the spectrum of solutions to this problem you have a real-time progress bar that
-            constantly spams the user with updates and process specific information using SignalR. On the other extreme
-            you have a bit of text that appears on the page that says, “Loading...”. In this scenario I’ve opted for
-            something closer to the latter, but with more style.</p>
-        <p>The ASP.NET Core MVC template ships with the Bootstrap framework so let’s review what it offers for loading
-            icons. For real <a href="https://getbootstrap.com/docs/4.4/components/progress/" target="_blank"
-                rel="noopener noreferrer">progress bars</a> we have a wide variety of options to choose from. But
-            because we won’t
-            be doing any comms between the server and the client while we wait for the remote APIs to respond we
-            won’t have any data to populate into a progress bar like this.</p>
-        <p>Instead we’re going to use a simple
-            spinning animation that indicates that something unspecific is happening in the background. Again
-            Bootstrap 4 gives us a wide range of styles to pick from for our <a
-                href="https://getbootstrap.com/docs/4.4/components/spinners/" target="_blank"
-                rel="noopener noreferrer">spinner</a>. I opted for a
-            thin circular spinner with a notch in it; as it reminds me, and hopefully the users, of the
-            familiar spinners used in Windows.</p>
-        <p>Now that we know what resources we’re going to leverage from a design and content PoV let's look at the
-            actual implementation. I’m going to crib the main points from this post on <a
-                href="https://ml-software.ch/posts/creating-a-busy-indicator-for-an-asp-net-core-mvc-application"
-                target="_blank" rel="noopener noreferrer">Matteo’s Blog</a>.
-            We start by creating a new empty View in the “Views” => “Shared” folder of our MVC project. I’m calling
-            this new view “_LoadingPartial”.</p>
-        <pre><code>
-        &lt;div class="d-flex justify-content-center"&gt;
-            &lt;div class="spinner-border text-primary mb-3" 
-                style="width: 3rem; height: 3rem; display: none" 
-                role="status" id="loading"&gt;
-                &lt;span class="sr-only"&gt;Loading...&lt;/span&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        </code></pre>
-        <p>Inside of the new partial view we have just five lines of mark up to invoke the Bootstrap spinner, size it, and center it on the page.</p>
-        <pre><code>
-        function displayBusyIndicator() {
-            document.getElementById("loading").style.display = "block";
-        }
-        </code></pre>
-        <p>Then we’ll need to pop into our “site.js” file and add a new function called “displayBusyIndicator” that
-            reveals the loading spinner.</p>
-            <a href="onclick.png" title="Adding an event to a Button"><img
-                src="onclick.png" alt="Adding an event to a Button"></a>
-        <p>Now that we’ve added this function, we’ll need to pick a button to invoke it. I’ve done this by adding</p>
-        <pre><code>
-        onclick="displayBusyIndicator()"
-        </code></pre>
-        <p>to the button that submits back to the server as the slow server response
-            appears to the user as a long page load time for the next page.</p>
-            <a href="partialPosition.png" title="Positioning the Spinner on the DOM"><img
-                src="partialPosition.png" alt="Positioning the Spinner on the DOM"></a>
-        <p>Finally, we need to find the right spot on the page for our spinner to hide. I’ve opted to place it more or
-            less in the center of the page by adding a tag to load the “_LoadingPartial” partial View inside of my main
-            View below the search box and above the search results.</p>
-            <a href="workingSpinner.png" title="The Spinner in Action"><img
-                src="workingSpinner.png" alt="The Spinner in Action"></a>
-        <p>There you have it! We’ve gone from a slow API and little bit of user feedback to implementing a nearly
-            zero-cost spinner that requires just a hint about what the user is doing. Users expect web apps to
-            communicate their state and this loading animation accomplishes exactly that with little effort.</p>
+        <p>On Monday morning just before 11 AM my supervisor walked into my cube. “Hey Tom, did you change anything
+            about the voting precincts query lately?” Nope, I hadn’t changed that thing in months. We walked over to his
+            office where he was remoted into the VM that one of our databases runs on. Task Manager was showing 99% CPU
+            usage. Emails from customers reporting the uncharacteristic slowness of Parcel Details, my web app, started
+            pouring in.</p>
+        <p>My supervisor started the troubleshooting process by running a command against our MS-SQL server instance
+            that reported what queries were taking the most resources to run. This report showed that a query that
+            looked up voting precincts in my app was eating up an order of magnitude more resources than any of the
+            other queries that this database was executing. As it turned out this was a bit of a red herring, but it
+            eventually led us down the right path.</p>
+        <p>Next, we reviewed the database logs to look for errors or memory paging, of which there were none. Then we
+            review the logs for a related web app that my supervisor is responsible for supporting which showed that we
+            were experiencing a minor traffic spike, approximately double our normal volume for this day of the week.
+            Still concerned about the extreme CPU usage on the database server we poked around in the Windows event
+            viewer for a few minutes to no avail.</p>
+        <p>Finally, I returned to my desk and opened the Application Insights dashboard for Parcel Details. It was
+            immediately clear that something was very wrong. The average page load time was 1.5 minutes and 14k failed
+            requests had been reported in the last 24 hours. Server response times had degraded to 1.2 minutes per
+            request, 10k exceptions had been thrown, and 6.5k requests to dependencies had failed. I head straight to
+            the Failures dashboard to investigate.</p>
+        <p>Three kinds of exceptions had been recorded: database request timed out, account number not found, and cannot
+            open database connection. Looking at the first exception there wasn’t much useful information in the stack
+            trace other than confirming that something had gone wrong with a SQL call to the overwhelmed database from
+            earlier. But luckily for me App Insights had captured the URL of the request to our web server that had
+            triggered this exception.</p>
+        <p>I fired up a copy of the app from Visual Studio 2019 and slapped the offending URL onto the end of the
+            localhost route. Immediately I was able to reproduce the sluggishness that the users were reporting as the
+            app took over a minute to bump me to an application exception page. Clearly this was a case of not failing
+            out fast enough.</p>
+        <p>Inspecting the URL more closely I realized that the value for the ?parcel= query string was invalid. There
+            are two formats for valid account/parcel numbers one is fourteen characters long and the other is seven
+            characters long. Neither contain non-numerical characters, although there is a special case for a variant of
+            the 14-digit version which includes dashes. The query string value that was causing this exception contained
+            multiple letters.</p>
+        <p>I went to the controller for this page and added a small chunk of input validation code that redirected
+            requests with query strings containing characters other than digits and punctation back to the default
+            search page rather than running them against the database. This change would short circuit the lookup for
+            these accounts that don’t exist and spare the database the hassle of pointlessly trying to look it up.</p>
+        <p>I ran the testing suite and did a bit of manual verification testing in IIS Express to verify that the fix
+            worked and nothing had regressed then I shipped the changes to the staging environment where I again
+            manually verified that the fix work before pushing this build to production. I waited for a few minutes for
+            something terrible to happen and when nothing occurred, I left to walk around the block for a few minutes.
+            Upon returning I refreshed the dashboard and saw that the telemetry from the database and web server had
+            returned to normal. This incident was resolved in less than an hour.</p>
+        <p>I wrote up a short postmortem describing the attack and sent it to my supervisor and the customers. Then I
+            started working on this blog post.</p>
     </article>
     <footer class="center">
         <h1 class="menu"><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
