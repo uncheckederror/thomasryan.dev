@@ -67,11 +67,11 @@ Designed in Seattle, forged in Puget Sound.
             margin: 5% 0% 5% 0%;
         }
 
-        ul li {
+        ol li {
             letter-spacing: 0.001em;
             font-size: 1.8em;
             font-weight: 100;
-            line-height: 1.5em;
+            line-height: 1.6em;
         }
 
         p {
@@ -79,6 +79,12 @@ Designed in Seattle, forged in Puget Sound.
             letter-spacing: 0em;
             white-space: normal;
             line-height: 1.4em;
+        }
+
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
         }
 
         body>article>p>a {
@@ -156,69 +162,33 @@ Designed in Seattle, forged in Puget Sound.
 
 <body>
     <header class="center">
-        <h1><a href="./index.html" class="underline">Thomas August Ryan</a></h1>
+        <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
     </header>
     <article class="center">
-        <time datetime="2020">
-            <h2>2020</h2>
+        <time datetime="2020-03-03">
+            <h2>April 8th, 2020</h2>
         </time>
-        <p><a href="./2020/04/adding-security-headers.html" class="underline">
-            <h3>Adding Security Headers to an ASP.NET Core 3.1 MVC Web App</h3>
-        </a></p>
-        <p><a href="./2020/03/malicious-scraping-account-number-schemes.html" class="underline">
-            <h3>Malicious Scraping and Account Number Schemes</h3>
-        </a></p>
-    </article>
-    <article class="center">
-        <time datetime="2019">
-            <h2>2019</h2>
-        </time>
-        <p><a href="./2019/11/adding-spinner-bootstrap-dotnet-core-mvc.html" class="underline">
-            <h3>Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App</h3>
-        </a></p>
-        <p><a href="./2019/10/indexing-file-directories-dotnet-core.html" class="underline">
-            <h3>Quickly Indexing File Directories in ASP.NET Core 3.0</h3>
-        </a></p>
-        <p><a href="./2019/09/buildings-by-year-in-kitsap-county.html" class="underline">
-            <h3>Making Buildings By Year Built in Kitsap County</h3>
-        </a></p>
-        <p><a href="./2019/07/dapper-dotnet-core-odbc-sqlserver-2000.html" class="underline">
-            <h3>Using Dapper and .NET Core to pull data from SQL Server 2000</h3>
-        </a></p>
-        <p><a href="./2019/05/webforms-datasets-to-dapper.html" class="underline">
-            <h3>How I Converted ADO.NET DataSets into Dapper data models</h3>
-        </a></p>
-        <p><a href="./2019/03/in-praise-of-sticky-notes.html" class="underline">
-                <h3>In Praise of Sticky Notes</h3>
-            </a></p>
-        <p><a href="./2019/02/purging-the-search-page.html" class="underline">
-                <h3>Purging the Search Page</h3>
-            </a></p>
-        <p><a href="./2019/01/making-zoning-codes-useful.html" class="underline">
-                <h3>Making Zoning Codes Useful</h3>
-            </a></p>
-        <p><a href="./2019/01/parsing-tax-descriptions.html" class="underline">
-                <h3>Parsing Tax Descriptions</h3>
-            </a></p>
-    </article>
-    <article class="center">
-        <time datetime="2018">
-            <h2>2018</h2>
-        </time>
-        <p><a href="./2018/11/07/a-most-disappointing-report-button.html" class="underline">
-                <h3>A Most Disappointing Bug Report Button</h3>
-            </a></p>
-        <p><a href="./2018/06/17/buttons-as-actions.html" class="underline">
-                <h3>Buttons As Actions</h3>
-            </a></p>
-        <p><a href="./2018/06/15/modernizing-kitsap-countys-parcel-details.html" class="underline">
-                <h3>Modernizing Kitsap County’s Parcel Details</h3>
-            </a></p>
+        <h3>Adding Security Headers in ASP.NET Core 3.1 MVC Web App</h3>
+        <p>Last week I was inspired by this post from <a href="https://www.hanselman.com/blog/EasilyAddingSecurityHeadersToYourASPNETCoreWebAppAndGettingAnAGrade.aspx" target="_blank"
+            rel="noopener noreferrer">Scott Hanselman</a> to
+            benchmark the performance of an application I developed called Number Search. This web app is written in
+            ASP.NET Core 3.1 using the MVC template and it serves to help customer’s find and purchase phone numbers.
+        </p>
+        <p>Initially it received an ‘F’ grade when I ran it through the <a href="https://securityheaders.com/" target="_blank"
+            rel="noopener noreferrer">SecurityHeaders.com</a>
+            benchmark. This wasn’t the result I was looking for. Luckily, the solution is wildly simple.</p>
+            <a href="UseSecurityHeaders.png" title="Adding Security Headers to the app Startup"><img
+                src="UseSecurityHeaders.png" alt="Adding Security Headers to the app Startup"></a>
+        <p><a href="https://github.com/andrewlock/NetEscapades.AspNetCore.SecurityHeaders" target="_blank"
+            rel="noopener noreferrer">NetEscapades.AspNetCore.SecurityHeaders</a> is a great
+            little NuGet package that handles this problem. I added it to my MVC project and then inserted just a single
+            line into the Startup.cs file: app.UseSecurityHeaders();</p>
+        <p>Now Number Search gets an <a href="https://securityheaders.com/?q=https%3A%2F%2Fnumbersearch.acceleratenetworks.com%2F&followRedirects=on" target="_blank"
+            rel="noopener noreferrer">‘A’ grade</a> on the same benchmark, and I’m quite pleased.</p>
     </article>
     <footer class="center">
-        <!-- <p><a href="https://github.com/uncheckederror">Github</a> <a href="https://twitter.com/UncheckedError">Twitter</a> <a href="https://medium.com/@UncheckedError">Medium</a> <a href="https://www.linkedin.com/in/uncheckederror">LinkedIn</a> <a href="https://www.instagram.com/uncheckederror/?hl=en">Instagram</a> <a href="https://www.pcworld.com/author/Thomas-Ryan/">PCWorld</a></p> -->
-        <h1 class="menu"><a href="posts.html" class="underline">Posts</a> <a href="demos.html" class="underline">Demos</a> <a
-                href="resume.pdf" class="underline">Resumé</a></h1>
+        <h1 class="menu"><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
+                class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Resumé</a></h1>
     </footer>
 </body>
 
