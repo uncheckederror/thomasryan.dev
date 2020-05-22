@@ -123,11 +123,13 @@ Designed in Seattle, forged in Puget Sound.
             justify-content: space-between;
         }
 
-        header>h1>a:link, header>h1>a:visited {
+        header>h1>a:link,
+        header>h1>a:visited {
             color: #f5f5f5;
         }
 
-        header>h1>a:hover, header>h1>a:active {
+        header>h1>a:hover,
+        header>h1>a:active {
             color: grey;
         }
 
@@ -179,11 +181,13 @@ Designed in Seattle, forged in Puget Sound.
                 color: #0091ff;
             }
 
-            header>h1>a:link, header>h1>a:visited {
+            header>h1>a:link,
+            header>h1>a:visited {
                 color: #6b6b6b;
             }
-    
-            header>h1>a:hover, header>h1>a:active {
+
+            header>h1>a:hover,
+            header>h1>a:active {
                 color: #0091ff;
             }
         }
@@ -194,16 +198,22 @@ Designed in Seattle, forged in Puget Sound.
     <header class="center top">
         <h1 class="name">Thomas August Ryan</h1>
         <h1 class="links">
-            <a class="underline" href="https://github.com/uncheckederror" target="_blank" rel="noopener noreferrer">Github</a>
-            <a class="underline" href="https://twitter.com/UncheckedError" target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a class="underline" href="https://www.linkedin.com/in/uncheckederror/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
+            <a class="underline" href="https://github.com/uncheckederror" target="_blank"
+                rel="noopener noreferrer">Github</a>
+            <a class="underline" href="https://twitter.com/UncheckedError" target="_blank"
+                rel="noopener noreferrer">Twitter</a>
+            <a class="underline" href="https://www.linkedin.com/in/uncheckederror/" target="_blank"
+                rel="noopener noreferrer">LinkedIn</a>
+            </div>
     </header>
     <article class="center">
         <p>Hi! People call me <a href="https://www.instagram.com/uncheckederror/" target="_blank"
                 rel="noopener noreferrer">Tom</a>.</p>
         <p>I'm a Senior Applications Developer at King County.</p>
-        <p>Working for the County is fun. Recently I helped build an internal application to organize the intake of patients at King County's <a href="https://kingcounty.gov/depts/community-human-services/COVID/shelter-response.aspx" target="_blank" rel="noopener noreferrer">Isolation/Quarantine</a> sites in support of the COVID-19 response effort.</p>
+        <p>Working for the County is fun. Recently I helped build an internal application to organize the intake of
+            patients at King County's <a
+                href="https://kingcounty.gov/depts/community-human-services/COVID/shelter-response.aspx" target="_blank"
+                rel="noopener noreferrer">Isolation/Quarantine</a> sites in support of the COVID-19 response effort.</p>
     </article>
     <article class="center">
         <h1 class="menu"><a href="posts.html" class="underline">Posts</a> <a href="demos.html"
@@ -218,7 +228,12 @@ Designed in Seattle, forged in Puget Sound.
                 <li>Average Page Load Time of 340ms</li>
             </ul>
         </blockquote>
-        <p>In support of my brother's company, I wrote a console application that scrapes phone numbers that are available for purchase from a pair of SOAP APIs and a REST API, and then aggregates them into a local database. You can review the results of <a href="https://numbersearch.acceleratenetworks.com/ingest" target="_blank" rel="noopener noreferrer">ingest</a> process and quickly <a href="https://numbersearch.acceleratenetworks.com/Search" target="_blank" rel="noopener noreferrer">lookup</a> available phone numbers on the Accelerate Networks website.</p>
+        <p>In support of my brother's company, I wrote a console application that scrapes phone numbers that are
+            available for purchase from a pair of SOAP APIs and a REST API, and then aggregates them into a local
+            database. You can review the results of <a href="https://numbersearch.acceleratenetworks.com/ingest"
+                target="_blank" rel="noopener noreferrer">ingest</a> process and quickly <a
+                href="https://numbersearch.acceleratenetworks.com/Search" target="_blank"
+                rel="noopener noreferrer">lookup</a> available phone numbers on the Accelerate Networks website.</p>
         <p>Posts About Number Search</p>
         <ul>
             <li>
@@ -242,7 +257,7 @@ Designed in Seattle, forged in Puget Sound.
                 <li>Average Page Load Time of 765ms</li>
             </ul>
         </blockquote>
-        <p>My primary responsibility is maintaining the County's public parcel information system. <a
+        <p>My primary responsibility at Kitsap County was maintaining the public parcel information system. <a
                 href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-066-0008&page=landlocation"
                 target="_blank" rel="noopener noreferrer">Parcel
                 Details</a> is a web app that allows anyone to look up a tax parcel in Kitsap County.</p>
@@ -257,57 +272,58 @@ Designed in Seattle, forged in Puget Sound.
             of new interactive features.</p>
         <p>This summer I rebuilt Parcel Details as an ASP.NET Core 2.2 MVC project. It took about 300 hours port the
             data access layer and then rebuild the business logic and views in the MVC format. To prevent service
-            interruptions this was a pixel perfect rebuild. This required careful testing to verify that there were no UX
+            interruptions this was a pixel perfect rebuild. This required careful testing to verify that there were no
+            UX
             impacts and the use of ASP.NET Routing middleware to remap the routes of the old app to the structure of the
             new app.</p>
-            <p>Posts About Parcel Details</p>
-            <ul>
-                <li>
-                    <a href="./2020/03/malicious-scraping-account-number-schemes.html" class="underline">
-                        Malicious Scraping and Account Number Schemes
-                    </a>
-                </li>
-                <li>
-                    <a href="./2019/07/dapper-dotnet-core-odbc-sqlserver-2000.html" class="underline">
-                        Using Dapper and .NET Core to pull data from SQL Server 2000
-                    </a>
-                </li>
-                <li>
-                    <a href="./2019/05/webforms-datasets-to-dapper.html" class="underline">
-                        How I Converted ADO.NET DataSets into Dapper data models
-                    </a>
-                </li>
-                <li>
-                    <a href="./2019/02/purging-the-search-page.html" class="underline">
-                        Purging the Search Page
-                    </a>
-                </li>
-                <li>
-                    <a href="./2019/01/making-zoning-codes-useful.html" class="underline">
-                        Making Zoning Codes Useful
-                    </a>
-                </li>
-                <li>
-                    <a href="./2019/01/parsing-tax-descriptions.html" class="underline">
-                        Parsing Tax Descriptions
-                    </a>
-                </li>
-                <li>
-                    <a href="./2018/11/07/a-most-disappointing-report-button.html" class="underline">
-                        A Most Disappointing Bug Report Button
-                    </a>
-                </li>
-                <li>
-                    <a href="./2018/06/17/buttons-as-actions.html" class="underline">
-                        Buttons As Actions
-                    </a>
-                </li>
-                <li>
-                    <a href="./2018/06/15/modernizing-kitsap-countys-parcel-details.html" class="underline">
-                        Modernizing Kitsap County’s Parcel Details
-                    </a>
-                </li>
-            </ul>
+        <p>Posts About Parcel Details</p>
+        <ul>
+            <li>
+                <a href="./2020/03/malicious-scraping-account-number-schemes.html" class="underline">
+                    Malicious Scraping and Account Number Schemes
+                </a>
+            </li>
+            <li>
+                <a href="./2019/07/dapper-dotnet-core-odbc-sqlserver-2000.html" class="underline">
+                    Using Dapper and .NET Core to pull data from SQL Server 2000
+                </a>
+            </li>
+            <li>
+                <a href="./2019/05/webforms-datasets-to-dapper.html" class="underline">
+                    How I Converted ADO.NET DataSets into Dapper data models
+                </a>
+            </li>
+            <li>
+                <a href="./2019/02/purging-the-search-page.html" class="underline">
+                    Purging the Search Page
+                </a>
+            </li>
+            <li>
+                <a href="./2019/01/making-zoning-codes-useful.html" class="underline">
+                    Making Zoning Codes Useful
+                </a>
+            </li>
+            <li>
+                <a href="./2019/01/parsing-tax-descriptions.html" class="underline">
+                    Parsing Tax Descriptions
+                </a>
+            </li>
+            <li>
+                <a href="./2018/11/07/a-most-disappointing-report-button.html" class="underline">
+                    A Most Disappointing Bug Report Button
+                </a>
+            </li>
+            <li>
+                <a href="./2018/06/17/buttons-as-actions.html" class="underline">
+                    Buttons As Actions
+                </a>
+            </li>
+            <li>
+                <a href="./2018/06/15/modernizing-kitsap-countys-parcel-details.html" class="underline">
+                    Modernizing Kitsap County’s Parcel Details
+                </a>
+            </li>
+        </ul>
     </article>
     <article class="center">
         <h3>Plats Search</h3>
@@ -327,14 +343,14 @@ Designed in Seattle, forged in Puget Sound.
         <p>Getting a hold of Plat Records from most Counties in Washington requires going through the formal records
             request process. Plats Search circumvents this process by allowing people to search for Plats related to a
             tax parcel and directly download scans of those source documents.</p>
-            <p>Posts About Plats Search</p>
-            <ul>
-                <li>
-                    <a href="./2019/10/indexing-file-directories-dotnet-core.html" class="underline">
-                        Quickly Indexing File Directories in ASP.NET Core 3.0
-                    </a>
-                </li>
-            </ul>
+        <p>Posts About Plats Search</p>
+        <ul>
+            <li>
+                <a href="./2019/10/indexing-file-directories-dotnet-core.html" class="underline">
+                    Quickly Indexing File Directories in ASP.NET Core 3.0
+                </a>
+            </li>
+        </ul>
     </article>
     <article class="center">
         <h3>Other Stuff</h3>

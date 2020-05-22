@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!--
+Hello there.
+You're a bold one; hitting that inspect button.
+(•_• )
+( •_•)
+( •_•)>⌐■-■
+(⌐■_■)
+Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
+Designed in Seattle, forged in Puget Sound.
+@UncheckedError
+-->
+<html>
+
+<head>
+    <title>Tom the bomb on CD-ROM</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
+    <meta name="keywords"
+        content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="author" content="Thomas August Ryan @UncheckedError">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Skip the favicon. -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style type="text/css">
+        .center {
+            /* Off white to reduce eye strain. */
+            background: #FDFDFD;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 3% 0% 3% 0%;
+            /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .center:hover {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 650px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        h3 {
+            letter-spacing: 0.01em;
+            font-size: 3em;
+            font-weight: 100;
+            margin: 5% 0% 5% 0%;
+        }
+
+        ol li {
+            letter-spacing: 0.001em;
+            font-size: 1.8em;
+            font-weight: 100;
+            line-height: 1.6em;
+        }
+
+        p {
+            font-size: 1.8em;
+            letter-spacing: 0em;
+            white-space: normal;
+            line-height: 1.4em;
+        }
+
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        body>article>p>a {
+            text-decoration: none;
+            border-bottom: 1px solid black;
+        }
+
+        a:link,
+        a:visited {
+            color: black;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        .underline {
+            text-decoration: none;
+        }
+
+        blockquote {
+            background: #f5f5f5;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 0% 0% 0% 0%;
+        }
+
+        footer,
+        .menu {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: flex-end;
+        }
+
+        /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
+        @media (prefers-color-scheme: dark) {
+            .center {
+                /* Off white to reduce eye strain. */
+                background: #242424;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+
+            body {
+                /* Off black to reduce eye strain. */
+                background-color: #171717;
+                /* Off white to reduce eye strain. */
+                color: #e3e3e3;
+            }
+
+            blockquote {
+                background: #2e2e2e;
+                border-radius: 2px;
+                padding: 5%;
+                margin: 0% 0% 0% 0%;
+            }
+
+            body>article>p>a {
+                text-decoration: none;
+                border-bottom: 1px solid #4db2ff;
+            }
+
+            a:link,
+            a:visited {
+                color: #4db2ff;
+            }
+
+            a:hover,
+            a:active {
+                color: #0091ff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="center">
+        <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
+    </header>
+    <article class="center">
+        <time datetime="2020-05-22">
+            <h2>May 22nd, 2020</h2>
+        </time>
+        <h3>Comparing Azure Static Web Apps and Github Pages</h3>
+        <p>I host my personal website on Github pages. At Build 2020 I watched a demo of a new service called <a
+                href="https://docs.microsoft.com/en-us/azure/static-web-apps/" target="_blank"
+                rel="noopener noreferrer">Azure
+                Static Web Apps</a>. This service is still in preview and its free to use for the moment. I decided to
+            try it out by deploying my Github pages project to it.
+        </p>
+        <p>This was surprisingly easy to do given how complicated other Azure services can be to configure. I opened the
+            Azure portal and typed “static” in the search bar and it popped up immediately. The configuration page did a
+            good job of walking me through the process where I created a new resource for it, pointed it at my Github
+            repo, approved the automatic creation of a new Github Action to grab the static files from the repo. In just
+            a couple of minutes I could play with the <a href="https://thankful-sky-05e25161e.azurestaticapps.net/"
+                target="_blank" rel="noopener noreferrer">demo site</a>.</p>
+        <p>There are a couple of things I don’t like about this though. If you pop open the site in your browser’s dev
+            tools by hitting F12 in Chrome and refresh the page from the “Network” tab; You’ll see that requests are
+            being served using the HTTP/1.1 protocol with SSL enabled. This is unfortunate because on Github pages my
+            site is served up using HTTP/2 when the client’s browser supports it.</p>
+        <p>This protocol support handicap manifests itself as performance hit if you compare the two services by hard
+            refreshing them in side by side browser windows. A warm copy of the Azure Static Web App Preview takes 20
+            milliseconds to render in Chrome whereas the same site on Github pages takes 5 milliseconds. Acknowledging
+            that both page load times are well below what would be perceived as slow by a user, a 3x performance hit is
+            not ideal. What is worse is that a cold refresh on the Azure Static Web Apps version is typically much
+            slower, between half a second and 3 seconds in my testing.</p>
+        <p>Then there is the issue of the security headers, which are non-existent. You can see that the site fails the
+            <a href="https://securityheaders.com/?q=https%3A%2F%2Fthankful-sky-05e25161e.azurestaticapps.net%2F&followRedirects=on"
+                target="_blank" rel="noopener noreferrer">SecurityHeaders.com</a> checker. To configure how the web
+            server responds to requests for your static content
+            you have to create a separate Azure function which sort of defeats the purpose of hosting a static site if I
+            need a back end to modify the web server’s responses. Ideally, I would be able to select the headers that I
+            want the web server to respond with from a list of support options as a global configuration option for the
+            site. In defense of Azure’s Static Web App Preview, sites built on Github pages also fail this security
+            headers test.</p>
+        <p>Finally, we have the Google Lighthouse scores which are identical at 100 for both services. Azure’s Static
+            Web Apps Preview does get dinged 7 points in the “Best Practices” category for not using HTTP/2, but we
+            already knew about that issue.</p>
+        <p>In sum this preview is a good start and the concept of quickly yeeting some static files into a website
+            hosted on Azure has legs. But the current implementation has room for improvement before it can compete
+            effectively with existing free services like Github pages.</p>
+    </article>
+    <footer class="center">
+        <h1 class="menu"><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
+                class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Résumé</a></h1>
+    </footer>
+</body>
+
+</html>
