@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!--
+Hello there.
+You're a bold one; hitting that inspect button.
+(•_• )
+( •_•)
+( •_•)>⌐■-■
+(⌐■_■)
+Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
+Designed in Seattle, forged in Puget Sound.
+@UncheckedError
+-->
+<html>
+
+<head>
+    <title>Tom the bomb on CD-ROM</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
+    <meta name="keywords"
+        content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="author" content="Thomas August Ryan @UncheckedError">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Skip the favicon. -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style type="text/css">
+        .center {
+            /* Off white to reduce eye strain. */
+            background: #FDFDFD;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 3% 0% 3% 0%;
+            /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .center:hover {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 650px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        h3 {
+            letter-spacing: 0.01em;
+            font-size: 3em;
+            font-weight: 100;
+            margin: 5% 0% 5% 0%;
+        }
+
+        ol li {
+            letter-spacing: 0.001em;
+            font-size: 1.8em;
+            font-weight: 100;
+            line-height: 1.6em;
+        }
+
+        p {
+            font-size: 1.8em;
+            letter-spacing: 0em;
+            white-space: normal;
+            line-height: 1.4em;
+        }
+
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        body>article>p>a {
+            text-decoration: none;
+            border-bottom: 1px solid black;
+        }
+
+        a:link,
+        a:visited {
+            color: black;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        .underline {
+            text-decoration: none;
+        }
+
+        blockquote {
+            background: #f5f5f5;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 0% 0% 0% 0%;
+        }
+
+        footer,
+        .menu {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: flex-end;
+        }
+
+        /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
+        @media (prefers-color-scheme: dark) {
+            .center {
+                /* Off white to reduce eye strain. */
+                background: #242424;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+
+            body {
+                /* Off black to reduce eye strain. */
+                background-color: #171717;
+                /* Off white to reduce eye strain. */
+                color: #e3e3e3;
+            }
+
+            blockquote {
+                background: #2e2e2e;
+                border-radius: 2px;
+                padding: 5%;
+                margin: 0% 0% 0% 0%;
+            }
+
+            body>article>p>a {
+                text-decoration: none;
+                border-bottom: 1px solid #4db2ff;
+            }
+
+            a:link,
+            a:visited {
+                color: #4db2ff;
+            }
+
+            a:hover,
+            a:active {
+                color: #0091ff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="center">
+        <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
+    </header>
+    <article class="center">
+        <time datetime="2020-05-22">
+            <h2>September 6th, 2020</h2>
+        </time>
+        <h3>Deserializing XML into Objects in C#</h3>
+        <p>Compared to the simplicity of deserializing JSON, dealing with XML in dotnet core can be confusing and
+            unintuitive. In this case I needed to deserialize the XML response of an HTTP call to an endpoint that the
+            Department of Revenue provides to lookup what percentage of tax should be collected for a given billing
+            address. </p>
+        <p>Although quite helpful, the <a
+                href="https://dor.wa.gov/taxes-rates/retail-sales-tax/destination-based-sales-tax-and-streamlined-sales-tax/wa-sales-tax-rate-lookup-url-interface"
+                target="_blank" rel="noopener noreferrer">documentation</a> provided by the state on how their API
+            worked was last updated in
+            2011. The example they provide for making a query to this API using a C# client makes a request with the now
+            depreciated WebClient class and ends with this comment as soon as they get to how to parse the XML response:
+        </p>
+        <p>“ // Now parse the XML …”</p>
+        <p>¯\_(ツ)_/¯</p>
+    </article>
+    <article class="center">
+        <h3>Start with a Sample</h3>
+        <p>The first thing we need is a sample request and response chain as an example of how to interact with this
+            API. The best way I’ve found to capture this data yourself is by sending a request using a tool like <a
+                href="https://www.postman.com/" target="_blank" rel="noopener noreferrer">Postman</a>
+            or <a href="https://curl.haxx.se/" target="_blank" rel="noopener noreferrer">curl</a>. In this case I am
+            using Postman and I am sending a GET request to the endpoint using an example
+            query that was listed in the API’s documentation.</p>
+        <a href="PostmanResponse.png" title="Request and Response chain from Postman"><img src="PostmanResponse.png"
+                alt="Request and Response chain from Postman"></a>
+        <p>Now that we’ve captured a complete request and response chain, we can start building out a model of this
+            endpoint in C#.</p>
+    </article>
+    <article class="center">
+        <h3>Paste XML as Classes</h3>
+        <p>
+            Visual Studio 2019 has a wonderful little tool that will generate a set of C# class for us based on our XML.
+            You can use it from the menu bar by clicking “Edit” => “Paste Special” => “Paste XML as Classes”. This will
+            give us a good start as the most difficult part of deserializing XML to C# objects is making sure that the
+            XML and your model match up. If they don’t match, you’ll get deserialization exceptions which are annoying
+            to say the least.
+        </p>
+        <a href="SalesTaxModel.png" title="The model we are deserializing the XML response to"><img src="SalesTaxModel.png"
+            alt="The model we are deserializing the XML response to"></a>
+        <p>Typically, the generated C# classes will mirror the names of the elements in your XML. Most of the time this
+            is desirable, but sometimes they name the wrapper XML object something silly and generic like “response”. In
+            this case we’ll have to rename it when we deserialize it to a more specifically named type like “SalesTax”.
+            To accomplish this, we can use the XmlRoot attribute as described in this <a
+                href="https://stackoverflow.com/a/3653438/10344352" target="_blank"
+                rel="noopener noreferrer">Stackoverflow</a> question. </p>
+        <p>We can mark our SalesTax class as an XmlRoot with an ElementName of “response”. This hint will allow the
+            deserializer to map the “response” class in our XML body to the SalesTax object in our C# model. </p>
+    </article>
+    <article class="center">
+        <h3>Making A Request</h3>
+        <p>Now that we’ve got our model worked out we need to make the HTTP request to this API so we have a response
+            to deserialize to our model. There are many ways to handle this, but I prefer the <a href="https://flurl.dev/" target="_blank" rel="noopener noreferrer">Flurl</a> library which you
+            can find on <a href="https://www.nuget.org/packages/Flurl/" target="_blank" rel="noopener noreferrer">NuGet</a>. Flurl has an intuitive syntax and handles the pooling and reuse of HttpClient objects so
+            you don’t have to. </p>
+        <blockquote>
+            string baseUrl = "https://webgis.dor.wa.gov/webapi/";
+            </br>
+            </br>
+            string endpoint = "AddressRates.aspx";
+            </br>
+            </br>
+            string outputParameter = $"?output=xml";
+        </blockquote>
+        <p>
+            To use Flurl I am going to start by defining the baseUrl for the API I want to make requests to. In this
+            case it’s the Department of Revenue’s website at “https://webgis.dor.wa.gov/webapi/”. Then I’ll add the
+            route to the specific endpoint that I want to interact with “AddressRates.aspx”.
+        </p>
+        <blockquote>
+            string addrParameter = $"&addr={streetAddress}";
+            </br>
+            </br>
+            string cityParameter = $"&city={city}";
+            </br>
+            </br>
+            string zipParameter = $"&zip={zip}";
+        </blockquote>
+        <p>
+            Finally, we need to define each of the parameters that this endpoint accepts. Luckily for us this is
+            straightforward as this endpoint’s parameters are all defined as query strings. We can create template
+            strings like $"&addr={streetAddress}" for each of the three parameters “addr”, “city”, and “zip” and then
+            add them as required parameters for our method.
+        </p>
+        <blockquote>
+            string url = $"{baseUrl}{endpoint}{outputParameter}{addrParameter}{cityParameter}{zipParameter}";
+        </blockquote>
+        <p>
+            For Flurl to do it job will have combine all these pieces together into a single string.
+        </p>
+        <blockquote>
+            var result = await url.GetStreamAsync().ConfigureAwait(false);
+        </blockquote>
+        <p>
+            Now we can execute an asynchronous GET request to this URL and get the response back as a Stream.
+        </p>
+        <blockquote>
+            var serializer = new XmlSerializer(typeof(SalesTax));
+        </blockquote>
+        <p>
+            To use the XmlSerializer class we have to create a new instance of this object and pass in the type of
+            object we expect it to serialize our XML to.
+        </p>
+        <blockquote>
+            var apiResponse = (SalesTax)serializer.Deserialize(result);
+        </blockquote>
+        <p>
+            Then we can pass it the response Stream, which is the XML response from the API call we made earlier and
+            cast it to the type we’re expecting it to return, in this case our “SalesTax” class. You can learn more
+            about this XML serialization method in <a href="https://stackoverflow.com/a/3653438/10344352"
+                target="_blank" rel="noopener noreferrer">Microsoft’s docs</a>.
+        </p>
+        <p>
+            I prefer to define static methods inside of a class to retrieve data of that type. I like this pattern
+            because it makes it obvious what the return type of the method call will be so you can define it using var
+            for the left hand of the assignment statement without making the return type ambiguous to the reader.
+        </p>
+        <p>
+            To improve clarity further, I pass in the required data as parameters of this method to make its
+            dependencies
+            explicit. The other upside of this pattern is that you don’t have to recall the implementation details of
+            how you’re getting the data for that type of object. Rather you just need to know what data it will return
+            to you and meet its demands by passing in the parameters.
+        </p>
+        <p>
+            Thus the complete data access method looks like this:
+        </p>
+        <a href="GetAsync.png" title="Data retrieval method"><img src="GetAsync.png" alt="Data retrieval method"></a>
+    </article>
+    <article class="center">
+        <h3>
+            Test it
+        </h3>
+        <p>To prove this works the way we expect we can write an integration test and print out the values in the
+            resulting SalesTax object to the console. I’m using a separate test project here and the XUnit testing
+            framework.</p>
+        <a href="SalesTaxTest.png" title="Testing the data retrieval method"><img src="SalesTaxTest.png"
+                alt="Testing the data retrieval method"></a>
+        <p>Now we have proof that our object contains all of the data we were expecting from the XML response.</p>
+        <p>Deserializing XML into objects in C# is easy enough if you leverage Visual Studio’s “Paste Special” to
+            generate your XML classes, popular libraries like Flurl to make your HTTP requests, and dotnet’s base class
+            library to handle XML parsing.</p>
+        <p>
+            You can find all of the code discussed in this post here on <a
+                href="https://github.com/AccelerateNetworks/NumberSearch/blob/d643120d5f1e4df942b55bc4216cf30814297402/NumberSearch.DataAccess/SalesTax/WA.cs#L99"
+                target="_blank" rel="noopener noreferrer">Github</a> and in production on the <a
+                href="https://acceleratenetworks.com/" target="_blank" rel="noopener noreferrer">Accelerate
+                Network’s</a> website where its being used to calculate the sales tax to collect on new orders.
+        </p>
+    </article>
+    <footer class="center">
+        <h1 class="menu"><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
+                class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Résumé</a></h1>
+    </footer>
+</body>
+
+</html>
