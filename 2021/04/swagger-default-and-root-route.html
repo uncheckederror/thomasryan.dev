@@ -67,11 +67,11 @@ Designed in Seattle, forged in Puget Sound.
             margin: 5% 0% 5% 0%;
         }
 
-        ul li {
+        ol li {
             letter-spacing: 0.001em;
             font-size: 1.8em;
             font-weight: 100;
-            line-height: 1.5em;
+            line-height: 1.6em;
         }
 
         p {
@@ -79,6 +79,10 @@ Designed in Seattle, forged in Puget Sound.
             letter-spacing: 0em;
             white-space: normal;
             line-height: 1.4em;
+        }
+
+        img {
+            width: 100%;
         }
 
         body>article>p>a {
@@ -153,88 +157,38 @@ Designed in Seattle, forged in Puget Sound.
         }
     </style>
 </head>
+
 <body>
     <header class="center">
-        <h1><a href="./index.html" class="underline">Thomas August Ryan</a></h1>
+        <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
     </header>
     <article class="center">
-        <time datetime="2020">
-            <h2>2021</h2>
+        <time datetime="2020-05-22">
+            <h2>April 2, 2020</h2>
         </time>
-        <p><a href="./2021/04/swagger-default-and-root-route.html" class="underline">
-            <h3>Expose Swagger docs at both the default and root Route of your .NET 5 Web API</h3>
-        </a></p>
-    </article>
-    <article class="center">
-        <time datetime="2020">
-            <h2>2020</h2>
-        </time>
-        <p><a href="./2020/09/deserialize-xml-csharp-objects.html" class="underline">
-            <h3>Deserializing XML into Objects in C#</h3>
-        </a></p>
-        <p><a href="./2020/06/serve-geojson-aspnetcore-dotnet.html" class="underline">
-            <h3>Serve GeoJSON Files in ASP.NET Core 3.1</h3>
-        </a></p>
-        <p><a href="./2020/05/azure-static-web-apps-preview.html" class="underline">
-                <h3>Comparing Azure Static Web Apps and Github Pages</h3>
-            </a></p>
-        <p><a href="./2020/04/adding-security-headers.html" class="underline">
-                <h3>Adding Security Headers to an ASP.NET Core 3.1 MVC Web App</h3>
-            </a></p>
-        <p><a href="./2020/03/malicious-scraping-account-number-schemes.html" class="underline">
-                <h3>Malicious Scraping and Account Number Schemes</h3>
-            </a></p>
-    </article>
-    <article class="center">
-        <time datetime="2019">
-            <h2>2019</h2>
-        </time>
-        <p><a href="./2019/11/adding-spinner-bootstrap-dotnet-core-mvc.html" class="underline">
-                <h3>Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App</h3>
-            </a></p>
-        <p><a href="./2019/10/indexing-file-directories-dotnet-core.html" class="underline">
-                <h3>Quickly Indexing File Directories in ASP.NET Core 3.0</h3>
-            </a></p>
-        <p><a href="./2019/09/buildings-by-year-in-kitsap-county.html" class="underline">
-                <h3>Making Buildings By Year Built in Kitsap County</h3>
-            </a></p>
-        <p><a href="./2019/07/dapper-dotnet-core-odbc-sqlserver-2000.html" class="underline">
-                <h3>Using Dapper and .NET Core to pull data from SQL Server 2000</h3>
-            </a></p>
-        <p><a href="./2019/05/webforms-datasets-to-dapper.html" class="underline">
-                <h3>How I Converted ADO.NET DataSets into Dapper data models</h3>
-            </a></p>
-        <p><a href="./2019/03/in-praise-of-sticky-notes.html" class="underline">
-                <h3>In Praise of Sticky Notes</h3>
-            </a></p>
-        <p><a href="./2019/02/purging-the-search-page.html" class="underline">
-                <h3>Purging the Search Page</h3>
-            </a></p>
-        <p><a href="./2019/01/making-zoning-codes-useful.html" class="underline">
-                <h3>Making Zoning Codes Useful</h3>
-            </a></p>
-        <p><a href="./2019/01/parsing-tax-descriptions.html" class="underline">
-                <h3>Parsing Tax Descriptions</h3>
-            </a></p>
-    </article>
-    <article class="center">
-        <time datetime="2018">
-            <h2>2018</h2>
-        </time>
-        <p><a href="./2018/11/07/a-most-disappointing-report-button.html" class="underline">
-                <h3>A Most Disappointing Bug Report Button</h3>
-            </a></p>
-        <p><a href="./2018/06/17/buttons-as-actions.html" class="underline">
-                <h3>Buttons As Actions</h3>
-            </a></p>
-        <p><a href="./2018/06/15/modernizing-kitsap-countys-parcel-details.html" class="underline">
-                <h3>Modernizing Kitsap County’s Parcel Details</h3>
-            </a></p>
+        <h3>Expose Swagger docs at both the default and root Route of your .NET 5 Web API</h3>
+        <p>By default, the interactive docs in your .NET 5 Web API will be routed to the “/swagger” endpoint if you
+            <a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-5.0&tabs=visual-studio"
+                target="_blank" rel="noopener noreferrer">follow this tutorial</a>.
+        </p>
+        <p> This is cool because it is consistent across projects, but it’s not ideal because your
+            app will return a 404 if you browse to the root or “/” endpoint. To solve this problem Microsoft suggests in
+            their docs that you can set the RoutePrefix in your UseSwaggerUI to string.Empty. This will work and when
+            you browse to the root route of your app, you’ll now see the docs. </p>
+        <p>But you’ll also no longer see the docs at the “/swagger” route which can be problematic if Visual Studio 2019
+            or the API’s consumer expect it to be there by convention.</p>
+        <p> To solve this problem and have it both ways you
+            can duplicate the “UseSwaggerUI” call in your apps Startup.cs file. One version that includes the option to
+            set the RoutePrefix to string.Empty and another that skips that line. Now when you start up your Web API
+            you’ll be greeted with the docs whether you start at the conventional “/swagger” route or at the app’s root
+            route.</p>
+        <p>For an example of how this looks check out this <a
+                href="https://github.com/uncheckederror/WASalesTaxLookup/blob/3010c2dc990bb87b162ce4149d0e57bd63f67f7e/WASaleTax/Startup.cs#L90"
+                target="_blank" rel="noopener noreferrer">code on Github</a>.</p>
     </article>
     <footer class="center">
-        <!-- <p><a href="https://github.com/uncheckederror">Github</a> <a href="https://twitter.com/UncheckedError">Twitter</a> <a href="https://medium.com/@UncheckedError">Medium</a> <a href="https://www.linkedin.com/in/uncheckederror">LinkedIn</a> <a href="https://www.instagram.com/uncheckederror/?hl=en">Instagram</a> <a href="https://www.pcworld.com/author/Thomas-Ryan/">PCWorld</a></p> -->
-        <h1 class="menu"><a href="posts.html" class="underline">Posts</a> <a href="demos.html"
-                class="underline">Demos</a> <a href="resume.pdf" class="underline">Résumé</a></h1>
+        <h1 class="menu"><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
+                class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Résumé</a></h1>
     </footer>
 </body>
 
