@@ -23,7 +23,9 @@ Designed in Seattle, forged in Puget Sound.
     <meta name="author" content="Thomas August Ryan @UncheckedError">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Skip the favicon. -->
-    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAACEAEUAAAAAAGIBTABJSUkAw7ItAF7o5QAhlg8AhE3ZALSIDwDj5WMAvq0rAJYGVQB6AEYAmFgLAASvTwCFAUMAtH4TAJRG7QAIl6wAVFRUADq3zAAP0NIAr0T6AAadrACUA04AKrE4ADd0sgBlCK4A4/M9ABHYvABuFN8A/v79AEBBSQBvAEgAMg/XAF3o5wAd3NoAXAtDAAefsAD+/v4AeiKfAIQASAAbKbkA19xOAJYGWABqAFIAiQJLAAAeqAAGsnMAZTPlAFYX4gAbcrMASrrOAFrr6QD29vUAlVMEAEfOtwAvlQ0A1Mw6ABdhoQB9BE8ABcO4AACdAQAAIJsAlCDXABNKuQD//P0A6enpAAgskgBQoB8ALrmAALJ+DwCAAEIAAEeRACu/ZwCExzwAWgB+ABl9AAA1NTUA5eXlAACLFABmCcAAkwJNAOX2KAAUNasAV684AFYBUwCNA0sA5+chAFsAXgBf5dsAVABvADSsvwAwI9UAJaoXAOXXJQD///8AI+zjAAGeKgACVpIAAEuQAFEAXwCQHMQACw3TAP39/QBIqwsAHi7IAGq2FAAvLy8AGqMsAAKPAgDQ0NAAbwWCAPv7+wCfWQcAoMY4AGYd5QCn3yMAiARKAKY+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYGBgYGAnFSZjcGBgYGBgYGBgYGAdPRUXY0RwZ2BgYGBgYGBNDh0kEmQ/ZzIeYGBgYCdNPlAwYSZJLyIeUUxgYGB1aU1uYmEmYy90G0xlTmAnHHVrOTliJmMvG1tWLSVgX19YU1NTAQEBAQMBDAApbxAQRwgQEAFgYAF2dlcYLHYNDTdyDQ0BYGABdnZ2Ugt2CgoEOjpGAQEBAUhISA8udmAJK3NzRgU0GkFmcAIhPB9gK0tFBkYFNBpBB2ZwWWxgYDZVXm1GBTQaKjF3QChoYGBgXhlKODVcO1RdERYTYGBgYGBCOFojFDNBaiBxYGBgYGBgYGBDIxQzQU9gYGBgYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" rel="icon" type="image/x-icon" />
+    <link
+        href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAACEAEUAAAAAAGIBTABJSUkAw7ItAF7o5QAhlg8AhE3ZALSIDwDj5WMAvq0rAJYGVQB6AEYAmFgLAASvTwCFAUMAtH4TAJRG7QAIl6wAVFRUADq3zAAP0NIAr0T6AAadrACUA04AKrE4ADd0sgBlCK4A4/M9ABHYvABuFN8A/v79AEBBSQBvAEgAMg/XAF3o5wAd3NoAXAtDAAefsAD+/v4AeiKfAIQASAAbKbkA19xOAJYGWABqAFIAiQJLAAAeqAAGsnMAZTPlAFYX4gAbcrMASrrOAFrr6QD29vUAlVMEAEfOtwAvlQ0A1Mw6ABdhoQB9BE8ABcO4AACdAQAAIJsAlCDXABNKuQD//P0A6enpAAgskgBQoB8ALrmAALJ+DwCAAEIAAEeRACu/ZwCExzwAWgB+ABl9AAA1NTUA5eXlAACLFABmCcAAkwJNAOX2KAAUNasAV684AFYBUwCNA0sA5+chAFsAXgBf5dsAVABvADSsvwAwI9UAJaoXAOXXJQD///8AI+zjAAGeKgACVpIAAEuQAFEAXwCQHMQACw3TAP39/QBIqwsAHi7IAGq2FAAvLy8AGqMsAAKPAgDQ0NAAbwWCAPv7+wCfWQcAoMY4AGYd5QCn3yMAiARKAKY+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYGBgYGAnFSZjcGBgYGBgYGBgYGAdPRUXY0RwZ2BgYGBgYGBNDh0kEmQ/ZzIeYGBgYCdNPlAwYSZJLyIeUUxgYGB1aU1uYmEmYy90G0xlTmAnHHVrOTliJmMvG1tWLSVgX19YU1NTAQEBAQMBDAApbxAQRwgQEAFgYAF2dlcYLHYNDTdyDQ0BYGABdnZ2Ugt2CgoEOjpGAQEBAUhISA8udmAJK3NzRgU0GkFmcAIhPB9gK0tFBkYFNBpBB2ZwWWxgYDZVXm1GBTQaKjF3QChoYGBgXhlKODVcO1RdERYTYGBgYGBCOFojFDNBaiBxYGBgYGBgYGBDIxQzQU9gYGBgYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+        rel="icon" type="image/x-icon" />
     <style type="text/css">
         .center {
             /* Off white to reduce eye strain. */
@@ -214,16 +216,12 @@ Designed in Seattle, forged in Puget Sound.
         <p>Hi! People call me <a href="https://www.instagram.com/uncheckederror/" target="_blank"
                 rel="noopener noreferrer">Tom</a>.</p>
         <p>I'm a Senior Applications Developer at King County.</p>
-        <p>Working for the County is fun. Recently I built a web application that customized a Microsoft Dynamics 365
-            instance to collect requests from Escrow companies for information on the Waterwater taxes owed on specific
-            properties.
+        <p>Right now I am building a web app to manage and edit Road Assets like stop
+            signs and crosswalks using the Next.js front-end framework and ESRI's ArcGIS JS mapping library. The
+            back-end of this app is composed of authenticated APIs exposed through Azure's API Management service and
+            Feature Services exposed by ArcGIS Enterprise.
         </p>
-        <p>Up until the end of 2020 this was a paper-based process that every sale had to pass
-            through. With the app I built most requests submitted to the county now receive an automatic response
-            through a Power Automate Flow. You
-            can see some of the GIS integrations built for <a
-                href="https://github.com/uncheckederror/KingCountyArcGISJS" target="_blank"
-                rel="noopener noreferrer">this project on Github.</a></p>
+        <p>This web app is a direct reimplementation of a decade-old app that was built on the now deprecated Silverlight 👀 framework from Microsoft. </p>
     </article>
     <article class="center">
         <h1 class="menu"><a href="posts.html" class="underline">Posts</a> <a href="demos.html"
@@ -241,7 +239,8 @@ Designed in Seattle, forged in Puget Sound.
         <br />
         <br />
         <a href="https://acceleratenetworks.com/Search?Query=206" title="Number Search" target="_blank"
-            rel="noopener noreferrer"><img src="NumberSearchHero.png" alt="A 206 area code query in Number Search."></a>
+            rel="noopener noreferrer"><img src="NumberSearchHero.webp"
+                alt="A 206 area code query in Number Search."></a>
         <p>In support of my brother's company, I wrote a console application that scrapes phone numbers that are
             available for purchase from a pair of SOAP APIs and a REST API, and then aggregates them into a local
             database. You can review the results of <a href="https://numbersearch.acceleratenetworks.com/ingest"
@@ -274,7 +273,7 @@ Designed in Seattle, forged in Puget Sound.
         <br />
         <br />
         <a href="https://psearch.kitsapgov.com/pdetails/Details?parcel=5432-000-060-0004&page=taxassessments"
-            title="Parcel Details" target="_blank" rel="noopener noreferrer"><img src="ParcelDetailsHero.png"
+            title="Parcel Details" target="_blank" rel="noopener noreferrer"><img src="ParcelDetailsHero.webp"
                 alt="A comparison of the taxes between years in Parcel Details."></a>
         <p>My primary responsibility at Kitsap County was maintaining the public parcel information system. <a
                 href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-066-0008&page=landlocation"
@@ -356,7 +355,7 @@ Designed in Seattle, forged in Puget Sound.
         <br />
         <br />
         <a href="https://psearch.kitsapgov.com/platssearch?SearchString=JOHNSON+PLACE" title="Plats Search"
-            target="_blank" rel="noopener noreferrer"><img src="PlatsSearchHero.png" alt="A Plat in Plats."></a>
+            target="_blank" rel="noopener noreferrer"><img src="PlatsSearchHero.webp" alt="A Plat in Plats."></a>
         <p><a href="https://psearch.kitsapgov.com/PlatsSearch/?SearchString=5432" target="_blank"
                 rel="noopener noreferrer">Plats Search</a> is web app that
             allows you to look up survey and plat documents related to a tax parcel.</p>
