@@ -13,15 +13,17 @@ Designed in Seattle, forged in Puget Sound.
 <html>
 
 <head>
-    <title>Tom the bomb on CD-ROM</title>
+    <title>Deserializing XML into Objects in C#</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
+    <meta name="description" content="Compared to the simplicity of deserializing JSON, dealing with XML in dotnet core can be confusing and unintuitive.">
     <meta name="keywords"
         content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
     <meta name="author" content="Thomas August Ryan @UncheckedError">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Skip the favicon. -->
-    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAACEAEUAAAAAAGIBTABJSUkAw7ItAF7o5QAhlg8AhE3ZALSIDwDj5WMAvq0rAJYGVQB6AEYAmFgLAASvTwCFAUMAtH4TAJRG7QAIl6wAVFRUADq3zAAP0NIAr0T6AAadrACUA04AKrE4ADd0sgBlCK4A4/M9ABHYvABuFN8A/v79AEBBSQBvAEgAMg/XAF3o5wAd3NoAXAtDAAefsAD+/v4AeiKfAIQASAAbKbkA19xOAJYGWABqAFIAiQJLAAAeqAAGsnMAZTPlAFYX4gAbcrMASrrOAFrr6QD29vUAlVMEAEfOtwAvlQ0A1Mw6ABdhoQB9BE8ABcO4AACdAQAAIJsAlCDXABNKuQD//P0A6enpAAgskgBQoB8ALrmAALJ+DwCAAEIAAEeRACu/ZwCExzwAWgB+ABl9AAA1NTUA5eXlAACLFABmCcAAkwJNAOX2KAAUNasAV684AFYBUwCNA0sA5+chAFsAXgBf5dsAVABvADSsvwAwI9UAJaoXAOXXJQD///8AI+zjAAGeKgACVpIAAEuQAFEAXwCQHMQACw3TAP39/QBIqwsAHi7IAGq2FAAvLy8AGqMsAAKPAgDQ0NAAbwWCAPv7+wCfWQcAoMY4AGYd5QCn3yMAiARKAKY+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYGBgYGAnFSZjcGBgYGBgYGBgYGAdPRUXY0RwZ2BgYGBgYGBNDh0kEmQ/ZzIeYGBgYCdNPlAwYSZJLyIeUUxgYGB1aU1uYmEmYy90G0xlTmAnHHVrOTliJmMvG1tWLSVgX19YU1NTAQEBAQMBDAApbxAQRwgQEAFgYAF2dlcYLHYNDTdyDQ0BYGABdnZ2Ugt2CgoEOjpGAQEBAUhISA8udmAJK3NzRgU0GkFmcAIhPB9gK0tFBkYFNBpBB2ZwWWxgYDZVXm1GBTQaKjF3QChoYGBgXhlKODVcO1RdERYTYGBgYGBCOFojFDNBaiBxYGBgYGBgYGBDIxQzQU9gYGBgYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=" rel="icon" type="image/x-icon" />
+    <link
+        href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAACEAEUAAAAAAGIBTABJSUkAw7ItAF7o5QAhlg8AhE3ZALSIDwDj5WMAvq0rAJYGVQB6AEYAmFgLAASvTwCFAUMAtH4TAJRG7QAIl6wAVFRUADq3zAAP0NIAr0T6AAadrACUA04AKrE4ADd0sgBlCK4A4/M9ABHYvABuFN8A/v79AEBBSQBvAEgAMg/XAF3o5wAd3NoAXAtDAAefsAD+/v4AeiKfAIQASAAbKbkA19xOAJYGWABqAFIAiQJLAAAeqAAGsnMAZTPlAFYX4gAbcrMASrrOAFrr6QD29vUAlVMEAEfOtwAvlQ0A1Mw6ABdhoQB9BE8ABcO4AACdAQAAIJsAlCDXABNKuQD//P0A6enpAAgskgBQoB8ALrmAALJ+DwCAAEIAAEeRACu/ZwCExzwAWgB+ABl9AAA1NTUA5eXlAACLFABmCcAAkwJNAOX2KAAUNasAV684AFYBUwCNA0sA5+chAFsAXgBf5dsAVABvADSsvwAwI9UAJaoXAOXXJQD///8AI+zjAAGeKgACVpIAAEuQAFEAXwCQHMQACw3TAP39/QBIqwsAHi7IAGq2FAAvLy8AGqMsAAKPAgDQ0NAAbwWCAPv7+wCfWQcAoMY4AGYd5QCn3yMAiARKAKY+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYGBgYGAnFSZjcGBgYGBgYGBgYGAdPRUXY0RwZ2BgYGBgYGBNDh0kEmQ/ZzIeYGBgYCdNPlAwYSZJLyIeUUxgYGB1aU1uYmEmYy90G0xlTmAnHHVrOTliJmMvG1tWLSVgX19YU1NTAQEBAQMBDAApbxAQRwgQEAFgYAF2dlcYLHYNDTdyDQ0BYGABdnZ2Ugt2CgoEOjpGAQEBAUhISA8udmAJK3NzRgU0GkFmcAIhPB9gK0tFBkYFNBpBB2ZwWWxgYDZVXm1GBTQaKjF3QChoYGBgXhlKODVcO1RdERYTYGBgYGBCOFojFDNBaiBxYGBgYGBgYGBDIxQzQU9gYGBgYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+        rel="icon" type="image/x-icon" />
     <style type="text/css">
         .center {
             /* Off white to reduce eye strain. */
@@ -203,8 +205,8 @@ Designed in Seattle, forged in Puget Sound.
             XML and your model match up. If they don’t match, you’ll get deserialization exceptions which are annoying
             to say the least.
         </p>
-        <a href="SalesTaxModel.png" title="The model we are deserializing the XML response to"><img src="SalesTaxModel.png"
-            alt="The model we are deserializing the XML response to"></a>
+        <a href="SalesTaxModel.png" title="The model we are deserializing the XML response to"><img
+                src="SalesTaxModel.png" alt="The model we are deserializing the XML response to"></a>
         <p>Typically, the generated C# classes will mirror the names of the elements in your XML. Most of the time this
             is desirable, but sometimes they name the wrapper XML object something silly and generic like “response”. In
             this case we’ll have to rename it when we deserialize it to a more specifically named type like “SalesTax”.
@@ -217,8 +219,11 @@ Designed in Seattle, forged in Puget Sound.
     <article class="center">
         <h3>Making A Request</h3>
         <p>Now that we’ve got our model worked out we need to make the HTTP request to this API so we have a response
-            to deserialize to our model. There are many ways to handle this, but I prefer the <a href="https://flurl.dev/" target="_blank" rel="noopener noreferrer">Flurl</a> library which you
-            can find on <a href="https://www.nuget.org/packages/Flurl/" target="_blank" rel="noopener noreferrer">NuGet</a>. Flurl has an intuitive syntax and handles the pooling and reuse of HttpClient objects so
+            to deserialize to our model. There are many ways to handle this, but I prefer the <a
+                href="https://flurl.dev/" target="_blank" rel="noopener noreferrer">Flurl</a> library which you
+            can find on <a href="https://www.nuget.org/packages/Flurl/" target="_blank"
+                rel="noopener noreferrer">NuGet</a>. Flurl has an intuitive syntax and handles the pooling and reuse of
+            HttpClient objects so
             you don’t have to. </p>
         <blockquote>
             string baseUrl = "https://webgis.dor.wa.gov/webapi/";

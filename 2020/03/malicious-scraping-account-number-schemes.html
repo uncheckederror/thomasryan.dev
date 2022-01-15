@@ -13,9 +13,9 @@ Designed in Seattle, forged in Puget Sound.
 <html>
 
 <head>
-    <title>Tom the bomb on CD-ROM</title>
+    <title>Malicious Scraping and Account Number Schemes</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
+    <meta name="description" content="On Monday morning just before 11 AM my supervisor walked into my cube.">
     <meta name="keywords"
         content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
     <meta name="author" content="Thomas August Ryan @UncheckedError">
@@ -178,7 +178,7 @@ Designed in Seattle, forged in Puget Sound.
             other queries that this database was executing. As it turned out this was a bit of a red herring, but it
             eventually led us down the right path.</p>
         <p>Next, we reviewed the database logs to look for errors or memory paging, of which there were none. Then we
-            review the logs for a related web app that my supervisor is responsible for supporting which showed that we
+            reviewed the logs for a related web app that my supervisor is responsible for supporting which showed that we
             were experiencing a minor traffic spike, approximately double our normal volume for this day of the week.
             Still concerned about the extreme CPU usage on the database server we poked around in the Windows event
             viewer for a few minutes to no avail.</p>
@@ -206,8 +206,8 @@ Designed in Seattle, forged in Puget Sound.
             search page rather than running them against the database. This change would short circuit the lookup for
             these accounts that don’t exist and spare the database the hassle of pointlessly trying to look it up.</p>
         <p>I ran the testing suite and did a bit of manual verification testing in IIS Express to verify that the fix
-            worked and nothing had regressed then I shipped the changes to the staging environment where I again
-            manually verified that the fix work before pushing this build to production. I waited for a few minutes for
+            worked and nothing had regressed. Then I shipped the changes to the staging environment where I again
+            manually verified that the fix worked before pushing this build to production. I waited for a few minutes for
             something terrible to happen and when nothing occurred, I left to walk around the block for a few minutes.
             Upon returning I refreshed the dashboard and saw that the telemetry from the database and web server had
             returned to normal. This incident was resolved in less than an hour.</p>

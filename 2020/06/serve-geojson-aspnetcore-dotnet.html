@@ -13,9 +13,9 @@ Designed in Seattle, forged in Puget Sound.
 <html>
 
 <head>
-    <title>Tom the bomb on CD-ROM</title>
+    <title>Serve GeoJSON Files in ASP.NET Core 6</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
+    <meta name="description" content="By default ASP.NET Core 6 will not expose files with the .geojson file extension in its wwwroot folder.">
     <meta name="keywords"
         content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
     <meta name="author" content="Thomas August Ryan @UncheckedError">
@@ -166,8 +166,8 @@ Designed in Seattle, forged in Puget Sound.
         <time datetime="2020-05-22">
             <h2>June 2nd, 2020</h2>
         </time>
-        <h3>Serve GeoJSON Files in ASP.NET Core 3.1</h3>
-        <p>By default ASP.NET Core 3.1 will not expose files with the .geojson file extension in its wwwroot folder. To
+        <h3>Serve GeoJSON Files in ASP.NET Core 6</h3>
+        <p>By default ASP.NET Core 6 will not expose files with the .geojson file extension in its wwwroot folder. To
             remedy this issue, we need to add an additional Content Type Provider in our Startup.cs file. Start by
             constructing a new FileExtensionContentTypeProvider and then adding a mapping for “.geojson” with a value of <a
             href="https://tools.ietf.org/html/rfc7946" target="_blank"
@@ -176,7 +176,7 @@ Designed in Seattle, forged in Puget Sound.
             app.UseStaticFiles(); call to take a new StaticFileOptions with a ContentTypeProvider set to the custom
             Content Type Provider that you created above. Now you can reference GeoJSON files stored in your project’s
             wwwroot folder using file paths like “/js/seattle-to-boston.geojson” in your views and razor pages.</p>
-        <pre><code>
+        <blockquote><pre><code>
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
     var provider = new FileExtensionContentTypeProvider();
@@ -187,7 +187,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         ContentTypeProvider = provider
     });
 }
-        </code></pre>
+        </code></pre></blockquote>
         <p>
             For more info on the why ASP.NET Core does not serve GeoJSON out of the box check out this <a
                 href="https://github.com/dotnet/aspnetcore/issues/22477" target="_blank"
