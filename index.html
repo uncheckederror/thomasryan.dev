@@ -217,15 +217,56 @@ Designed in Seattle, forged in Puget Sound.
                 rel="noopener noreferrer">Tom</a>.</p>
         <p>I'm a Senior Applications Developer at King County.</p>
         <p>Right now I am building a web app to manage and edit Road Assets like stop
-            signs and crosswalks using the Next.js front-end framework and ESRI's ArcGIS JS mapping library. The
+            signs and crosswalks using the Next.js framework and ESRI's ArcGIS JS mapping library. The
             back-end of this app is composed of authenticated APIs exposed through Azure's API Management service and
             Feature Services exposed by ArcGIS Enterprise.
         </p>
-        <p>This web app is a direct reimplementation of a decade-old app that was built on the now deprecated Silverlight 👀 framework from Microsoft. </p>
+        <p>This web app is a direct reimplementation of a decade-old app that was built on the now deprecated
+            Silverlight 👀 framework from Microsoft. </p>
     </article>
     <article class="center">
         <h1 class="menu"><a href="posts.html" class="underline">Posts</a> <a href="demos.html"
                 class="underline">Demos</a> <a href="resume.pdf" class="underline">Résumé</a></h1>
+    </article>
+    <article class="center">
+        <h3>Numbers in Bulk</h3>
+        <blockquote>
+            <ul>
+                <li>Investigate the portablity of Local, Tollfree, and Wireless numbers</li>
+                <li>Validate Phone Number ownership</li>
+                <li>Handles up to 350 Phone Numbers in 20 seconds</li>
+            </ul>
+        </blockquote>
+        <br />
+        <br />
+        <a href="https://acceleratenetworks.com/Lookup/BulkPort?dialedNumber=5558675309%2C+202-456-1414%2C+800-325-6165%2C+206-769-6361%2C+%28206%29+333-3341"
+            title="Numbers in Bulk" target="_blank" rel="noopener noreferrer"><img src="NumbersInBulk.webp"
+                alt="A query for many numbers in bulk."></a>
+        <p>When large organizations switch VOIP phone service providers often they bring their existing phone numbers
+            with them. To support this process, I built the Numbers in Bulk tool that accepts phone numbers in groups of
+            up to a few hundred and investigates each of them to verify that they can be ported to our network. It also
+            shows the user the current ownership of each number so that they can verify and audit the numbers that they
+            are submitting before we begin the rather complex process of bringing them over to our network.</p>
+        <p>
+            The lookup requests for each number submitted are handled asynchronously which enables us to scale from
+            handling one number to hundreds while staying within our performance budget and getting the results out to
+            the users in just a few seconds. You can checkout the code here on <a
+                href="https://github.com/AccelerateNetworks/NumberSearch/issues/222#issuecomment-903171345"
+                target="_blank" rel="noopener noreferrer">Github</a> and see how much our users love this feature.
+        </p>
+        <!-- <p>Posts About Number Search</p>
+        <ul>
+            <li>
+                <a href="./2020/04/adding-security-headers.html" class="underline">
+                    Adding Security Headers to an ASP.NET Core 3.1 MVC Web App
+                </a>
+            </li>
+            <li>
+                <a href="./2019/11/adding-spinner-bootstrap-dotnet-core-mvc.html" class="underline">
+                    Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App
+                </a>
+            </li>
+        </ul> -->
     </article>
     <article class="center">
         <h3>Number Search</h3>
@@ -242,8 +283,9 @@ Designed in Seattle, forged in Puget Sound.
             rel="noopener noreferrer"><img src="NumberSearchHero.webp"
                 alt="A 206 area code query in Number Search."></a>
         <p>In support of my brother's company, I wrote a console application that scrapes phone numbers that are
-            available for purchase from a pair of SOAP APIs and a REST API, and then aggregates them into a local
-            database. You can review the results of <a href="https://numbersearch.acceleratenetworks.com/ingest"
+            available for purchase from a pair of SOAP APIs and a few REST API, and then aggregates them into a locally
+            hosted
+            database. You can review the results of the <a href="https://numbersearch.acceleratenetworks.com/ingest"
                 target="_blank" rel="noopener noreferrer">ingest</a> process and quickly <a
                 href="https://numbersearch.acceleratenetworks.com/Search" target="_blank"
                 rel="noopener noreferrer">lookup</a> available phone numbers on the Accelerate Networks website.</p>
