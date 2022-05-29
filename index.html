@@ -38,10 +38,6 @@ Designed in Seattle, forged in Puget Sound.
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
 
-        .center:hover {
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-        }
-
         body {
             /* Compatible with everything, and anything. */
             font-family: sans-serif;
@@ -49,7 +45,7 @@ Designed in Seattle, forged in Puget Sound.
             background-color: #DCDCDC;
             margin: auto;
             padding: 0% 3% 0% 3%;
-            max-width: 700px;
+            max-width: 1200px;
             /* Off black to reduce eye strain. */
             color: #2A2A2A;
         }
@@ -61,28 +57,23 @@ Designed in Seattle, forged in Puget Sound.
             word-spacing: 5em;
             line-height: 1.1em;
             margin: 0%;
-            font-weight: 200;
+            font-weight: 100;
         }
 
         h3 {
-            letter-spacing: 0.01em;
-            font-size: 3em;
-            font-weight: 200;
-            margin: 5% 0% 5% 0%;
+            letter-spacing: 0.01rem;
+            font-size: 2.4rem;
+            font-weight: 100;
         }
 
         ul li {
-            letter-spacing: 0.001em;
-            font-size: 1.8em;
-            font-weight: 100;
-            line-height: 1.5em;
+            font-size: 1.4rem;
+            line-height: 2rem;
         }
 
         p {
-            font-size: 1.8em;
-            letter-spacing: 0em;
-            white-space: normal;
-            line-height: 1.4em;
+            font-size: 1.4rem;
+            line-height: 2rem;
         }
 
         body>article>p>a {
@@ -107,15 +98,8 @@ Designed in Seattle, forged in Puget Sound.
         blockquote {
             background: #f5f5f5;
             border-radius: 2px;
-            padding: 5%;
+            padding: 1rem;
             margin: 0% 0% 0% 0%;
-        }
-
-        footer,
-        .menu {
-            display: flex;
-            flex-flow: column wrap;
-            align-items: flex-end;
         }
 
         .links {
@@ -125,14 +109,14 @@ Designed in Seattle, forged in Puget Sound.
             justify-content: space-between;
         }
 
-        header>h1>a:link,
-        header>h1>a:visited {
-            color: #f5f5f5;
+        h1>a:link,
+        h1>a:visited {
+            color: grey;
         }
 
-        header>h1>a:hover,
-        header>h1>a:active {
-            color: grey;
+        h1>a:hover,
+        h1>a:active {
+            color:#d2d2d2;
         }
 
         .top {
@@ -145,7 +129,7 @@ Designed in Seattle, forged in Puget Sound.
         }
 
         @media (max-width: 680px) {
-            .links {
+            .hidemobile{
                 display: none;
             }
         }
@@ -167,9 +151,6 @@ Designed in Seattle, forged in Puget Sound.
 
             blockquote {
                 background: #2e2e2e;
-                border-radius: 2px;
-                padding: 5%;
-                margin: 0% 0% 0% 0%;
             }
 
             body>article>p>a {
@@ -179,7 +160,7 @@ Designed in Seattle, forged in Puget Sound.
 
             a:link,
             a:visited {
-                color: #4db2ff;
+                color: #e3e3e3;
             }
 
             a:hover,
@@ -187,13 +168,13 @@ Designed in Seattle, forged in Puget Sound.
                 color: #0091ff;
             }
 
-            header>h1>a:link,
-            header>h1>a:visited {
+            h1>a:link,
+            h1>a:visited {
                 color: #6b6b6b;
             }
 
-            header>h1>a:hover,
-            header>h1>a:active {
+            h1>a:hover,
+            h1>a:active {
                 color: #0091ff;
             }
         }
@@ -202,15 +183,14 @@ Designed in Seattle, forged in Puget Sound.
 
 <body>
     <header class="center top">
-        <h1 class="name">Thomas August Ryan</h1>
-        <h1 class="links">
-            <a class="underline" href="https://github.com/uncheckederror" target="_blank"
-                rel="noopener noreferrer">Github</a>
-            <a class="underline" href="https://twitter.com/UncheckedError" target="_blank"
-                rel="noopener noreferrer">Twitter</a>
-            <a class="underline" href="https://www.linkedin.com/in/uncheckederror/" target="_blank"
-                rel="noopener noreferrer">LinkedIn</a>
-            </div>
+        <a href="./index.html" class="underline">
+            <h1>Thomas<br>August<br>Ryan</h1>
+        </a>
+        <h1 class="links hidemobile">
+            <a href="./posts.html" class="underline">Posts</a>
+            <a href="./demos.html" class="underline">Demos</a>
+            <a href="./resume.pdf" class="underline">Résumé</a>
+        </h1>
     </header>
     <article class="center">
         <p>Hi! People call me <a href="https://www.instagram.com/uncheckederror/" target="_blank"
@@ -222,12 +202,6 @@ Designed in Seattle, forged in Puget Sound.
         </p>
         <p>This web app is a direct reimplementation of a product built on the now deprecated
             Silverlight 👀 framework from Microsoft. </p>
-    </article>
-    <article class="center">
-        <h1 class="menu"><a href="posts.html" class="underline">Content</a> <a href="demos.html"
-                class="underline">Demos</a> <a href="resume.pdf" class="underline">Résumé</a></h1>
-    </article>
-    <article class="center">
         <h3>Numbers in Bulk</h3>
         <blockquote>
             <ul>
@@ -253,21 +227,6 @@ Designed in Seattle, forged in Puget Sound.
                 href="https://github.com/AccelerateNetworks/NumberSearch/issues/222#issuecomment-903171345"
                 target="_blank" rel="noopener noreferrer">Github</a> and see how much our users love this feature.
         </p>
-        <!-- <p>Posts About Number Search</p>
-        <ul>
-            <li>
-                <a href="./2020/04/adding-security-headers.html" class="underline">
-                    Adding Security Headers to an ASP.NET Core 3.1 MVC Web App
-                </a>
-            </li>
-            <li>
-                <a href="./2019/11/adding-spinner-bootstrap-dotnet-core-mvc.html" class="underline">
-                    Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App
-                </a>
-            </li>
-        </ul> -->
-    </article>
-    <article class="center">
         <h3>Number Search</h3>
         <blockquote>
             <ul>
@@ -301,8 +260,6 @@ Designed in Seattle, forged in Puget Sound.
                 </a>
             </li>
         </ul>
-    </article>
-    <article class="center">
         <h3>Parcel Details</h3>
         <blockquote>
             <ul>
@@ -329,7 +286,8 @@ Designed in Seattle, forged in Puget Sound.
         <p>What I'm most proud of is getting the average page weight down from 6 MBs to less than 200 KBs. This was
             achieved despite the addition of a responsive CSS framework (Bootstrap 3.3.7), helpful icons, and a variety
             of new interactive features.</p>
-        <p>In the summer of 2018 I rebuilt Parcel Details as an ASP.NET Core 2.2 MVC project. It took about 300 hours port the
+        <p>In the summer of 2018 I rebuilt Parcel Details as an ASP.NET Core 2.2 MVC project. It took about 300 hours
+            port the
             data access layer and then rebuild the business logic and views in the MVC format. To prevent service
             interruptions this was a pixel perfect rebuild. This required careful testing to verify that there were no
             UX
@@ -383,8 +341,6 @@ Designed in Seattle, forged in Puget Sound.
                 </a>
             </li>
         </ul>
-    </article>
-    <article class="center">
         <h3>Plats Search</h3>
         <blockquote>
             <ul>
@@ -414,8 +370,6 @@ Designed in Seattle, forged in Puget Sound.
                 </a>
             </li>
         </ul>
-    </article>
-    <article class="center">
         <h3>Other Stuff</h3>
         <p>I like camping. Often I'll go out to the Olympics and stay at sites like Lake Cushman, Deer Park, and the
             coastline around Lake Ozette. I'm also looking forward to ski season this winter.</p>
@@ -426,8 +380,6 @@ Designed in Seattle, forged in Puget Sound.
                 href="https://www.google.com/search?q=how+to+install+ram" target="_blank" rel="noopener noreferrer">How
                 to install RAM</a>". Although I don't
             write product reviews anymore, I still have a deep interest in computer hardware.</p>
-    </article>
-    <article class="center">
         <h3>This Site</h3>
         <p>Performance is a feature. Identifying the most effective compromise often begins with a clear understanding
             of a project's purpose and constraints.</p>
@@ -435,15 +387,19 @@ Designed in Seattle, forged in Puget Sound.
             network, it's not a news outlet, and it's not SaaS startup.</p>
         <p>It's <a href="https://www.webpagetest.org/result/220327_AiDcP8_7MY/" target="_blank"
                 rel="noopener noreferrer">lightning
-                fast</a> and <a
-                href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fthomasryan.dev%2F"
+                fast</a> and <a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fthomasryan.dev%2F"
                 target="_blank" rel="noopener noreferrer">purpose
                 built</a>. 🚀</p>
     </article>
-    <footer class="center">
-        <!-- <p><a href="https://github.com/uncheckederror">Github</a> <a href="https://twitter.com/UncheckedError">Twitter</a> <a href="https://medium.com/@UncheckedError">Medium</a> <a href="https://www.linkedin.com/in/uncheckederror">LinkedIn</a> <a href="https://www.instagram.com/uncheckederror/?hl=en">Instagram</a> <a href="https://www.pcworld.com/author/Thomas-Ryan/">PCWorld</a></p> -->
-        <h1 class="menu"><a href="posts.html" class="underline">Content</a> <a href="demos.html"
-                class="underline">Demos</a> <a href="resume.pdf" class="underline">Résumé</a></h1>
+    <footer class="center top">
+        <a href="./index.html" class="underline hidemobile">
+            <h1>Thomas<br>August<br>Ryan</h1>
+        </a>
+        <h1 class="links">
+            <a href="./posts.html" class="underline">Posts</a>
+            <a href="./demos.html" class="underline">Demos</a>
+            <a href="./resume.pdf" class="underline">Résumé</a>
+        </h1>
     </footer>
 </body>
 

@@ -37,10 +37,6 @@ Designed in Seattle, forged in Puget Sound.
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
 
-        .center:hover {
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-        }
-
         body {
             /* Compatible with everything, and anything. */
             font-family: sans-serif;
@@ -48,7 +44,7 @@ Designed in Seattle, forged in Puget Sound.
             background-color: #DCDCDC;
             margin: auto;
             padding: 0% 3% 0% 3%;
-            max-width: 700px;
+            max-width: 1200px;
             /* Off black to reduce eye strain. */
             color: #2A2A2A;
         }
@@ -64,38 +60,29 @@ Designed in Seattle, forged in Puget Sound.
         }
 
         h3 {
-            letter-spacing: 0.01em;
-            font-size: 3em;
+            letter-spacing: 0.01rem;
+            font-size: 2.4rem;
             font-weight: 100;
-            margin: 5% 0% 5% 0%;
         }
 
-        ol li {
-            letter-spacing: 0.001em;
-            font-size: 1.8em;
-            font-weight: 100;
-            line-height: 1.6em;
+        ul li {
+            font-size: 1.4rem;
+            line-height: 2rem;
         }
 
         p {
-            font-size: 1.8em;
-            letter-spacing: 0em;
-            white-space: normal;
-            line-height: 1.4em;
-        }
-
-        img {
-            width: 100%;
+            font-size: 1.4rem;
+            line-height: 2rem;
         }
 
         body>article>p>a {
             text-decoration: none;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid #2A2A2A;
         }
 
         a:link,
         a:visited {
-            color: black;
+            color: #2A2A2A;
         }
 
         a:hover,
@@ -110,15 +97,40 @@ Designed in Seattle, forged in Puget Sound.
         blockquote {
             background: #f5f5f5;
             border-radius: 2px;
-            padding: 5%;
+            padding: 1rem;
             margin: 0% 0% 0% 0%;
         }
 
-        footer,
-        .menu {
+        .links {
             display: flex;
             flex-flow: column wrap;
             align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        h1>a:link,
+        h1>a:visited {
+            color: grey;
+        }
+
+        h1>a:hover,
+        h1>a:active {
+            color: #d2d2d2;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        @media (max-width: 680px) {
+            .hidemobile {
+                display: none;
+            }
         }
 
         /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
@@ -138,9 +150,6 @@ Designed in Seattle, forged in Puget Sound.
 
             blockquote {
                 background: #2e2e2e;
-                border-radius: 2px;
-                padding: 5%;
-                margin: 0% 0% 0% 0%;
             }
 
             body>article>p>a {
@@ -150,11 +159,21 @@ Designed in Seattle, forged in Puget Sound.
 
             a:link,
             a:visited {
-                color: #4db2ff;
+                color: #e3e3e3;
             }
 
             a:hover,
             a:active {
+                color: #0091ff;
+            }
+
+            h1>a:link,
+            h1>a:visited {
+                color: #6b6b6b;
+            }
+
+            h1>a:hover,
+            h1>a:active {
                 color: #0091ff;
             }
         }
@@ -162,8 +181,15 @@ Designed in Seattle, forged in Puget Sound.
 </head>
 
 <body>
-    <header class="center">
-        <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
+    <header class="center top">
+        <a href="./../../index.html" class="underline">
+            <h1>Thomas<br>August<br>Ryan</h1>
+        </a>
+        <h1 class="links hidemobile">
+            <a href="./../../posts.html" class="underline">Posts</a>
+            <a href="./../../demos.html" class="underline">Demos</a>
+            <a href="./../../resume.pdf" class="underline">Résumé</a>
+        </h1>
     </header>
     <article class="center">
         <time datetime="2022-04-17">
@@ -185,8 +211,6 @@ Designed in Seattle, forged in Puget Sound.
             there’s any data in the app’s database. If there is, then we do nothing. If there isn’t, then we ingest the
             data we want into the database.</p>
         <script src="https://gist.github.com/uncheckederror/fab0359f7041007bfbb44a474de458b5.js"></script>
-    </article>
-    <article class="center">
         <h3>Performant CSV Parsing</h3>
         <p>A text file containing comma separated values or a CSV is a common way to store data exported mainframes or
             other complex and often obscure systems. CSV’s are neat because they are so simple, just a line of values
@@ -205,8 +229,6 @@ Designed in Seattle, forged in Puget Sound.
             prior row when you move to the next one. It also rids us of doing the busy work of manually serializing the
             fields in our csv. Rather we can use the column names to create a class that models our csv’s columns and
             then use csv.GetRecords<T>() to return to us all the rows in our csv as instances of that model.</p>
-    </article>
-    <article class="center">
         <h3>EF Core isn’t for Bulk Inserts</h3>
         <p>My app uses EF Core 6 to handle database interactions and SQLite to store its data. Unfortunately, this is
             not a good combination if your goal is to quickly and efficiently ingest data from a CSV file. Using EF Core
@@ -225,8 +247,6 @@ Designed in Seattle, forged in Puget Sound.
             command we can submit it to the database by calling await command.ExecuteNonQueryAsync(); and then when we
             are done with all the commands in our transaction we can close it out by calling await
             transaction.CommitAsync();</p>
-    </article>
-    <article class="center">
         <h3>Old-school SQL Commands</h3>
         <script src="https://gist.github.com/uncheckederror/c90af81310478f92a83b8abdaa52a580.js"></script>
         <p>Inside of the SQL command we can set a template using command.CommandText to set a string. The string you use
@@ -243,8 +263,6 @@ Designed in Seattle, forged in Puget Sound.
             our SQL command by calling
             command.Parameters.Add(parameter); We repeat this process for all of the values that we want to submit to
             SQLite in our insert command.</p>
-    </article>
-    <article class="center">
         <h3>Read rows asynchronously and only once</h3>
         <p>Now that our database transaction and command are prepared, we need to <a
                 href="https://joshclose.github.io/CsvHelper/getting-started/#reading-a-csv-file" target="_blank"
@@ -255,9 +273,8 @@ Designed in Seattle, forged in Puget Sound.
         <p>Inside of this foreach loop we can use the values from the current row in the csv as the values of the
             parameters in the SQL command. We can also do validation on the values parsed by CsvHelper and set out own
             values like a table specific Id for the row and a timestamp to record when it was ingested. Then to submit
-            this row to SQLite we’ll call await command.ExecuteNonQueryAsync(); because this is not a query and it will not return results.</p>
-    </article>
-    <article class="center">
+            this row to SQLite we’ll call await command.ExecuteNonQueryAsync(); because this is not a query and it will
+            not return results.</p>
         <h3>No more time or memory wasted</h3>
         <p>Once we’ve submitted all of the rows in the csv to SQLite we can close out the transaction by calling await
             transaction.CommitAsync(); You can see an example of this whole process in the Gist below. Prior to using
@@ -265,11 +282,17 @@ Designed in Seattle, forged in Puget Sound.
             techniques, it took multiple hours and tens of gigabytes of memory to ingest all the data my app needs to
             run.
             Now it takes half an hour and less than a gigabyte of memory to accomplish the same work.</p>
-            <script src="https://gist.github.com/uncheckederror/ebf76d43f5030ee7ab70f00f98413814.js"></script>
+        <script src="https://gist.github.com/uncheckederror/ebf76d43f5030ee7ab70f00f98413814.js"></script>
     </article>
-    <footer class="center">
-        <h1 class="menu"><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
-                class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Résumé</a></h1>
+    <footer class="center top">
+        <a href="./../../index.html" class="underline hidemobile">
+            <h1>Thomas<br>August<br>Ryan</h1>
+        </a>
+        <h1 class="links">
+            <a href="./../../posts.html" class="underline">Posts</a>
+            <a href="./../../demos.html" class="underline">Demos</a>
+            <a href="./../../resume.pdf" class="underline">Résumé</a>
+        </h1>
     </footer>
 </body>
 

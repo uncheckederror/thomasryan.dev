@@ -37,10 +37,6 @@ Designed in Seattle, forged in Puget Sound.
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
 
-        .center:hover {
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-        }
-
         body {
             /* Compatible with everything, and anything. */
             font-family: sans-serif;
@@ -48,7 +44,7 @@ Designed in Seattle, forged in Puget Sound.
             background-color: #DCDCDC;
             margin: auto;
             padding: 0% 3% 0% 3%;
-            max-width: 700px;
+            max-width: 1200px;
             /* Off black to reduce eye strain. */
             color: #2A2A2A;
         }
@@ -64,38 +60,29 @@ Designed in Seattle, forged in Puget Sound.
         }
 
         h3 {
-            letter-spacing: 0.01em;
-            font-size: 3em;
+            letter-spacing: 0.01rem;
+            font-size: 2.4rem;
             font-weight: 100;
-            margin: 5% 0% 5% 0%;
         }
 
-        ol li {
-            letter-spacing: 0.001em;
-            font-size: 1.8em;
-            font-weight: 100;
-            line-height: 1.6em;
+        li {
+            font-size: 1.4rem;
+            line-height: 2rem;
         }
 
         p {
-            font-size: 1.8em;
-            letter-spacing: 0em;
-            white-space: normal;
-            line-height: 1.4em;
-        }
-
-        img {
-            width: 100%;
+            font-size: 1.4rem;
+            line-height: 2rem;
         }
 
         body>article>p>a {
             text-decoration: none;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid #2A2A2A;
         }
 
         a:link,
         a:visited {
-            color: black;
+            color: #2A2A2A;
         }
 
         a:hover,
@@ -110,15 +97,40 @@ Designed in Seattle, forged in Puget Sound.
         blockquote {
             background: #f5f5f5;
             border-radius: 2px;
-            padding: 5%;
+            padding: 1rem;
             margin: 0% 0% 0% 0%;
         }
 
-        footer,
-        .menu {
+        .links {
             display: flex;
             flex-flow: column wrap;
             align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        h1>a:link,
+        h1>a:visited {
+            color: grey;
+        }
+
+        h1>a:hover,
+        h1>a:active {
+            color: #d2d2d2;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        @media (max-width: 680px) {
+            .hidemobile {
+                display: none;
+            }
         }
 
         /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
@@ -138,9 +150,6 @@ Designed in Seattle, forged in Puget Sound.
 
             blockquote {
                 background: #2e2e2e;
-                border-radius: 2px;
-                padding: 5%;
-                margin: 0% 0% 0% 0%;
             }
 
             body>article>p>a {
@@ -150,11 +159,21 @@ Designed in Seattle, forged in Puget Sound.
 
             a:link,
             a:visited {
-                color: #4db2ff;
+                color: #e3e3e3;
             }
 
             a:hover,
             a:active {
+                color: #0091ff;
+            }
+
+            h1>a:link,
+            h1>a:visited {
+                color: #6b6b6b;
+            }
+
+            h1>a:hover,
+            h1>a:active {
                 color: #0091ff;
             }
         }
@@ -162,8 +181,15 @@ Designed in Seattle, forged in Puget Sound.
 </head>
 
 <body>
-    <header class="center">
-        <h1><a href="./../../index.html" class="underline">Thomas August Ryan</a></h1>
+    <header class="center top">
+        <a href="./../../index.html" class="underline">
+            <h1>Thomas<br>August<br>Ryan</h1>
+        </a>
+        <h1 class="links hidemobile">
+            <a href="./../../posts.html" class="underline">Posts</a>
+            <a href="./../../demos.html" class="underline">Demos</a>
+            <a href="./../../resume.pdf" class="underline">Résumé</a>
+        </h1>
     </header>
     <article class="center">
         <time datetime="2022-05-21">
@@ -185,8 +211,6 @@ Designed in Seattle, forged in Puget Sound.
             uses the current iteration of ESRI’s ArcGIS JavaScript library nested inside of React components and backed
             by the Next.js framework. These technologies replace the existing Silverlight web app.
         </p>
-    </article>
-    <article class="center">
         <h3>Convert Sync to Async</h3>
         <p>The spatial and non-spatial queries made by the Silverlight app are made directly by that app. This
             architecture was broken out into the model I described above where the frontend web app queries spatial
@@ -204,8 +228,8 @@ Designed in Seattle, forged in Puget Sound.
         <a href="synchronus endpoint.png" title="The completely synchronous implementation of this endpoint."><img
                 src="synchronus endpoint.png" alt="The completely synchronous implementation of this endpoint."></a>
         <p>To solve this problem, I started by rewriting the code that used the <a
-            href="https://docs.microsoft.com/en-us/ef/core/miscellaneous/async" target="_blank"
-            rel="noopener noreferrer">Entity Framework Core</a> library to make
+                href="https://docs.microsoft.com/en-us/ef/core/miscellaneous/async" target="_blank"
+                rel="noopener noreferrer">Entity Framework Core</a> library to make
             database calls. Connecting to a database, making a query, and then serializing the response to an object is
             a fundamentally asynchronous process as we don’t know when the database will respond to the request. Because
             of the virality of the async and await keywords in C# I then worked up the stack from these now async
@@ -216,15 +240,13 @@ Designed in Seattle, forged in Puget Sound.
             data like an Id or Description to the frontend web app. HTTP calls are another fundamentally asynchronous
             process as we don’t know when the web server, we submitted the request to will respond. This code also used
             the depreciated System.Web library to make these API requests. To solve this issue, I used the <a
-            href="https://flurl.dev/docs/fluent-http/" target="_blank"
-            rel="noopener noreferrer">Flurl library</a>
+                href="https://flurl.dev/docs/fluent-http/" target="_blank" rel="noopener noreferrer">Flurl library</a>
             which is a comfortable and fully async wrapper around the newer System.Net.HTTP library.</p>
         <p>Now the remote resources consumed by the web API are done so asynchronously and the endpoints exposed by the
             API handle incoming requests asynchronously too. The upside to this is that the API can now handle many more
             requests as the threads that would have been consumed by waiting for remote resources to respond can now be
             suspended, while other requests are handled, and then resumed when they are ready.</p>
-    </article>
-    <article class="center">
+
         <h3>Exceptions are not your Enemy</h3>
         <p>The usage of null objects and try catch statements is another area that was ripe for improvement in the web
             API. Often code in the API would start by creating a null instance of an object and then at the end, the
@@ -249,8 +271,6 @@ Designed in Seattle, forged in Puget Sound.
         <p>These two changes to the style of the code lead to a final product that is easier to read, does not return
             null under any circumstances, and is easier to troubleshoot and debug when it breaks.
         </p>
-    </article>
-    <article class="center">
         <h3>Configured for Success</h3>
         <p>Configuration is another area where things were simplified. In an ASP.NET Core web app the primary source of
             truth for configuration is a file named appsettings.json. This is a JSON formatted file that contains
@@ -268,9 +288,15 @@ Designed in Seattle, forged in Puget Sound.
             more performant, and easier to reason about than a direct 1 to 1 conversion of Visual Basic concepts and
             style. If you can make time for a refactoring process like this, I highly recommend it.</p>
     </article>
-    <footer class="center">
-        <h1 class="menu"><a href="./../../posts.html" class="underline">Posts</a> <a href="./../../demos.html"
-                class="underline">Demos</a> <a href="./../../resume.pdf" class="underline">Résumé</a></h1>
+    <footer class="center top">
+        <a href="./../../index.html" class="underline hidemobile">
+            <h1>Thomas<br>August<br>Ryan</h1>
+        </a>
+        <h1 class="links">
+            <a href="./../../posts.html" class="underline">Posts</a>
+            <a href="./../../demos.html" class="underline">Demos</a>
+            <a href="./../../resume.pdf" class="underline">Résumé</a>
+        </h1>
     </footer>
 </body>
 
