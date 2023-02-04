@@ -116,7 +116,7 @@ Designed in Seattle, forged in Puget Sound.
 
         h1>a:hover,
         h1>a:active {
-            color:#d2d2d2;
+            color: #d2d2d2;
         }
 
         .top {
@@ -129,7 +129,7 @@ Designed in Seattle, forged in Puget Sound.
         }
 
         @media (max-width: 680px) {
-            .hidemobile{
+            .hidemobile {
                 display: none;
             }
         }
@@ -195,14 +195,17 @@ Designed in Seattle, forged in Puget Sound.
     <article class="center">
         <p>Hi! People call me <a href="https://www.instagram.com/uncheckederror/" target="_blank"
                 rel="noopener noreferrer">Tom</a>.</p>
-        <p>I'm a Senior Applications Developer at King County.</p>
+        <p>I'm a Master GIS and Data Platforms Engineer at King County's <a
+                href="https://kingcounty.gov/services/gis.aspx" target="_blank" rel="noopener noreferrer">GIS
+                Center</a>.</p>
         <p>Right now I am building a web app to manage and edit Road Assets like stop
             signs and crosswalks using the Next.js framework and ESRI's ArcGIS JS mapping library. The
-            back-end of this app is composed of authenticated Feature Services exposed by ArcGIS Enterprise.
+            back-end of this app is composed of authenticated Feature Services exposed by ArcGIS Enterprise and a .NET 6
+            Web API.
         </p>
         <p>This web app is a direct reimplementation of a product built on the now deprecated
             Silverlight 👀 framework from Microsoft. </p>
-        <h3>Numbers in Bulk</h3>
+        <h3>Phone Numbers in Bulk</h3>
         <blockquote>
             <ul>
                 <li>Investigate the portablity of Local, Tollfree, and Wireless numbers</li>
@@ -216,16 +219,12 @@ Designed in Seattle, forged in Puget Sound.
             title="Numbers in Bulk" target="_blank" rel="noopener noreferrer"><img src="NumbersInBulk.webp"
                 alt="A query for many numbers in bulk."></a>
         <p>When large organizations switch VOIP phone service providers often they bring their existing phone numbers
-            with them. To support this process, I built the Numbers in Bulk tool that accepts phone numbers in groups of
+            with them. I built this tool that accepts phone numbers in groups of
             up to a few hundred and investigates each of them to verify that they can be ported to our network. It also
             shows the user the current ownership of each number so that they can verify and audit the numbers that they
-            are submitting before we begin the rather complex process of bringing them over to our network.</p>
-        <p>
-            The lookup requests for each number submitted are handled asynchronously which enables us to scale from
-            handling one number to hundreds while staying within our performance budget and getting the results out to
-            the users in just a few seconds. You can checkout the code here on <a
-                href="https://github.com/AccelerateNetworks/NumberSearch/issues/222#issuecomment-903171345"
-                target="_blank" rel="noopener noreferrer">Github</a> and see how much our users love this feature.
+            are submitting to us before we begin the complex process of bringing them over to our network. Our
+            <a href="https://github.com/AccelerateNetworks/NumberSearch/issues/222#issuecomment-903171345"
+                target="_blank" rel="noopener noreferrer">customers love</a> this tool. 🥰
         </p>
         <h3>Number Search</h3>
         <blockquote>
@@ -276,23 +275,10 @@ Designed in Seattle, forged in Puget Sound.
         <p>My primary responsibility at Kitsap County was maintaining the public parcel information system. <a
                 href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-066-0008&page=landlocation"
                 target="_blank" rel="noopener noreferrer">Parcel
-                Details</a> is a web app that allows anyone to look up a tax parcel in Kitsap County.</p>
-        <p>Parcel Details was originally an ASP.NET 4 WebForms project that used rapid application development tools
-            provided by
-            a vendor to define its business logic and user interface. Since I took over it's maintenance, I've upgraded
-            the project to .NET 4.7.2, lead a redesign of the user interface, rewrote the business logic and views to
-            remove all dependencies on the vendor's tools, and migrated the database calls from ancient ADO.NET Datasets
-            to a micro Object Relational Mapper (ORM) called Dapper.</p>
-        <p>What I'm most proud of is getting the average page weight down from 6 MBs to less than 200 KBs. This was
-            achieved despite the addition of a responsive CSS framework (Bootstrap 3.3.7), helpful icons, and a variety
-            of new interactive features.</p>
-        <p>In the summer of 2018 I rebuilt Parcel Details as an ASP.NET Core 2.2 MVC project. It took about 300 hours
-            port the
-            data access layer and then rebuild the business logic and views in the MVC format. To prevent service
-            interruptions this was a pixel perfect rebuild. This required careful testing to verify that there were no
-            UX
-            impacts and the use of ASP.NET Routing middleware to remap the routes of the old app to the structure of the
-            new app.</p>
+                Details</a> is a web app that allows anyone to look up a tax parcel in Kitsap County.
+            Parcel Details was originally an ASP.NET 4 WebForms project; In the summer of 2018 I rebuilt Parcel Details
+            as an ASP.NET Core MVC project. What I'm most proud of is getting the average
+            page weight down from 6 MBs to less than 200 KBs.</p>
         <p><strong>Content About Parcel Details</strong></p>
         <ul>
             <li>
@@ -355,11 +341,8 @@ Designed in Seattle, forged in Puget Sound.
             target="_blank" rel="noopener noreferrer"><img src="PlatsSearchHero.webp" alt="A Plat in Plats."></a>
         <p><a href="https://psearch.kitsapgov.com/PlatsSearch/?SearchString=5432" target="_blank"
                 rel="noopener noreferrer">Plats Search</a> is web app that
-            allows you to look up survey and plat documents related to a tax parcel.</p>
-        <p>It's an ASP.NET Core 3.0 project that I wrote from the ground up. Razor pages are used to define the views,
-            Bootstrap is used to style the views, and Entity Framework Core is the ORM we used to handle database
-            interactions.</p>
-        <p>Getting a hold of Plat Records from most Counties in Washington requires going through the formal records
+            allows you to look up survey and plat documents related to a tax parcel. Getting a hold of Plat Records from
+            most Counties in Washington requires going through the formal records
             request process. Plats Search circumvents this process by allowing people to search for Plats related to a
             tax parcel and directly download scans of those source documents.</p>
         <p><strong>Content About Plats Search</strong></p>
@@ -372,24 +355,14 @@ Designed in Seattle, forged in Puget Sound.
         </ul>
         <h3>Other Stuff</h3>
         <p>I like camping. Often I'll go out to the Olympics and stay at sites like Lake Cushman, Deer Park, and the
-            coastline around Lake Ozette. I'm also looking forward to ski season this winter.</p>
+            coastline around Lake Ozette. I'm also enjoying ski season this winter. ⛷️</p>
         <p>I also know a bit about photography. You can see my work <a
                 href="https://www.flickr.com/photos/uncheckederror/" target="_blank" rel="noopener noreferrer">on
-                Flikr.</a> Right now I'm shooting with a Sony RX1R MKII.</p>
-        <p>As of October 2019 I am the author of the top text result on Google for "<a
+                Flikr.</a> Right now I'm shooting with a Sony RX1R MKII. 📸</p>
+        <p>As of September 2022 I am the author of the top text result on Google for "<a
                 href="https://www.google.com/search?q=how+to+install+ram" target="_blank" rel="noopener noreferrer">How
                 to install RAM</a>". Although I don't
-            write product reviews anymore, I still have a deep interest in computer hardware.</p>
-        <h3>This Site</h3>
-        <p>Performance is a feature. Identifying the most effective compromise often begins with a clear understanding
-            of a project's purpose and constraints.</p>
-        <p>This is a personal website intended to give new friends an introduction to my world. It's not a social
-            network, it's not a news outlet, and it's not SaaS startup.</p>
-        <p>It's <a href="https://www.webpagetest.org/result/220327_AiDcP8_7MY/" target="_blank"
-                rel="noopener noreferrer">lightning
-                fast</a> and <a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fthomasryan.dev%2F"
-                target="_blank" rel="noopener noreferrer">purpose
-                built</a>. 🚀</p>
+            write product reviews anymore, I still have a deep interest in computer hardware. 🧑‍💻</p>
     </article>
     <footer class="center top">
         <a href="./index.html" class="underline hidemobile">
