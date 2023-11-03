@@ -54,6 +54,10 @@ Designed in Seattle, forged in Puget Sound.
             max-width: 1200px;
             /* Off black to reduce eye strain. */
             color: #2A2A2A;
+            /* background-image: url(./thomasryandevbackgroundimage.jpg);
+            background-repeat: repeat;
+            background-position: center;
+            background-size: cover; */
         }
 
         h1,
@@ -70,11 +74,19 @@ Designed in Seattle, forged in Puget Sound.
             letter-spacing: 0.01rem;
             font-size: 2.4rem;
             font-weight: 100;
+            margin-top: 0;
+            margin-bottom: 0;
         }
 
-        li {
+        ul li {
             font-size: 1.4rem;
             line-height: 2rem;
+            list-style-type: none;
+        }
+
+        ul {
+            padding-bottom: 1rem;
+            list-style-type: none;
         }
 
         p {
@@ -138,6 +150,11 @@ Designed in Seattle, forged in Puget Sound.
             .hidemobile {
                 display: none;
             }
+
+            /* Flex makes this look wonky on small screens */
+            .top {
+                display: block;
+            }
         }
 
         /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
@@ -200,7 +217,7 @@ Designed in Seattle, forged in Puget Sound.
     </header>
     <article class="center">
         <time datetime="2023-08-30">
-            <h2>August 30th, 2023</h2>
+            <strong>August 30th, 2023</strong>
         </time>
         <h3>Creating Desk Phone Backgrounds</h3>
         <p>Just as I finished high school, I had an internship working at the airport. My job was to help other airport
@@ -216,12 +233,13 @@ Designed in Seattle, forged in Puget Sound.
             opening your cell phone’s camera app and pointing it at the pattern. Tap the link that appears on your
             screen, and you’ll be greeted with the support page on the Accelerate Networks website where you can learn
             about and explore the features of your desk phone at your own pace.</p>
-        <p>We have a page specific to your desk phone with a list of its features and an accompanying series of YouTube
+        <p style="margin-bottom: 0;">We have a page specific to your desk phone with a list of its features and an
+            accompanying series of YouTube
             videos that quickly explain how to use them. No longer will your interns have to stare in confusion at the
             brick on their desk. Now they can solve their own problems and accelerate your business.</p>
     </article>
     <article class="center">
-        <h3>Early Attempts</h3>
+        <h3 style="margin-bottom: 1rem;">Early Attempts</h3>
         <a href="./backgrounds/draftPhoneBackground8252023.jpg" title="Another attempt"><img
                 src="./backgrounds/draftPhoneBackground8252023.jpg" alt="Another attempt"></a>
         <a href="./backgrounds/draftPhoneBackground82520231.jpg" title="Another attempt"><img
@@ -230,13 +248,14 @@ Designed in Seattle, forged in Puget Sound.
                 src="./backgrounds/draftPhoneBackground82520232.jpg" alt="Another attempt"></a>
         <a href="./backgrounds/draftPhoneBackground82520233jpg.jpg" title="Another attempt"><img
                 src="./backgrounds/draftPhoneBackground82520233jpg.jpg" alt="Another attempt"></a>
-        <p>White backgrounds make it nearly impossible to read the white UI text on Grandstream desk phones.
+        <p style="margin-bottom: 0;">White backgrounds make it nearly impossible to read the white UI text on
+            Grandstream desk phones.
             Additionally the UI elements cover the large portions of the sides of the screen, and smaller portions of
             the top and bottom of the screen. To fix this we need to use a non-white background and make the content on
             the background smaller.</p>
     </article>
     <article class="center">
-        <h3>Minimalism?</h3>
+        <h3 style="margin-bottom: 1rem;">Minimalism?</h3>
         <a href="./backgrounds/draftPhoneBackground82520234.jpg" title="Another attempt"><img
                 src="./backgrounds/draftPhoneBackground82520234.jpg" alt="Another attempt"></a>
         <a href="./backgrounds/draftPhoneBackground82520235.jpg" title="Another attempt"><img
@@ -247,12 +266,13 @@ Designed in Seattle, forged in Puget Sound.
                 src="./backgrounds/draftPhoneBackground82520237.jpg" alt="Another attempt"></a>
         <a href="./backgrounds/draftPhoneBackground82520238.jpg" title="Another attempt"><img
                 src="./backgrounds/draftPhoneBackground82520238.jpg" alt="Another attempt"></a>
-        <p>White text stands out too much and conflicts with the UI text on the desk phone make it hard to read and use.
+        <p style="margin-bottom: 0;">White text stands out too much and conflicts with the UI text on the desk phone
+            make it hard to read and use.
             The black text is easier to read. Reducing the size of the logo make it look better on the phone. Orange
             text on a blue background is hard to read on the desk phone.</p>
     </article>
     <article class="center">
-        <h3>How about a Gradient?</h3>
+        <h3 style="margin-bottom: 1rem;">How about a Gradient?</h3>
         <a href="./backgrounds/GradientQR82620231.png" title="Another attempt"><img
                 src="./backgrounds/GradientQR82620231.png" alt="Another attempt"></a>
         <a href="./backgrounds/GradientQR82620232.png" title="Another attempt"><img
@@ -265,12 +285,13 @@ Designed in Seattle, forged in Puget Sound.
                 src="./backgrounds/GradientQR82620235.png" alt="Another attempt"></a>
         <a href="./backgrounds/GradientQR82620236.png" title="Another attempt"><img
                 src="./backgrounds/GradientQR82620236.png" alt="Another attempt"></a>
-        <p>Using a gradient gives us control over what parts of the screen are best for showing the white UI text that
+        <p style="margin-bottom: 0;">Using a gradient gives us control over what parts of the screen are best for
+            showing the white UI text that
             the phone overlays on the background. But it's difficult to get enough contrast for the AN log to be
             readable.</p>
     </article>
     <article class="center">
-        <h3>Generated by QR-code-styling</h3>
+        <h3 style="margin-bottom: 1rem;">Generated by QR-code-styling</h3>
         <a href="./backgrounds/qr-code-styling.png" title="Another attempt"><img src="./backgrounds/qr-code-styling.png"
                 alt="Another attempt"></a>
         <a href="./backgrounds/qr-code-styling (1).png" title="Another attempt"><img
@@ -309,19 +330,21 @@ Designed in Seattle, forged in Puget Sound.
                 src="./backgrounds/qr-code-styling (16).png" alt="Another attempt"></a>
         <a href="./backgrounds/qr-code-styling (17).png" title="Another attempt"><img
                 src="./backgrounds/qr-code-styling (17).png" alt="Another attempt"></a>
-        <p>Using this fun and cool library created some cool looking QR codes. Sadly almost all of these QR codes fail
+        <p style="margin-bottom: 0;">Using this fun and cool library created some cool looking QR codes. Sadly almost
+            all of these QR codes fail
             to be read by the Camera app on iPhones as they don't have sufficent contrast against the background. Having
             the logo in the center of the code or overlaying it also breaks the camera reading process for the QR code
             depending on the
             phone.</p>
     </article>
     <article class="center">
-        <h3>Mystery Attempts</h3>
+        <h3 style="margin-bottom: 1rem;">Mystery Attempts</h3>
         <a href="./backgrounds/MysteryQR8292023.png" title="Another attempt"><img
                 src="./backgrounds/MysteryQR8292023.png" alt="Another attempt"></a>
         <a href="./backgrounds/MysteryQR82920231.png" title="Another attempt"><img
                 src="./backgrounds/MysteryQR82920231.png" alt="Another attempt"></a>
-        <p>What if we drop our branding and leave just the QR code as a mystery box for the curious? The goal is to get
+        <p style="margin-bottom: 0;">What if we drop our branding and leave just the QR code as a mystery box for the
+            curious? The goal is to get
             the user from the desk phone and on to our website. Gamifying this process by making it a little mystery
             could improve the conversion rate.</p>
     </article>
@@ -331,7 +354,8 @@ Designed in Seattle, forged in Puget Sound.
             is for deciding to generate a background or screensaver.</p>
         <a href="./backgrounds/phoneBackgrounds.drawio.png" title="Another attempt"><img
                 src="./backgrounds/phoneBackgrounds.drawio.png" alt="Another attempt"></a>
-        <p>I think is this the absolute minimum information required to generate a custom background image for a phone.
+        <p style="margin-bottom: 0;">I think is this the absolute minimum information required to generate a custom
+            background image for a phone.
         </p>
     </article>
     <footer class="center top">

@@ -54,6 +54,10 @@ Designed in Seattle, forged in Puget Sound.
             max-width: 1200px;
             /* Off black to reduce eye strain. */
             color: #2A2A2A;
+            /* background-image: url(./thomasryandevbackgroundimage.jpg);
+            background-repeat: repeat;
+            background-position: center;
+            background-size: cover; */
         }
 
         h1,
@@ -70,11 +74,17 @@ Designed in Seattle, forged in Puget Sound.
             letter-spacing: 0.01rem;
             font-size: 2.4rem;
             font-weight: 100;
+            margin-top: 0;
+            margin-bottom: 0;
         }
 
         ul li {
             font-size: 1.4rem;
             line-height: 2rem;
+        }
+
+        ul {
+            padding-bottom: 1rem;
         }
 
         p {
@@ -138,6 +148,11 @@ Designed in Seattle, forged in Puget Sound.
             .hidemobile {
                 display: none;
             }
+
+            /* Flex makes this look wonky on small screens */
+            .top {
+                display: block;
+            }
         }
 
         /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
@@ -193,126 +208,209 @@ Designed in Seattle, forged in Puget Sound.
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
         <h1 class="links hidemobile">
+            <a href="./work.html" class="underline">Work</a>
             <a href="./posts.html" class="underline">Posts</a>
-            <a href="./demos.html" class="underline">Demos</a>
             <a href="./resume.pdf" class="underline">Résumé</a>
         </h1>
     </header>
     <article class="center">
         <time datetime="2023">
-            <h2>2023</h2>
+            <h2 style="margin-top: 0;">2023</h2>
         </time>
-        <p><a href="./2023/08/desk-phone-background.html" class="underline">
-                <h3>Creating Desk Phone Backgrounds</h3>
-            </a></p>
-        <p><a href="./2023/08/xfinity-astound.html" class="underline">
-                <h3>Leaving Xfinity for Astound</h3>
-            </a></p>
-        <p><a href="./2023/06/wagisa-2023.html" class="underline">
-                <h3>WAGISA 2023</h3>
-            </a></p>
+        <a href="https://gisandyou.org/2023/11/01/who-is-using-arcgis-pro-anyway/" target="_blank" class="underline">
+            <strong>November 10th, 2023</strong>
+            <h3>Who is using ArcGIS Pro anyway?</h3>
+            <p>Given that ESRI is ending support for ArcGIS Desktop in 2026, the King County GIS Center needed to
+                understand
+                the migration of users from ArcGIS Desktop to ArcGIS Pro.</p>
+        </a>
+        <a href="./2023/08/desk-phone-background.html" class="underline">
+            <strong>August 30th, 2023</strong>
+            <h3>Creating Desk Phone Backgrounds</h3>
+            <p>To help our customers solve this issue we decided to make custom backgrounds for all the desk phones we
+                sell
+                and support at Accelerate Networks.</p>
+        </a>
+        <a href="./2023/08/xfinity-astound.html" class="underline">
+            <strong>August 21st, 2023</strong>
+            <h3>Leaving Xfinity for Astound</h3>
+            <p>I week ago, I switched my internet services provider (ISP) from Xfinity to Astound.</p>
+        </a>
+        <a href="./2023/06/wagisa-2023.html" class="underline">
+            <strong>June 15th, 2023</strong>
+            <h3>WAGISA 2023</h3>
+            <p>Today I woke up early at 7 AM and drove down to the UW Tacoma campus to present at the WAGISA conference.
+            </p>
+        </a>
     </article>
     <article class="center">
         <time datetime="2022">
-            <h2>2022</h2>
+            <h2 style="margin-top: 0;">2022</h2>
         </time>
-        <p><a href="./2022/10/macan-headlights-LED-replacement.html" class="underline">
-                <h3>Updating Porsche Macan headlights to LEDs</h3>
-            </a></p>
-        <p><a href="./2022/05/dotnet-6-web-api-visual-basic-conversion.html" class="underline">
-                <h3>Cleaning up a .NET 6 Web API Converted from Visual Basic</h3>
-            </a></p>
-        <p><a href="./2022/04/load-csv-sqlite-aspnet-core-6-startup.html" class="underline">
-                <h3>Load a CSV into SQLite on Startup in ASP.NET Core 6</h3>
-            </a></p>
-        <p><a href="./2022/01/next-js-and-arcgis-js-web-app.html" class="underline">
-                <h3>Using Next.js and ArcGIS JS to build Geospatial Web Apps</h3>
-            </a></p>
+        <a href="./2022/10/macan-headlights-LED-replacement.html" class="underline">
+            <strong>October 23rd, 2022</strong>
+            <h3>Updating Porsche Macan headlights to LEDs</h3>
+            <p>There are two main advantages to replacing the stock light bulbs with LEDs: improved light output and
+                reduced power consumption.</p>
+        </a>
+        <a href="./2022/05/dotnet-6-web-api-visual-basic-conversion.html" class="underline">
+            <strong>May 21th, 2022</strong>
+            <h3>Cleaning up a .NET 6 Web API Converted from Visual Basic</h3>
+            <p>The Road Assets Editor or RAE is a tool that enables employees to review all road assets built in King
+                County.</p>
+        </a>
+        <a href="./2022/04/load-csv-sqlite-aspnet-core-6-startup.html" class="underline">
+            <strong>April 17th, 2022</strong>
+            <h3>Load a CSV into SQLite on Startup in ASP.NET Core 6</h3>
+            <p>When I deploy my ASP.NET Core 6 app I want it to gather CSV formatted data and ingest it into SQLite as
+                part of its startup process.</p>
+        </a>
+        <a href="./2022/01/next-js-and-arcgis-js-web-app.html" class="underline">
+            <strong>January 12th, 2022</strong>
+            <h3>Using Next.js and ArcGIS JS to build Geospatial Web Apps</h3>
+            <p>ArcGIS JS is a JavaScript library for creating web maps using ESRI’s ecosystem of tools and services.
+                Next.js is a framework for building web apps.</p>
+        </a>
     </article>
     <article class="center">
         <time datetime="2021">
-            <h2>2021</h2>
+            <h2 style="margin-top: 0;">2021</h2>
         </time>
-        <p><a href="./2021/07/Connected_MarketPlace_Ryan_Tom.pdf" class="underline">
-                <h3>The Cool & High Impact Award</h3>
-            </a></p>
-        <p><a href="./2021/04/swagger-default-and-root-route.html" class="underline">
-                <h3>Expose Swagger docs at both the default and root Route of your .NET 6 Web API</h3>
-            </a></p>
+        <a href="./2021/07/Connected_MarketPlace_Ryan_Tom.pdf" class="underline">
+            <strong>June 16th, 2021</strong>
+            <h3>The Cool & High Impact Award</h3>
+            <p>An award from an internal hackaton where my team pitched an accounts system for the public that would
+                aggregate all information published by the County on that user.</p>
+        </a>
+        <a href="./2021/04/swagger-default-and-root-route.html" class="underline">
+            <strong>April 2, 2021</strong>
+            <h3>Expose Swagger docs at both the default and root Route of your .NET 6 Web API</h3>
+            <p>By default, the interactive docs in your .NET 6 Web API will be routed to the “/swagger” endpoint if you
+                follow this tutorial.</p>
+        </a>
     </article>
     <article class="center">
         <time datetime="2020">
-            <h2>2020</h2>
+            <h2 style="margin-top: 0;">2020</h2>
         </time>
-        <p><a href="./2020/09/deserialize-xml-csharp-objects.html" class="underline">
-                <h3>Deserializing XML into Objects in C#</h3>
-            </a></p>
-        <p><a href="./2020/06/serve-geojson-aspnetcore-dotnet.html" class="underline">
-                <h3>Serve GeoJSON Files in ASP.NET Core 3.1</h3>
-            </a></p>
-        <p><a href="./2020/05/azure-static-web-apps-preview.html" class="underline">
-                <h3>Comparing Azure Static Web Apps and Github Pages</h3>
-            </a></p>
-        <p><a href="./2020/04/adding-security-headers.html" class="underline">
-                <h3>Adding Security Headers to an ASP.NET Core 3.1 MVC Web App</h3>
-            </a></p>
-        <p><a href="./2020/03/malicious-scraping-account-number-schemes.html" class="underline">
-                <h3>Malicious Scraping and Account Number Schemes</h3>
-            </a></p>
+        <a href="./2020/09/deserialize-xml-csharp-objects.html" class="underline">
+            <strong>September 6th, 2020</strong>
+            <h3>Deserializing XML into Objects in C#</h3>
+            <p>Compared to the simplicity of deserializing JSON, dealing with XML in dotnet core can be confusing and
+                unintuitive.</p>
+        </a>
+        <a href="./2020/06/serve-geojson-aspnetcore-dotnet.html" class="underline">
+            <strong>June 2nd, 2020</strong>
+            <h3>Serve GeoJSON Files in ASP.NET Core 3.1</h3>
+            <p>By default ASP.NET Core 6 will not expose files with the .geojson file extension in its wwwroot folder.
+            </p>
+        </a>
+        <a href="./2020/05/azure-static-web-apps-preview.html" class="underline">
+            <strong>May 22nd, 2020</strong>
+            <h3>Comparing Azure Static Web Apps and Github Pages</h3>
+            <p>I host my personal website on Github pages. At Build 2020 I watched a demo of a new service called Azure
+                Static Web Apps.</p>
+        </a>
+        <a href="./2020/04/adding-security-headers.html" class="underline">
+            <strong>April 8th, 2020</strong>
+            <h3>Adding Security Headers to an ASP.NET Core 3.1 MVC Web App</h3>
+            <p>Last week I was inspired by this post from Scott Hanselman to benchmark the performance of an application
+                I developed called Number Search.</p>
+        </a>
+        <a href="./2020/03/malicious-scraping-account-number-schemes.html" class="underline">
+            <strong>March 3rd, 2020</strong>
+            <h3>Malicious Scraping and Account Number Schemes</h3>
+            <p>On Monday morning just before 11 AM my supervisor walked into my cube. “Hey Tom, did you change anything
+                about the voting precincts query lately?”</p>
+        </a>
     </article>
     <article class="center">
         <time datetime="2019">
-            <h2>2019</h2>
+            <h2 style="margin-top: 0;">2019</h2>
         </time>
-        <p><a href="./2019/11/adding-spinner-bootstrap-dotnet-core-mvc.html" class="underline">
-                <h3>Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App</h3>
-            </a></p>
-        <p><a href="./2019/10/indexing-file-directories-dotnet-core.html" class="underline">
-                <h3>Quickly Indexing File Directories in ASP.NET Core 3.0</h3>
-            </a></p>
-        <p><a href="./2019/09/buildings-by-year-in-kitsap-county.html" class="underline">
-                <h3>Making Buildings By Year Built in Kitsap County</h3>
-            </a></p>
-        <p><a href="./2019/07/dapper-dotnet-core-odbc-sqlserver-2000.html" class="underline">
-                <h3>Using Dapper and .NET Core to pull data from SQL Server 2000</h3>
-            </a></p>
-        <p><a href="./2019/05/webforms-datasets-to-dapper.html" class="underline">
-                <h3>How I Converted ADO.NET DataSets into Dapper data models</h3>
-            </a></p>
-        <p><a href="./2019/03/in-praise-of-sticky-notes.html" class="underline">
-                <h3>In Praise of Sticky Notes</h3>
-            </a></p>
-        <p><a href="./2019/02/purging-the-search-page.html" class="underline">
-                <h3>Purging the Search Page</h3>
-            </a></p>
-        <p><a href="./2019/01/making-zoning-codes-useful.html" class="underline">
-                <h3>Making Zoning Codes Useful</h3>
-            </a></p>
-        <p><a href="./2019/01/parsing-tax-descriptions.html" class="underline">
-                <h3>Parsing Tax Descriptions</h3>
-            </a></p>
+        <a href="./2019/11/adding-spinner-bootstrap-dotnet-core-mvc.html" class="underline">
+            <strong>November 29, 2019</strong>
+            <h3>Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App</h3>
+            <p>Recently I built an ASP.NET Core 3.0 MVC Web app that acts as a front end for a group of APIs that are
+                each supported by a different third-party vendor.</p>
+        </a>
+        <a href="./2019/10/indexing-file-directories-dotnet-core.html" class="underline">
+            <strong>October 10, 2019</strong>
+            <h3>Quickly Indexing File Directories in ASP.NET Core 3.0</h3>
+            <p>I recently upgraded an ASP.NET Core 2.2 web app to 3.0. As part of this process I took some time to
+                review the existing code base.</p>
+        </a>
+        <a href="./2019/09/buildings-by-year-in-kitsap-county.html" class="underline">
+            <strong>September 1, 2019</strong>
+            <h3>Making Buildings By Year Built in Kitsap County</h3>
+            <p>While scrolling through Twitter a couple weeks ago I saw this map of building ages in the Netherlands.
+            </p>
+        </a>
+        <a href="./2019/07/dapper-dotnet-core-odbc-sqlserver-2000.html" class="underline">
+            <strong>July 30, 2019</strong>
+            <h3>Using Dapper and .NET Core to pull data from SQL Server 2000</h3>
+            <p>I’m in the process of porting a web app from .NET Framework to dotnet core.</p>
+        </a>
+        <a href="./2019/05/webforms-datasets-to-dapper.html" class="underline">
+            <strong>May 11, 2019</strong>
+            <h3>How I Converted ADO.NET DataSets into Dapper data models</h3>
+            <p>Parcel Details is a monolithic .NET web app written using the now deprecated Web Forms framework that
+                Microsoft introduced in 2002</p>
+        </a>
+        <a href="./2019/03/in-praise-of-sticky-notes.html" class="underline">
+            <strong>Feburary 7, 2019</strong>
+            <h3>In Praise of Sticky Notes</h3>
+            <p>The sticky note is my favorite personal management tool. Some consider the sticky note to be an archaic
+                tool. But I love it dearly.</p>
+        </a>
+        <a href="./2019/02/purging-the-search-page.html" class="underline">
+            <strong>Feburary 7, 2019</strong>
+            <h3>Purging the Search Page</h3>
+            <p>About 60 percent of its users enter Parcel Details through the search page. The search page calls out to
+                a SOAP service with query and then it’s returned a JSON payload of results.</p>
+        </a>
+        <a href="./2019/01/making-zoning-codes-useful.html" class="underline">
+            <strong>January 17, 2019</strong>
+            <h3>Making Zoning Codes Useful</h3>
+            <p>Big pushes are being made in major cities across the Northwest to rethink their zoning codes.</p>
+        </a>
+        <a href="./2019/01/parsing-tax-descriptions.html" class="underline">
+            <strong>January 4, 2019</strong>
+            <h3>Parsing Tax Descriptions</h3>
+            <p>Tax Descriptions are extremely difficult to parse, let alone meaningfully understand, if you're not a
+                surveyor or parcel specialist.</p>
+        </a>
     </article>
     <article class="center">
         <time datetime="2018">
-            <h2>2018</h2>
+            <h2 style="margin-top: 0;">2018</h2>
         </time>
-        <p><a href="./2018/11/a-most-disappointing-report-button.html" class="underline">
-                <h3>A Most Disappointing Bug Report Button</h3>
-            </a></p>
-        <p><a href="./2018/06/buttons-as-actions.html" class="underline">
-                <h3>Buttons As Actions</h3>
-            </a></p>
-        <p><a href="./2018/06/modernizing-kitsap-countys-parcel-details.html" class="underline">
-                <h3>Modernizing Kitsap County’s Parcel Details</h3>
-            </a></p>
+        <a href="./2018/11/a-most-disappointing-report-button.html" class="underline">
+            <strong>November 7, 2018</strong>
+            <h3>A Most Disappointing Bug Report Button</h3>
+            <p>I've been reading a lot of HackerNews the last few months. One of the ideas that I've picked up from
+                reading the comments there has been the idea of creating short feedback loops.</p>
+        </a>
+        <a href="./2018/06/buttons-as-actions.html" class="underline">
+            <strong>June 17, 2018</strong>
+            <h3>Buttons As Actions</h3>
+            <p>One of the UX issues I’ve been struggling with is designing my web apps to make their workflow as clear
+                as possible.</p>
+        </a>
+        <a href="./2018/06/modernizing-kitsap-countys-parcel-details.html" class="underline">
+            <strong>June 15, 2018</strong>
+            <h3>Modernizing Kitsap County’s Parcel Details</h3>
+            <p>Parcel Details is a public service offered by Kitsap County that allows anyone to look up information on
+                a parcel of land using a tax account, street address, or parcel ID number.</p>
+        </a>
     </article>
     <footer class="center top">
         <a href="./index.html" class="underline hidemobile">
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
         <h1 class="links">
+            <a href="./work.html" class="underline">Work</a>
             <a href="./posts.html" class="underline">Posts</a>
-            <a href="./demos.html" class="underline">Demos</a>
             <a href="./resume.pdf" class="underline">Résumé</a>
         </h1>
     </footer>
