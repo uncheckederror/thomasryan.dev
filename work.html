@@ -68,18 +68,27 @@ Designed in Seattle, forged in Puget Sound.
             font-size: 2.4rem;
             font-weight: 100;
             margin-top: 0;
-            margin-bottom: 0;
+            margin-bottom: 1rem;
         }
 
         ul li {
             font-size: 1.4rem;
             line-height: 2rem;
-            list-style-type: none;
+            list-style-type: square;
         }
 
         ul {
             padding-bottom: 1rem;
-            list-style-type: none;
+            list-style-type: square;
+        }
+
+        blockquote>ul {
+            list-style-type: square;
+            margin-bottom: 0;
+        }
+
+        blockquote>ul>li {
+            list-style-type: square;
         }
 
         p {
@@ -211,7 +220,7 @@ Designed in Seattle, forged in Puget Sound.
     <article class="center">
         <h3>My Work For</h3>
         <ul style="padding-bottom: 0;margin-bottom: 0;">
-            <li><a href="https://kingcounty.gov/en/legacy/services/gis" class="underline" target="_blank">
+            <!-- <li><a href="https://kingcounty.gov/en/legacy/services/gis" class="underline" target="_blank">
                     King County's GIS Center
                 </a>
                 <ul>
@@ -225,15 +234,15 @@ Designed in Seattle, forged in Puget Sound.
                             Road Assets Editor
                         </a></li>
                 </ul>
-            </li>
+            </li> -->
             <li><a href="https://acceleratenetworks.com/" class="underline" target="_blank">
                     Accelerate Networks
                 </a>
                 <ul>
-                    <li><a href="./portfolio.html#bulk" class="underline">
+                    <li><a href="./work.html#bulk" class="underline">
                             Phone Numbers in Bulk
                         </a></li>
-                    <li><a href="./portfolio.html#number" class="underline">
+                    <li><a href="./work.html#number" class="underline">
                             Number Search
                         </a></li>
                 </ul>
@@ -242,10 +251,10 @@ Designed in Seattle, forged in Puget Sound.
                     Kitsap County IT
                 </a>
                 <ul style="padding-bottom: 0;">
-                    <li><a href="./portfolio.html#parcel" class="underline">
+                    <li><a href="./work.html#parcel" class="underline">
                             Parcel Details
                         </a></li>
-                    <li><a href="./portfolio.html#plats" class="underline">
+                    <li><a href="./work.html#plats" class="underline">
                             Plat Search
                         </a></li>
                 </ul>
@@ -253,7 +262,7 @@ Designed in Seattle, forged in Puget Sound.
         </ul>
     </article>
     <article class="center" id="bulk">
-        <h3 style="margin-bottom: 1rem">Phone Numbers in Bulk</h3>
+        <h3>Phone Numbers in Bulk</h3>
         <blockquote>
             <ul>
                 <li>Investigate the portablity of Local, Tollfree, and Wireless numbers</li>
@@ -276,7 +285,7 @@ Designed in Seattle, forged in Puget Sound.
         </p>
     </article>
     <article class="center" id="number">
-        <h3 style="margin-bottom: 1rem">Number Search</h3>
+        <h3>Number Search</h3>
         <blockquote>
             <ul>
                 <li>~700k Entries Ingested Daily</li>
@@ -296,22 +305,28 @@ Designed in Seattle, forged in Puget Sound.
                 target="_blank" rel="noopener noreferrer">ingest</a> process and quickly <a
                 href="https://numbersearch.acceleratenetworks.com/Search" target="_blank"
                 rel="noopener noreferrer">lookup</a> available phone numbers on the Accelerate Networks website.</p>
-        <p><strong>Posts About Number Search</strong></p>
-        <ul>
-            <li>
-                <a href="./2020/04/adding-security-headers.html" class="underline">
-                    Adding Security Headers to an ASP.NET Core 3.1 MVC Web App
-                </a>
-            </li>
-            <li>
-                <a href="./2019/11/adding-spinner-bootstrap-dotnet-core-mvc.html" class="underline">
-                    Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App
-                </a>
-            </li>
-        </ul>
+    </article>
+    <article class="center">
+        <h3>My Posts About Number Search</h3>
+        <hr>
+        <a href="./2020/04/adding-security-headers.html" class="underline">
+            <strong>April 8th, 2020</strong>
+            <h3>Adding Security Headers to an ASP.NET Core 3.1 MVC Web App</h3>
+            <p>Initially it received an ‘F’ grade when I ran it through the SecurityHeaders.com benchmark. This
+                wasn’t the result I was looking for. Luckily, the solution is wildly simple.</p>
+        </a>
+
+        <a href="./2019/11/adding-spinner-bootstrap-dotnet-core-mvc.html" class="underline">
+            <strong>November 29, 2019</strong>
+            <h3>Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App</h3>
+            <p>Recently I built an ASP.NET Core 3.0 MVC Web app that acts as a front end for a group of APIs
+                that
+                are
+                each supported by a different third-party vendor.</p>
+        </a>
     </article>
     <article class="center" id="parcel">
-        <h3 style="margin-bottom: 1rem">Kitsap County Parcel Details</h3>
+        <h3>Kitsap County Parcel Details</h3>
         <blockquote>
             <ul>
                 <li>28.1K Users a Month</li>
@@ -331,57 +346,65 @@ Designed in Seattle, forged in Puget Sound.
             Parcel Details was originally an ASP.NET 4 WebForms project; In the summer of 2018 I rebuilt Parcel Details
             as an ASP.NET Core MVC project. What I'm most proud of is getting the average
             page weight down from 6 MBs to less than 200 KBs.</p>
-        <p><strong>Posts About Parcel Details</strong></p>
-        <ul>
-            <li>
-                <a href="./2020/03/malicious-scraping-account-number-schemes.html" class="underline">
-                    Malicious Scraping and Account Number Schemes
-                </a>
-            </li>
-            <li>
-                <a href="./2019/07/dapper-dotnet-core-odbc-sqlserver-2000.html" class="underline">
-                    Using Dapper and .NET Core to pull data from SQL Server 2000
-                </a>
-            </li>
-            <li>
-                <a href="./2019/05/webforms-datasets-to-dapper.html" class="underline">
-                    How I Converted ADO.NET DataSets into Dapper data models
-                </a>
-            </li>
-            <li>
-                <a href="./2019/02/purging-the-search-page.html" class="underline">
-                    Purging the Search Page
-                </a>
-            </li>
-            <li>
-                <a href="./2019/01/making-zoning-codes-useful.html" class="underline">
-                    Making Zoning Codes Useful
-                </a>
-            </li>
-            <li>
-                <a href="./2019/01/parsing-tax-descriptions.html" class="underline">
-                    Parsing Tax Descriptions
-                </a>
-            </li>
-            <li>
-                <a href="./2018/11/07/a-most-disappointing-report-button.html" class="underline">
-                    A Most Disappointing Bug Report Button
-                </a>
-            </li>
-            <li>
-                <a href="./2018/06/17/buttons-as-actions.html" class="underline">
-                    Buttons As Actions
-                </a>
-            </li>
-            <li>
-                <a href="./2018/06/15/modernizing-kitsap-countys-parcel-details.html" class="underline">
-                    Modernizing Kitsap County’s Parcel Details
-                </a>
-            </li>
-        </ul>
+    </article>
+    <article class="center">
+        <h3>My Posts About Parcel Details</h3>
+        <hr>
+        <a href="./2020/03/malicious-scraping-account-number-schemes.html" class="underline">
+            <strong>March 3rd, 2020</strong>
+            <h3>Malicious Scraping and Account Number Schemes</h3>
+            <p>On Monday morning just before 11 AM my supervisor walked into my cube. “Hey Tom, did you change anything
+                about the voting precincts query lately?”</p>
+        </a>
+        <a href="./2019/07/dapper-dotnet-core-odbc-sqlserver-2000.html" class="underline">
+            <strong>July 30, 2019</strong>
+            <h3>Using Dapper and .NET Core to pull data from SQL Server 2000</h3>
+            <p>I’m in the process of porting a web app from .NET Framework to dotnet core.</p>
+        </a>
+        <a href="./2019/05/webforms-datasets-to-dapper.html" class="underline">
+            <strong>May 11, 2019</strong>
+            <h3>How I Converted ADO.NET DataSets into Dapper data models</h3>
+            <p>Parcel Details is a monolithic .NET web app written using the now deprecated Web Forms framework that
+                Microsoft introduced in 2002</p>
+        </a>
+        <a href="./2019/02/purging-the-search-page.html" class="underline">
+            <strong>Feburary 7, 2019</strong>
+            <h3>Purging the Search Page</h3>
+            <p>About 60 percent of its users enter Parcel Details through the search page. The search page calls out to
+                a SOAP service with query and then it’s returned a JSON payload of results.</p>
+        </a>
+        <a href="./2019/01/making-zoning-codes-useful.html" class="underline">
+            <strong>January 17, 2019</strong>
+            <h3>Making Zoning Codes Useful</h3>
+            <p>Big pushes are being made in major cities across the Northwest to rethink their zoning codes.</p>
+        </a>
+        <a href="./2019/01/parsing-tax-descriptions.html" class="underline">
+            <strong>January 4, 2019</strong>
+            <h3>Parsing Tax Descriptions</h3>
+            <p>Tax Descriptions are extremely difficult to parse, let alone meaningfully understand, if you're not a
+                surveyor or parcel specialist.</p>
+        </a>
+        <a href="./2018/11/a-most-disappointing-report-button.html" class="underline">
+            <strong>November 7, 2018</strong>
+            <h3>A Most Disappointing Bug Report Button</h3>
+            <p>I've been reading a lot of HackerNews the last few months. One of the ideas that I've picked up from
+                reading the comments there has been the idea of creating short feedback loops.</p>
+        </a>
+        <a href="./2018/06/buttons-as-actions.html" class="underline">
+            <strong>June 17, 2018</strong>
+            <h3>Buttons As Actions</h3>
+            <p>One of the UX issues I’ve been struggling with is designing my web apps to make their workflow as clear
+                as possible.</p>
+        </a>
+        <a href="./2018/06/modernizing-kitsap-countys-parcel-details.html" class="underline">
+            <strong>June 15, 2018</strong>
+            <h3>Modernizing Kitsap County’s Parcel Details</h3>
+            <p>Parcel Details is a public service offered by Kitsap County that allows anyone to look up information on
+                a parcel of land using a tax account, street address, or parcel ID number.</p>
+        </a>
     </article>
     <article class="center" id="plats">
-        <h3 style="margin-bottom: 1rem">Plats Search</h3>
+        <h3>Plats Search</h3>
         <blockquote>
             <ul>
                 <li>1.5K Users a Month</li>
@@ -399,14 +422,16 @@ Designed in Seattle, forged in Puget Sound.
             most Counties in Washington requires going through the formal records
             request process. Plats Search circumvents this process by allowing people to search for Plats related to a
             tax parcel and directly download scans of those source documents.</p>
-        <p><strong>Posts About Plats Search</strong></p>
-        <ul>
-            <li>
-                <a href="./2019/10/indexing-file-directories-dotnet-core.html" class="underline">
-                    Quickly Indexing File Directories in ASP.NET Core 3.0
-                </a>
-            </li>
-        </ul>
+    </article>
+    <article class="center">
+        <h3>My Posts About Plats Search</h3>
+        <hr>
+        <a href="./2019/10/indexing-file-directories-dotnet-core.html" class="underline">
+            <strong>October 10, 2019</strong>
+            <h3>Quickly Indexing File Directories in ASP.NET Core 3.0</h3>
+            <p>I recently upgraded an ASP.NET Core 2.2 web app to 3.0. As part of this process I took some time to
+                review the existing code base.</p>
+        </a>
     </article>
     <footer class="center top">
         <a href="./index.html" class="underline hidemobile">
