@@ -194,8 +194,8 @@ Designed in Seattle, forged in Puget Sound.
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
         <h1 class="links hidemobile">
+            <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
-            <a href="./../../demos.html" class="underline">Demos</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </h1>
     </header>
@@ -208,7 +208,8 @@ Designed in Seattle, forged in Puget Sound.
             remedy this issue, we need to add an additional Content Type Provider in our Startup.cs file. Start by
             constructing a new FileExtensionContentTypeProvider and then adding a mapping for “.geojson” with a value of
             <a href="https://tools.ietf.org/html/rfc7946" target="_blank"
-                rel="noopener noreferrer">“application/geo+json”</a> for the content type in your Configure method.</p>
+                rel="noopener noreferrer">“application/geo+json”</a> for the content type in your Configure method.
+        </p>
         <p>Then add or modify the
             app.UseStaticFiles(); call to take a new StaticFileOptions with a ContentTypeProvider set to the custom
             Content Type Provider that you created above. Now you can reference GeoJSON files stored in your project’s
@@ -241,8 +242,8 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
         <h1 class="links">
+            <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
-            <a href="./../../demos.html" class="underline">Demos</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </h1>
     </footer>
