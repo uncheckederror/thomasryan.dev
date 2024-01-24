@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tube2Blog</title>
+    <meta name="description" content="Harness the power of AI to Convert your YouTube video into a blog.">
+    <meta name="keywords"
+        content="YouTube, Blog, Convert, AI, Text, Video, Images, Tube2Blog, LLM, GTP, Research, Content, Video Production, Creators, Like, Comment, Subscribe">
+    <meta name="author" content="Tube2Blog">
+    <!-- Here's the docs for the CSS framework: https://bulma.io/documentation/overview/modifiers/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="hero is-danger">
+        <div class="container has-text-centered">
+            <section class="section is-large">
+                <p class="title is-1 is-spaced">
+                    tube2blog
+                </p>
+                <p class="subtitle is-4">
+                    Create a companion blog from any YouTube video
+                </p>
+                <!-- Messing around here to show that something is going to happen in the background after they submit the link to a YouTube video -->
+                <form type="submit" onsubmit="event.preventDefault();">
+                    <div class="field is-grouped">
+                        <p class="control is-expanded">
+                            <input class="input" type="text"
+                                placeholder="Your YouTube video's public address like https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                        </p>
+                        <p class="control">
+                            <button type="submit" class="button is-danger is-light"
+                                onClick="this.classList.add('is-loading')">
+                                Blog it!
+                            </button>
+                        </p>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </section>
+    <section class="section">
+        <p class="subtitle is-4">
+            How it works
+        </p>
+        <div class="columns is-multiline has-text-centered">
+            <div class="column">
+                <div class="box">
+                    Submit a link to any YouTube video.
+                </div>
+            </div>
+            <div class="column">
+                <div class="box">
+                    We use Large Language Models like OpenAI's Whisper to extract a transcript of your
+                    video.
+                </div>
+            </div>
+            <div class="column">
+                <div class="box">
+                    Then we post process the output to make it easy for you to use.
+                </div>
+            </div>
+            <div class="column">
+                <div class="box">
+                    Now you've created twice the content without doing double the work.
+                </div>
+            </div>
+        </div>
+        <p class="subtitle is-4">
+            Why blog
+        </p>
+        <div class="columns is-multiline has-text-centered">
+            <div class="column">
+                <div class="box">
+                    Reading is faster than skipping through a video.
+                </div>
+            </div>
+            <div class="column">
+                <div class="box">
+                    Companion blogs can improve the ranking of your videos in search engines and on YouTube.
+                </div>
+            </div>
+            <div class="column">
+                <div class="box">
+                    Drive traffic to your website from YouTube by using a blog.
+                </div>
+            </div>
+        </div>
+        <p class="subtitle is-4">
+            Why us
+        </p>
+        <div class="columns is-multiline has-text-centered">
+            <div class="column">
+                <div class="box">
+                    Writing a blog on your own can take hours and is often error prone.
+                </div>
+            </div>
+            <div class="column">
+                <div class="box">
+                    We're here to support creators like you by giving you the tools to be your best.
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
