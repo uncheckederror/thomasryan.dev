@@ -220,21 +220,21 @@ Designed in Seattle, forged in Puget Sound.
     <article class="center">
         <h3>My Work For</h3>
         <ul style="padding-bottom: 0;margin-bottom: 0;">
-            <!-- <li><a href="https://kingcounty.gov/en/legacy/services/gis" class="underline" target="_blank">
+            <li><a href="https://state-of-gis.kingcounty.gov/" class="underline" target="_blank">
                     King County's GIS Center
                 </a>
                 <ul>
-                    <li><a href="#" class="underline">
-                            Parcel Report
+                    <li><a href="./work.html#districts" class="underline">
+                            Districts and Development Conditions Report
                         </a></li>
-                    <li><a href="#" class="underline">
+                    <li><a href="./work.html#usage" class="underline">
                             Usage Reporting
                         </a></li>
-                    <li><a href="#" class="underline">
+                    <li><a href="./work.html#rae" class="underline">
                             Road Assets Editor
                         </a></li>
                 </ul>
-            </li> -->
+            </li>
             <li><a href="https://acceleratenetworks.com/" class="underline" target="_blank">
                     Accelerate Networks
                 </a>
@@ -261,6 +261,107 @@ Designed in Seattle, forged in Puget Sound.
             </li>
         </ul>
     </article>
+    <article class="center" id="districts">
+        <h3>Districts and Development Conditions Report</h3>
+        <blockquote>
+            <ul>
+                <li>Aggregate data for more than 700k parcels in King County</li>
+                <li>Average page load time of less than 1000ms for an uncached lookup</li>
+                <li>Blends seemlessly with the UX of the 2024 King County website</li>
+            </ul>
+        </blockquote>
+        <br />
+        <br />
+        <a href="https://district-conditions-report-dev.kingcounty.gov/?PIN=1325059001"
+            title="Districts and Development Conditions Report" target="_blank" rel="noopener noreferrer"><img src="./2024/08/districtsreport.webp"
+                alt="All the info you could want on properties in King County."></a>
+        <p>Built to replace an existing web app of the same name from the mid-2000’s, this report has every piece of data about your parcel tracked by King County. Thanks to clever data management, spatial SQL queries, and caching it takes less than a second to lookup a property. 
+        </p>
+    </article>
+    <article class="center">
+        <h3>My Posts About the Districts Report</h3>
+        <hr>
+        <a href="https://gisandyou.org/2024/06/20/king-county-districts-and-development-conditions-report-improved-performance-and-modern-look/" target="_blank" class="underline">
+            <strong>June 20th, 2024</strong>
+            <h3>King County Districts and Development Conditions Report | Improved Performance and Modern Look</h3>
+            <p>The biggest improvement is performance. On average it’s more than twice as fast to look up a parcel and in heavy traffic scenarios, it can be nearly instant.</p>
+        </a>
+        <a href="https://gisandyou.org/2024/06/20/announcing-the-new-districts-and-development-conditions-report/" target="_blank" class="underline">
+            <strong>June 6th, 2024</strong>
+            <h3>Announcing the new Districts and Development Conditions Report</h3>
+            <p>King County GIS Center is launching the new Districts and Development Conditions Report (also referred to in short as the Districts Report) application to the public and King County internal staff!</p>
+        </a>
+        <a href="https://gisandyou.org/2024/01/19/understanding-users-of-tabular-gis-data/" target="_blank" class="underline">
+            <strong>January 19th, 2024</strong>
+            <h3>Understanding Users of Tabular GIS Data</h3>
+            <p>Understanding your users is one of the most difficult problems in software development.</p>
+        </a>
+    </article>
+    <article class="center" id="usage">
+        <h3>ESRI Usage Report</h3>
+        <blockquote>
+            <ul>
+                <li>Collects and displays quarterly usage stats for King County's GIS efforts</li>
+                <li>Handle ArcMap, ArcGIS Pro, and ArcGIS Online usage data</li>
+                <li>Stores and reports on historical usage data by year</li>
+            </ul>
+        </blockquote>
+        <br />
+        <br />
+        <a href="./2024/08/usage.webp" title="A Next.js and ArcGIS JS web app"><img src="./2024/08/usage.webp"
+            alt="Look at ESRI app usage at King County."></a>
+        <p>Built to replace an excel spreadsheet generated from a few SQL queries and a rather complex Access database the Usage reporting web app is an internal only product of the King County GIS Center that allows us to show our customers how much value they’re getting from our ESRI licensed apps like ArcMap, ArcGIS Online, and ArcGIS Pro. A quarterly report is produced from this app that KC employes can review on the King County State of GIS website.
+        </p>
+    </article>
+    <article class="center">
+        <h3>My Posts About the Usage Report</h3>
+        <hr>
+        <a href="https://gisandyou.org/2023/11/01/who-is-using-arcgis-pro-anyway/" target="_blank" class="underline">
+            <strong>November 1st, 2023</strong>
+            <h3>Who is using ArcGIS Pro anyway?</h3>
+            <p>Given that ESRI is ending support for ArcGIS Desktop in 2026, the King County GIS Center needed to
+                understand
+                the migration of users from ArcGIS Desktop to ArcGIS Pro.</p>
+        </a>
+    </article>
+    <article class="center" id="rae">
+        <h3>Road Assets Editor</h3>
+        <blockquote>
+            <ul>
+                <li>Replaces prior web app built using Microsoft's Silverlight technology</li>
+                <li>Handles millions of road assets in King County</li>
+                <li>A modern interactive web mapping app</li>
+            </ul>
+        </blockquote>
+        <br />
+        <br />
+        <a href="./2024/08/rae.webp"
+            title="Road Assets Editor" target="_blank" rel="noopener noreferrer"><img src="./2024/08/rae.webp"
+                alt="Edit road assets in King County."></a>
+        <p>Built to support the Roads department at King County, the Road Assets Editor, is an interactive mapping and asset management web app. It allows you to see every road asset in King County, create new assets, and update the properties of existing assets like road signs, curbs, and crosswalks. This app is used everyday to manage the process of improving the County’s road system.
+        </p>
+    </article>
+    <article class="center">
+        <h3>My Posts About the Road Assets Editor</h3>
+        <hr>
+        <a href="./2023/06/wagisa-2023.html" target="_blank" class="underline">
+            <strong>June 15th, 2023</strong>
+            <h3>WAGISA 2023</h3>
+            <p>Today I woke up early at 7 AM and drove down to the UW Tacoma campus to present at the WAGISA conference.</p>
+        </a>
+        <a href="./2022/05/dotnet-6-web-api-visual-basic-conversion.html" target="_blank" class="underline">
+            <strong>May 21th, 2022</strong>
+            <h3>Cleaning up a .NET 6 Web API Converted from Visual Basic</h3>
+            <p>The Road Assets Editor or RAE is a tool that enables employees to review all road assets built in King
+                County.</p>
+        </a>
+        <a href="./2022/04/load-csv-sqlite-aspnet-core-6-startup.html" target="_blank" class="underline">
+            <strong>April 17th, 2022</strong>
+            <h3>Load a CSV into SQLite on Startup in ASP.NET Core 6</h3>
+            <p>When I deploy my ASP.NET Core 6 app I want it to gather CSV formatted data and ingest it into SQLite as
+                part of its startup process.</p>
+        </a>
+    </article>
     <article class="center" id="bulk">
         <h3>Phone Numbers in Bulk</h3>
         <blockquote>
@@ -272,7 +373,7 @@ Designed in Seattle, forged in Puget Sound.
         </blockquote>
         <br />
         <br />
-        <a href="https://acceleratenetworks.com/Lookup/BulkPort?dialedNumber=5558675309%2C+202-456-1414%2C+800-325-6165%2C+206-769-6361%2C+%28206%29+333-3341"
+        <a href="https://acceleratenetworks.com/Search"
             title="Numbers in Bulk" target="_blank" rel="noopener noreferrer"><img src="NumbersInBulk.webp"
                 alt="A query for many numbers in bulk."></a>
         <p>When large organizations switch VOIP phone service providers often they bring their existing phone numbers
