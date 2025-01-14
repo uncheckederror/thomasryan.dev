@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!--
+Hello there.
+You're a bold one; hitting that inspect button.
+(•_• )
+( •_•)
+( •_•)>⌐■-■
+(⌐■_■)
+Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
+Designed in Seattle, forged in Puget Sound.
+@UncheckedError
+-->
+<html>
+
+<head>
+    <title>A New WA Sales Tax Lookup API for a New Year</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="I’ve decided that now is the time to modernize the WA Sales Tax Lookup API.">
+    <meta name="keywords"
+        content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="author" content="Thomas August Ryan @UncheckedError">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Skip the favicon. -->
+    <link
+        href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAACEAEUAAAAAAGIBTABJSUkAw7ItAF7o5QAhlg8AhE3ZALSIDwDj5WMAvq0rAJYGVQB6AEYAmFgLAASvTwCFAUMAtH4TAJRG7QAIl6wAVFRUADq3zAAP0NIAr0T6AAadrACUA04AKrE4ADd0sgBlCK4A4/M9ABHYvABuFN8A/v79AEBBSQBvAEgAMg/XAF3o5wAd3NoAXAtDAAefsAD+/v4AeiKfAIQASAAbKbkA19xOAJYGWABqAFIAiQJLAAAeqAAGsnMAZTPlAFYX4gAbcrMASrrOAFrr6QD29vUAlVMEAEfOtwAvlQ0A1Mw6ABdhoQB9BE8ABcO4AACdAQAAIJsAlCDXABNKuQD//P0A6enpAAgskgBQoB8ALrmAALJ+DwCAAEIAAEeRACu/ZwCExzwAWgB+ABl9AAA1NTUA5eXlAACLFABmCcAAkwJNAOX2KAAUNasAV684AFYBUwCNA0sA5+chAFsAXgBf5dsAVABvADSsvwAwI9UAJaoXAOXXJQD///8AI+zjAAGeKgACVpIAAEuQAFEAXwCQHMQACw3TAP39/QBIqwsAHi7IAGq2FAAvLy8AGqMsAAKPAgDQ0NAAbwWCAPv7+wCfWQcAoMY4AGYd5QCn3yMAiARKAKY+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYGBgYGAnFSZjcGBgYGBgYGBgYGAdPRUXY0RwZ2BgYGBgYGBNDh0kEmQ/ZzIeYGBgYCdNPlAwYSZJLyIeUUxgYGB1aU1uYmEmYy90G0xlTmAnHHVrOTliJmMvG1tWLSVgX19YU1NTAQEBAQMBDAApbxAQRwgQEAFgYAF2dlcYLHYNDTdyDQ0BYGABdnZ2Ugt2CgoEOjpGAQEBAUhISA8udmAJK3NzRgU0GkFmcAIhPB9gK0tFBkYFNBpBB2ZwWWxgYDZVXm1GBTQaKjF3QChoYGBgXhlKODVcO1RdERYTYGBgYGBCOFojFDNBaiBxYGBgYGBgYGBDIxQzQU9gYGBgYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+        rel="icon" type="image/x-icon" />
+    <!-- Tracking/telemetry code please disable if you're not into that sort of thing -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "jk0a2nru7l");
+    </script>
+    <style type="text/css">
+        .center {
+            /* Off white to reduce eye strain. */
+            background: #FDFDFD;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 3% 0% 3% 0%;
+            /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 1000px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        h3 {
+            letter-spacing: 0.01rem;
+            font-size: 2.4rem;
+            font-weight: 100;
+            margin-top: 0;
+        }
+
+        li {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+
+        p {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+
+        body>article>p>a {
+            text-decoration: none;
+            border-bottom: 1px solid #2A2A2A;
+        }
+
+        a:link,
+        a:visited {
+            color: #2A2A2A;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        .underline {
+            text-decoration: none;
+        }
+
+        blockquote {
+            background: #f5f5f5;
+            border-radius: 2px;
+            padding: 1rem;
+            margin: 0% 0% 0% 0%;
+        }
+
+        .links {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        h1>a:link,
+        h1>a:visited {
+            color: grey;
+        }
+
+        h1>a:hover,
+        h1>a:active {
+            color: #d2d2d2;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        @media (max-width: 680px) {
+            .hidemobile {
+                display: none;
+            }
+        }
+
+        /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
+        @media (prefers-color-scheme: dark) {
+            .center {
+                /* Off white to reduce eye strain. */
+                background: #242424;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+
+            body {
+                /* Off black to reduce eye strain. */
+                background-color: #171717;
+                /* Off white to reduce eye strain. */
+                color: #e3e3e3;
+            }
+
+            blockquote {
+                background: #2e2e2e;
+            }
+
+            body>article>p>a {
+                text-decoration: none;
+                border-bottom: 1px solid #4db2ff;
+            }
+
+            a:link,
+            a:visited {
+                color: #e3e3e3;
+            }
+
+            a:hover,
+            a:active {
+                color: #0091ff;
+            }
+
+            h1>a:link,
+            h1>a:visited {
+                color: #6b6b6b;
+            }
+
+            h1>a:hover,
+            h1>a:active {
+                color: #0091ff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="center top">
+        <a href="./../../index.html" class="underline">
+            <h1>Thomas<br>August<br>Ryan</h1>
+        </a>
+        <h1 class="links hidemobile">
+            <a href="./../../work.html" class="underline">Work</a>
+            <a href="./../../posts.html" class="underline">Posts</a>
+            <a href="./../../resume.pdf" class="underline">Résumé</a>
+        </h1>
+    </header>
+    <article class="center">
+        <time datetime="2023-06-15">
+            <strong>January 13th, 2025</strong>
+        </time>
+        <h3>A New WA Sales Tax Lookup API for a New Year</h3>
+        <p>I’ve decided that now is the time to modernize the WA Sales Tax Lookup API. You can try it out in the new <a
+                href="https://wataxlookup.acceleratenetworks.com/scalar/v1" target="_blank">interactive docs</a>, see
+            the updated <a href="https://wasales.tax/" target="_blank">landing page</a>, and <a
+                href="https://github.com/uncheckederror/WASalesTaxLookup" target="_blank">clone the repo</a> to run it
+            locally for testing or deploy
+            it to your infrastructure.
+        </p>
+        <a href="Scalar.webp" title="The new Scalar API docs for the WA Sales Tax Rate Lookup API."><img
+            src="Scalar.webp"
+            alt="The new Scalar API docs for the WA Sales Tax Rate Lookup API."></a>
+        <p>Originally, I released the WA Sales Tax Lookup project on Github in late March of 2021. The initial
+            motivation was that .NET 5’s HTTPClient was throwing an exception when we called the API endpoint that the
+            State’s Department of Revenue provides. Essentially the SSL certificate they were using was so old that
+            HTTPClient considered it invalid even though you could query it just fine from Chrome or Postman.</p>
+        <p>The State offered the <a href="https://dor.wa.gov/washington-sales-tax-rate-library-source-code"
+                target="_blank">source code</a> of
+            their API so that enterprising sales tax rate consumers could self-host the project. As I was curious about
+            my options I reviewed the source code, realized it was written in C# (the language I use for my day job) and
+            grimaced when I saw that it was still a .NET Framework project. This was a problem that affected me
+            personally, I had the source code I needed to solve it, and I had the right skills and experience to get it
+            done.</p>
+        <h3>Creating an Alternative</h3>
+        <p>
+            I created the WA Sales Tax Lookup project using the Web API template in .NET 5. This template used the
+            concept of Controllers to organize routes and their functions, stylistically it’s like a stripped-down
+            version of the Model-View-Controller or MVC template common in ASP.NET web apps. With the release of .NET 6
+            the following year, Microsoft introduced <a
+                href="https://learn.microsoft.com/en-us/aspnet/core/fundamentals/apis?view=aspnetcore-9.0"
+                target="_blank">Minimal APIs</a>
+            as a new project type
+            that dispensed with the structure and ceremony of MVC-style projects. Initially I rejected moving to this
+            new project type as I was unfamiliar with it and the Sales Tax API was chugging along just fine.
+        </p>
+        <p>Often showing this kind of related information from a spatial query directly on a map can be confusing and
+            hard to parse due to the density of the information. There are a couple of methods to solve this problem in
+            a Parcel Viewer like placing a small table inside of a popup that appears when you click on a parcel.
+            Alternatively, you can link from your parcel to another app or web page that presents this information as a
+            table or series of tables. This is often found when the Assessor or Recorder is in a separately elected
+            position (with its own IT staff) distinct from the elected officials that control the County’s IT or GIS
+            groups. Personally, my favorite solution is to take the left third of the screen and use it as a scrollable
+            column of tables containing this related information like Zillow or Redfin. This allows you to maintain the
+            context of the map, quick switching between Parcel’s of interest, while getting the detailed tabular
+            information in a decent visual format.</p>
+        <p>With the arrival of .NET 9 this past November I spent a fair amount of time trying to improve my skills with
+            <a href="https://learn.microsoft.com/en-us/archive/msdn-magazine/2018/january/csharp-all-about-span-exploring-a-new-net-mainstay"
+                target="_blank">Span&lt;T&gt;</a> to minimize memory usage and <a
+                href="https://nietras.com/2021/06/14/csharp-10-record-struct/" target="_blank">readonly record
+                structs</a>
+            for small short-lived types. Somewhere in the
+            miasma of updating all my projects to .NET 9 and rethinking my apps through the lens of memory
+            consumption I decided that it was time to modernize the WA Sales Tax Lookup API.
+        </p>
+        <h3>Starting with Fresh Tools</h3>
+        <p>I started by creating a new project in Visual Studio 2022 using the using the ASP.NET Core Web API template
+            which defaults to the Minimal API project style. Then I wrote stubs for the API endpoints I wanted, copied
+            over the supporting Models and Services from the old project, and then finally copied the contents of the
+            Controller in the old project into my new stubbed-out endpoints. With the basics of the project successfully
+            completed I turned to dealing with the documentation.
+        </p>
+        <h3>Developer Experience</h3>
+        <p>
+            For APIs the documentation is make or break when onboarding new users. If the docs are bad, then the API
+            might as well not exist. For .NET apps SwaggerUI has largely solved this problem by providing interactive
+            documentation that is automatically generated from your code. You can enhance this documentation by
+            providing field and endpoint descriptions that are then dumped into the OpenAPI document that SwaggerUI
+            consumes.
+        </p>
+        <p>
+            .NET 9 there’s a new alternative to SwaggerUI called
+            <a href="https://github.com/scalar/scalar/blob/main/packages/scalar.aspnetcore/README.md"
+                target="_blank">Scalar</a>. This is a cool option for
+            improving the API docs as Scalar provides example code for calling endpoints in many different programming
+            languages. For fresh developers figuring out how to use your API has as much of a learning curve as calling
+            your API using the HTTP Client library in their language of choice. These language specific code snippets
+            short cut that stumbling block by giving you just enough to get pointed in the right direction.
+        </p>
+        <p>
+            Scalar also provides a dark mode, which everyone loves, and a UI that looks more like Github than SwaggerUI
+            does. This is not to dunk on SwaggerUI; it works well and looks good, but Scalar is perhaps a bit better.
+        </p>
+        <h3>Startup Performance</h3>
+        <p>
+            With a new project style and fresh docs, it was time to turn my attention simplifying the workflow of
+            matching a sales tax rate to an address. In the initial version of this app we ingested address ranges, zip
+            codes, and the tax rates from zipped CSV files just as the State’s project did. For convenience I loaded the
+            contents of these files into an SQLite 3 database using the Entity Framework Core Object-Relational Mapper
+            (ORM).
+        </p>
+        <p>
+            This architectural decision hurt startup performance as we had to download, unzip, serialize, and then save
+            each row into our database before the API could start responding to requests. In early versions of the app
+            this would take 10 minutes and up to 4 GBs of memory for the ingest process to complete. By streaming the
+            records and using ADO.NET transactions to insert rows into SQLite I was able to get this down to 6 minutes
+            and about 1.3 GBs of memory consumption. That was enough for my purposes, and I moved on.
+        </p>
+        <p>
+            In the new WA Sales Tax Lookup I’ve done away with SQLite completely. Instead, I’m using a type of
+            collection introduced in .NET 8 called <a
+                href="https://steven-giesel.com/blogPost/34e0fd95-0b3f-40f2-ba2a-36d1d4eb5601"
+                target="_blank">FrozenSet&lt;T&gt;</a>
+            which is immutable and
+            optimized for data that’s read frequently but created only once. This means we no longer need a durable
+            store of state like SQLite, which also rids us of the need to use our ORM, Entity Framework Core.
+            Performance is also vastly improved as all the data is held in-memory. Ingesting the CSV’s from the
+            Department of Revenue’s website now takes about 7 seconds rather than multiple minutes. Memory usage has
+            also dropped slightly from 1.3 GBs to less than a gigabyte.
+        </p>
+        <h3>Rethinking the Workflow</h3>
+        <p>But what if we didn’t need to ingest the CSV’s from the State’s website at all?</p>
+        <p>In my day job I do GIS Programming, a GIS is essentially a database where every row has a spatial component
+            like a set of x, y coordinates or a polygon. A dataset we spend considerable time working with is called
+            Address Points, these points map street address to a pair of x, y coordinates that you can place on a map.
+        </p>
+        <p>
+            A service that takes an address and returns to you the coordinates of that address point is called a
+            Geocoder. If my little county government maintains its own geocoder then certainly the State must have one.
+            Once we have the coordinates for the address then we then need to overlay it on a map of the Sales Tax
+            polygons, which the State helpfully provides.
+        </p>
+        <p>
+            Different municipalities include their own local taxes in the Sales Tax rate, hence the need for this Sales
+            Tax Lookup in the first place. Municipalities have jurisdictions, from those jurisdictions we can get
+            polygons representing their boundaries and then we can figure out what tax rates apply to an address based
+            on what polygon it exists inside of. The Department of Revenue calls the unique Id for these polygons a
+            Location Codes or LOCODE. Using this Id, we can match to a Tax Rate row and return it to the user.
+        </p>
+        <p>
+            Forgive the long windedness of the prior section, but it’s important to be specific. The older version of
+            this app needed the ZipCode CSV (170k rows) to match a zip code, then it filtered further using the
+            AddressRanges CSV (1.2M rows) to get a specific LOCODE to match to a Tax Rate from the TaxRates CSV.
+        </p>
+        <p>
+            Using the State’s geocoder to get a coordinate for an Address and then using their map of LOCODE polygons we
+            can grab the LOCODE value for the polygon that our point falls within and then match it directly to a Tax
+            Rate. This rids us of the need for the first two CSVs and leaves us with only the TaxRates CSV (398 rows).
+        </p>
+        <p>
+            To support this implementation, I’ve added a configuration field to the appsettings.json file called
+            EnableLegacy. If you set it to false only the JSON returning /GetTaxRate endpoint that uses this GIS lookup
+            workflow will show up in the documentation and only the TaxRates CSV will be ingested from the State. The
+            benefit is that memory consumption drops to merely 50 MBs. Startup time also improved from 13 seconds to
+            just 4 seconds. The downside is that you no longer get the same XML or HTML formatted response that the
+            Department of Revenue’s API provides. That legacy format is tied tightly to the rows in the ZipCode and
+            AddressRange CSVs, so we cannot recreate it exactly. But you still get the correct tax rate information
+            back, formatted as JSON.
+        </p>
+        <p>
+            Additionally, because the GIS lookup workflow calls the State’s GIS services to geocode the address and find
+            the right location code polygon this API is now dependent on those external services. Luckily, those
+            services are heavily used and at least as stable and reliable as this API.
+        </p>
+        <h3>A New API for a New Year</h3>
+        <p>
+            In sum basically every aspect of the WA Sales Tax Rate Lookup API has been enhanced from the developer
+            experience to the hosting requirements to the raw performance of the tax rate lookups. I hope you enjoy
+            using this project as much as I enjoyed building it. 🥳
+        </p>
+    </article>
+    <article class="center">
+        <time datetime="2025-01-13">
+            <h2>January 13th, 2025</h2>
+        </time>
+        <h3>UPDATE</h3>
+        <p>While writing this post I realized that the deployment target for this API only has a gigabyte of
+            memory available. Despite all the other improvements, letting this app eat 900 MBs of memory isn’t good
+            enough given this requirement. Taking a memory usage snapshot in the Visual Studio debugger revealed
+            that a good portion of the memory consumption was coming from duplicate strings. A good solution for
+            dealing with duplicate strings is pooling and reusing them, but implementing this yourself is awkward.
+        </p>
+        <p>Nearly all of these strings are allocated when we serialize the CSV files. Up to this point I’ve been
+            using the <a
+            href="https://joshclose.github.io/CsvHelper/"
+            target="_blank">CsvHelper</a> library as I’m quite familiar with it. But
+            there’s another increasingly popular library called <a
+            href="https://nietras.com/2023/06/05/introducing-sep/"
+            target="_blank">Sep</a>
+            that implements string pooling for you and has some
+            impressive benchmarks. Converting from CsvHelper to Sep was simple and it brought memory consumption
+            down from about 900 MBs to 630 MBs. Still more than I’d like, but good enough.</p>
+    </article>
+    <article class="center">
+        <time datetime="2025-01-13">
+            <h2>January 13th, 2025</h2>
+        </time>
+        <h3>UPDATE 2</h3>
+        <p>Surprise that wasn’t good enough. I realized when I was reading through the Sep docs that I hadn’t
+            enabled string pooling, which requires an explicit configuration step. Choosing the
+            SepToString.OnePool() option used ~530 MBs. Going a step further with the SepToString.PoolPerColumn()
+            got it down to ~430 MBs of memory consumed. Now the WA Sales Tax Rate Lookup API is using less than half
+            the available memory on its deployment target, which leaves plenty of margin for heavier loads or
+            incidents. How delightful.
+        </p>
+    </article>
+    <footer class="center top">
+        <a href="./../../index.html" class="underline hidemobile">
+            <h1>Thomas<br>August<br>Ryan</h1>
+        </a>
+        <h1 class="links">
+            <a href="./../../work.html" class="underline">Work</a>
+            <a href="./../../posts.html" class="underline">Posts</a>
+            <a href="./../../resume.pdf" class="underline">Résumé</a>
+        </h1>
+    </footer>
+</body>
+
+</html>
