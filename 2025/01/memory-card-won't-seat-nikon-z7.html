@@ -2,22 +2,21 @@
 <!--
 Hello there.
 You're a bold one; hitting that inspect button.
-
 (•_• )
 ( •_•)
 ( •_•)>⌐■-■
 (⌐■_■)
-
 Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
 Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
-<html lang="en-US">
+<html>
 
 <head>
-    <title>Tom the bomb on CD-ROM</title>
+    <title>What is a Parcel Viewer?</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
+    <meta name="description"
+        content="A Parcel Viewer is an interactive map that allows you to find and inspect a specific piece of land.">
     <meta name="keywords"
         content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
     <meta name="author" content="Thomas August Ryan @UncheckedError">
@@ -56,10 +55,6 @@ Designed in Seattle, forged in Puget Sound.
             max-width: 1000px;
             /* Off black to reduce eye strain. */
             color: #2A2A2A;
-            /* background-image: url(./thomasryandevbackgroundimage.jpg);
-            background-repeat: repeat;
-            background-position: center;
-            background-size: cover; */
         }
 
         h1,
@@ -77,26 +72,11 @@ Designed in Seattle, forged in Puget Sound.
             font-size: 2.4rem;
             font-weight: 100;
             margin-top: 0;
-            margin-bottom: 0;
         }
 
-        ul li {
+        li {
             font-size: 1.3rem;
             line-height: 2rem;
-            list-style-type: none;
-        }
-
-        body>article>p:last-child {
-            margin-bottom: 0;
-        }
-
-        body>article>p:first-child {
-            margin-top: 0;
-        }
-
-        ul {
-            padding-bottom: 1rem;
-            list-style-type: none;
         }
 
         p {
@@ -160,11 +140,6 @@ Designed in Seattle, forged in Puget Sound.
             .hidemobile {
                 display: none;
             }
-
-            /* Flex makes this look wonky on small screens */
-            .top {
-                display: block;
-            }
         }
 
         /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
@@ -216,62 +191,76 @@ Designed in Seattle, forged in Puget Sound.
 
 <body>
     <header class="center top">
-        <a href="./index.html" class="underline">
+        <a href="./../../index.html" class="underline">
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
         <h1 class="links hidemobile">
-            <a href="./work.html" class="underline">Work</a>
-            <a href="./posts.html" class="underline">Posts</a>
-            <a href="./resume.pdf" class="underline">Résumé</a>
+            <a href="./../../work.html" class="underline">Work</a>
+            <a href="./../../posts.html" class="underline">Posts</a>
+            <a href="./../../resume.pdf" class="underline">Résumé</a>
         </h1>
     </header>
     <article class="center">
-        <p>Hi! You can call me <a href="https://www.instagram.com/uncheckederror/" target="_blank"
-                rel="noopener noreferrer">Tom</a>. 👋</p>
-        <p>I'm a Principal GIS and Data Platforms Engineer at King County's <a
-                href="https://state-of-gis.kingcounty.gov/" target="_blank" rel="noopener noreferrer">GIS
-                Center</a>. 🗺️</p>
-        <p>Here's my most recent post:</p>
-        <a href="./2025/01/memory-card-won't-seat-nikon-z7.html" class="underline">
+        <time datetime="2023-06-15">
             <strong>January 26th, 2025</strong>
-            <h3>The memory card won’t seat in my Nikon Z7</h3>
-            <p>I have a Nikon Z7, last weekend I tried to swap out its memory card for another, but the memory card wouldn’t
-                stay in the slot.
-            </p>
-        </a>
-        <p>Check out <a href="./work.html">my work here</a>! 🚀
-    </article>
-    <article class="center">
-        <h3>Right Now</h3>
-        <p>I am replacing an admin app used to define and track the execution of custom ETL scripts written in Python.
-            These scripts are responsible for regularly publishing GIS data from our agencies to a shared enterprise
-            library and eventually the public.
+        </time>
+        <h3>The memory card won’t seat in my Nikon Z7</h3>
+        <p>I have a Nikon Z7, last weekend I tried to swap out its memory card for another, but the memory card wouldn’t
+            stay in the slot. It kept popping back out! How annoying. But I was lucky, if I closed the cover fast enough
+            the card would stay in its slot and continue to work. It usually took a few tries, but it was good enough for the moment.
         </p>
-        <p>The new app is a prototype built in .NET 9 using server-side Blazor and Entity Framework Core. These
-            technologies will allow us to provide a similar, but improved experience compared to the existing ASP.NET
-            Webforms app written in VB, which uses the postback method to provide interactivity.
+        <a href="MemoryCardScrewAndTool.webp" title="The CF Express Type B memory card, the offending screw, and the paper clip pick used to remove it."><img
+                src="MemoryCardScrewAndTool.webp"
+                alt="The CF Express Type B memory card, the offending screw, and the paper clip pick used to remove it."></a>
+        <p>After a bit of Googling and reading similar posts in the DPReview forums where the camera was sent back to
+            Nikon, I decided to try fixing this problem myself. I have two Nikon Z7 bodies, so I was able to compare the
+            function of the memory card slot side by side on my dining room table. I noticed that on my good camera the
+            memory card slotted down until it was flush with body of the camera. But on the camera where the card
+            wouldn’t stay inserted the top edge of the memory card floated a few millimeters above the edge. This was
+            evidence that there was a physical problem with the slot.</p>
+        <p>Using the light on my phone I illuminated the inside of the slot to inspect it for damage. Comparing my two
+            cameras side by side everything looked normal. All the copper CFExpress Type B pins were still attached, and
+            their plastic shrouds were square and parallel to each other. The green PCB on one side of the slot had no
+            stains or visible damage and the same was true of the metal plate on the opposite wall of the slot. Nothing
+            appeared amiss. </p>
+        <a href="FindingTheScrew.webp"
+            title="The screw that was keeping the memory card from seating in my Nikon Z7."><img
+                src="FindingTheScrew.webp"
+                alt="The screw that was keeping the memory card from seating in my Nikon Z7."></a>
+        <p>
+            In the far bottom corner of the memory card slot, I noticed a small spring. Based on its position I inferred
+            that this was the retention spring that held the card in the slot and clicked when the card was correctly
+            inserted in the slot. On my good camera there’s just empty space around this spring, but on my temperamental
+            camera there was a single tiny screw that was sitting next to the spring. Finally, I’d found the culprit!
         </p>
-    </article>
-    <article class="center">
-        <h3>About Myself</h3>
-        <p>I like camping. Often I'll go out to the Olympics and stay at sites like Lake Cushman, Deer Park, and the
-            coastline around Lake Ozette. I'm excited ski season this winter. ⛷️</p>
-        <p>I know a bit about photography. You can see my work <a
-                href="https://www.flickr.com/photos/uncheckederror/" target="_blank" rel="noopener noreferrer">on
-                Flikr.</a> Right now I'm shooting with a Nikon Z7. 📸</p>
-        <p>As of September 2022 I am the author of the top text result on Google for "<a
-                href="https://www.google.com/search?q=how+to+install+ram" target="_blank" rel="noopener noreferrer">How
-                to install RAM</a>". Although I don't
-            write product reviews anymore, I still have a deep interest in computer hardware and benchmarking. 🧑‍💻</p>
+        <p>At first, I tried just beating the camera. This was a failure. My repeated attempts at slotting the memory
+            card into this slot had firmly wedged the small screw into the small spring. I needed a thin, precise
+            picking tool of some sort. Lacking the correct surgical instruments, I found a paper clip in my kitchen junk
+            drawer. I bent out the paper to form a long lever that I could use to reach down into the memory card slot
+            and pick out the screw.</p>
+        <a href="PaperclipInTheMemoryCardSlot.webp" title="Using a paper clip as a pick to remove a floating screw from the memory card slot of my Nikon Z7."><img
+                src="PaperclipInTheMemoryCardSlot.webp" alt="Using a paper clip as a pick to remove a floating screw from the memory card slot of my Nikon Z7."></a>
+        <p>
+            The screw was freed and moved around the first time I touched it. I was elated. But the clearances are very
+            tight between the spring and the wall around it. Even with the screw freed, shaking the camera and banging
+            on it weren’t enough to get the screw to fall free using gravity. It was also difficult, due to the depth of
+            the slot, to keep a light shined in there while trying to use the paper clip to pick at the screw. I solved
+            this by holding the camera over the top of a lamp fixture so that the light would shine directly up from the
+            lamp and into the card slot while I held it in air. After a few more attempts of picking at the screw it
+            suddenly felt out and into the palm of my hand.
+        </p>
+        <p>With the physical blockage cleared the memory card seated perfectly into the body of my Nikon Z7. All was now
+            well in this small part of the world.
+        </p>
     </article>
     <footer class="center top">
-        <a href="./index.html" class="underline hidemobile">
+        <a href="./../../index.html" class="underline hidemobile">
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
         <h1 class="links">
-            <a href="./work.html" class="underline">Work</a>
-            <a href="./posts.html" class="underline">Posts</a>
-            <a href="./resume.pdf" class="underline">Résumé</a>
+            <a href="./../../work.html" class="underline">Work</a>
+            <a href="./../../posts.html" class="underline">Posts</a>
+            <a href="./../../resume.pdf" class="underline">Résumé</a>
         </h1>
     </footer>
 </body>
