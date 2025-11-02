@@ -15,8 +15,7 @@ Designed in Seattle, forged in Puget Sound.
 <head>
     <title>Using Sep to Export a CSV in Razor Pages</title>
     <meta charset="UTF-8">
-    <meta name="description"
-        content="Sep is a zero-allocation library for
+    <meta name="description" content="Sep is a zero-allocation library for
             parsing CSV files in .NET. Here's how I used it in my ASP.NET Core .NET 9 web app.">
     <meta name="keywords"
         content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
@@ -211,38 +210,43 @@ Designed in Seattle, forged in Puget Sound.
             <strong>November 2nd, 2025</strong>
         </time>
         <h3>Using Sep to Export a CSV in Razor Pages</h3>
-        <p>After years of using <a
-                href="https://github.com/JoshClose/CsvHelper" target="_blank" rel="noopener noreferrer">CSVHelper</a> I learned about <a
-                href="https://github.com/nietras/Sep/" target="_blank" rel="noopener noreferrer">Sep</a> earlier this year. Sep is a zero-allocation library for
+        <p>After years of using <a href="https://github.com/JoshClose/CsvHelper" target="_blank"
+                rel="noopener noreferrer">CSVHelper</a> I learned about <a href="https://github.com/nietras/Sep/"
+                target="_blank" rel="noopener noreferrer">Sep</a> earlier this year. Sep is a zero-allocation library
+            for
             parsing CSV files in .NET. Not allocating additional memory for parsing is wonderful, especially when merely
-            reading a CSV file can consume hundreds of MBs of memory. For the web apps I write, my goal is to take a CSV
+            reading a CSV file can consume hundreds of MBs of memory.
+        </p>
+        <p>For the web apps I write, my goal is to take a CSV
             file stored locally and then convert it into an array of objects in C#. That array will then get wrapped in
             a FrozenDictionary and passed around the app as singleton so I can perform lookups on it using a foreign
             key. The CSV starts its life as an export from another app that I want my app to link back to.
         </p>
         <p>Serializing a CSV to an array of objects using Sep is straightforward. We start by creating a reader object,
-            passing it a file path as a parameter, and then looping over rows to construct each object from the right
+            passing it a file path as a parameter, and then looping over rows to construct each object from the desired
             columns in the CSV. Getting the value of a column for the specific row is as simple as passing the row
             object the name of the column, like you would with a dictionary and then calling .ToString(). This makes it
             easy to process or format that value before building your object out of it. </p>
         <blockquote>
             <pre><code>using var reader = Sep.New(‘,’).Reader().FromFile(“pathToFile.csv”);</code></pre>
         </blockquote>
-        <p>Sep also has support for <a
-                href="https://nietras.com/2024/05/05/sep-0-4-0-0-5-2/" target="_blank" rel="noopener noreferrer">ParallelEnumeration</a> so that you can process the rows in your CSV in parallel, which
+        <p>Sep also has support for <a href="https://nietras.com/2024/05/05/sep-0-4-0-0-5-2/" target="_blank"
+                rel="noopener noreferrer">ParallelEnumeration</a> so that you can process the rows in your CSV in
+            parallel, which
             reduces the amount of time it takes to get your array of objects together.</p>
         <h3>Using Sep for Exporting Data</h3>
         <p>Recently I built a status page in my app so that I could verify that it had all the data that it needed to
             work correctly. After showing this page to the team, they asked for an export to CSV button so they could
             play with the data in Excel. I turned to Sep as the perfect tool to implement this. But I hadn’t used Sep
-            for writing CSV before, working through the readme.md on Github left me more confused. I decided to hunt for
+            for writing CSVs before. Working through the readme.md on Github left me more confused. I decided to hunt
+            for
             practical examples to reference as I wrote my own implementation. </p>
         <p>Credit where credit was due, the example I needed was in the readme and in the section labeled 'example' but
             I’m going to expand on it here because I didn’t understand after reading it the first few times. If we start
             with an array of objects in C# we need to loop over them to construct our CSV row by row. That’s easy enough
             with a foreach loop, but we’ll also need to create a writer object using Sep to submit our rows to. </p>
         <p>In the Sep readme they show creating a writer from an existing reader. But my status page doesn’t expect CSVs
-            as input, so I don’t have a reader object to work with. To work around this, we can create our own writer
+            as input, so I don’t have a reader object to start from. To work around this, we can create our own writer
             object by calling the Sep library, passing it the delimiter we want to use (in this case the char ‘,’), and
             then calling for a writer object that produces text, rather than a file.</p>
         <blockquote>
@@ -256,18 +260,21 @@ foreach (var item in ArrayOfObjects) {
 
 }</code></pre>
         </blockquote>
-        <p>When testing the CSV I realized that one of the columns had string with commas in them, this broke the CSV
-            output by formatting some rows with additional columns. Sep supports <a
-                href="https://nietras.com/2025/01/12/sep-0-7-0/" target="_blank" rel="noopener noreferrer">escaping columns</a> using double quotes
-            but doing so requires using the SepWriterOptions struct which was a bit awkward at first. </p>
+        <p></p>
         <h3>Dealing with Dirty Data</h3>
+
+        <p>When testing the CSV I realized that one of the columns had strings with commas in them, this broke the CSV
+            output by formatting some rows with additional columns. Sep supports <a
+                href="https://nietras.com/2025/01/12/sep-0-7-0/" target="_blank" rel="noopener noreferrer">escaping
+                columns</a> using double quotes
+            but doing so requires using the SepWriterOptions struct which was a bit awkward at first. </p>
         <p>In other libraries you can modify the properties of your reader and writer objects by doting into them and
             then setting a new value, but that doesn’t work with Sep because the reader and writer objects are not
-            simple classes rather, they are readonly record structs which prevents us from updating them after they’ve
+            simple classes. They are readonly record structs which prevents us from updating them after they’ve
             been created. We can use the ‘with’ operator in C# to create a copy of this struct with updated fields and
             replace the existing SepWriterOptions struct. This pattern isn’t explicitly in the readme.md but is clearly
-            described in a supplemental blog post by Sep’s author on <a
-                href="https://nietras.com/2025/01/12/sep-0-7-0/" target="_blank" rel="noopener noreferrer">CSV Escape Support</a>.</p>
+            described in a supplemental blog post by Sep’s author on <a href="https://nietras.com/2025/01/12/sep-0-7-0/"
+                target="_blank" rel="noopener noreferrer">CSV Escape Support</a>.</p>
         <blockquote>
             <pre><code>using var writer = Sep.New(‘,’).Writer(o => o with { Escape = true }).ToText();</code></pre>
         </blockquote>
@@ -297,8 +304,7 @@ foreach (var item in ArrayOfObjects) {
 &lt;/form&gt;
 </code></pre>
         </blockquote>
-        <p>There you have it, an Export to CSV button for a Razer Pages web app built using the Sep library that
-            consumes as little memory as possible. Enjoy!</p>
+        <p>There you have it, an Export to CSV button for a Razer Pages web app built using the Sep library. Enjoy!</p>
     </article>
     <footer class="center top">
         <a href="./../../index.html" class="underline hidemobile">
