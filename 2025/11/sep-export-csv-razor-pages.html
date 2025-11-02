@@ -13,10 +13,11 @@ Designed in Seattle, forged in Puget Sound.
 <html>
 
 <head>
-    <title>What is a Parcel Viewer?</title>
+    <title>Using Sep to Export a CSV in Razor Pages</title>
     <meta charset="UTF-8">
     <meta name="description"
-        content="A Parcel Viewer is an interactive map that allows you to find and inspect a specific piece of land.">
+        content="Sep is a zero-allocation library for
+            parsing CSV files in .NET. Here's how I used it in my ASP.NET Core .NET 9 web app.">
     <meta name="keywords"
         content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
     <meta name="author" content="Thomas August Ryan @UncheckedError">
@@ -140,7 +141,7 @@ Designed in Seattle, forged in Puget Sound.
             .hidemobile {
                 display: none;
             }
-            
+
             /* Flex makes this look wonky on small screens */
             .top {
                 display: block;
@@ -206,91 +207,98 @@ Designed in Seattle, forged in Puget Sound.
         </h1>
     </header>
     <article class="center">
-        <time datetime="2025-01-02">
-            <strong>January 2nd, 2025</strong>
+        <time datetime="2025-12-02">
+            <strong>November 2nd, 2025</strong>
         </time>
-        <h3>What is a Parcel Viewer?</h3>
-        <p>A Parcel Viewer is an interactive map that allows you to find and inspect a specific piece of land. It is
-            fundamentally a
-            tool that allows you to explore properties, compare them, and identify specific properties of interest to
-            you. Property parcels in Washington State are assigned a unique Id by the County Assessor’s
-            office, this is often called a parcel number. The pieces of land outlined on the map in a Parcel Viewer have
-            no legal meaning, rather there is a legal description of a parcel from which the County Assessor’s office
-            can
-            work out the boundaries of the parcel based on this description in combination with the plat document that
-            defined the parcel and the most recent survey documents.
+        <h3>Using Sep to Export a CSV in Razor Pages</h3>
+        <p>After years of using <a
+                href="https://github.com/JoshClose/CsvHelper" target="_blank" rel="noopener noreferrer">CSVHelper</a> I learned about <a
+                href="https://github.com/nietras/Sep/" target="_blank" rel="noopener noreferrer">Sep</a> earlier this year. Sep is a zero-allocation library for
+            parsing CSV files in .NET. Not allocating additional memory for parsing is wonderful, especially when merely
+            reading a CSV file can consume hundreds of MBs of memory. For the web apps I write, my goal is to take a CSV
+            file stored locally and then convert it into an array of objects in C#. That array will then get wrapped in
+            a FrozenDictionary and passed around the app as singleton so I can perform lookups on it using a foreign
+            key. The CSV starts its life as an export from another app that I want my app to link back to.
         </p>
-        <a href="ParcelViewerExample.webp" title="Selecting a specific parcel using the King County Parcel Viewer."><img
-                src="ParcelViewerExample.webp"
-                alt="Selecting a specific parcel using the King County Parcel Viewer."></a>
-        <p>In Washington State the most recent survey is the truth as Professional Land Surveyors are licensed by the
-            State to provide a specific, binding interpretation of the boundaries of a parcel. Although surveyors are
-            not public employees their work is often treated as the position of the government by all the other parties
-            involved in the process like the Assessor, Treasurer, Recorder, mortgage and title companies, and permitting
-            departments. This is why it’s important for a Parcel Viewer to show you not just the outline of a parcel,
-            but also the supporting materials that define the parcel including the <a
-                href="https://en.wikipedia.org/wiki/Plat" target="_blank" rel="noopener noreferrer">plat documents</a>
-            and <a href="https://brpels.wa.gov/dont-cut-corners" target="_blank" rel="noopener noreferrer">surveys</a>
-            related to
-            it.</p>
-        <p>The Assessor maintains the parcels and handles splits, merges, and the creation of new parcels. They assess
-            property taxes on a yearly basis for every parcel in their County in compliance with State law. The
-            collection of these taxes is handled by the County Treasurer. Most property taxes are paid on a yearly or
-            bi-year basis by mortgage companies, but you can pay property taxes directly if you prefer or if you don’t
-            have a mortgage. Changes in ownership are filed with the County Recorder along with payment of Washington
-            State’s <a
-                href="https://kingcounty.gov/en/dept/executive-services/certificates-permits-licenses/records-licensing/recorders-office/real-estate-excise-tax"
-                target="_blank" rel="noopener noreferrer">Real Estate Excise Tax.</a> Each of these actions results in a
-            document getting filed to record the
-            event, which can then be linked from the Parcel you’re viewing.</p>
-        <a href="ExampleParcelTabular.webp"
-            title="Selecting a specific parcel using the King County Parcel Viewer and viewing related tabular data."><img
-                src="ExampleParcelTabular.webp"
-                alt="Selecting a specific parcel using the King County Parcel Viewer and viewing related tabular data."></a>
-        <p>
-            The coolest aspect of a Geographics Information System (GIS) is that you can find information and attributes
-            related to a parcel based on its shape rather than some identifier like a number or a GUID. There are many
-            different layers of information that can be added to a Parcel Viewer including hazards like flood zones,
-            often a large polygon that overlaps many parcels, and political boundaries like school districts or voting
-            precincts. The parcel has no direct link to the flood zones or the voting precincts and every layer
-            is ignorant of the others. But we can use the outline of a parcel to see what layers overlap and then gather
-            up the qualifying attributes of the overlapping layers to associate that information with our parcel.
-        </p>
-        <p>Often showing this kind of related information from a spatial query directly on a map can be confusing and
-            hard to parse due to the density of the information. There are a couple of methods to solve this problem in
-            a Parcel Viewer like placing a small table inside of a popup that appears when you click on a parcel.
-            Alternatively, you can link from your parcel to another app or web page that presents this information as a
-            table or series of tables. This is often found when the Assessor or Recorder is in a separately elected
-            position (with its own IT staff) distinct from the elected officials that control the County’s IT or GIS
-            groups. Personally, my favorite solution is to take the left third of the screen and use it as a scrollable
-            column of tables containing this related information like Zillow or Redfin. This allows you to maintain the
-            context of the map, quick switching between Parcel’s of interest, while getting the detailed tabular
-            information in a decent visual format.</p>
-        <a href="ExampleMetadata.webp" title="Good quality metadata for parcels in King County."><img
-                src="ExampleMetadata.webp" alt="Good quality metadata for parcels in King County."></a>
-        <p>I don’t want to belabor this but the most difficult aspect of building a good Parcel Viewer is maintaining
-            the data. Certain layers like address points and parcels get updated on a daily or weekly basis and receive
-            constant scrutiny. But other layers like environmental zones or political boundaries can become outdated due
-            to staff turnover or political events. In software culture there are jokes about a lone bearded man
-            maintaining a critical building block of computing that many larger and more powerful systems rely upon. The
-            same sentiment applies to the maintenance of datasets in local government, there’s likely just one person,
-            and if they retire before they can spend a couple years training a motivated replacement, it can
-            significantly harm the quality of a Parcel Viewer.</p>
-        <p>
-            In sum an ideal Parcel Viewer contains these aspects:
-        </p>
-        <ul>
-            <li>A map 🗺️</li>
-            <li>Exploration and Searching</li>
-            <li>Links to related documents that legally define Parcels of interest like Plats and Surveys</li>
-            <li>Property tax information</li>
-            <li>Layers of related data queried by shape and displayed as tables for a specific Parcel</li>
-            <li>Accurate and well-maintained data</li>
-        </ul>
-        <p>If you’re working on a Parcel Viewer and it doesn’t meet these requirements then you’re cooked. Cheap
-            challenges aside, this set of criteria is as practical and necessary today as it was when I started building
-            Parcel Viewers a decade ago. An Evergreen-state, as it were.
-        </p>
+        <p>Serializing a CSV to an array of objects using Sep is straightforward. We start by creating a reader object,
+            passing it a file path as a parameter, and then looping over rows to construct each object from the right
+            columns in the CSV. Getting the value of a column for the specific row is as simple as passing the row
+            object the name of the column, like you would with a dictionary and then calling .ToString(). This makes it
+            easy to process or format that value before building your object out of it. </p>
+        <blockquote>
+            <pre><code>using var reader = Sep.New(‘,’).Reader().FromFile(“pathToFile.csv”);</code></pre>
+        </blockquote>
+        <p>Sep also has support for <a
+                href="https://nietras.com/2024/05/05/sep-0-4-0-0-5-2/" target="_blank" rel="noopener noreferrer">ParallelEnumeration</a> so that you can process the rows in your CSV in parallel, which
+            reduces the amount of time it takes to get your array of objects together.</p>
+        <h3>Using Sep for Exporting Data</h3>
+        <p>Recently I built a status page in my app so that I could verify that it had all the data that it needed to
+            work correctly. After showing this page to the team, they asked for an export to CSV button so they could
+            play with the data in Excel. I turned to Sep as the perfect tool to implement this. But I hadn’t used Sep
+            for writing CSV before, working through the readme.md on Github left me more confused. I decided to hunt for
+            practical examples to reference as I wrote my own implementation. </p>
+        <p>Credit where credit was due, the example I needed was in the readme and in the section labeled 'example' but
+            I’m going to expand on it here because I didn’t understand after reading it the first few times. If we start
+            with an array of objects in C# we need to loop over them to construct our CSV row by row. That’s easy enough
+            with a foreach loop, but we’ll also need to create a writer object using Sep to submit our rows to. </p>
+        <p>In the Sep readme they show creating a writer from an existing reader. But my status page doesn’t expect CSVs
+            as input, so I don’t have a reader object to work with. To work around this, we can create our own writer
+            object by calling the Sep library, passing it the delimiter we want to use (in this case the char ‘,’), and
+            then calling for a writer object that produces text, rather than a file.</p>
+        <blockquote>
+            <pre><code>using var writer = Sep.New(‘,’).Writer().ToText();
+
+foreach (var item in ArrayOfObjects) {
+
+    using var row = writer.NewRow();
+    row[“ThingIWant”].Set(item.ThingIWant);
+    row[“NumberOfThings”].Set(item.Num.ToString());
+
+}</code></pre>
+        </blockquote>
+        <p>When testing the CSV I realized that one of the columns had string with commas in them, this broke the CSV
+            output by formatting some rows with additional columns. Sep supports <a
+                href="https://nietras.com/2025/01/12/sep-0-7-0/" target="_blank" rel="noopener noreferrer">escaping columns</a> using double quotes
+            but doing so requires using the SepWriterOptions struct which was a bit awkward at first. </p>
+        <h3>Dealing with Dirty Data</h3>
+        <p>In other libraries you can modify the properties of your reader and writer objects by doting into them and
+            then setting a new value, but that doesn’t work with Sep because the reader and writer objects are not
+            simple classes rather, they are readonly record structs which prevents us from updating them after they’ve
+            been created. We can use the ‘with’ operator in C# to create a copy of this struct with updated fields and
+            replace the existing SepWriterOptions struct. This pattern isn’t explicitly in the readme.md but is clearly
+            described in a supplemental blog post by Sep’s author on <a
+                href="https://nietras.com/2025/01/12/sep-0-7-0/" target="_blank" rel="noopener noreferrer">CSV Escape Support</a>.</p>
+        <blockquote>
+            <pre><code>using var writer = Sep.New(‘,’).Writer(o => o with { Escape = true }).ToText();</code></pre>
+        </blockquote>
+        <p></p>
+        <h3>Wrapping it up for Razor Pages</h3>
+        <p>Now that I’ve written about reading and writing CSV with Sep here’s how I integrated this work with my .NET
+            10, ASP.NET Core Razor pages web app. I started by adding an OnPostAsCSV() route handler to the index.cs
+            that is paired with my index.cshtml file in the Razor Pages project-style. The purpose of this route is to
+            dump the data from the OnGet() route into a CSV. It takes no parameters and it returns a FileResult which is
+            the CSV. </p>
+        <blockquote>
+            <pre><code>public FileResult OnPostAsCSV() {
+
+    // Gather the data
+    // Write the CSV using Sep
+
+    return File(Encoding.UTF8.GetBytes(writer.ToString(),
+     “text/csv”, $”AppName{DateTime.UtcNow}.csv”));
+}
+</code></pre>
+        </blockquote>
+        <p>Back on the .cshtml page all we have to do is add an export button that calls the AsCSV route and is wrapped
+            in a form set to POST.</p>
+        <blockquote>
+            <pre><code>&lt;form method=&rdquo;post&rdquo;&gt;
+	&lt;input type=&rdquo;submit&rdquo; asp-page-handler=&rdquo;AsCSV&rdquo; /&gt;
+&lt;/form&gt;
+</code></pre>
+        </blockquote>
+        <p>There you have it, an Export to CSV button for a Razer Pages web app built using the Sep library that
+            consumes as little memory as possible. Enjoy!</p>
     </article>
     <footer class="center top">
         <a href="./../../index.html" class="underline hidemobile">
