@@ -227,9 +227,7 @@ Designed in Seattle, forged in Puget Sound.
             columns in the CSV. Getting the value of a column for the specific row is as simple as passing the row
             object the name of the column, like you would with a dictionary and then calling .ToString(). This makes it
             easy to process or format that value before building your object out of it. </p>
-        <blockquote>
-            <pre><code>using var reader = Sep.New(‘,’).Reader().FromFile(“pathToFile.csv”);</code></pre>
-        </blockquote>
+        <script src="https://gist.github.com/uncheckederror/36cd19a434158e0098de888843895e7d.js"></script>
         <p>Sep also has support for <a href="https://nietras.com/2024/05/05/sep-0-4-0-0-5-2/" target="_blank"
                 rel="noopener noreferrer">ParallelEnumeration</a> so that you can process the rows in your CSV in
             parallel, which
@@ -249,18 +247,7 @@ Designed in Seattle, forged in Puget Sound.
             as input, so I don’t have a reader object to start from. To work around this, we can create our own writer
             object by calling the Sep library, passing it the delimiter we want to use (in this case the char ‘,’), and
             then calling for a writer object that produces text, rather than a file.</p>
-        <blockquote>
-            <pre><code>using var writer = Sep.New(‘,’).Writer().ToText();
-
-foreach (var item in ArrayOfObjects) {
-
-    using var row = writer.NewRow();
-    row[“ThingIWant”].Set(item.ThingIWant);
-    row[“NumberOfThings”].Set(item.Num.ToString());
-
-}</code></pre>
-        </blockquote>
-        <p></p>
+        <script src="https://gist.github.com/uncheckederror/31d5fbcb0cd0128f81dda0f84a62bb6f.js"></script>
         <h3>Dealing with Dirty Data</h3>
 
         <p>When testing the CSV I realized that one of the columns had strings with commas in them, this broke the CSV
@@ -275,35 +262,17 @@ foreach (var item in ArrayOfObjects) {
             replace the existing SepWriterOptions struct. This pattern isn’t explicitly in the readme.md but is clearly
             described in a supplemental blog post by Sep’s author on <a href="https://nietras.com/2025/01/12/sep-0-7-0/"
                 target="_blank" rel="noopener noreferrer">CSV Escape Support</a>.</p>
-        <blockquote>
-            <pre><code>using var writer = Sep.New(‘,’).Writer(o => o with { Escape = true }).ToText();</code></pre>
-        </blockquote>
-        <p></p>
+        <script src="https://gist.github.com/uncheckederror/83a7a63de533819ddb17aa487a28f097.js"></script>
         <h3>Wrapping it up for Razor Pages</h3>
         <p>Now that I’ve written about reading and writing CSV with Sep here’s how I integrated this work with my .NET
             10, ASP.NET Core Razor pages web app. I started by adding an OnPostAsCSV() route handler to the index.cs
             that is paired with my index.cshtml file in the Razor Pages project-style. The purpose of this route is to
             dump the data from the OnGet() route into a CSV. It takes no parameters and it returns a FileResult which is
             the CSV. </p>
-        <blockquote>
-            <pre><code>public FileResult OnPostAsCSV() {
-
-    // Gather the data
-    // Write the CSV using Sep
-
-    return File(Encoding.UTF8.GetBytes(writer.ToString(),
-     “text/csv”, $”AppName{DateTime.UtcNow}.csv”));
-}
-</code></pre>
-        </blockquote>
+        <script src="https://gist.github.com/uncheckederror/60459a65e37e2c1ed72302d8b462c2b4.js"></script>
         <p>Back on the .cshtml page all we have to do is add an export button that calls the AsCSV route and is wrapped
             in a form set to POST.</p>
-        <blockquote>
-            <pre><code>&lt;form method=&rdquo;post&rdquo;&gt;
-	&lt;input type=&rdquo;submit&rdquo; asp-page-handler=&rdquo;AsCSV&rdquo; /&gt;
-&lt;/form&gt;
-</code></pre>
-        </blockquote>
+        <script src="https://gist.github.com/uncheckederror/332d01e463ea5aeb4a045b9dea0ab0b7.js"></script>
         <p>There you have it, an Export to CSV button for a Razer Pages web app built using the Sep library. Enjoy!</p>
     </article>
     <footer class="center top">

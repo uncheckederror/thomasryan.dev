@@ -227,14 +227,7 @@ Designed in Seattle, forged in Puget Sound.
             for our map component because we’re going to be adding and removing layers dynamically. We can tell
             Next.js to only render this component on the client side by setting 'ssr: false' and importing the component
             dynamically in our index.js file. </p>
-        <blockquote>
-            <pre><code>
-        const EsriMapWithNoSSR = dynamic(() => import("../components/esri-map"), 
-        {
-            ssr: false,
-        });
-        </code></pre>
-        </blockquote>
+        <script src="https://gist.github.com/uncheckederror/b84f6d47ed56c334cf6dac9c096b1cc5.js"></script>
         <p>Inside of the EsriMap component we must be extra careful to manage the items that we don’t want React to
             re-render when the state of the component is changed. Thankfully React provides the useRef() hook so we can
             isolate the div element with an id of 'mapDiv' that ArcGIS JS manipulates to render our web map. But we also
@@ -242,82 +235,18 @@ Designed in Seattle, forged in Puget Sound.
             the WebMap object that we use to define and configure our map before it gets rendered into the mapDiv
             element on
             the page. </p>
-        <blockquote>
-            <pre><code>
-                // This is the div that the ArcGIS JS library mutates. 
-                // We don't want React to mess with it,
-                // so it's encapsulated it in a UseRef().
-        
-                const mapDiv = useRef(null);
-        
-                // This is the webmap object itself. 
-                // Once it has been created we don't want to recreate it,
-                // rather we just want to mutate it. 
-                // Hence it's encapsulated in a UseRef() hook
-                // so that React won't mess with it.
-        
-                let webMap = useRef(new WebMap({
-                  portalItem: {
-                    id: "123f123f123f123f12f311",
-                    portal: portal
-                  }
-                }));
-                </code></pre>
-        </blockquote>
+        <script src="https://gist.github.com/uncheckederror/053f9a138db597cfa5a45a042cc0e3f7.js"></script>
         <p> WebMap object stores the state of our web map so you can think of it as a kind of God-object. If we did not
             isolate
             it using the useRef() hook, React would re-render it when the state of the component’s props changed. This
             bug presents to the user as the map flashing and then reloading every time they change the selected layer in
             the side panel of the web app.</p>
         <h3>Two hooks this time</h3>
-        <blockquote>
-            <pre><code>
-        // Only create the map once on the initial load of the component.
-
-        useEffect(() => {
-
-            // Grab the webmap object out of the UseRef() hook
-            // so that we can mutate it.
-
-            let webmap = webMap.current;
-
-            // Configure the map...
-
-        }, [
-            
-            // This array is empty so this useEffect hook only runs once on load.
-
-        ]);
-        </code></pre>
-        </blockquote>
+        <script src="https://gist.github.com/uncheckederror/d5f626084354a637fa2c513ceb01f167.js"></script>
         <p>Still there is a clear need for users to change what they are seeing on the map. To handle this we can take
             advantage of the useEffect() hook by using it twice. The first time we will create the web map and configure
             it. This will happen only once when the web page is initially rendered. </p>
-        <blockquote>
-            <pre><code>
-        // When an update is made to a state varible,
-        // we can update the map from here.
-        // Without completely recreating it.
-
-        useEffect(() => {
-
-            // Grab the webmap object out of the UseRef() hook
-            // so that we can mutate it.
-
-            let webmap = webMap.current;
-          
-            // Mutate the map...
-
-        }, [
-            
-        selectedAssetType, setSelectedAssetData
-
-        // When these useState values are updated
-        // it will force this component to re-render. 
-            
-        ]);
-        </code></pre>
-        </blockquote>
+        <script src="https://gist.github.com/uncheckederror/44144df59f150416eee65005fbf5e0b2.js"></script>
         <p>Our second useEffect() hook will be triggered by updates to a useState() hook that’s defined on the index.js
             page of our app. It’s updated by a drop down on the side panel and then passed up through the component tree
             and finally back down into our EsriMap component as a prop where it triggers this second useEffect() hook to
@@ -329,25 +258,7 @@ Designed in Seattle, forged in Puget Sound.
             down to EsriMap as a prop, and then updating it with the values of the thing that was selected inside the
             map’s view.on(“click”, () => { }) event handler. We define this event handler in the first useEffect() hook
             when we are creating and configuring the Web Map object. </p>
-        <blockquote>
-            <pre><code>
-        view.on("click", function (event) {
-                    
-            view.hitTest(event).then(function (response) {
-              for (let i in response.results) {
-                       
-                let attr = response.results[i].graphic.attributes;
-          
-                // This function updates the state of the hook
-                // in the parent component.
-
-                setSelectedAssetData(attr);  
-
-              }
-            })
-          });
-        </code></pre>
-        </blockquote>
+        <script src="https://gist.github.com/uncheckederror/ef369c43e5c72ef254e0c398e0c12b92.js"></script>
         <p>
             When the set function is called to update the value of the hook inside the click event on the map, React
             will update the state of the components in the tree that take this value as a prop. The side panel will now
