@@ -210,9 +210,8 @@ Designed in Seattle, forged in Puget Sound.
             <strong>November 2nd, 2025</strong>
         </time>
         <h3>Using Sep to Export a CSV in Razor Pages</h3>
-        <p>After years of using <a href="https://github.com/JoshClose/CsvHelper" target="_blank"
-                rel="noopener noreferrer">CSVHelper</a> I learned about <a href="https://github.com/nietras/Sep/"
-                target="_blank" rel="noopener noreferrer">Sep</a> earlier this year. Sep is a zero-allocation library
+        <p>After years of using <a href="https://github.com/JoshClose/CsvHelper" target="_blank">CSVHelper</a> I learned about <a href="https://github.com/nietras/Sep/"
+                target="_blank">Sep</a> earlier this year. Sep is a zero-allocation library
             for
             parsing CSV files in .NET. Not allocating additional memory for parsing is wonderful, especially when merely
             reading a CSV file can consume hundreds of MBs of memory.
@@ -249,7 +248,6 @@ Designed in Seattle, forged in Puget Sound.
             then calling for a writer object that produces text, rather than a file.</p>
         <script src="https://gist.github.com/uncheckederror/31d5fbcb0cd0128f81dda0f84a62bb6f.js"></script>
         <h3>Dealing with Dirty Data</h3>
-
         <p>When testing the CSV I realized that one of the columns had strings with commas in them, this broke the CSV
             output by formatting some rows with additional columns. Sep supports <a
                 href="https://nietras.com/2025/01/12/sep-0-7-0/" target="_blank" rel="noopener noreferrer">escaping
@@ -274,6 +272,17 @@ Designed in Seattle, forged in Puget Sound.
             in a form set to POST.</p>
         <script src="https://gist.github.com/uncheckederror/332d01e463ea5aeb4a045b9dea0ab0b7.js"></script>
         <p>There you have it, an Export to CSV button for a Razer Pages web app built using the Sep library. Enjoy!</p>
+    </article>
+    <article class="center">
+        <time datetime="2026-01-04">
+            <h2>January 4th, 2026</h2>
+        </time>
+        <h3>UPDATE 1</h3>
+        <p>The author of the Sep library stumbled upon <a href="https://github.com/nietras/Sep/pull/448" target="_blank">this post</a> and offered some helpful tips to improve this method by taking advantage of Sep’s support for Streams to skip the creation of a string when calling Sep.Writer.ToText(). Additionally, we can write directly to the UTF-8 format by wrapping our Stream in a StreamWriter (which defaults to writing in the UTF-8 format), rather than converting the string using Encoding.UTF8.GetBytes(writer.ToString()) at the end.</p>
+        <p>We can implement this by creating a MemoryStream() and then a StreamWriter() that takes that our mStream as a parameter before constructing the Sep.Writer and then calling .To(utf8Wrtier) rather than .ToText(). When returning the FileResult at the end rather than using Encoding.UTF8.GetBytes(writer.ToString()) we can simply call mStream.GetBuffer() to hand back the UTF-8 encoded byte[] that File() expects as mStream now contains all the bytes we wrote into the writer object as we set the rows.</p>
+        <script src="https://gist.github.com/uncheckederror/2ac932aeaca1f2a2af9791ff09448066.js"></script>
+        <p>Now we’ve skipped allocating a string containing the contents of the CSV and the cost of converting that string to the UTF-8 format. Yay!</p>
+        <p>I'd like to thank <a href="https://github.com/nietras" target="_blank">nietras</a> for creating and maintaining Sep and their blogs (<a href="https://nietras.com/" target="_blank">as linked above</a>) are a fun read.</p>
     </article>
     <footer class="center top">
         <a href="./../../index.html" class="underline hidemobile">
