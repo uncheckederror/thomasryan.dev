@@ -10,12 +10,16 @@ Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
 Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
-<html>
+<html lang="en-US">
 
 <head>
-    <title>My Work</title>
+    <!-- Content security policy: start -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <!-- Content security policy: end -->
+    <title>GIS and Software Projects | Thomas August Ryan</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Posts by Thomas August Ryan">
+    <meta name="description"
+        content="Explore Thomas August Ryan's GIS and software projects, including mapping applications, data tools, and web development.">
     <meta name="keywords"
         content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
     <meta name="author" content="Thomas August Ryan @UncheckedError">
@@ -26,6 +30,7 @@ Designed in Seattle, forged in Puget Sound.
         rel="icon" type="image/x-icon" />
     <!-- Tracking/telemetry code please disable if you're not into that sort of thing -->
     <style type="text/css">
+        /* Shared base styles: start */
         .center {
             /* Off white to reduce eye strain. */
             background: #FDFDFD;
@@ -36,6 +41,40 @@ Designed in Seattle, forged in Puget Sound.
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
+
+        p {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+
+        main>article>p>a {
+            text-decoration: none;
+            border-bottom: 1px solid #2A2A2A;
+        }
+
+        .underline {
+            text-decoration: none;
+        }
+
+        blockquote {
+            background: #f5f5f5;
+            border-radius: 2px;
+            padding: 1rem;
+            margin: 0% 0% 0% 0%;
+        }
+
+        .links {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+        }
+        /* Shared base styles: end */
 
         body {
             /* Compatible with everything, and anything. */
@@ -54,6 +93,8 @@ Designed in Seattle, forged in Puget Sound.
         }
 
         h1,
+        .site-title,
+        nav.links,
         h1.a {
             letter-spacing: 0.03em;
             font-size: 4.5em;
@@ -63,7 +104,16 @@ Designed in Seattle, forged in Puget Sound.
             font-weight: 100;
         }
 
-        h3 {
+        .site-title {
+            display: block;
+        }
+
+        h2.section-title {
+            margin-block: 1em;
+        }
+
+        h3,
+        h2.section-title {
             letter-spacing: 0.01rem;
             font-size: 2.4rem;
             font-weight: 100;
@@ -91,16 +141,6 @@ Designed in Seattle, forged in Puget Sound.
             list-style-type: square;
         }
 
-        p {
-            font-size: 1.3rem;
-            line-height: 2rem;
-        }
-
-        body>article>p>a {
-            text-decoration: none;
-            border-bottom: 1px solid #2A2A2A;
-        }
-
         a:link,
         a:visited {
             color: #2A2A2A;
@@ -111,37 +151,14 @@ Designed in Seattle, forged in Puget Sound.
             color: grey;
         }
 
-        .underline {
-            text-decoration: none;
-        }
-
-        blockquote {
-            background: #f5f5f5;
-            border-radius: 2px;
-            padding: 1rem;
-            margin: 0% 0% 0% 0%;
-        }
-
-        .links {
-            display: flex;
-            flex-flow: column wrap;
-            align-items: flex-end;
-            justify-content: space-between;
-        }
-
-        h1>a:link,
-        h1>a:visited {
+        nav.links>a:link,
+        nav.links>a:visited {
             color: grey;
         }
 
-        h1>a:hover,
-        h1>a:active {
+        nav.links>a:hover,
+        nav.links>a:active {
             color: #d2d2d2;
-        }
-
-        .top {
-            display: flex;
-            justify-content: space-between;
         }
 
         img {
@@ -178,7 +195,7 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
 
-            body>article>p>a {
+            main>article>p>a {
                 text-decoration: none;
                 border-bottom: 1px solid #4db2ff;
             }
@@ -193,32 +210,113 @@ Designed in Seattle, forged in Puget Sound.
                 color: #0091ff;
             }
 
-            h1>a:link,
-            h1>a:visited {
+            nav.links>a:link,
+            nav.links>a:visited {
                 color: #6b6b6b;
             }
 
-            h1>a:hover,
-            h1>a:active {
+            nav.links>a:hover,
+            nav.links>a:active {
                 color: #0091ff;
             }
         }
+        /* Shared site styles: start */
+        .skip-link {
+            position: fixed;
+            top: 0.5rem;
+            left: 0.5rem;
+            z-index: 100;
+            padding: 0.5rem;
+            background: #000;
+            transform: translateY(-200%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a.skip-link:link,
+        a.skip-link:visited,
+        a.skip-link:hover,
+        a.skip-link:active {
+            color: #fff;
+        }
+
+        main pre {
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        main pre:focus-visible {
+            outline: 3px solid #0091ff;
+            outline-offset: 2px;
+        }
+
+        .code-example {
+            margin: 1.5rem 0;
+        }
+
+        .code-example figcaption {
+            font-size: 1rem;
+        }
+
+        .code-example pre {
+            padding: 0.75rem;
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 680px) {
+            main {
+                overflow-wrap: anywhere;
+            }
+
+            .top nav.links {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                line-height: 1.25;
+                word-spacing: normal;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav.links>a:link,
+            nav.links>a:visited {
+                color: #a0a0a0;
+            }
+
+            nav.links>a:hover,
+            nav.links>a:active {
+                color: #0091ff;
+            }
+
+            .code-example pre {
+                background: #2e2e2e;
+            }
+        }
+        /* Shared site styles: end */
     </style>
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="center top">
         <a href="./index.html" class="underline">
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
-        <h1 class="links hidemobile">
+        <nav class="links" aria-label="Primary">
             <a href="./work.html" class="underline">Work</a>
             <a href="./posts.html" class="underline">Posts</a>
             <a href="./resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </header>
+    <main id="main-content" tabindex="-1">
     <article class="center">
-        <h3>My Work For</h3>
+        <h2 class="section-title">My Work For</h2>
         <ul style="padding-bottom: 0;margin-bottom: 0;">
             <li><a href="https://state-of-gis.kingcounty.gov/" class="underline" target="_blank">
                     King County's GIS Center
@@ -262,7 +360,7 @@ Designed in Seattle, forged in Puget Sound.
         </ul>
     </article>
     <article class="center" id="districts">
-        <h3>Districts and Development Conditions Report</h3>
+        <h2 class="section-title">Districts and Development Conditions Report</h2>
         <blockquote>
             <ul>
                 <li>Aggregate data for more than 700k parcels in King County</li>
@@ -282,11 +380,11 @@ Designed in Seattle, forged in Puget Sound.
         </p>
     </article>
     <article class="center">
-        <h3>My Posts About the Districts Report</h3>
+        <h2 class="section-title">My Posts About the Districts Report</h2>
         <hr>
         <a href="https://gisandyou.org/2025/06/30/how-we-optimized-gis-data-loading-for-shoreline-designations/"
             class="underline">
-            <strong>June 30th, 2025</strong>
+            <strong><time datetime="2025-06-30">June 30th, 2025</time></strong>
             <h3>How We Optimized GIS Data Loading for Shoreline Designations</h3>
             <p>Have you ever waited impatiently for a critical report to load, only to be met with a timeout? The GIS
                 Center faced this issue with the King County Districts and Development Conditions report,
@@ -294,27 +392,27 @@ Designed in Seattle, forged in Puget Sound.
         </a>
         <a href="https://gisandyou.org/2024/06/20/king-county-districts-and-development-conditions-report-improved-performance-and-modern-look/"
             target="_blank" class="underline">
-            <strong>June 20th, 2024</strong>
+            <strong><time datetime="2024-06-20">June 20th, 2024</time></strong>
             <h3>King County Districts and Development Conditions Report | Improved Performance and Modern Look</h3>
             <p>The biggest improvement is performance. On average it’s more than twice as fast to look up a parcel and
                 in heavy traffic scenarios, it can be nearly instant.</p>
         </a>
         <a href="https://gisandyou.org/2024/06/20/announcing-the-new-districts-and-development-conditions-report/"
             target="_blank" class="underline">
-            <strong>June 6th, 2024</strong>
+            <strong><time datetime="2024-06-20">June 20th, 2024</time></strong>
             <h3>Announcing the new Districts and Development Conditions Report</h3>
             <p>King County GIS Center is launching the new Districts and Development Conditions Report (also referred to
                 in short as the Districts Report) application to the public and King County internal staff!</p>
         </a>
         <a href="https://gisandyou.org/2024/01/19/understanding-users-of-tabular-gis-data/" target="_blank"
             class="underline">
-            <strong>January 19th, 2024</strong>
+            <strong><time datetime="2024-01-19">January 19th, 2024</time></strong>
             <h3>Understanding Users of Tabular GIS Data</h3>
             <p>Understanding your users is one of the most difficult problems in software development.</p>
         </a>
     </article>
     <article class="center" id="usage">
-        <h3>ESRI Usage Report</h3>
+        <h2 class="section-title">ESRI Usage Report</h2>
         <blockquote>
             <ul>
                 <li>Collects and displays quarterly usage stats for King County's GIS efforts</li>
@@ -334,10 +432,10 @@ Designed in Seattle, forged in Puget Sound.
         </p>
     </article>
     <article class="center">
-        <h3>My Posts About the Usage Report</h3>
+        <h2 class="section-title">My Posts About the Usage Report</h2>
         <hr>
         <a href="https://gisandyou.org/2023/11/01/who-is-using-arcgis-pro-anyway/" target="_blank" class="underline">
-            <strong>November 1st, 2023</strong>
+            <strong><time datetime="2023-11-01">November 1st, 2023</time></strong>
             <h3>Who is using ArcGIS Pro anyway?</h3>
             <p>Given that ESRI is ending support for ArcGIS Desktop in 2026, the King County GIS Center needed to
                 understand
@@ -345,7 +443,7 @@ Designed in Seattle, forged in Puget Sound.
         </a>
     </article>
     <article class="center" id="rae">
-        <h3>Road Assets Editor</h3>
+        <h2 class="section-title">Road Assets Editor</h2>
         <blockquote>
             <ul>
                 <li>Replaces prior web app built using Microsoft's Silverlight technology</li>
@@ -364,29 +462,29 @@ Designed in Seattle, forged in Puget Sound.
         </p>
     </article>
     <article class="center">
-        <h3>My Posts About the Road Assets Editor</h3>
+        <h2 class="section-title">My Posts About the Road Assets Editor</h2>
         <hr>
         <a href="./2023/06/wagisa-2023.html" target="_blank" class="underline">
-            <strong>June 15th, 2023</strong>
+            <strong><time datetime="2023-06-15">June 15th, 2023</time></strong>
             <h3>WAGISA 2023</h3>
             <p>Today I woke up early at 7 AM and drove down to the UW Tacoma campus to present at the WAGISA conference.
             </p>
         </a>
         <a href="./2022/05/dotnet-6-web-api-visual-basic-conversion.html" target="_blank" class="underline">
-            <strong>May 21th, 2022</strong>
+            <strong><time datetime="2022-05-21">May 21th, 2022</time></strong>
             <h3>Cleaning up a .NET 6 Web API Converted from Visual Basic</h3>
             <p>The Road Assets Editor or RAE is a tool that enables employees to review all road assets built in King
                 County.</p>
         </a>
         <a href="./2022/04/load-csv-sqlite-aspnet-core-6-startup.html" target="_blank" class="underline">
-            <strong>April 17th, 2022</strong>
+            <strong><time datetime="2022-04-17">April 17th, 2022</time></strong>
             <h3>Load a CSV into SQLite on Startup in ASP.NET Core 6</h3>
             <p>When I deploy my ASP.NET Core 6 app I want it to gather CSV formatted data and ingest it into SQLite as
                 part of its startup process.</p>
         </a>
     </article>
     <article class="center" id="bulk">
-        <h3>Phone Numbers in Bulk</h3>
+        <h2 class="section-title">Phone Numbers in Bulk</h2>
         <blockquote>
             <ul>
                 <li>Investigate the portablity of Local, Tollfree, and Wireless numbers</li>
@@ -408,7 +506,7 @@ Designed in Seattle, forged in Puget Sound.
         </p>
     </article>
     <article class="center" id="number">
-        <h3>Number Search</h3>
+        <h2 class="section-title">Number Search</h2>
         <blockquote>
             <ul>
                 <li>~700k Entries Ingested Daily</li>
@@ -430,17 +528,17 @@ Designed in Seattle, forged in Puget Sound.
                 rel="noopener noreferrer">lookup</a> available phone numbers on the Accelerate Networks website.</p>
     </article>
     <article class="center">
-        <h3>My Posts About Number Search</h3>
+        <h2 class="section-title">My Posts About Number Search</h2>
         <hr>
         <a href="./2020/04/adding-security-headers.html" class="underline">
-            <strong>April 8th, 2020</strong>
+            <strong><time datetime="2020-04-08">April 8th, 2020</time></strong>
             <h3>Adding Security Headers to an ASP.NET Core 3.1 MVC Web App</h3>
             <p>Initially it received an ‘F’ grade when I ran it through the SecurityHeaders.com benchmark. This
                 wasn’t the result I was looking for. Luckily, the solution is wildly simple.</p>
         </a>
 
         <a href="./2019/11/adding-spinner-bootstrap-dotnet-core-mvc.html" class="underline">
-            <strong>November 29, 2019</strong>
+            <strong><time datetime="2019-11-29">November 29, 2019</time></strong>
             <h3>Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App</h3>
             <p>Recently I built an ASP.NET Core 3.0 MVC Web app that acts as a front end for a group of APIs
                 that
@@ -449,7 +547,7 @@ Designed in Seattle, forged in Puget Sound.
         </a>
     </article>
     <article class="center" id="parcel">
-        <h3>Kitsap County Parcel Details</h3>
+        <h2 class="section-title">Kitsap County Parcel Details</h2>
         <blockquote>
             <ul>
                 <li>28.1K Users a Month</li>
@@ -471,63 +569,63 @@ Designed in Seattle, forged in Puget Sound.
             page weight down from 6 MBs to less than 200 KBs.</p>
     </article>
     <article class="center">
-        <h3>My Posts About Parcel Details</h3>
+        <h2 class="section-title">My Posts About Parcel Details</h2>
         <hr>
         <a href="./2020/03/malicious-scraping-account-number-schemes.html" class="underline">
-            <strong>March 3rd, 2020</strong>
+            <strong><time datetime="2020-03-03">March 3rd, 2020</time></strong>
             <h3>Malicious Scraping and Account Number Schemes</h3>
             <p>On Monday morning just before 11 AM my supervisor walked into my cube. “Hey Tom, did you change anything
                 about the voting precincts query lately?”</p>
         </a>
         <a href="./2019/07/dapper-dotnet-core-odbc-sqlserver-2000.html" class="underline">
-            <strong>July 30, 2019</strong>
+            <strong><time datetime="2019-07-30">July 30, 2019</time></strong>
             <h3>Using Dapper and .NET Core to pull data from SQL Server 2000</h3>
             <p>I’m in the process of porting a web app from .NET Framework to dotnet core.</p>
         </a>
         <a href="./2019/05/webforms-datasets-to-dapper.html" class="underline">
-            <strong>May 11, 2019</strong>
+            <strong><time datetime="2019-05-11">May 11, 2019</time></strong>
             <h3>How I Converted ADO.NET DataSets into Dapper data models</h3>
             <p>Parcel Details is a monolithic .NET web app written using the now deprecated Web Forms framework that
                 Microsoft introduced in 2002</p>
         </a>
         <a href="./2019/02/purging-the-search-page.html" class="underline">
-            <strong>Feburary 7, 2019</strong>
+            <strong><time datetime="2019-02-07">Feburary 7, 2019</time></strong>
             <h3>Purging the Search Page</h3>
             <p>About 60 percent of its users enter Parcel Details through the search page. The search page calls out to
                 a SOAP service with query and then it’s returned a JSON payload of results.</p>
         </a>
         <a href="./2019/01/making-zoning-codes-useful.html" class="underline">
-            <strong>January 17, 2019</strong>
+            <strong><time datetime="2019-01-17">January 17, 2019</time></strong>
             <h3>Making Zoning Codes Useful</h3>
             <p>Big pushes are being made in major cities across the Northwest to rethink their zoning codes.</p>
         </a>
         <a href="./2019/01/parsing-tax-descriptions.html" class="underline">
-            <strong>January 4, 2019</strong>
+            <strong><time datetime="2019-01-04">January 4, 2019</time></strong>
             <h3>Parsing Tax Descriptions</h3>
             <p>Tax Descriptions are extremely difficult to parse, let alone meaningfully understand, if you're not a
                 surveyor or parcel specialist.</p>
         </a>
         <a href="./2018/11/a-most-disappointing-report-button.html" class="underline">
-            <strong>November 7, 2018</strong>
+            <strong><time datetime="2018-11-07">November 7, 2018</time></strong>
             <h3>A Most Disappointing Bug Report Button</h3>
             <p>I've been reading a lot of HackerNews the last few months. One of the ideas that I've picked up from
                 reading the comments there has been the idea of creating short feedback loops.</p>
         </a>
         <a href="./2018/06/buttons-as-actions.html" class="underline">
-            <strong>June 17, 2018</strong>
+            <strong><time datetime="2018-06-17">June 17, 2018</time></strong>
             <h3>Buttons As Actions</h3>
             <p>One of the UX issues I’ve been struggling with is designing my web apps to make their workflow as clear
                 as possible.</p>
         </a>
         <a href="./2018/06/modernizing-kitsap-countys-parcel-details.html" class="underline">
-            <strong>June 15, 2018</strong>
+            <strong><time datetime="2018-06-15">June 15, 2018</time></strong>
             <h3>Modernizing Kitsap County’s Parcel Details</h3>
             <p>Parcel Details is a public service offered by Kitsap County that allows anyone to look up information on
                 a parcel of land using a tax account, street address, or parcel ID number.</p>
         </a>
     </article>
     <article class="center" id="plats">
-        <h3>Plats Search</h3>
+        <h2 class="section-title">Plats Search</h2>
         <blockquote>
             <ul>
                 <li>1.5K Users a Month</li>
@@ -547,24 +645,25 @@ Designed in Seattle, forged in Puget Sound.
             tax parcel and directly download scans of those source documents.</p>
     </article>
     <article class="center">
-        <h3>My Posts About Plats Search</h3>
+        <h2 class="section-title">My Posts About Plats Search</h2>
         <hr>
         <a href="./2019/10/indexing-file-directories-dotnet-core.html" class="underline">
-            <strong>October 10, 2019</strong>
+            <strong><time datetime="2019-10-10">October 10, 2019</time></strong>
             <h3>Quickly Indexing File Directories in ASP.NET Core 3.0</h3>
             <p>I recently upgraded an ASP.NET Core 2.2 web app to 3.0. As part of this process I took some time to
                 review the existing code base.</p>
         </a>
     </article>
+    </main>
     <footer class="center top">
         <a href="./index.html" class="underline hidemobile">
-            <h1>Thomas<br>August<br>Ryan</h1>
+            <span class="site-title">Thomas<br>August<br>Ryan</span>
         </a>
-        <h1 class="links">
+        <nav class="links" aria-label="Footer">
             <a href="./work.html" class="underline">Work</a>
             <a href="./posts.html" class="underline">Posts</a>
             <a href="./resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </footer>
 </body>
 

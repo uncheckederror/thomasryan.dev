@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='utf-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Thomas August Ryan's Posts</title>
+  <id>https://thomasryan.dev/feed.xml</id>
+  <link href="https://thomasryan.dev/" />
+  <link rel="self" type="application/atom+xml" href="https://thomasryan.dev/feed.xml" />
+  <updated>2026-06-15T00:00:00-07:00</updated>
+  <author>
+    <name>Thomas August Ryan</name>
+  </author>
+  <entry>
+    <title>Notes on Using Parallel.ForEachAsync() in .NET 10</title>
+    <id>https://thomasryan.dev/2026/06/parallel-foreach-async-dotnet-notes.html</id>
+    <link href="https://thomasryan.dev/2026/06/parallel-foreach-async-dotnet-notes.html" />
+    <published>2026-06-15T00:00:00-07:00</published>
+    <updated>2026-06-15T00:00:00-07:00</updated>
+    <summary>This explains how to convert a standard foreach loop that performs async HTTP calls into a Parallel.ForEachAsync() implementation in .NET 10. While focusing on thread‑safety, correctness, and performance considerations.</summary>
+  </entry>
+  <entry>
+    <title>Using Sep to Export a CSV in Razor Pages</title>
+    <id>https://thomasryan.dev/2025/11/sep-export-csv-razor-pages.html</id>
+    <link href="https://thomasryan.dev/2025/11/sep-export-csv-razor-pages.html" />
+    <published>2025-11-02T00:00:00-07:00</published>
+    <updated>2025-11-02T00:00:00-07:00</updated>
+    <summary>Sep is a zero-allocation library for parsing CSV files in .NET. Here's how I used it in my ASP.NET Core .NET 9 web app.</summary>
+  </entry>
+  <entry>
+    <title>The Ultimate Trunk Lighting for a Toyota Camry</title>
+    <id>https://thomasryan.dev/2025/10/ultimate-trunk-lighting-for-toyota-camry.html</id>
+    <link href="https://thomasryan.dev/2025/10/ultimate-trunk-lighting-for-toyota-camry.html" />
+    <published>2025-10-10T00:00:00-07:00</published>
+    <updated>2025-10-10T00:00:00-07:00</updated>
+    <summary>How I fixed the weak lighting in the trunk of my Toyota Camry by adding LED strip lighting.</summary>
+  </entry>
+  <entry>
+    <title>The memory card won’t seat in my Nikon Z7</title>
+    <id>https://thomasryan.dev/2025/01/memory-card-won%27t-seat-nikon-z7.html</id>
+    <link href="https://thomasryan.dev/2025/01/memory-card-won%27t-seat-nikon-z7.html" />
+    <published>2025-01-26T00:00:00-08:00</published>
+    <updated>2025-01-26T00:00:00-08:00</updated>
+    <summary>I have a Nikon Z7, last weekend I tried to swap out its memory card for another, but the memory card wouldn’t stay in the slot.</summary>
+  </entry>
+  <entry>
+    <title>A New WA Sales Tax Lookup API for a New Year</title>
+    <id>https://thomasryan.dev/2025/01/wa-sales-tax-lookup-api-new-year.html</id>
+    <link href="https://thomasryan.dev/2025/01/wa-sales-tax-lookup-api-new-year.html" />
+    <published>2025-01-13T00:00:00-08:00</published>
+    <updated>2025-01-13T00:00:00-08:00</updated>
+    <summary>I’ve decided that now is the time to modernize the WA Sales Tax Lookup API.</summary>
+  </entry>
+  <entry>
+    <title>What is a Parcel Viewer?</title>
+    <id>https://thomasryan.dev/2025/01/what-is-a-parcel-viewer.html</id>
+    <link href="https://thomasryan.dev/2025/01/what-is-a-parcel-viewer.html" />
+    <published>2025-01-02T00:00:00-08:00</published>
+    <updated>2025-01-02T00:00:00-08:00</updated>
+    <summary>A Parcel Viewer is an interactive map that allows you to find and inspect a specific piece of land.</summary>
+  </entry>
+  <entry>
+    <title>Auditing a .NET 8 web app with Lighthouse</title>
+    <id>https://thomasryan.dev/2024/10/auditing-dotnet8-web-app-lighthouse.html</id>
+    <link href="https://thomasryan.dev/2024/10/auditing-dotnet8-web-app-lighthouse.html" />
+    <published>2024-10-25T00:00:00-07:00</published>
+    <updated>2024-10-25T00:00:00-07:00</updated>
+    <summary>I have a new .NET 8 web app to release, but before I hit deploy on the pipeline to prod, let’s see what we can do to improve it using Lighthouse as a benchmarking and auditing tool.</summary>
+  </entry>
+  <entry>
+    <title>Fixing the Single Rear JBL speaker in my Camry</title>
+    <id>https://thomasryan.dev/2024/01/camry-rear-speaker-jbl.html</id>
+    <link href="https://thomasryan.dev/2024/01/camry-rear-speaker-jbl.html" />
+    <published>2024-01-15T00:00:00-08:00</published>
+    <updated>2024-01-15T00:00:00-08:00</updated>
+    <summary>I noticed an annoying rattle from the rear of the car when music was playing and decided to handle the issue.</summary>
+  </entry>
+  <entry>
+    <title>Creating Desk Phone Backgrounds</title>
+    <id>https://thomasryan.dev/2023/08/desk-phone-background.html</id>
+    <link href="https://thomasryan.dev/2023/08/desk-phone-background.html" />
+    <published>2023-08-30T00:00:00-07:00</published>
+    <updated>2023-08-30T00:00:00-07:00</updated>
+    <summary>To help our customers solve this issue we decided to make custom backgrounds for all the desk phones we sell and support at Accelerate Networks.</summary>
+  </entry>
+  <entry>
+    <title>Leaving Xfinity for Astound</title>
+    <id>https://thomasryan.dev/2023/08/xfinity-astound.html</id>
+    <link href="https://thomasryan.dev/2023/08/xfinity-astound.html" />
+    <published>2023-08-21T00:00:00-07:00</published>
+    <updated>2023-08-21T00:00:00-07:00</updated>
+    <summary>I week ago, I switched my internet services provider (ISP) from Xfinity to Astound.</summary>
+  </entry>
+  <entry>
+    <title>WAGISA 2023</title>
+    <id>https://thomasryan.dev/2023/06/wagisa-2023.html</id>
+    <link href="https://thomasryan.dev/2023/06/wagisa-2023.html" />
+    <published>2023-06-15T00:00:00-07:00</published>
+    <updated>2023-06-15T00:00:00-07:00</updated>
+    <summary>Today I woke up early at 7 AM and drove down to the UW Tacoma campus to present at the WAGISA conference.</summary>
+  </entry>
+  <entry>
+    <title>Updating Porsche Macan headlights to LEDs</title>
+    <id>https://thomasryan.dev/2022/10/macan-headlights-LED-replacement.html</id>
+    <link href="https://thomasryan.dev/2022/10/macan-headlights-LED-replacement.html" />
+    <published>2022-10-23T00:00:00-07:00</published>
+    <updated>2022-10-23T00:00:00-07:00</updated>
+    <summary>There are two main advantages to replacing the stock light bulbs with LEDs: improved light output and reduced power consumption.</summary>
+  </entry>
+  <entry>
+    <title>Cleaning up a .NET 6 Web API Converted from Visual Basic</title>
+    <id>https://thomasryan.dev/2022/05/dotnet-6-web-api-visual-basic-conversion.html</id>
+    <link href="https://thomasryan.dev/2022/05/dotnet-6-web-api-visual-basic-conversion.html" />
+    <published>2022-05-21T00:00:00-07:00</published>
+    <updated>2022-05-21T00:00:00-07:00</updated>
+    <summary>The Road Assets Editor or RAE is a tool that enables employees to review all road assets built in King County.</summary>
+  </entry>
+  <entry>
+    <title>Load a CSV into SQLite on Startup in ASP.NET Core 6</title>
+    <id>https://thomasryan.dev/2022/04/load-csv-sqlite-aspnet-core-6-startup.html</id>
+    <link href="https://thomasryan.dev/2022/04/load-csv-sqlite-aspnet-core-6-startup.html" />
+    <published>2022-04-17T00:00:00-07:00</published>
+    <updated>2022-04-17T00:00:00-07:00</updated>
+    <summary>When I deploy my ASP.NET Core 6 app I want it to gather CSV formatted data and ingest it into SQLite as part of its startup process.</summary>
+  </entry>
+  <entry>
+    <title>Using Next.js and ArcGIS JS to build Geospatial Web Apps</title>
+    <id>https://thomasryan.dev/2022/01/next-js-and-arcgis-js-web-app.html</id>
+    <link href="https://thomasryan.dev/2022/01/next-js-and-arcgis-js-web-app.html" />
+    <published>2022-01-12T00:00:00-08:00</published>
+    <updated>2022-01-12T00:00:00-08:00</updated>
+    <summary>ArcGIS JS is a JavaScript library for creating web maps using ESRI’s ecosystem of tools and services. Next.js is a framework for building web apps.</summary>
+  </entry>
+  <entry>
+    <title>Expose Swagger docs at both the default and root Route of your .NET 6 Web API</title>
+    <id>https://thomasryan.dev/2021/04/swagger-default-and-root-route.html</id>
+    <link href="https://thomasryan.dev/2021/04/swagger-default-and-root-route.html" />
+    <published>2021-04-02T00:00:00-07:00</published>
+    <updated>2021-04-02T00:00:00-07:00</updated>
+    <summary>By default, the interactive docs in your .NET 6 Web API will be routed to the “/swagger” endpoint if you follow this tutorial.</summary>
+  </entry>
+  <entry>
+    <title>Deserializing XML into Objects in C#</title>
+    <id>https://thomasryan.dev/2020/09/deserialize-xml-csharp-objects.html</id>
+    <link href="https://thomasryan.dev/2020/09/deserialize-xml-csharp-objects.html" />
+    <published>2020-09-06T00:00:00-07:00</published>
+    <updated>2020-09-06T00:00:00-07:00</updated>
+    <summary>Compared to the simplicity of deserializing JSON, dealing with XML in dotnet core can be confusing and unintuitive.</summary>
+  </entry>
+  <entry>
+    <title>Serve GeoJSON Files in ASP.NET Core 3.1</title>
+    <id>https://thomasryan.dev/2020/06/serve-geojson-aspnetcore-dotnet.html</id>
+    <link href="https://thomasryan.dev/2020/06/serve-geojson-aspnetcore-dotnet.html" />
+    <published>2020-06-02T00:00:00-07:00</published>
+    <updated>2020-06-02T00:00:00-07:00</updated>
+    <summary>By default ASP.NET Core 6 will not expose files with the .geojson file extension in its wwwroot folder.</summary>
+  </entry>
+  <entry>
+    <title>Comparing Azure Static Web Apps and Github Pages</title>
+    <id>https://thomasryan.dev/2020/05/azure-static-web-apps-preview.html</id>
+    <link href="https://thomasryan.dev/2020/05/azure-static-web-apps-preview.html" />
+    <published>2020-05-22T00:00:00-07:00</published>
+    <updated>2020-05-22T00:00:00-07:00</updated>
+    <summary>I host my personal website on Github pages. At Build 2020 I watched a demo of a new service called Azure Static Web Apps.</summary>
+  </entry>
+  <entry>
+    <title>Adding Security Headers to an ASP.NET Core 3.1 MVC Web App</title>
+    <id>https://thomasryan.dev/2020/04/adding-security-headers.html</id>
+    <link href="https://thomasryan.dev/2020/04/adding-security-headers.html" />
+    <published>2020-04-08T00:00:00-07:00</published>
+    <updated>2020-04-08T00:00:00-07:00</updated>
+    <summary>Last week I was inspired by this post from Scott Hanselman to benchmark the performance of an application I developed called Number Search.</summary>
+  </entry>
+  <entry>
+    <title>Malicious Scraping and Account Number Schemes</title>
+    <id>https://thomasryan.dev/2020/03/malicious-scraping-account-number-schemes.html</id>
+    <link href="https://thomasryan.dev/2020/03/malicious-scraping-account-number-schemes.html" />
+    <published>2020-03-03T00:00:00-08:00</published>
+    <updated>2020-03-03T00:00:00-08:00</updated>
+    <summary>On Monday morning just before 11 AM my supervisor walked into my cube. “Hey Tom, did you change anything about the voting precincts query lately?”</summary>
+  </entry>
+  <entry>
+    <title>Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App</title>
+    <id>https://thomasryan.dev/2019/11/adding-spinner-bootstrap-dotnet-core-mvc.html</id>
+    <link href="https://thomasryan.dev/2019/11/adding-spinner-bootstrap-dotnet-core-mvc.html" />
+    <published>2019-11-29T00:00:00-08:00</published>
+    <updated>2019-11-29T00:00:00-08:00</updated>
+    <summary>Recently I built an ASP.NET Core 3.0 MVC Web app that acts as a front end for a group of APIs that are each supported by a different third-party vendor.</summary>
+  </entry>
+  <entry>
+    <title>Quickly Indexing File Directories in ASP.NET Core 3.0</title>
+    <id>https://thomasryan.dev/2019/10/indexing-file-directories-dotnet-core.html</id>
+    <link href="https://thomasryan.dev/2019/10/indexing-file-directories-dotnet-core.html" />
+    <published>2019-10-10T00:00:00-07:00</published>
+    <updated>2019-10-10T00:00:00-07:00</updated>
+    <summary>I recently upgraded an ASP.NET Core 2.2 web app to 3.0. As part of this process I took some time to review the existing code base.</summary>
+  </entry>
+  <entry>
+    <title>Making Buildings By Year Built in Kitsap County</title>
+    <id>https://thomasryan.dev/2019/09/buildings-by-year-in-kitsap-county.html</id>
+    <link href="https://thomasryan.dev/2019/09/buildings-by-year-in-kitsap-county.html" />
+    <published>2019-09-01T00:00:00-07:00</published>
+    <updated>2019-09-01T00:00:00-07:00</updated>
+    <summary>While scrolling through Twitter a couple weeks ago I saw this map of building ages in the Netherlands.</summary>
+  </entry>
+  <entry>
+    <title>Using Dapper and .NET Core to pull data from SQL Server 2000</title>
+    <id>https://thomasryan.dev/2019/07/dapper-dotnet-core-odbc-sqlserver-2000.html</id>
+    <link href="https://thomasryan.dev/2019/07/dapper-dotnet-core-odbc-sqlserver-2000.html" />
+    <published>2019-07-30T00:00:00-07:00</published>
+    <updated>2019-07-30T00:00:00-07:00</updated>
+    <summary>I’m in the process of porting a web app from .NET Framework to dotnet core.</summary>
+  </entry>
+  <entry>
+    <title>How I Converted ADO.NET DataSets into Dapper data models</title>
+    <id>https://thomasryan.dev/2019/05/webforms-datasets-to-dapper.html</id>
+    <link href="https://thomasryan.dev/2019/05/webforms-datasets-to-dapper.html" />
+    <published>2019-05-11T00:00:00-07:00</published>
+    <updated>2019-05-11T00:00:00-07:00</updated>
+    <summary>Parcel Details is a monolithic .NET web app written using the now deprecated Web Forms framework that Microsoft introduced in 2002</summary>
+  </entry>
+  <entry>
+    <title>In Praise of Sticky Notes</title>
+    <id>https://thomasryan.dev/2019/03/in-praise-of-sticky-notes.html</id>
+    <link href="https://thomasryan.dev/2019/03/in-praise-of-sticky-notes.html" />
+    <published>2019-03-21T00:00:00-07:00</published>
+    <updated>2019-03-21T00:00:00-07:00</updated>
+    <summary>The sticky note is my favorite personal management tool. Some consider the sticky note to be an archaic tool. But I love it dearly.</summary>
+  </entry>
+  <entry>
+    <title>Purging the Search Page</title>
+    <id>https://thomasryan.dev/2019/02/purging-the-search-page.html</id>
+    <link href="https://thomasryan.dev/2019/02/purging-the-search-page.html" />
+    <published>2019-02-07T00:00:00-08:00</published>
+    <updated>2019-02-07T00:00:00-08:00</updated>
+    <summary>About 60 percent of its users enter Parcel Details through the search page. The search page calls out to a SOAP service with query and then it’s returned a JSON payload of results.</summary>
+  </entry>
+  <entry>
+    <title>Making Zoning Codes Useful</title>
+    <id>https://thomasryan.dev/2019/01/making-zoning-codes-useful.html</id>
+    <link href="https://thomasryan.dev/2019/01/making-zoning-codes-useful.html" />
+    <published>2019-01-17T00:00:00-08:00</published>
+    <updated>2019-01-17T00:00:00-08:00</updated>
+    <summary>Big pushes are being made in major cities across the Northwest to rethink their zoning codes.</summary>
+  </entry>
+  <entry>
+    <title>Parsing Tax Descriptions</title>
+    <id>https://thomasryan.dev/2019/01/parsing-tax-descriptions.html</id>
+    <link href="https://thomasryan.dev/2019/01/parsing-tax-descriptions.html" />
+    <published>2019-01-04T00:00:00-08:00</published>
+    <updated>2019-01-04T00:00:00-08:00</updated>
+    <summary>Tax Descriptions are extremely difficult to parse, let alone meaningfully understand, if you're not a surveyor or parcel specialist.</summary>
+  </entry>
+  <entry>
+    <title>A Most Disappointing Bug Report Button</title>
+    <id>https://thomasryan.dev/2018/11/a-most-disappointing-report-button.html</id>
+    <link href="https://thomasryan.dev/2018/11/a-most-disappointing-report-button.html" />
+    <published>2018-11-07T00:00:00-08:00</published>
+    <updated>2018-11-07T00:00:00-08:00</updated>
+    <summary>I've been reading a lot of HackerNews the last few months. One of the ideas that I've picked up from reading the comments there has been the idea of creating short feedback loops.</summary>
+  </entry>
+  <entry>
+    <title>Buttons As Actions</title>
+    <id>https://thomasryan.dev/2018/06/buttons-as-actions.html</id>
+    <link href="https://thomasryan.dev/2018/06/buttons-as-actions.html" />
+    <published>2018-06-17T00:00:00-07:00</published>
+    <updated>2018-06-17T00:00:00-07:00</updated>
+    <summary>One of the UX issues I’ve been struggling with is designing my web apps to make their workflow as clear as possible.</summary>
+  </entry>
+  <entry>
+    <title>Modernizing Kitsap County’s Parcel Details</title>
+    <id>https://thomasryan.dev/2018/06/modernizing-kitsap-countys-parcel-details.html</id>
+    <link href="https://thomasryan.dev/2018/06/modernizing-kitsap-countys-parcel-details.html" />
+    <published>2018-06-15T00:00:00-07:00</published>
+    <updated>2018-06-15T00:00:00-07:00</updated>
+    <summary>Parcel Details is a public service offered by Kitsap County that allows anyone to look up information on a parcel of land using a tax account, street address, or parcel ID number.</summary>
+  </entry>
+</feed>

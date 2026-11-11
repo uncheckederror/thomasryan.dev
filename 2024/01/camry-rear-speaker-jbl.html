@@ -10,9 +10,12 @@ Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
 Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
-<html>
+<html lang="en-US">
 
 <head>
+    <!-- Content security policy: start -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <!-- Content security policy: end -->
     <title>Fixing the Single Rear JBL speaker in my Camry</title>
     <meta charset="UTF-8">
     <meta name="description"
@@ -34,6 +37,7 @@ Designed in Seattle, forged in Puget Sound.
         })(window, document, "clarity", "script", "jk0a2nru7l");
     </script>
     <style type="text/css">
+        /* Shared base styles: start */
         .center {
             /* Off white to reduce eye strain. */
             background: #FDFDFD;
@@ -45,58 +49,14 @@ Designed in Seattle, forged in Puget Sound.
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
 
-        body {
-            /* Compatible with everything, and anything. */
-            font-family: sans-serif;
-            /* Off white to reduce eye strain. */
-            background-color: #DCDCDC;
-            margin: auto;
-            padding: 0% 3% 0% 3%;
-            max-width: 800px;
-            /* Off black to reduce eye strain. */
-            color: #2A2A2A;
-        }
-
-        h1,
-        h1.a {
-            letter-spacing: 0.03em;
-            font-size: 4.5em;
-            word-spacing: 5em;
-            line-height: 1.1em;
-            margin: 0%;
-            font-weight: 100;
-        }
-
-        h3 {
-            letter-spacing: 0.01rem;
-            font-size: 2.4rem;
-            font-weight: 100;
-            margin-top: 0;
-        }
-
-        li {
-            font-size: 1.3rem;
-            line-height: 2rem;
-        }
-
         p {
             font-size: 1.3rem;
             line-height: 2rem;
         }
 
-        body>article>p>a {
+        main>article>p>a {
             text-decoration: none;
             border-bottom: 1px solid #2A2A2A;
-        }
-
-        a:link,
-        a:visited {
-            color: #2A2A2A;
-        }
-
-        a:hover,
-        a:active {
-            color: grey;
         }
 
         .underline {
@@ -117,23 +77,80 @@ Designed in Seattle, forged in Puget Sound.
             justify-content: space-between;
         }
 
-        h1>a:link,
-        h1>a:visited {
-            color: grey;
-        }
-
-        h1>a:hover,
-        h1>a:active {
-            color: #d2d2d2;
-        }
-
         .top {
             display: flex;
             justify-content: space-between;
         }
+        /* Shared base styles: end */
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 800px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        .site-title,
+        nav.links,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        .site-title {
+            display: block;
+        }
+
+        h2.section-title {
+            margin-block: 1em;
+        }
+
+        h3,
+        h2.section-title {
+            letter-spacing: 0.01rem;
+            font-size: 2.4rem;
+            font-weight: 100;
+            margin-top: 0;
+        }
+
+        li {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+
+        a:link,
+        a:visited {
+            color: #2A2A2A;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        nav.links>a:link,
+        nav.links>a:visited {
+            color: grey;
+        }
+
+        nav.links>a:hover,
+        nav.links>a:active {
+            color: #d2d2d2;
+        }
 
         img {
             width: 100%;
+            height: auto;
         }
 
         @media (max-width: 680px) {
@@ -166,7 +183,7 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
 
-            body>article>p>a {
+            main>article>p>a {
                 text-decoration: none;
                 border-bottom: 1px solid #4db2ff;
             }
@@ -181,37 +198,132 @@ Designed in Seattle, forged in Puget Sound.
                 color: #0091ff;
             }
 
-            h1>a:link,
-            h1>a:visited {
+            nav.links>a:link,
+            nav.links>a:visited {
                 color: #6b6b6b;
             }
 
-            h1>a:hover,
-            h1>a:active {
+            nav.links>a:hover,
+            nav.links>a:active {
                 color: #0091ff;
             }
         }
+        /* Shared site styles: start */
+        .skip-link {
+            position: fixed;
+            top: 0.5rem;
+            left: 0.5rem;
+            z-index: 100;
+            padding: 0.5rem;
+            background: #000;
+            transform: translateY(-200%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a.skip-link:link,
+        a.skip-link:visited,
+        a.skip-link:hover,
+        a.skip-link:active {
+            color: #fff;
+        }
+
+        main pre {
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        main pre:focus-visible {
+            outline: 3px solid #0091ff;
+            outline-offset: 2px;
+        }
+
+        .code-example {
+            margin: 1.5rem 0;
+        }
+
+        .code-example figcaption {
+            font-size: 1rem;
+        }
+
+        .code-example pre {
+            padding: 0.75rem;
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 680px) {
+            main {
+                overflow-wrap: anywhere;
+            }
+
+            .top nav.links {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                line-height: 1.25;
+                word-spacing: normal;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav.links>a:link,
+            nav.links>a:visited {
+                color: #a0a0a0;
+            }
+
+            nav.links>a:hover,
+            nav.links>a:active {
+                color: #0091ff;
+            }
+
+            .code-example pre {
+                background: #2e2e2e;
+            }
+        }
+        /* Shared site styles: end */
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Fixing the Single Rear JBL speaker in my Camry",
+        "datePublished": "2024-01-15",
+        "author": {
+            "@type": "Person",
+            "name": "Thomas August Ryan",
+            "url": "https://thomasryan.dev/"
+        },
+        "mainEntityOfPage": "https://thomasryan.dev/2024/01/camry-rear-speaker-jbl.html"
+    }
+    </script>
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="center top">
         <a href="./../../index.html" class="underline">
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
-        <h1 class="links hidemobile">
+        <nav class="links" aria-label="Primary">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </header>
+    <main id="main-content" tabindex="-1">
     <article class="center">
-        <time datetime="2023-06-15">
-            <strong>August 21st, 2023</strong>
+        <time datetime="2024-01-15">
+            <strong>January 15th, 2024</strong>
         </time>
-        <h3>Fixing the Single Rear JBL speaker in my Camry</h3>
+        <h2 class="section-title">Fixing the Single Rear JBL speaker in my Camry</h2>
         <a href="2012CamryRearSpeakerBlank.webp" title="The curious speaker blank that Toyota left in this Camry."><img
-                src="2012CamryRearSpeakerBlank.webp"
+                src="2012CamryRearSpeakerBlank-display.webp" width="1600" height="1200"
                 alt="The curious speaker blank that Toyota left in this Camry."></a>
         <p>Thanks to an unruly set of potholes in the parking lot of the Summit West ski area I am borrowing my father’s
             2012 Toyota Camry XLE Hybrid for a couple weeks. This car was optioned with the premium JBL sound system
@@ -223,7 +335,7 @@ Designed in Seattle, forged in Puget Sound.
             single rear speaker.
         </p>
         <a href="2012CamryNewSpeakerInstalled.webp" title="The new JBL speaker installed in all its glory."><img
-                src="2012CamryNewSpeakerInstalled.webp" alt="The new JBL speaker installed in all its glory."></a>
+                src="2012CamryNewSpeakerInstalled-display.webp" width="1600" height="1200" loading="lazy" alt="The new JBL speaker installed in all its glory."></a>
         <p>For starters there were only 3 of them: a pair of tweeters and a single 6x9 unit. Apparently, this JBL system
             is set up with a high pass filter for the rear speaker so that it only plays the bass tones. The thing about
             bass is that it is not very directional, unlike the high tones that come from tweeters which drop
@@ -232,29 +344,34 @@ Designed in Seattle, forged in Puget Sound.
             with only a single rear 6x9 despite having a perfectly good spot for a second speaker. I find this difficult
             to believe, but I suppose it makes sense given that this is just a Camry and not an ES350.</p>
         <a href="2012CamryDamagedRearSpeaker.webp" title="The old speaker with its damaged foam ring."><img
-                src="2012CamryDamagedRearSpeaker.webp" alt="The old speaker with its damaged foam ring."></a>
+                src="2012CamryDamagedRearSpeaker-display.webp" width="1600" height="1200" loading="lazy" alt="The old speaker with its damaged foam ring."></a>
         <p>In this case, the rattle I was hearing appears to be due to the foam mounting tape on the speaker failing and
             sliding down on to the speaker cone. As best as I can tell the old speaker is in working order, but as I had
             already purchased adapter plates, wires, and a new JBL 6x9 to replace the rattling speaker I installed them
             anyway. I had all the parts on hand, so I was curious to see if Toyota had included the wiring to replace
             the blank 6x9 hole with a working speaker. Sadly, they did not; only the wiring to support the existing
             tweeter is present on the passenger side of the car.</p>
-        <a href="2012CamryTrimClip.webp" title="The bane of my existence."><img src="2012CamryTrimClip.webp"
+        <a href="2012CamryTrimClip.webp" title="The bane of my existence."><img src="2012CamryTrimClip-display.webp" width="1600" height="1200" loading="lazy"
                 alt="The bane of my existence."></a>
         <p>With the new speaker installed I set about reassembling the car. While I was able to get everything snuggly
             back into place, I sheared one of the plastic push clips in half while pushing the final trim piece back
             into the C-pillar. Turns out that buying 50 of them was the only way to get 1 day shipping on Amazon. I now
             have a minty fresh set of 49 trim push pins that I’m sure I will cherish for years to come.</p>
     </article>
+    <nav class="center" aria-label="More posts">
+        <p><a rel="prev" href="../10/auditing-dotnet8-web-app-lighthouse.html">Newer post: Auditing a .NET 8 web app with Lighthouse</a></p>
+        <p><a rel="next" href="../../2023/08/desk-phone-background.html">Older post: Creating Desk Phone Backgrounds</a></p>
+    </nav>
+    </main>
     <footer class="center top">
         <a href="./../../index.html" class="underline hidemobile">
-            <h1>Thomas<br>August<br>Ryan</h1>
+            <span class="site-title">Thomas<br>August<br>Ryan</span>
         </a>
-        <h1 class="links">
+        <nav class="links" aria-label="Footer">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </footer>
 </body>
 

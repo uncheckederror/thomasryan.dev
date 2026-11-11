@@ -15,6 +15,9 @@ Designed in Seattle, forged in Puget Sound.
 <html lang="en-US">
 
 <head>
+    <!-- Content security policy: start -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <!-- Content security policy: end -->
     <title>Thomas August Ryan | GIS and Software Engineering</title>
     <meta charset="UTF-8">
     <meta name="description"
@@ -23,6 +26,7 @@ Designed in Seattle, forged in Puget Sound.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="43Y3ujh_guw-ASMBzlid4TUNTdjboT0Iqi-bnXRX-VM">
     <link rel="canonical" href="https://thomasryan.dev/">
+    <link rel="alternate" type="application/atom+xml" title="Thomas August Ryan's Posts" href="https://thomasryan.dev/feed.xml">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Thomas August Ryan | GIS and Software Engineering">
     <meta property="og:description"
@@ -43,6 +47,7 @@ Designed in Seattle, forged in Puget Sound.
         })(window, document, "clarity", "script", "jk0a2nru7l");
     </script>
     <style type="text/css">
+        /* Shared base styles: start */
         .center {
             /* Off white to reduce eye strain. */
             background: #FDFDFD;
@@ -53,6 +58,40 @@ Designed in Seattle, forged in Puget Sound.
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
+
+        p {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+
+        main>article>p>a {
+            text-decoration: none;
+            border-bottom: 1px solid #2A2A2A;
+        }
+
+        .underline {
+            text-decoration: none;
+        }
+
+        blockquote {
+            background: #f5f5f5;
+            border-radius: 2px;
+            padding: 1rem;
+            margin: 0% 0% 0% 0%;
+        }
+
+        .links {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+        }
+        /* Shared base styles: end */
 
         body {
             /* Compatible with everything, and anything. */
@@ -123,16 +162,6 @@ Designed in Seattle, forged in Puget Sound.
             align-items: flex-end;
         }
 
-        p {
-            font-size: 1.3rem;
-            line-height: 2rem;
-        }
-
-        main>article>p>a {
-            text-decoration: none;
-            border-bottom: 1px solid #2A2A2A;
-        }
-
         a:link,
         a:visited {
             color: #2A2A2A;
@@ -158,31 +187,8 @@ Designed in Seattle, forged in Puget Sound.
             color: #595959;
         }
 
-        .underline {
-            text-decoration: none;
-        }
-
         #latest-post-title {
             text-decoration: underline;
-        }
-
-        blockquote {
-            background: #f5f5f5;
-            border-radius: 2px;
-            padding: 1rem;
-            margin: 0% 0% 0% 0%;
-        }
-
-        .links {
-            display: flex;
-            flex-flow: column wrap;
-            align-items: flex-end;
-            justify-content: space-between;
-        }
-
-        .top {
-            display: flex;
-            justify-content: space-between;
         }
 
         .privacy-note {
@@ -272,7 +278,108 @@ Designed in Seattle, forged in Puget Sound.
                 color: #0091ff;
             }
         }
+        /* Shared site styles: start */
+        .skip-link {
+            position: fixed;
+            top: 0.5rem;
+            left: 0.5rem;
+            z-index: 100;
+            padding: 0.5rem;
+            background: #000;
+            transform: translateY(-200%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a.skip-link:link,
+        a.skip-link:visited,
+        a.skip-link:hover,
+        a.skip-link:active {
+            color: #fff;
+        }
+
+        main pre {
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        main pre:focus-visible {
+            outline: 3px solid #0091ff;
+            outline-offset: 2px;
+        }
+
+        .code-example {
+            margin: 1.5rem 0;
+        }
+
+        .code-example figcaption {
+            font-size: 1rem;
+        }
+
+        .code-example pre {
+            padding: 0.75rem;
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 680px) {
+            main {
+                overflow-wrap: anywhere;
+            }
+
+            .top nav.links {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                line-height: 1.25;
+                word-spacing: normal;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav.links>a:link,
+            nav.links>a:visited {
+                color: #a0a0a0;
+            }
+
+            nav.links>a:hover,
+            nav.links>a:active {
+                color: #0091ff;
+            }
+
+            .code-example pre {
+                background: #2e2e2e;
+            }
+        }
+        /* Shared site styles: end */
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://thomasryan.dev/#person",
+                "name": "Thomas August Ryan",
+                "url": "https://thomasryan.dev/"
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://thomasryan.dev/#website",
+                "name": "Thomas August Ryan",
+                "url": "https://thomasryan.dev/",
+                "author": {
+                    "@id": "https://thomasryan.dev/#person"
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>

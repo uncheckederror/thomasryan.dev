@@ -10,9 +10,12 @@ Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
 Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
-<html>
+<html lang="en-US">
 
 <head>
+    <!-- Content security policy: start -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <!-- Content security policy: end -->
     <title>Cleaning up a .NET 6 Web API Converted from Visual Basic</title>
     <meta charset="UTF-8">
     <meta name="description"
@@ -34,6 +37,7 @@ Designed in Seattle, forged in Puget Sound.
         })(window, document, "clarity", "script", "jk0a2nru7l");
     </script>
     <style type="text/css">
+        /* Shared base styles: start */
         .center {
             /* Off white to reduce eye strain. */
             background: #FDFDFD;
@@ -45,57 +49,14 @@ Designed in Seattle, forged in Puget Sound.
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
 
-        body {
-            /* Compatible with everything, and anything. */
-            font-family: sans-serif;
-            /* Off white to reduce eye strain. */
-            background-color: #DCDCDC;
-            margin: auto;
-            padding: 0% 3% 0% 3%;
-            max-width: 800px;
-            /* Off black to reduce eye strain. */
-            color: #2A2A2A;
-        }
-
-        h1,
-        h1.a {
-            letter-spacing: 0.03em;
-            font-size: 4.5em;
-            word-spacing: 5em;
-            line-height: 1.1em;
-            margin: 0%;
-            font-weight: 100;
-        }
-
-        h3 {
-            letter-spacing: 0.01rem;
-            font-size: 2.4rem;
-            font-weight: 100;
-        }
-
-        li {
-            font-size: 1.3rem;
-            line-height: 2rem;
-        }
-
         p {
             font-size: 1.3rem;
             line-height: 2rem;
         }
 
-        body>article>p>a {
+        main>article>p>a {
             text-decoration: none;
             border-bottom: 1px solid #2A2A2A;
-        }
-
-        a:link,
-        a:visited {
-            color: #2A2A2A;
-        }
-
-        a:hover,
-        a:active {
-            color: grey;
         }
 
         .underline {
@@ -116,19 +77,81 @@ Designed in Seattle, forged in Puget Sound.
             justify-content: space-between;
         }
 
-        h1>a:link,
-        h1>a:visited {
-            color: grey;
-        }
-
-        h1>a:hover,
-        h1>a:active {
-            color: #d2d2d2;
-        }
-
         .top {
             display: flex;
             justify-content: space-between;
+        }
+        /* Shared base styles: end */
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 800px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        .site-title,
+        nav.links,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        .site-title {
+            display: block;
+        }
+
+        h2.section-title {
+            margin-block: 1em;
+        }
+
+        .date-label {
+            display: block;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-block: 0.83em;
+        }
+
+        h3,
+        h2.section-title {
+            letter-spacing: 0.01rem;
+            font-size: 2.4rem;
+            font-weight: 100;
+        }
+
+        li {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+
+        a:link,
+        a:visited {
+            color: #2A2A2A;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        nav.links>a:link,
+        nav.links>a:visited {
+            color: grey;
+        }
+
+        nav.links>a:hover,
+        nav.links>a:active {
+            color: #d2d2d2;
         }
 
         img {
@@ -165,7 +188,7 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
 
-            body>article>p>a {
+            main>article>p>a {
                 text-decoration: none;
                 border-bottom: 1px solid #4db2ff;
             }
@@ -180,35 +203,130 @@ Designed in Seattle, forged in Puget Sound.
                 color: #0091ff;
             }
 
-            h1>a:link,
-            h1>a:visited {
+            nav.links>a:link,
+            nav.links>a:visited {
                 color: #6b6b6b;
             }
 
-            h1>a:hover,
-            h1>a:active {
+            nav.links>a:hover,
+            nav.links>a:active {
                 color: #0091ff;
             }
         }
+        /* Shared site styles: start */
+        .skip-link {
+            position: fixed;
+            top: 0.5rem;
+            left: 0.5rem;
+            z-index: 100;
+            padding: 0.5rem;
+            background: #000;
+            transform: translateY(-200%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a.skip-link:link,
+        a.skip-link:visited,
+        a.skip-link:hover,
+        a.skip-link:active {
+            color: #fff;
+        }
+
+        main pre {
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        main pre:focus-visible {
+            outline: 3px solid #0091ff;
+            outline-offset: 2px;
+        }
+
+        .code-example {
+            margin: 1.5rem 0;
+        }
+
+        .code-example figcaption {
+            font-size: 1rem;
+        }
+
+        .code-example pre {
+            padding: 0.75rem;
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 680px) {
+            main {
+                overflow-wrap: anywhere;
+            }
+
+            .top nav.links {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                line-height: 1.25;
+                word-spacing: normal;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav.links>a:link,
+            nav.links>a:visited {
+                color: #a0a0a0;
+            }
+
+            nav.links>a:hover,
+            nav.links>a:active {
+                color: #0091ff;
+            }
+
+            .code-example pre {
+                background: #2e2e2e;
+            }
+        }
+        /* Shared site styles: end */
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Cleaning up a .NET 6 Web API Converted from Visual Basic",
+        "datePublished": "2022-05-21",
+        "author": {
+            "@type": "Person",
+            "name": "Thomas August Ryan",
+            "url": "https://thomasryan.dev/"
+        },
+        "mainEntityOfPage": "https://thomasryan.dev/2022/05/dotnet-6-web-api-visual-basic-conversion.html"
+    }
+    </script>
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="center top">
         <a href="./../../index.html" class="underline">
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
-        <h1 class="links hidemobile">
+        <nav class="links" aria-label="Primary">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </header>
+    <main id="main-content" tabindex="-1">
     <article class="center">
         <time datetime="2022-05-21">
-            <h2>May 21th, 2022</h2>
+            <span class="date-label">May 21th, 2022</span>
         </time>
-        <h3>Cleaning up a .NET 6 Web API Converted from Visual Basic</h3>
+        <h2 class="section-title">Cleaning up a .NET 6 Web API Converted from Visual Basic</h2>
         <p>The Road Assets Editor or RAE is a tool that enables employees to review all road assets built in King
             County. It was created to support the road crews that are tasked with inventorying and reviewing the status
             of these assets on a periodic basis.</p>
@@ -301,15 +419,20 @@ Designed in Seattle, forged in Puget Sound.
             more performant, and easier to reason about than a direct 1 to 1 conversion of Visual Basic concepts and
             style. If you can make time for a refactoring process like this, I highly recommend it.</p>
     </article>
+    <nav class="center" aria-label="More posts">
+        <p><a rel="prev" href="../10/macan-headlights-LED-replacement.html">Newer post: Updating Porsche Macan headlights to LEDs</a></p>
+        <p><a rel="next" href="../04/load-csv-sqlite-aspnet-core-6-startup.html">Older post: Load a CSV into SQLite on Startup in ASP.NET Core 6</a></p>
+    </nav>
+    </main>
     <footer class="center top">
         <a href="./../../index.html" class="underline hidemobile">
-            <h1>Thomas<br>August<br>Ryan</h1>
+            <span class="site-title">Thomas<br>August<br>Ryan</span>
         </a>
-        <h1 class="links">
+        <nav class="links" aria-label="Footer">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </footer>
 </body>
 

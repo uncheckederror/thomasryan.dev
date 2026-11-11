@@ -10,9 +10,12 @@ Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
 Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
-<html>
+<html lang="en-US">
 
 <head>
+    <!-- Content security policy: start -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-WEa4CsWNpJbzxwT33CEuEQmrJkrIe4k6JZwEgWeEvhc=' 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <!-- Content security policy: end -->
     <title>Load a CSV into SQLite on Startup in ASP.NET Core 6</title>
     <meta charset="UTF-8">
     <meta name="description"
@@ -34,6 +37,7 @@ Designed in Seattle, forged in Puget Sound.
         })(window, document, "clarity", "script", "jk0a2nru7l");
     </script>
     <style type="text/css">
+        /* Shared base styles: start */
         .center {
             /* Off white to reduce eye strain. */
             background: #FDFDFD;
@@ -45,57 +49,14 @@ Designed in Seattle, forged in Puget Sound.
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
 
-        body {
-            /* Compatible with everything, and anything. */
-            font-family: sans-serif;
-            /* Off white to reduce eye strain. */
-            background-color: #DCDCDC;
-            margin: auto;
-            padding: 0% 3% 0% 3%;
-            max-width: 800px;
-            /* Off black to reduce eye strain. */
-            color: #2A2A2A;
-        }
-
-        h1,
-        h1.a {
-            letter-spacing: 0.03em;
-            font-size: 4.5em;
-            word-spacing: 5em;
-            line-height: 1.1em;
-            margin: 0%;
-            font-weight: 100;
-        }
-
-        h3 {
-            letter-spacing: 0.01rem;
-            font-size: 2.4rem;
-            font-weight: 100;
-        }
-
-        ul li {
-            font-size: 1.3rem;
-            line-height: 2rem;
-        }
-
         p {
             font-size: 1.3rem;
             line-height: 2rem;
         }
 
-        body>article>p>a {
+        main>article>p>a {
             text-decoration: none;
             border-bottom: 1px solid #2A2A2A;
-        }
-
-        a:link,
-        a:visited {
-            color: #2A2A2A;
-        }
-
-        a:hover,
-        a:active {
-            color: grey;
         }
 
         .underline {
@@ -116,19 +77,81 @@ Designed in Seattle, forged in Puget Sound.
             justify-content: space-between;
         }
 
-        h1>a:link,
-        h1>a:visited {
-            color: grey;
-        }
-
-        h1>a:hover,
-        h1>a:active {
-            color: #d2d2d2;
-        }
-
         .top {
             display: flex;
             justify-content: space-between;
+        }
+        /* Shared base styles: end */
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 800px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        .site-title,
+        nav.links,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        .site-title {
+            display: block;
+        }
+
+        h2.section-title {
+            margin-block: 1em;
+        }
+
+        .date-label {
+            display: block;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-block: 0.83em;
+        }
+
+        h3,
+        h2.section-title {
+            letter-spacing: 0.01rem;
+            font-size: 2.4rem;
+            font-weight: 100;
+        }
+
+        ul li {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+
+        a:link,
+        a:visited {
+            color: #2A2A2A;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        nav.links>a:link,
+        nav.links>a:visited {
+            color: grey;
+        }
+
+        nav.links>a:hover,
+        nav.links>a:active {
+            color: #d2d2d2;
         }
 
         img {
@@ -165,7 +188,7 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
 
-            body>article>p>a {
+            main>article>p>a {
                 text-decoration: none;
                 border-bottom: 1px solid #4db2ff;
             }
@@ -180,35 +203,130 @@ Designed in Seattle, forged in Puget Sound.
                 color: #0091ff;
             }
 
-            h1>a:link,
-            h1>a:visited {
+            nav.links>a:link,
+            nav.links>a:visited {
                 color: #6b6b6b;
             }
 
-            h1>a:hover,
-            h1>a:active {
+            nav.links>a:hover,
+            nav.links>a:active {
                 color: #0091ff;
             }
         }
+        /* Shared site styles: start */
+        .skip-link {
+            position: fixed;
+            top: 0.5rem;
+            left: 0.5rem;
+            z-index: 100;
+            padding: 0.5rem;
+            background: #000;
+            transform: translateY(-200%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a.skip-link:link,
+        a.skip-link:visited,
+        a.skip-link:hover,
+        a.skip-link:active {
+            color: #fff;
+        }
+
+        main pre {
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        main pre:focus-visible {
+            outline: 3px solid #0091ff;
+            outline-offset: 2px;
+        }
+
+        .code-example {
+            margin: 1.5rem 0;
+        }
+
+        .code-example figcaption {
+            font-size: 1rem;
+        }
+
+        .code-example pre {
+            padding: 0.75rem;
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 680px) {
+            main {
+                overflow-wrap: anywhere;
+            }
+
+            .top nav.links {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                line-height: 1.25;
+                word-spacing: normal;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav.links>a:link,
+            nav.links>a:visited {
+                color: #a0a0a0;
+            }
+
+            nav.links>a:hover,
+            nav.links>a:active {
+                color: #0091ff;
+            }
+
+            .code-example pre {
+                background: #2e2e2e;
+            }
+        }
+        /* Shared site styles: end */
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Load a CSV into SQLite on Startup in ASP.NET Core 6",
+        "datePublished": "2022-04-17",
+        "author": {
+            "@type": "Person",
+            "name": "Thomas August Ryan",
+            "url": "https://thomasryan.dev/"
+        },
+        "mainEntityOfPage": "https://thomasryan.dev/2022/04/load-csv-sqlite-aspnet-core-6-startup.html"
+    }
+    </script>
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="center top">
         <a href="./../../index.html" class="underline">
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
-        <h1 class="links hidemobile">
+        <nav class="links" aria-label="Primary">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </header>
+    <main id="main-content" tabindex="-1">
     <article class="center">
         <time datetime="2022-04-17">
-            <h2>April 17th, 2022</h2>
+            <span class="date-label">April 17th, 2022</span>
         </time>
-        <h3>Load a CSV into SQLite on Startup in ASP.NET Core 6</h3>
+        <h2 class="section-title">Load a CSV into SQLite on Startup in ASP.NET Core 6</h2>
         <p>When I deploy my ASP.NET Core 6 app I want it to gather CSV formatted data and ingest it into SQLite as
             part of its startup process. To
             that end I keep a list of the URLs and file names of the CSVs I want it to ingest in the appsettings.json
@@ -223,7 +341,91 @@ Designed in Seattle, forged in Puget Sound.
             CreateHostBuilder(args).Build().Run(); to start up the app. Using that context, I can check to see if
             there’s any data in the app’s database. If there is, then we do nothing. If there isn’t, then we ingest the
             data we want into the database.</p>
-        <script src="https://gist.github.com/uncheckederror/fab0359f7041007bfbb44a474de458b5.js"></script>
+        <figure class="code-example">
+            <figcaption><a href="https://gist.github.com/uncheckederror/fab0359f7041007bfbb44a474de458b5">Program.cs</a></figcaption>
+            <pre tabindex="0" role="region" aria-label="Code example: Program.cs; use left and right arrow keys to scroll"><code>using eRealProperty.Models;
+
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+
+using Serilog;
+using Serilog.Events;
+
+using System;
+using System.Threading.Tasks;
+
+namespace ServerSide
+{
+    public class Program
+    {
+        public async static Task Main(string[] args)
+        {
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .CreateLogger();
+
+            // Get the configuration keys
+            var config = new ConfigurationBuilder()
+                    .AddJsonFile("appsettings.json", optional: false)
+                    .Build();
+
+            // Ready the ORM configuration
+            var contextOptions = new DbContextOptionsBuilder&lt;eRealPropertyContext&gt;()
+                    .UseSqlite(config.GetConnectionString("eRealPropertyContext"))
+                    .Options;
+
+            // Put the ORM to work and make sure we have a database
+            using var db = new eRealPropertyContext(contextOptions);
+            await db.Database.MigrateAsync();
+
+            // Load the data if there's nothing in the database.
+            if (!await db.RealPropertyAccounts.AnyAsync())
+            {
+                Log.Information("Ingesting Real Accounts");
+                await db.Database.ExecuteSqlRawAsync("DELETE FROM RealPropertyAccounts;");
+                var accounts = await RealPropertyAccount.IngestAsync(db,&#32;
+                                            config["DataSources:RealPropertyAccount"],&#32;
+                                            config["DataSources:RealPropertyAccountFileName"]);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+                if (accounts)
+                {
+                    Log.Information($"Ingested {await db.RealPropertyAccounts.CountAsync()} Real Accounts.");
+                }
+                else
+                {
+                    Log.Fatal("Failed to ingest Real Accounts.");
+                }
+            }
+
+            try
+            {
+                Log.Information("Starting web host");
+                CreateHostBuilder(args).Build().Run();
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "Host terminated unexpectedly");
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =&gt;
+            Host.CreateDefaultBuilder(args)
+            .UseSerilog()
+                .ConfigureWebHostDefaults(webBuilder =&gt;
+                {
+                    webBuilder.UseStartup&lt;Startup&gt;();
+                });
+    }
+}</code></pre>
+        </figure>
         <h3>Performant CSV Parsing</h3>
         <p>A text file containing comma separated values or a CSV is a common way to store data exported mainframes or
             other complex and often obscure systems. CSV’s are neat because they are so simple, just a line of values
@@ -261,7 +463,17 @@ Designed in Seattle, forged in Puget Sound.
             are done with all the commands in our transaction we can close it out by calling await
             transaction.CommitAsync();</p>
         <h3>Old-school SQL Commands</h3>
-        <script src="https://gist.github.com/uncheckederror/c90af81310478f92a83b8abdaa52a580.js"></script>
+        <figure class="code-example">
+            <figcaption><a href="https://gist.github.com/uncheckederror/c90af81310478f92a83b8abdaa52a580">query.cs</a></figcaption>
+            <pre tabindex="0" role="region" aria-label="Code example: query.cs; use left and right arrow keys to scroll"><code>            var command = context.Database.GetDbConnection().CreateCommand();
+            command.CommandText =
+                $"insert into LevyCodes (Id, DistrictAbbrev, LevyCode, DistrictName, IngestedOn) " +
+                $"values ($Id, $DistrictAbbrev, $LevyCode, $DistrictName, $IngestedOn);";
+
+            var Id = command.CreateParameter();
+            Id.ParameterName = "$Id";
+            command.Parameters.Add(Id);</code></pre>
+        </figure>
         <p>Inside of the SQL command we can set a template using command.CommandText to set a string. The string you use
             will be specific to the version of SQL that the underlying database supports. SQLite uses the format
             <a href="https://www.sqlitetutorial.net/sqlite-insert/" target="_blank" rel="noopener noreferrer"> discussed
@@ -295,18 +507,153 @@ Designed in Seattle, forged in Puget Sound.
             techniques, it took multiple hours and tens of gigabytes of memory to ingest all the data my app needs to
             run.
             Now it takes half an hour and less than a gigabyte of memory to accomplish the same work.</p>
-        <script src="https://gist.github.com/uncheckederror/ebf76d43f5030ee7ab70f00f98413814.js"></script>
+        <figure class="code-example">
+            <figcaption><a href="https://gist.github.com/uncheckederror/ebf76d43f5030ee7ab70f00f98413814">LevyCode.cs</a></figcaption>
+            <pre tabindex="0" role="region" aria-label="Code example: LevyCode.cs; use left and right arrow keys to scroll"><code>using CsvHelper;
+using CsvHelper.Configuration;
+using CsvHelper.Configuration.Attributes;
+
+using Flurl.Http;
+
+using Microsoft.EntityFrameworkCore;
+
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+using System.IO;
+using System.IO.Compression;
+using System.Threading.Tasks;
+
+namespace eRealProperty.Models
+{
+    public class TaxLevy
+    {
+        [Key]
+        [Ignore]
+        public Guid Id { get; set; }
+        public string DistrictAbbrev { get; set; }
+        public string LevyCode { get; set; }
+        public string DistrictName { get; set; }
+        [Ignore]
+        public DateTime IngestedOn { get; set; }
+
+        public static async Task&lt;bool&gt; IngestAsync(eRealPropertyContext context, string zipUrl, string fileName)
+        {
+            if (string.IsNullOrWhiteSpace(zipUrl) || string.IsNullOrWhiteSpace(fileName))
+            {
+                return false;
+            }
+
+            var pathtoFile = await zipUrl.DownloadFileAsync(AppContext.BaseDirectory);
+            var pathToCSV = Path.Combine(AppContext.BaseDirectory, fileName);
+
+            var fileTypes = new string[] { ".txt", ".csv" };
+            // If a file with the same name already exists it will break the downloading process, so we need to make sure they are deleted.
+            foreach (var type in fileTypes)
+            {
+                var filePath = Path.Combine(AppContext.BaseDirectory, Path.GetFileNameWithoutExtension(pathtoFile) + type);
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+            }
+
+            if (!File.Exists(pathToCSV))
+            {
+                ZipFile.ExtractToDirectory(pathtoFile, AppContext.BaseDirectory);
+            }
+
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                NewLine = Environment.NewLine,
+                MissingFieldFound = null,
+                CacheFields = true
+            };
+
+            using var transaction = await context.Database.BeginTransactionAsync();
+            using var reader = new StreamReader(pathToCSV);
+            using var csv = new CsvReader(reader, config);
+
+            var command = context.Database.GetDbConnection().CreateCommand();
+            command.CommandText =
+                $"insert into LevyCodes (Id, DistrictAbbrev, LevyCode, DistrictName, IngestedOn) " +
+                $"values ($Id, $DistrictAbbrev, $LevyCode, $DistrictName, $IngestedOn);";
+
+            var Id = command.CreateParameter();
+            Id.ParameterName = "$Id";
+            command.Parameters.Add(Id);
+
+            var DistrictAbbrev = command.CreateParameter();
+            DistrictAbbrev.ParameterName = "$DistrictAbbrev";
+            command.Parameters.Add(DistrictAbbrev);
+
+            var LevyCode = command.CreateParameter();
+            LevyCode.ParameterName = "$LevyCode";
+            command.Parameters.Add(LevyCode);
+
+            var DistrictName = command.CreateParameter();
+            DistrictName.ParameterName = "$DistrictName";
+            command.Parameters.Add(DistrictName);
+
+            var IngestedOn = command.CreateParameter();
+            IngestedOn.ParameterName = "$IngestedOn";
+            command.Parameters.Add(IngestedOn);
+
+            var records = csv.GetRecordsAsync&lt;TaxLevy&gt;();
+
+            await foreach (var record in records)
+            {
+                record.Id = Guid.NewGuid();
+                record.IngestedOn = DateTime.Now;
+
+                Id.Value = record.Id;
+                DistrictAbbrev.Value = record.DistrictAbbrev;
+                LevyCode.Value = record.LevyCode;
+                DistrictName.Value = record.DistrictName;
+                IngestedOn.Value = record.IngestedOn;
+
+                await command.ExecuteNonQueryAsync();
+            }
+
+            await transaction.CommitAsync();
+            return true;
+        }
+    }
+}
+</code></pre>
+        </figure>
     </article>
+    <nav class="center" aria-label="More posts">
+        <p><a rel="prev" href="../05/dotnet-6-web-api-visual-basic-conversion.html">Newer post: Cleaning up a .NET 6 Web API Converted from Visual Basic</a></p>
+        <p><a rel="next" href="../01/next-js-and-arcgis-js-web-app.html">Older post: Using Next.js and ArcGIS JS to build Geospatial Web Apps</a></p>
+    </nav>
+    </main>
     <footer class="center top">
         <a href="./../../index.html" class="underline hidemobile">
-            <h1>Thomas<br>August<br>Ryan</h1>
+            <span class="site-title">Thomas<br>August<br>Ryan</span>
         </a>
-        <h1 class="links">
+        <nav class="links" aria-label="Footer">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </footer>
+    <!-- Shared code scrolling: start -->
+    <script>
+        document.addEventListener("keydown", function (event) {
+            const code = event.target;
+            if (!(code instanceof HTMLPreElement) || !code.hasAttribute("tabindex") ||
+                event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey ||
+                code.scrollWidth <= code.clientWidth) {
+                return;
+            }
+            if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+                code.scrollLeft += event.key === "ArrowRight" ? 40 : -40;
+                event.preventDefault();
+            }
+        });
+    </script>
+    <!-- Shared code scrolling: end -->
 </body>
 
 </html>

@@ -10,9 +10,12 @@ Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
 Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
-<html>
+<html lang="en-US">
 
 <head>
+    <!-- Content security policy: start -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <!-- Content security policy: end -->
     <title>Updating Porsche Macan headlights to LEDs</title>
     <meta charset="UTF-8">
     <meta name="description" content="There are two main advantages to replacing the stock light bulbs with LEDs:">
@@ -33,6 +36,7 @@ Designed in Seattle, forged in Puget Sound.
         })(window, document, "clarity", "script", "jk0a2nru7l");
     </script>
     <style type="text/css">
+        /* Shared base styles: start */
         .center {
             /* Off white to reduce eye strain. */
             background: #FDFDFD;
@@ -44,57 +48,14 @@ Designed in Seattle, forged in Puget Sound.
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
 
-        body {
-            /* Compatible with everything, and anything. */
-            font-family: sans-serif;
-            /* Off white to reduce eye strain. */
-            background-color: #DCDCDC;
-            margin: auto;
-            padding: 0% 3% 0% 3%;
-            max-width: 800px;
-            /* Off black to reduce eye strain. */
-            color: #2A2A2A;
-        }
-
-        h1,
-        h1.a {
-            letter-spacing: 0.03em;
-            font-size: 4.5em;
-            word-spacing: 5em;
-            line-height: 1.1em;
-            margin: 0%;
-            font-weight: 100;
-        }
-
-        h3 {
-            letter-spacing: 0.01rem;
-            font-size: 2.4rem;
-            font-weight: 100;
-        }
-
-        li {
-            font-size: 1.3rem;
-            line-height: 2rem;
-        }
-
         p {
             font-size: 1.3rem;
             line-height: 2rem;
         }
 
-        body>article>p>a {
+        main>article>p>a {
             text-decoration: none;
             border-bottom: 1px solid #2A2A2A;
-        }
-
-        a:link,
-        a:visited {
-            color: #2A2A2A;
-        }
-
-        a:hover,
-        a:active {
-            color: grey;
         }
 
         .underline {
@@ -115,23 +76,86 @@ Designed in Seattle, forged in Puget Sound.
             justify-content: space-between;
         }
 
-        h1>a:link,
-        h1>a:visited {
-            color: grey;
-        }
-
-        h1>a:hover,
-        h1>a:active {
-            color: #d2d2d2;
-        }
-
         .top {
             display: flex;
             justify-content: space-between;
         }
+        /* Shared base styles: end */
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 800px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        .site-title,
+        nav.links,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        .site-title {
+            display: block;
+        }
+
+        h2.section-title {
+            margin-block: 1em;
+        }
+
+        .date-label {
+            display: block;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-block: 0.83em;
+        }
+
+        h3,
+        h2.section-title {
+            letter-spacing: 0.01rem;
+            font-size: 2.4rem;
+            font-weight: 100;
+        }
+
+        li {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+
+        a:link,
+        a:visited {
+            color: #2A2A2A;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        nav.links>a:link,
+        nav.links>a:visited {
+            color: grey;
+        }
+
+        nav.links>a:hover,
+        nav.links>a:active {
+            color: #d2d2d2;
+        }
 
         img {
             width: 100%;
+            height: auto;
         }
 
         @media (max-width: 680px) {
@@ -164,7 +188,7 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
 
-            body>article>p>a {
+            main>article>p>a {
                 text-decoration: none;
                 border-bottom: 1px solid #4db2ff;
             }
@@ -179,37 +203,132 @@ Designed in Seattle, forged in Puget Sound.
                 color: #0091ff;
             }
 
-            h1>a:link,
-            h1>a:visited {
+            nav.links>a:link,
+            nav.links>a:visited {
                 color: #6b6b6b;
             }
 
-            h1>a:hover,
-            h1>a:active {
+            nav.links>a:hover,
+            nav.links>a:active {
                 color: #0091ff;
             }
         }
+        /* Shared site styles: start */
+        .skip-link {
+            position: fixed;
+            top: 0.5rem;
+            left: 0.5rem;
+            z-index: 100;
+            padding: 0.5rem;
+            background: #000;
+            transform: translateY(-200%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a.skip-link:link,
+        a.skip-link:visited,
+        a.skip-link:hover,
+        a.skip-link:active {
+            color: #fff;
+        }
+
+        main pre {
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        main pre:focus-visible {
+            outline: 3px solid #0091ff;
+            outline-offset: 2px;
+        }
+
+        .code-example {
+            margin: 1.5rem 0;
+        }
+
+        .code-example figcaption {
+            font-size: 1rem;
+        }
+
+        .code-example pre {
+            padding: 0.75rem;
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 680px) {
+            main {
+                overflow-wrap: anywhere;
+            }
+
+            .top nav.links {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                line-height: 1.25;
+                word-spacing: normal;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav.links>a:link,
+            nav.links>a:visited {
+                color: #a0a0a0;
+            }
+
+            nav.links>a:hover,
+            nav.links>a:active {
+                color: #0091ff;
+            }
+
+            .code-example pre {
+                background: #2e2e2e;
+            }
+        }
+        /* Shared site styles: end */
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Updating Porsche Macan headlights to LEDs",
+        "datePublished": "2022-10-23",
+        "author": {
+            "@type": "Person",
+            "name": "Thomas August Ryan",
+            "url": "https://thomasryan.dev/"
+        },
+        "mainEntityOfPage": "https://thomasryan.dev/2022/10/macan-headlights-LED-replacement.html"
+    }
+    </script>
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="center top">
         <a href="./../../index.html" class="underline">
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
-        <h1 class="links hidemobile">
+        <nav class="links" aria-label="Primary">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </header>
+    <main id="main-content" tabindex="-1">
     <article class="center">
-        <time datetime="2022-05-21">
-            <h2>October 23rd, 2022</h2>
+        <time datetime="2022-10-23">
+            <span class="date-label">October 23rd, 2022</span>
         </time>
-        <h3>Updating Porsche Macan headlights to LEDs</h3>
+        <h2 class="section-title">Updating Porsche Macan headlights to LEDs</h2>
         <a href="IMG_2947.JPG" title="Headlight pattern with all of the upgraded blubs installed."><img
-                src="IMG_2947.JPG" alt="Headlight pattern with all of the upgraded blubs installed."></a>
+                src="IMG_2947-display.webp" width="1600" height="1200" alt="Headlight pattern with all of the upgraded blubs installed."></a>
         <p>Last year I purchased a 2016 Porsche Macan S. Many things about my Macan have aged well in the 6 years since
             it left the factory in Leipzig, Germany; but the decision to ship the car with mostly incandescent light
             bulbs was clearly a mistake. I remember thinking to myself as I was on the way to campsite deep in the
@@ -228,7 +347,7 @@ Designed in Seattle, forged in Puget Sound.
         <h3>Changing Color Temperature</h3>
         <a href="FoglightColorComparison.webp"
             title="Stock foig light on the left and the LED fog light on the right."><img
-                src="FoglightColorComparison.webp"
+                src="FoglightColorComparison-display.webp" width="1600" height="1200" loading="lazy"
                 alt="Stock foig light on the left and the LED fog light on the right."></a>
         <p>There is a caveat though, which is that LEDs do not match the color temperature of most stock light bulbs.
             Typically, they will be 6500k or 6000k in color temperature which cooler or bluer looking than the stock
@@ -273,7 +392,7 @@ Designed in Seattle, forged in Puget Sound.
             the four dots are already LEDs and non-replaceable. Additionally, I am not counting the running lights that
             sit below the headlight assembly as they are also a nonreplaceable strip of LEDs.</p>
         <a href="BlubComparison.webp" title="The better build quality of the LED fog light blub is clear."><img
-                src="BlubComparison.webp" alt="The better build quality of the LED fog light blub is clear."></a>
+                src="BlubComparison-display.webp" width="1600" height="1200" loading="lazy" alt="The better build quality of the LED fog light blub is clear."></a>
         <h3>Totals</h3>
         <ul>
             <li>Stock replacements - 12k Lumens @ 290 Watts</li>
@@ -291,15 +410,20 @@ Designed in Seattle, forged in Puget Sound.
             Although I get the impression that all these LED brands are interchangeable as is common for sub $100 items
             on Amazon.</p>
     </article>
+    <nav class="center" aria-label="More posts">
+        <p><a rel="prev" href="../../2023/06/wagisa-2023.html">Newer post: WAGISA 2023</a></p>
+        <p><a rel="next" href="../05/dotnet-6-web-api-visual-basic-conversion.html">Older post: Cleaning up a .NET 6 Web API Converted from Visual Basic</a></p>
+    </nav>
+    </main>
     <footer class="center top">
         <a href="./../../index.html" class="underline hidemobile">
-            <h1>Thomas<br>August<br>Ryan</h1>
+            <span class="site-title">Thomas<br>August<br>Ryan</span>
         </a>
-        <h1 class="links">
+        <nav class="links" aria-label="Footer">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </footer>
 </body>
 

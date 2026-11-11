@@ -10,9 +10,12 @@ Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
 Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
-<html>
+<html lang="en-US">
 
 <head>
+    <!-- Content security policy: start -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <!-- Content security policy: end -->
     <title>Demos</title>
     <meta charset="UTF-8">
     <meta name="description" content="Demos created by Thomas August Ryan.">
@@ -57,6 +60,7 @@ Designed in Seattle, forged in Puget Sound.
         }
 
         h1,
+        nav.links,
         h1.a {
             letter-spacing: 0.03em;
             font-size: 4.5em;
@@ -115,13 +119,13 @@ Designed in Seattle, forged in Puget Sound.
             justify-content: space-between;
         }
 
-        h1>a:link,
-        h1>a:visited {
+        nav.links>a:link,
+        nav.links>a:visited {
             color: grey;
         }
 
-        h1>a:hover,
-        h1>a:active {
+        nav.links>a:hover,
+        nav.links>a:active {
             color: #d2d2d2;
         }
 
@@ -134,6 +138,27 @@ Designed in Seattle, forged in Puget Sound.
             width: 100%;
         }
 
+        .skip-link {
+            position: fixed;
+            top: 0.5rem;
+            left: 0.5rem;
+            z-index: 100;
+            padding: 0.5rem;
+            background: #000;
+            transform: translateY(-200%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a.skip-link:link,
+        a.skip-link:visited,
+        a.skip-link:hover,
+        a.skip-link:active {
+            color: #fff;
+        }
+
         @media (max-width: 680px) {
             .hidemobile {
                 display: none;
@@ -142,6 +167,20 @@ Designed in Seattle, forged in Puget Sound.
             /* Flex makes this look wonky on small screens */
             .top {
                 display: block;
+            }
+
+            main {
+                overflow-wrap: anywhere;
+            }
+
+            .top nav.links {
+                flex-flow: column nowrap;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                line-height: 1.25;
+                word-spacing: normal;
             }
         }
 
@@ -179,13 +218,13 @@ Designed in Seattle, forged in Puget Sound.
                 color: #0091ff;
             }
 
-            h1>a:link,
-            h1>a:visited {
-                color: #6b6b6b;
+            nav.links>a:link,
+            nav.links>a:visited {
+                color: #a0a0a0;
             }
 
-            h1>a:hover,
-            h1>a:active {
+            nav.links>a:hover,
+            nav.links>a:active {
                 color: #0091ff;
             }
         }
@@ -193,71 +232,52 @@ Designed in Seattle, forged in Puget Sound.
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="center top">
         <a href="./index.html" class="underline">
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
-        <h1 class="links hidemobile">
+        <nav class="links" aria-label="Primary">
             <a href="./posts.html" class="underline">Posts</a>
             <a href="./demos.html" class="underline">Demos</a>
             <a href="./resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </header>
+    <main id="main-content" tabindex="-1">
     <article class="center">
         <h2>Web Apps</h2>
-        <p><a href="https://acceleratenetworks.com/Search?Query=206" target="_blank" rel="noopener noreferrer"
-                class="underline">
-                <h3>Search Available Phone Numbers</h3>
-            </a></p>
-        <p><a href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-060-0004&page=landlocation"
-                target="_blank" rel="noopener noreferrer" class="underline">
-                <h3>Land & Location in Parcel Details</h3>
-            </a></p>
-        <p><a href="https://psearch.kitsapgov.com/PlatsSearch/?SearchString=5432" target="_blank"
-                rel="noopener noreferrer" class="underline">
-                <h3>Plat 5432 in Plats Search</h3>
-            </a></p>
-        <p><a href="https://wasales.tax/" target="_blank" rel="noopener noreferrer" class="underline">
-                <h3>Lookup Sales Tax Rates by Address in WA</h3>
-            </a></p>
-        <p><a href="https://waparcels.tax/" target="_blank" rel="noopener noreferrer" class="underline">
-                <h3>All the Tax Parcel in Washington State</h3>
-            </a></p>
+        <h3><a href="https://acceleratenetworks.com/Search?Query=206" target="_blank" rel="noopener noreferrer"
+                class="underline">Search Available Phone Numbers</a></h3>
+        <h3><a href="https://psearch.kitsapgov.com/pdetails/Details.aspx?parcel=5432-000-060-0004&page=landlocation"
+                target="_blank" rel="noopener noreferrer" class="underline">Land &amp; Location in Parcel Details</a></h3>
+        <h3><a href="https://psearch.kitsapgov.com/PlatsSearch/?SearchString=5432" target="_blank"
+                rel="noopener noreferrer" class="underline">Plat 5432 in Plats Search</a></h3>
+        <h3><a href="https://wasales.tax/" target="_blank" rel="noopener noreferrer" class="underline">Lookup Sales Tax Rates by Address in WA</a></h3>
+        <h3><a href="https://waparcels.tax/" target="_blank" rel="noopener noreferrer" class="underline">All the Tax Parcel in Washington State</a></h3>
     </article>
     <article class="center">
         <h2>Web Maps</h2>
-        <p><a href="./demos/KitsapKingBuildings.html" target="_blank" rel="noopener noreferrer" class="underline">
-                <h3>King County Buildings by Year Built</h3>
-            </a></p>
-        <p><a href="./demos/KitsapBuildings.html" target="_blank" rel="noopener noreferrer" class="underline">
-                <h3>Kitsap County Buildings by Year Built</h3>
-            </a></p>
-        <p><a href="./demos/indexSidebar.html" target="_blank" rel="noopener noreferrer" class="underline">
-                <h3>Kitsap County Parcel Viewer with Parcel Details as a Sidebar</h3>
-            </a></p>
-        <p><a href="./demos/indexlayers.html" target="_blank" rel="noopener noreferrer" class="underline">
-                <h3>Kitsap County Parcel Viewer with Parcel Details as a Popup</h3>
-            </a></p>
-        <p><a href="./demos/resumap.html" target="_blank" rel="noopener noreferrer" class="underline">
-                <h3>My Résumé as a scrollable Map</h3>
-            </a></p>
+        <h3><a href="./demos/KitsapKingBuildings.html" target="_blank" rel="noopener noreferrer" class="underline">King County Buildings by Year Built</a></h3>
+        <h3><a href="./demos/KitsapBuildings.html" target="_blank" rel="noopener noreferrer" class="underline">Kitsap County Buildings by Year Built</a></h3>
+        <h3><a href="./demos/indexSidebar.html" target="_blank" rel="noopener noreferrer" class="underline">Kitsap County Parcel Viewer with Parcel Details as a Sidebar</a></h3>
+        <h3><a href="./demos/indexlayers.html" target="_blank" rel="noopener noreferrer" class="underline">Kitsap County Parcel Viewer with Parcel Details as a Popup</a></h3>
+        <h3><a href="./demos/resumap.html" target="_blank" rel="noopener noreferrer" class="underline">My Résumé as a scrollable Map</a></h3>
     </article>
     <article class="center">
         <h2>CSS Grid</h2>
-        <p><a href="https://codepen.io/uncheckederror/full/XGNPrJ" target="_blank" rel="noopener noreferrer"
-                class="underline">
-                <h3>The Declaration of Independence</h3>
-            </a></p>
+        <h3><a href="https://codepen.io/uncheckederror/full/XGNPrJ" target="_blank" rel="noopener noreferrer"
+                class="underline">The Declaration of Independence</a></h3>
     </article>
+    </main>
     <footer class="center top">
         <a href="./index.html" class="underline hidemobile">
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
-        <h1 class="links">
+        <nav class="links" aria-label="Footer">
             <a href="./posts.html" class="underline">Posts</a>
             <a href="./demos.html" class="underline">Demos</a>
             <a href="./resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </footer>
 </body>
 

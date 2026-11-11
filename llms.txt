@@ -1,0 +1,18 @@
+# Thomas August Ryan
+
+> Personal website, portfolio, and blog about GIS, software development, and other interests.
+
+## Main site
+
+- [Home](https://thomasryan.dev/): Introduction and latest post.
+- [Work](https://thomasryan.dev/work.html): Projects and professional work.
+- [Posts](https://thomasryan.dev/posts.html): Archive of local and externally published posts.
+- [Atom feed](https://thomasryan.dev/feed.xml): Locally hosted posts with publication dates and summaries.
+- [Sitemap](https://thomasryan.dev/sitemap.txt): Public pages and locally hosted articles.
+
+## Other resources
+
+- [Source repository](https://github.com/uncheckederror/thomasryan.dev)
+- [License](https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE)
+
+The demos in the repository are standalone pages, separate from the main site.

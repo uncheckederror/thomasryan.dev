@@ -10,9 +10,12 @@ Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
 Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
-<html>
+<html lang="en-US">
 
 <head>
+    <!-- Content security policy: start -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <!-- Content security policy: end -->
     <title>The Ultimate Trunk Lighting for a Toyota Camry</title>
     <meta charset="UTF-8">
     <meta name="description"
@@ -34,6 +37,7 @@ Designed in Seattle, forged in Puget Sound.
         })(window, document, "clarity", "script", "jk0a2nru7l");
     </script>
     <style type="text/css">
+        /* Shared base styles: start */
         .center {
             /* Off white to reduce eye strain. */
             background: #FDFDFD;
@@ -45,58 +49,14 @@ Designed in Seattle, forged in Puget Sound.
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
 
-        body {
-            /* Compatible with everything, and anything. */
-            font-family: sans-serif;
-            /* Off white to reduce eye strain. */
-            background-color: #DCDCDC;
-            margin: auto;
-            padding: 0% 3% 0% 3%;
-            max-width: 800px;
-            /* Off black to reduce eye strain. */
-            color: #2A2A2A;
-        }
-
-        h1,
-        h1.a {
-            letter-spacing: 0.03em;
-            font-size: 4.5em;
-            word-spacing: 5em;
-            line-height: 1.1em;
-            margin: 0%;
-            font-weight: 100;
-        }
-
-        h3 {
-            letter-spacing: 0.01rem;
-            font-size: 2.4rem;
-            font-weight: 100;
-            margin-top: 0;
-        }
-
-        li {
-            font-size: 1.3rem;
-            line-height: 2rem;
-        }
-
         p {
             font-size: 1.3rem;
             line-height: 2rem;
         }
 
-        body>article>p>a {
+        main>article>p>a {
             text-decoration: none;
             border-bottom: 1px solid #2A2A2A;
-        }
-
-        a:link,
-        a:visited {
-            color: #2A2A2A;
-        }
-
-        a:hover,
-        a:active {
-            color: grey;
         }
 
         .underline {
@@ -117,23 +77,80 @@ Designed in Seattle, forged in Puget Sound.
             justify-content: space-between;
         }
 
-        h1>a:link,
-        h1>a:visited {
-            color: grey;
-        }
-
-        h1>a:hover,
-        h1>a:active {
-            color: #d2d2d2;
-        }
-
         .top {
             display: flex;
             justify-content: space-between;
         }
+        /* Shared base styles: end */
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 800px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        .site-title,
+        nav.links,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        .site-title {
+            display: block;
+        }
+
+        h2.section-title {
+            margin-block: 1em;
+        }
+
+        h3,
+        h2.section-title {
+            letter-spacing: 0.01rem;
+            font-size: 2.4rem;
+            font-weight: 100;
+            margin-top: 0;
+        }
+
+        li {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+
+        a:link,
+        a:visited {
+            color: #2A2A2A;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        nav.links>a:link,
+        nav.links>a:visited {
+            color: grey;
+        }
+
+        nav.links>a:hover,
+        nav.links>a:active {
+            color: #d2d2d2;
+        }
 
         img {
             width: 100%;
+            height: auto;
         }
 
         @media (max-width: 680px) {
@@ -166,7 +183,7 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
 
-            body>article>p>a {
+            main>article>p>a {
                 text-decoration: none;
                 border-bottom: 1px solid #4db2ff;
             }
@@ -181,35 +198,130 @@ Designed in Seattle, forged in Puget Sound.
                 color: #0091ff;
             }
 
-            h1>a:link,
-            h1>a:visited {
+            nav.links>a:link,
+            nav.links>a:visited {
                 color: #6b6b6b;
             }
 
-            h1>a:hover,
-            h1>a:active {
+            nav.links>a:hover,
+            nav.links>a:active {
                 color: #0091ff;
             }
         }
+        /* Shared site styles: start */
+        .skip-link {
+            position: fixed;
+            top: 0.5rem;
+            left: 0.5rem;
+            z-index: 100;
+            padding: 0.5rem;
+            background: #000;
+            transform: translateY(-200%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a.skip-link:link,
+        a.skip-link:visited,
+        a.skip-link:hover,
+        a.skip-link:active {
+            color: #fff;
+        }
+
+        main pre {
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        main pre:focus-visible {
+            outline: 3px solid #0091ff;
+            outline-offset: 2px;
+        }
+
+        .code-example {
+            margin: 1.5rem 0;
+        }
+
+        .code-example figcaption {
+            font-size: 1rem;
+        }
+
+        .code-example pre {
+            padding: 0.75rem;
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 680px) {
+            main {
+                overflow-wrap: anywhere;
+            }
+
+            .top nav.links {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                line-height: 1.25;
+                word-spacing: normal;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav.links>a:link,
+            nav.links>a:visited {
+                color: #a0a0a0;
+            }
+
+            nav.links>a:hover,
+            nav.links>a:active {
+                color: #0091ff;
+            }
+
+            .code-example pre {
+                background: #2e2e2e;
+            }
+        }
+        /* Shared site styles: end */
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The Ultimate Trunk Lighting for a Toyota Camry",
+        "datePublished": "2025-10-10",
+        "author": {
+            "@type": "Person",
+            "name": "Thomas August Ryan",
+            "url": "https://thomasryan.dev/"
+        },
+        "mainEntityOfPage": "https://thomasryan.dev/2025/10/ultimate-trunk-lighting-for-toyota-camry.html"
+    }
+    </script>
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="center top">
         <a href="./../../index.html" class="underline">
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
-        <h1 class="links hidemobile">
+        <nav class="links" aria-label="Primary">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </header>
+    <main id="main-content" tabindex="-1">
     <article class="center">
         <time datetime="2025-10-10">
             <strong>October 10th, 2025</strong>
         </time>
-        <h3>The Ultimate Trunk Lighting for a Toyota Camry</h3>
+        <h2 class="section-title">The Ultimate Trunk Lighting for a Toyota Camry</h2>
         <p>My 2012 Toyota Camry Hybrid XLE has only a single light fixture in the trunk. It’s equipped with the same
             7440 bulb as
             the puddle lights in the front doors and the dome lights above the front windshield. Toyota in their great
@@ -219,7 +331,7 @@ Designed in Seattle, forged in Puget Sound.
         </p>
         <a href="camrystock.webp"
             title="The single bulb that comes in the trunk isn't even bright enough to prevent my iPhone from automatically triggering its flash."><img
-                src="camrystock.webp"
+                src="camrystock-display.webp" width="1600" height="1200"
                 alt="The single bulb that comes in the trunk isn't even bright enough to prevent my iPhone from automatically triggering its flash."></a>
 
         <p>I set out on a quest to bathe this shadow-cursed land with the light of the moon. The first problem was that
@@ -230,7 +342,7 @@ Designed in Seattle, forged in Puget Sound.
             output light into the T10 socket.</p>
         <a href="camryLargerBulb.webp"
             title="Using a larger 194 T10 2700k LED bulb from SEALIGHT off of Amazon."><img
-                src="camryLargerBulb.webp"
+                src="camryLargerBulb-display.webp" width="1600" height="1200" loading="lazy"
                 alt="Using a larger 194 T10 2700k LED bulb from SEALIGHT off of Amazon."></a>
         <p>This was better, but more than anything it just clarified how uneven and limited the lighting in the trunk
             really was. I started poking around on Amazon to look for alternatives like a larger corn-cob style LED
@@ -242,7 +354,7 @@ Designed in Seattle, forged in Puget Sound.
             could into that socket.</p>
         <a href="camryadaptert10.webp"
             title="This cheap little T10 socket apater opens up a world of possible lighting solutions."><img
-                src="camryadaptert10.webp"
+                src="camryadaptert10-display.webp" width="1600" height="1092" loading="lazy"
                 alt="This cheap little T10 socket apater opens up a world of possible lighting solutions."></a>
         <p>The kit was cheap, so I ordered it and stuck it in the car. It was a real improvement and everything in the
             trunk was clearly visible now. But I didn’t love the cold 6500k color temperature or how short the strip of LEDs
@@ -253,26 +365,31 @@ Designed in Seattle, forged in Puget Sound.
         </p>
         <a href="camryinstallfinal.webp"
             title="Here's the guts of the final install on the underside of the rear deck."><img
-                src="camryinstallfinal.webp"
+                src="camryinstallfinal-display.webp" width="1600" height="616" loading="lazy"
                 alt="Here's the guts of the final install on the underside of the rear deck."></a>
         <p>And here's the final product:</p>
         <a href="camryfinal.webp"
             title="The final product is a well lit trunk where nothing is left to the imagination."><img
-                src="camryfinal.webp"
+                src="camryfinal-display.webp" width="1600" height="1200" loading="lazy"
                 alt="The final product is a well lit trunk where nothing is left to the imagination."></a>
         <p>Using a COB style LED strip where the individual chips aren’t visible with a black PCB and a warmer 3000k
             color temperature are my only ideas for how this could be improved further, but I’m quite pleased with it as
             of now. I can see EVERYTHING in this trunk. ✨</p>
     </article>
+    <nav class="center" aria-label="More posts">
+        <p><a rel="prev" href="../11/sep-export-csv-razor-pages.html">Newer post: Using Sep to Export a CSV in Razor Pages</a></p>
+        <p><a rel="next" href="../01/memory-card-won&#39;t-seat-nikon-z7.html">Older post: The memory card won’t seat in my Nikon Z7</a></p>
+    </nav>
+    </main>
     <footer class="center top">
         <a href="./../../index.html" class="underline hidemobile">
-            <h1>Thomas<br>August<br>Ryan</h1>
+            <span class="site-title">Thomas<br>August<br>Ryan</span>
         </a>
-        <h1 class="links">
+        <nav class="links" aria-label="Footer">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </footer>
 </body>
 

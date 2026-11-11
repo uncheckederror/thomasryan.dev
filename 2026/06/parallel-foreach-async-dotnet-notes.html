@@ -10,9 +10,12 @@ Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
 Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
-<html>
+<html lang="en-US">
 
 <head>
+    <!-- Content security policy: start -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-WEa4CsWNpJbzxwT33CEuEQmrJkrIe4k6JZwEgWeEvhc=' 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <!-- Content security policy: end -->
     <title>Notes on Using Parallel.ForEachAsync() in .NET 10</title>
     <meta charset="UTF-8">
     <meta name="description" content="This explains how to convert a standard foreach loop that performs async HTTP calls into a Parallel.ForEachAsync() implementation in .NET 10. While focusing on thread‑safety, correctness, and performance considerations.">
@@ -33,6 +36,7 @@ Designed in Seattle, forged in Puget Sound.
         })(window, document, "clarity", "script", "jk0a2nru7l");
     </script>
     <style type="text/css">
+        /* Shared base styles: start */
         .center {
             /* Off white to reduce eye strain. */
             background: #FDFDFD;
@@ -44,58 +48,14 @@ Designed in Seattle, forged in Puget Sound.
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
 
-        body {
-            /* Compatible with everything, and anything. */
-            font-family: sans-serif;
-            /* Off white to reduce eye strain. */
-            background-color: #DCDCDC;
-            margin: auto;
-            padding: 0% 3% 0% 3%;
-            max-width: 800px;
-            /* Off black to reduce eye strain. */
-            color: #2A2A2A;
-        }
-
-        h1,
-        h1.a {
-            letter-spacing: 0.03em;
-            font-size: 4.5em;
-            word-spacing: 5em;
-            line-height: 1.1em;
-            margin: 0%;
-            font-weight: 100;
-        }
-
-        h3 {
-            letter-spacing: 0.01rem;
-            font-size: 2.4rem;
-            font-weight: 100;
-            margin-top: 0;
-        }
-
-        li {
-            font-size: 1.3rem;
-            line-height: 2rem;
-        }
-
         p {
             font-size: 1.3rem;
             line-height: 2rem;
         }
 
-        body>article>p>a {
+        main>article>p>a {
             text-decoration: none;
             border-bottom: 1px solid #2A2A2A;
-        }
-
-        a:link,
-        a:visited {
-            color: #2A2A2A;
-        }
-
-        a:hover,
-        a:active {
-            color: grey;
         }
 
         .underline {
@@ -116,19 +76,75 @@ Designed in Seattle, forged in Puget Sound.
             justify-content: space-between;
         }
 
-        h1>a:link,
-        h1>a:visited {
-            color: grey;
-        }
-
-        h1>a:hover,
-        h1>a:active {
-            color: #d2d2d2;
-        }
-
         .top {
             display: flex;
             justify-content: space-between;
+        }
+        /* Shared base styles: end */
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 800px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        .site-title,
+        nav.links,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        .site-title {
+            display: block;
+        }
+
+        h2.section-title {
+            margin-block: 1em;
+        }
+
+        h3,
+        h2.section-title {
+            letter-spacing: 0.01rem;
+            font-size: 2.4rem;
+            font-weight: 100;
+            margin-top: 0;
+        }
+
+        li {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+
+        a:link,
+        a:visited {
+            color: #2A2A2A;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        nav.links>a:link,
+        nav.links>a:visited {
+            color: grey;
+        }
+
+        nav.links>a:hover,
+        nav.links>a:active {
+            color: #d2d2d2;
         }
 
         img {
@@ -165,7 +181,7 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
 
-            body>article>p>a {
+            main>article>p>a {
                 text-decoration: none;
                 border-bottom: 1px solid #4db2ff;
             }
@@ -180,35 +196,130 @@ Designed in Seattle, forged in Puget Sound.
                 color: #0091ff;
             }
 
-            h1>a:link,
-            h1>a:visited {
+            nav.links>a:link,
+            nav.links>a:visited {
                 color: #6b6b6b;
             }
 
-            h1>a:hover,
-            h1>a:active {
+            nav.links>a:hover,
+            nav.links>a:active {
                 color: #0091ff;
             }
         }
+        /* Shared site styles: start */
+        .skip-link {
+            position: fixed;
+            top: 0.5rem;
+            left: 0.5rem;
+            z-index: 100;
+            padding: 0.5rem;
+            background: #000;
+            transform: translateY(-200%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a.skip-link:link,
+        a.skip-link:visited,
+        a.skip-link:hover,
+        a.skip-link:active {
+            color: #fff;
+        }
+
+        main pre {
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        main pre:focus-visible {
+            outline: 3px solid #0091ff;
+            outline-offset: 2px;
+        }
+
+        .code-example {
+            margin: 1.5rem 0;
+        }
+
+        .code-example figcaption {
+            font-size: 1rem;
+        }
+
+        .code-example pre {
+            padding: 0.75rem;
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 680px) {
+            main {
+                overflow-wrap: anywhere;
+            }
+
+            .top nav.links {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                line-height: 1.25;
+                word-spacing: normal;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav.links>a:link,
+            nav.links>a:visited {
+                color: #a0a0a0;
+            }
+
+            nav.links>a:hover,
+            nav.links>a:active {
+                color: #0091ff;
+            }
+
+            .code-example pre {
+                background: #2e2e2e;
+            }
+        }
+        /* Shared site styles: end */
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Notes on Using Parallel.ForEachAsync() in .NET 10",
+        "datePublished": "2026-06-15",
+        "author": {
+            "@type": "Person",
+            "name": "Thomas August Ryan",
+            "url": "https://thomasryan.dev/"
+        },
+        "mainEntityOfPage": "https://thomasryan.dev/2026/06/parallel-foreach-async-dotnet-notes.html"
+    }
+    </script>
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="center top">
         <a href="./../../index.html" class="underline">
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
-        <h1 class="links hidemobile">
+        <nav class="links" aria-label="Primary">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </header>
+    <main id="main-content" tabindex="-1">
     <article class="center">
         <time datetime="2026-06-15">
             <strong>June 15th, 2026</strong>
         </time>
-        <h3>Notes on Using Parallel.ForEachAsync() in .NET 10</h3>
+        <h2 class="section-title">Notes on Using Parallel.ForEachAsync() in .NET 10</h2>
         <p>If you google this term the search results aren’t very helpful. <a
                 href="https://www.hanselman.com/blog/parallelforeachasync-in-net-6" target="_blank">Scott
                 Hanselman’s</a> blog post from 2021 is more
@@ -221,7 +332,21 @@ Designed in Seattle, forged in Puget Sound.
             from having
             to Google Parellel.ForEachAsync() yet again.</p>
         <p>Let’s start with a traditional for each loop in C# written in .NET 10 and C# 14.</p>
-        <script src="https://gist.github.com/uncheckederror/da4a3d160abf6d80b45332034fd89cb0.js"></script>
+        <figure class="code-example">
+            <figcaption><a href="https://gist.github.com/uncheckederror/da4a3d160abf6d80b45332034fd89cb0">foreachloopwithasynccall.cs</a></figcaption>
+            <pre tabindex="0" role="region" aria-label="Code example: foreachloopwithasynccall.cs; use left and right arrow keys to scroll"><code>// We start with a list of objects to process
+PhoneNumber[] numbers = [ .. ObjectsFromElsewhere ];
+List&lt;ResearchResults&gt; results = [];
+
+foreach (var number in numbers) {
+	// GetDataFromVendor() makes an async HTTP call.
+	var result = await number.GetDataFromVendor(appConfig);
+	results.Add(result);
+}&#32;
+
+// We return an array of results.
+return [ .. results ];</code></pre>
+        </figure>
         <p>We’ve got a list of phone numbers, and we want to get more information on them from a third-party vendor’s
             API endpoint. We’ll start with this list of phone numbers, in this example an array of objects called
             “numbers”. Then we’ll create a place to keep the results of our queries, in this example a list named
@@ -263,7 +388,13 @@ Designed in Seattle, forged in Puget Sound.
             First off, because this function is async, you’ll need to await it. So please don’t forget to place an await
             before it. Luckily C# will mark the whole function with a warning if you forget it, so it’s hard to miss.
         </p>
-        <script src="https://gist.github.com/uncheckederror/c9843dd0e2e9beffb5e5c857ffc06ec9.js"></script>
+        <figure class="code-example">
+            <figcaption><a href="https://gist.github.com/uncheckederror/c9843dd0e2e9beffb5e5c857ffc06ec9">rememberawaitparallelforeachasync.cs</a></figcaption>
+            <pre tabindex="0" role="region" aria-label="Code example: rememberawaitparallelforeachasync.cs; use left and right arrow keys to scroll"><code>        // Do this
+        await Parallel.ForEachAsync(..., async () =&gt; {...});
+        // Not this, will throw a warning.
+        Parallel.ForEachAsync(..., async () =&gt; {...});</code></pre>
+        </figure>
         <p>The first parameter will be your input data. Then you’ll use an async lambda where the first parameter is the
             name of the element you’re iterating over from your input data, and the second parameter is a cancellation
             token which you can pass down to any async calls you make in your function.</p>
@@ -272,7 +403,10 @@ Designed in Seattle, forged in Puget Sound.
             Well, that depends on your app, but it could be as simple as someone navigating to another web page.
             Cancellations tokens provide a way to softly stop everything, rather than continuing to run Tasks that will
             return to nowhere, for no reason, without purpose.</p>
-        <script src="https://gist.github.com/uncheckederror/90c88e4db7008e0a9f1a6249e529aacf.js"></script>
+        <figure class="code-example">
+            <figcaption><a href="https://gist.github.com/uncheckederror/90c88e4db7008e0a9f1a6249e529aacf">exampleparamsparallelforeachasync.cs</a></figcaption>
+            <pre tabindex="0" role="region" aria-label="Code example: exampleparamsparallelforeachasync.cs; use left and right arrow keys to scroll"><code>await Parallel.ForEachAsync(numbers, async (number, cls) =&gt; {…});</code></pre>
+        </figure>
         <p>There are also optional parameters you can add here by creating a ParrellelOptions object and dropping it
             between “number” and “cls”.</p>
         <p>This options object gives you three levers, but only the MaxDegreeOfParallelism field is worth setting as
@@ -288,14 +422,40 @@ Designed in Seattle, forged in Puget Sound.
                 href="https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.paralleloptions.maxdegreeofparallelism?view=net-10.0#system-threading-tasks-paralleloptions-maxdegreeofparallelism"
                 target="_blank">ParallelOptions</a> object as the defaults are good and it complicates the
             code.</p>
-        <script src="https://gist.github.com/uncheckederror/19447e33380e88ed39265b89dc3633dc.js"></script>
+        <figure class="code-example">
+            <figcaption><a href="https://gist.github.com/uncheckederror/19447e33380e88ed39265b89dc3633dc">paralleloptionsparallelforeachasync.cs</a></figcaption>
+            <pre tabindex="0" role="region" aria-label="Code example: paralleloptionsparallelforeachasync.cs; use left and right arrow keys to scroll"><code>ParallelOptions opts = new() { MaxDegreeOfParallelism = 2 };
+// opts is an optional parameter.
+await Parallel.ForEachAsync(numbers, opts, async (number, cls) =&gt; {…});</code></pre>
+        </figure>
         <p>With our loop defined we arrive at the hardest part. Copying and pasting the middle of our foreach loop
             directly into the middle of our Parallel.ForEachAsync loop. There’s no need to change anything if you kept
             the names of the input, output, and iteration variables the same. It will just work.</p>
-        <script src="https://gist.github.com/uncheckederror/af7922864dc285d2cf6fef83a06dbfb6.js"></script>
+        <figure class="code-example">
+            <figcaption><a href="https://gist.github.com/uncheckederror/af7922864dc285d2cf6fef83a06dbfb6">parallelforeachasyncexampleloop.cs</a></figcaption>
+            <pre tabindex="0" role="region" aria-label="Code example: parallelforeachasyncexampleloop.cs; use left and right arrow keys to scroll"><code>PhoneNumber[] numbers = [ .. ObjectsFromElsewhere ];
+
+// Swapped List&lt;T&gt; for ConcurrentBag&lt;T&gt; to ensure thread-safety.
+ConcurrentBag&lt;ResearchResults&gt; results = [];
+
+await Parallel.ForEachAsync(numbers, async (number, cls)) =&gt; {
+  // Same body as the foreach loop.
+	var result = await number.GetDataFromVendor(appConfig);
+	results.Add(result);
+});
+
+return [ .. results ];</code></pre>
+        </figure>
         <p>If you want to improve things a bit you can pass down your CancellationToken to the async method. Although
             the method will have to support it, HTTP calls typically do.</p>
-        <script src="https://gist.github.com/uncheckederror/4690d2e9346830e2ddfb6d002b412cb9.js"></script>
+        <figure class="code-example">
+            <figcaption><a href="https://gist.github.com/uncheckederror/4690d2e9346830e2ddfb6d002b412cb9">parallelforeachasynccls.cs</a></figcaption>
+            <pre tabindex="0" role="region" aria-label="Code example: parallelforeachasynccls.cs; use left and right arrow keys to scroll"><code>// If the async method doesn't accept an a CancellationToken, that's okay.
+var result = await number.GetDataFromVendor(appConfig);
+
+// But if it does, we might as well pass it along.
+var result = await number.GetDataFromVendor(appConfig, cls);</code></pre>
+        </figure>
         <p>And that’s it. We’ve now successfully converted our foreach loop that makes a HTTP request to a
             Parallel.ForEachAsync loop that executes multiple HTTP requests at the same time. The goal of doing this is
             to achieve better performance by processing multiple input items at the same time, while knowing that each
@@ -310,16 +470,36 @@ Designed in Seattle, forged in Puget Sound.
             context of your app or project. That way you can be sure that the added complexity of using
             Parallel.ForEachAsync() results in a meaningful performance gain.</p>
     </article>
+    <nav class="center" aria-label="More posts">
+        <p><a rel="next" href="../../2025/11/sep-export-csv-razor-pages.html">Older post: Using Sep to Export a CSV in Razor Pages</a></p>
+    </nav>
+    </main>
     <footer class="center top">
         <a href="./../../index.html" class="underline hidemobile">
-            <h1>Thomas<br>August<br>Ryan</h1>
+            <span class="site-title">Thomas<br>August<br>Ryan</span>
         </a>
-        <h1 class="links">
+        <nav class="links" aria-label="Footer">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </footer>
+    <!-- Shared code scrolling: start -->
+    <script>
+        document.addEventListener("keydown", function (event) {
+            const code = event.target;
+            if (!(code instanceof HTMLPreElement) || !code.hasAttribute("tabindex") ||
+                event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey ||
+                code.scrollWidth <= code.clientWidth) {
+                return;
+            }
+            if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+                code.scrollLeft += event.key === "ArrowRight" ? 40 : -40;
+                event.preventDefault();
+            }
+        });
+    </script>
+    <!-- Shared code scrolling: end -->
 </body>
 
 </html>

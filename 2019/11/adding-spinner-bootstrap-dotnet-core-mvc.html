@@ -10,9 +10,12 @@ Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
 Designed in Seattle, forged in Puget Sound.
 @UncheckedError
 -->
-<html>
+<html lang="en-US">
 
 <head>
+    <!-- Content security policy: start -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-WEa4CsWNpJbzxwT33CEuEQmrJkrIe4k6JZwEgWeEvhc=' 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <!-- Content security policy: end -->
     <title>Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App</title>
     <meta charset="UTF-8">
     <meta name="description"
@@ -34,6 +37,7 @@ Designed in Seattle, forged in Puget Sound.
         })(window, document, "clarity", "script", "jk0a2nru7l");
     </script>
     <style type="text/css">
+        /* Shared base styles: start */
         .center {
             /* Off white to reduce eye strain. */
             background: #FDFDFD;
@@ -45,57 +49,14 @@ Designed in Seattle, forged in Puget Sound.
             transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
         }
 
-        body {
-            /* Compatible with everything, and anything. */
-            font-family: sans-serif;
-            /* Off white to reduce eye strain. */
-            background-color: #DCDCDC;
-            margin: auto;
-            padding: 0% 3% 0% 3%;
-            max-width: 800px;
-            /* Off black to reduce eye strain. */
-            color: #2A2A2A;
-        }
-
-        h1,
-        h1.a {
-            letter-spacing: 0.03em;
-            font-size: 4.5em;
-            word-spacing: 5em;
-            line-height: 1.1em;
-            margin: 0%;
-            font-weight: 100;
-        }
-
-        h3 {
-            letter-spacing: 0.01rem;
-            font-size: 2.4rem;
-            font-weight: 100;
-        }
-
-        ul li {
-            font-size: 1.3rem;
-            line-height: 2rem;
-        }
-
         p {
             font-size: 1.3rem;
             line-height: 2rem;
         }
 
-        body>article>p>a {
+        main>article>p>a {
             text-decoration: none;
             border-bottom: 1px solid #2A2A2A;
-        }
-
-        a:link,
-        a:visited {
-            color: #2A2A2A;
-        }
-
-        a:hover,
-        a:active {
-            color: grey;
         }
 
         .underline {
@@ -116,19 +77,81 @@ Designed in Seattle, forged in Puget Sound.
             justify-content: space-between;
         }
 
-        h1>a:link,
-        h1>a:visited {
-            color: grey;
-        }
-
-        h1>a:hover,
-        h1>a:active {
-            color: #d2d2d2;
-        }
-
         .top {
             display: flex;
             justify-content: space-between;
+        }
+        /* Shared base styles: end */
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 800px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        .site-title,
+        nav.links,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        .site-title {
+            display: block;
+        }
+
+        h2.section-title {
+            margin-block: 1em;
+        }
+
+        .date-label {
+            display: block;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-block: 0.83em;
+        }
+
+        h3,
+        h2.section-title {
+            letter-spacing: 0.01rem;
+            font-size: 2.4rem;
+            font-weight: 100;
+        }
+
+        ul li {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+
+        a:link,
+        a:visited {
+            color: #2A2A2A;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        nav.links>a:link,
+        nav.links>a:visited {
+            color: grey;
+        }
+
+        nav.links>a:hover,
+        nav.links>a:active {
+            color: #d2d2d2;
         }
 
         img {
@@ -165,7 +188,7 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
 
-            body>article>p>a {
+            main>article>p>a {
                 text-decoration: none;
                 border-bottom: 1px solid #4db2ff;
             }
@@ -180,35 +203,130 @@ Designed in Seattle, forged in Puget Sound.
                 color: #0091ff;
             }
 
-            h1>a:link,
-            h1>a:visited {
+            nav.links>a:link,
+            nav.links>a:visited {
                 color: #6b6b6b;
             }
 
-            h1>a:hover,
-            h1>a:active {
+            nav.links>a:hover,
+            nav.links>a:active {
                 color: #0091ff;
             }
         }
+        /* Shared site styles: start */
+        .skip-link {
+            position: fixed;
+            top: 0.5rem;
+            left: 0.5rem;
+            z-index: 100;
+            padding: 0.5rem;
+            background: #000;
+            transform: translateY(-200%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a.skip-link:link,
+        a.skip-link:visited,
+        a.skip-link:hover,
+        a.skip-link:active {
+            color: #fff;
+        }
+
+        main pre {
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        main pre:focus-visible {
+            outline: 3px solid #0091ff;
+            outline-offset: 2px;
+        }
+
+        .code-example {
+            margin: 1.5rem 0;
+        }
+
+        .code-example figcaption {
+            font-size: 1rem;
+        }
+
+        .code-example pre {
+            padding: 0.75rem;
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 680px) {
+            main {
+                overflow-wrap: anywhere;
+            }
+
+            .top nav.links {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                line-height: 1.25;
+                word-spacing: normal;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav.links>a:link,
+            nav.links>a:visited {
+                color: #a0a0a0;
+            }
+
+            nav.links>a:hover,
+            nav.links>a:active {
+                color: #0091ff;
+            }
+
+            .code-example pre {
+                background: #2e2e2e;
+            }
+        }
+        /* Shared site styles: end */
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App",
+        "datePublished": "2019-11-29",
+        "author": {
+            "@type": "Person",
+            "name": "Thomas August Ryan",
+            "url": "https://thomasryan.dev/"
+        },
+        "mainEntityOfPage": "https://thomasryan.dev/2019/11/adding-spinner-bootstrap-dotnet-core-mvc.html"
+    }
+    </script>
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="center top">
         <a href="./../../index.html" class="underline">
             <h1>Thomas<br>August<br>Ryan</h1>
         </a>
-        <h1 class="links hidemobile">
+        <nav class="links" aria-label="Primary">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </header>
+    <main id="main-content" tabindex="-1">
     <article class="center">
         <time datetime="2019-11-29">
-            <h2>November 29, 2019</h2>
+            <span class="date-label">November 29, 2019</span>
         </time>
-        <h3>Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App</h3>
+        <h2 class="section-title">Adding a Loading Spinner to an ASP.NET Core 3.0 MVC Web App</h2>
         <p>Recently I built an ASP.NET Core 3.0 MVC Web app that acts as a front end for a group of APIs that are each
             supported by a different third-party vendor. Unfortunately for me these APIs are all various degrees of
             slow. The average latency for a response from the slowest of the APIs is about 4.5 seconds.</p>
@@ -238,7 +356,7 @@ Designed in Seattle, forged in Puget Sound.
                 target="_blank" rel="noopener noreferrer">Matteo’s Blog</a>.
             We start by creating a new empty View in the “Views” => “Shared” folder of our MVC project. I’m calling
             this new view “_LoadingPartial”.</p>
-        <pre><code>
+        <pre tabindex="0" role="region" aria-label="Code example 1, use left and right arrow keys to scroll"><code>
         &lt;div class="d-flex justify-content-center"&gt;
             &lt;div class="spinner-border text-primary mb-3" 
                 style="width: 3rem; height: 3rem; display: none" 
@@ -249,7 +367,7 @@ Designed in Seattle, forged in Puget Sound.
         </code></pre>
         <p>Inside of the new partial view we have just five lines of mark up to invoke the Bootstrap spinner, size it,
             and center it on the page.</p>
-        <pre><code>
+        <pre tabindex="0" role="region" aria-label="Code example 2, use left and right arrow keys to scroll"><code>
         function displayBusyIndicator() {
             document.getElementById("loading").style.display = "block";
         }
@@ -259,7 +377,7 @@ Designed in Seattle, forged in Puget Sound.
         <a href="onclick.png" title="Adding an event to a Button"><img src="onclick.png"
                 alt="Adding an event to a Button"></a>
         <p>Now that we’ve added this function, we’ll need to pick a button to invoke it. I’ve done this by adding</p>
-        <pre><code>
+        <pre tabindex="0" role="region" aria-label="Code example 3, use left and right arrow keys to scroll"><code>
         onclick="displayBusyIndicator()"
         </code></pre>
         <p>to the button that submits back to the server as the slow server response
@@ -275,16 +393,37 @@ Designed in Seattle, forged in Puget Sound.
             zero-cost spinner that requires just a hint about what the user is doing. Users expect web apps to
             communicate their state and this loading animation accomplishes exactly that with little effort.</p>
     </article>
+    <nav class="center" aria-label="More posts">
+        <p><a rel="prev" href="../../2020/03/malicious-scraping-account-number-schemes.html">Newer post: Malicious Scraping and Account Number Schemes</a></p>
+        <p><a rel="next" href="../10/indexing-file-directories-dotnet-core.html">Older post: Quickly Indexing File Directories in ASP.NET Core 3.0</a></p>
+    </nav>
+    </main>
     <footer class="center top">
         <a href="./../../index.html" class="underline hidemobile">
-            <h1>Thomas<br>August<br>Ryan</h1>
+            <span class="site-title">Thomas<br>August<br>Ryan</span>
         </a>
-        <h1 class="links">
+        <nav class="links" aria-label="Footer">
             <a href="./../../work.html" class="underline">Work</a>
             <a href="./../../posts.html" class="underline">Posts</a>
             <a href="./../../resume.pdf" class="underline">Résumé</a>
-        </h1>
+        </nav>
     </footer>
+    <!-- Shared code scrolling: start -->
+    <script>
+        document.addEventListener("keydown", function (event) {
+            const code = event.target;
+            if (!(code instanceof HTMLPreElement) || !code.hasAttribute("tabindex") ||
+                event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey ||
+                code.scrollWidth <= code.clientWidth) {
+                return;
+            }
+            if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+                code.scrollLeft += event.key === "ArrowRight" ? 40 : -40;
+                event.preventDefault();
+            }
+        });
+    </script>
+    <!-- Shared code scrolling: end -->
 </body>
 
 </html>

@@ -14,6 +14,9 @@
 -->
 
 <head>
+    <!-- Content security policy: start -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'sha256-oEAMTxnIuIqZz/9SLzxEh+qiGrabz+3GGnouWdhoJe4=' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' https: data: blob:; connect-src 'self' https:; frame-src https:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'">
+    <!-- Content security policy: end -->
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>ResuMap - Thomas August Ryan</title>
@@ -94,7 +97,7 @@
                     </b>
                     <p>Welcome to a story map based on my resume. A ResuMap perhaps.</p>
                 </section>
-                <section id='ballard' class='active'>
+                <section id='ballard'>
                     <h3>
                         <b>Ballard High School</b>
                         <p>
@@ -387,19 +390,19 @@
             var chapterNames = Object.keys(chapters);
             for (var i = 0; i < chapterNames.length; i++) {
                 var chapterName = chapterNames[i];
-                var activeChapter = chapterNames[i + 1];
+                var activeChapter = chapterNames[Math.min(i + 1, chapterNames.length - 1)];
                 if (isElementOnScreen(chapterName)) {
                     setActiveChapter(activeChapter);
                     break;
                 }
             }
         };
-        var activeChapterName = 'baker';
+        var activeChapterName = 'welcome';
         function setActiveChapter(chapterName) {
             if (chapterName === activeChapterName) return;
             map.flyTo(chapters[chapterName]);
-            document.getElementById(chapterName).setAttribute('class', 'active');
-            document.getElementById(activeChapterName).setAttribute('class', '');
+            document.getElementById(chapterName).classList.add('active');
+            document.getElementById(activeChapterName).classList.remove('active');
             activeChapterName = chapterName;
         }
         function isElementOnScreen(id) {
