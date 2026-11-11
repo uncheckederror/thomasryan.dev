@@ -277,7 +277,7 @@ public static class SiteChecks
         {
             using var outside = new Fixture();
             Directory.CreateSymbolicLink(Path.Combine(f.Root, "outside"), outside.Root);
-            File.WriteAllText(Path.Combine(f.Root, "sitemap.txt"), "https://thomasryan.dev/outside/post.html\n");
+            File.WriteAllText(Path.Combine(f.Root, "sitemap.txt"), "https://thomasryan.dev/outside/2024/01/post.html\n");
             Throws(() => SyncInlineAssets.SitePages(f.Root), "Unexpected sitemap page");
         }
     }
