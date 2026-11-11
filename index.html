@@ -15,13 +15,21 @@ Designed in Seattle, forged in Puget Sound.
 <html lang="en-US">
 
 <head>
-    <title>Tom the bomb on CD-ROM</title>
+    <title>Thomas August Ryan | GIS and Software Engineering</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Thomas August Ryan (@UncheckedError) is a Full Stack Developer from Seattle, WA.">
-    <meta name="keywords"
-        content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="description"
+        content="Thomas August Ryan is a Seattle-based GIS and software engineer. Explore projects and articles on mapping, cloud systems, and .NET.">
     <meta name="author" content="Thomas August Ryan @UncheckedError">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="43Y3ujh_guw-ASMBzlid4TUNTdjboT0Iqi-bnXRX-VM">
+    <link rel="canonical" href="https://thomasryan.dev/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Thomas August Ryan | GIS and Software Engineering">
+    <meta property="og:description"
+        content="Thomas August Ryan is a Seattle-based GIS and software engineer. Explore projects and articles on mapping, cloud systems, and .NET.">
+    <meta property="og:url" content="https://thomasryan.dev/">
+    <meta property="og:image" content="https://thomasryan.dev/thomasryandevbackgroundimage.jpg">
+    <meta property="og:image:alt" content="A black-and-white photograph of out-of-focus lights.">
     <!-- Skip the favicon. -->
     <link
         href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAACEAEUAAAAAAGIBTABJSUkAw7ItAF7o5QAhlg8AhE3ZALSIDwDj5WMAvq0rAJYGVQB6AEYAmFgLAASvTwCFAUMAtH4TAJRG7QAIl6wAVFRUADq3zAAP0NIAr0T6AAadrACUA04AKrE4ADd0sgBlCK4A4/M9ABHYvABuFN8A/v79AEBBSQBvAEgAMg/XAF3o5wAd3NoAXAtDAAefsAD+/v4AeiKfAIQASAAbKbkA19xOAJYGWABqAFIAiQJLAAAeqAAGsnMAZTPlAFYX4gAbcrMASrrOAFrr6QD29vUAlVMEAEfOtwAvlQ0A1Mw6ABdhoQB9BE8ABcO4AACdAQAAIJsAlCDXABNKuQD//P0A6enpAAgskgBQoB8ALrmAALJ+DwCAAEIAAEeRACu/ZwCExzwAWgB+ABl9AAA1NTUA5eXlAACLFABmCcAAkwJNAOX2KAAUNasAV684AFYBUwCNA0sA5+chAFsAXgBf5dsAVABvADSsvwAwI9UAJaoXAOXXJQD///8AI+zjAAGeKgACVpIAAEuQAFEAXwCQHMQACw3TAP39/QBIqwsAHi7IAGq2FAAvLy8AGqMsAAKPAgDQ0NAAbwWCAPv7+wCfWQcAoMY4AGYd5QCn3yMAiARKAKY+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYGBgYGAnFSZjcGBgYGBgYGBgYGAdPRUXY0RwZ2BgYGBgYGBNDh0kEmQ/ZzIeYGBgYCdNPlAwYSZJLyIeUUxgYGB1aU1uYmEmYy90G0xlTmAnHHVrOTliJmMvG1tWLSVgX19YU1NTAQEBAQMBDAApbxAQRwgQEAFgYAF2dlcYLHYNDTdyDQ0BYGABdnZ2Ugt2CgoEOjpGAQEBAUhISA8udmAJK3NzRgU0GkFmcAIhPB9gK0tFBkYFNBpBB2ZwWWxgYDZVXm1GBTQaKjF3QChoYGBgXhlKODVcO1RdERYTYGBgYGBCOFojFDNBaiBxYGBgYGBgYGBDIxQzQU9gYGBgYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
@@ -56,47 +64,63 @@ Designed in Seattle, forged in Puget Sound.
             max-width: 800px;
             /* Off black to reduce eye strain. */
             color: #2A2A2A;
+            overflow-wrap: anywhere;
             /* background-image: url(./thomasryandevbackgroundimage.jpg);
             background-repeat: repeat;
             background-position: center;
             background-size: cover; */
         }
 
-        h1,
-        h1.a {
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .site-title {
+            display: block;
             letter-spacing: 0.03em;
             font-size: 4.5em;
-            word-spacing: 5em;
+            word-spacing: 1em;
             line-height: 1.1em;
             margin: 0%;
             font-weight: 100;
         }
 
-        h3 {
+        h2 {
             letter-spacing: 0.01rem;
             font-size: 2.4rem;
             font-weight: 100;
             margin-top: 0;
             margin-bottom: 0;
+            overflow-wrap: break-word;
         }
 
         ul li {
-            font-size: 1.3rem;
-            line-height: 2rem;
+            font-size: 4.5em;
+            line-height: 1.1em;
             list-style-type: none;
-        }
-
-        body>article>p:last-child {
-            margin-bottom: 0;
-        }
-
-        body>article>p:first-child {
-            margin-top: 0;
+            display: block;
+            margin-left: 0;
+            letter-spacing: 0.03em;
         }
 
         ul {
             padding-bottom: 1rem;
             list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
         }
 
         p {
@@ -104,7 +128,7 @@ Designed in Seattle, forged in Puget Sound.
             line-height: 2rem;
         }
 
-        body>article>p>a {
+        main>article>p>a {
             text-decoration: none;
             border-bottom: 1px solid #2A2A2A;
         }
@@ -114,13 +138,32 @@ Designed in Seattle, forged in Puget Sound.
             color: #2A2A2A;
         }
 
+        .skip-link:link,
+        .skip-link:visited {
+            color: #fff;
+        }
+
         a:hover,
         a:active {
+            color: #595959;
+        }
+
+        nav a:link,
+        nav a:visited {
             color: grey;
+        }
+
+        nav a:hover,
+        nav a:active {
+            color: #595959;
         }
 
         .underline {
             text-decoration: none;
+        }
+
+        #latest-post-title {
+            text-decoration: underline;
         }
 
         blockquote {
@@ -137,23 +180,21 @@ Designed in Seattle, forged in Puget Sound.
             justify-content: space-between;
         }
 
-        h1>a:link,
-        h1>a:visited {
-            color: grey;
-        }
-
-        h1>a:hover,
-        h1>a:active {
-            color: #d2d2d2;
-        }
-
         .top {
             display: flex;
             justify-content: space-between;
         }
 
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
         img {
-            width: 100%;
+            max-width: 100%;
+            height: auto;
         }
 
         @media (max-width: 680px) {
@@ -164,6 +205,21 @@ Designed in Seattle, forged in Puget Sound.
             /* Flex makes this look wonky on small screens */
             .top {
                 display: block;
+            }
+
+            .top nav {
+                align-items: flex-start;
+                margin-top: 1.5rem;
+            }
+
+            .top nav ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.75rem 1.25rem;
+            }
+
+            .top nav li {
+                font-size: 1.5rem;
             }
         }
 
@@ -186,7 +242,7 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
 
-            body>article>p>a {
+            main>article>p>a {
                 text-decoration: none;
                 border-bottom: 1px solid #4db2ff;
             }
@@ -198,6 +254,11 @@ Designed in Seattle, forged in Puget Sound.
 
             a:hover,
             a:active {
+                color: #0091ff;
+            }
+
+            nav a:hover,
+            nav a:active {
                 color: #0091ff;
             }
 
@@ -215,61 +276,75 @@ Designed in Seattle, forged in Puget Sound.
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="center top">
-        <a href="./index.html" class="underline">
-            <h1>Thomas<br>August<br>Ryan</h1>
+        <a href="./" class="underline">
+            <h1 class="site-title">Thomas<br>August<br>Ryan</h1>
         </a>
-        <h1 class="links hidemobile">
-            <a href="./work.html" class="underline">Work</a>
-            <a href="./posts.html" class="underline">Posts</a>
-            <a href="./resume.pdf" class="underline">Résumé</a>
-        </h1>
+        <nav class="links" aria-label="Primary">
+            <ul>
+                <li><a href="./work.html" class="underline">Work</a></li>
+                <li><a href="./posts.html" class="underline">Posts</a></li>
+                <li><a href="./resume.pdf" class="underline">Résumé</a></li>
+            </ul>
+        </nav>
     </header>
-    <article class="center">
-        <p>Hi! You can call me <a href="https://www.instagram.com/uncheckederror/" target="_blank"
-                rel="noopener noreferrer">Tom</a>. 👋</p>
-        <p>I'm a Principal IT Engineer at King County's <a href="https://state-of-gis.kingcounty.gov/" target="_blank"
-                rel="noopener noreferrer">GIS
-                Center</a>. 🗺️</p>
-        <p>Here's my most recent post:</p>
-        <a href="./2026/06/parallel-foreach-async-dotnet-notes.html" class="underline">
-            <strong>June 15th, 2026</strong>
-            <h3>Notes on Using Parallel.ForEachAsync() in .NET 10</h3>
-            <p>This explains how to convert a standard foreach loop that performs async HTTP calls into a
-                Parallel.ForEachAsync() implementation in .NET 10. While focusing on thread‑safety, correctness, and
-                performance considerations.</p>
-        </a>
-        <p>Check out my portfolio of prior <a href="./work.html">work here</a>! 🚀
-    </article>
-    <article class="center">
-        <h3>Right Now</h3>
-        <p>I'm working on modernizing our GIS data publishing pipeline and processes as part of the GIS Open Data 2026
-            initiative. Getting King County's data out to the public in a useful way while rebuilding our systems in the cloud is challenging work.</p>
-        <p>Existing commercial products like ArcGIS Hub and Socrata don't meet our needs. At the same time many
-            governments use these commercial products and the public has become familiar with them. So I'm developing
-            custom enhancements and solutions to enable us to better serve our community.</p>
-    </article>
-    <article class="center">
-        <h3>About Myself</h3>
-        <p>I like camping. Often I'll go out to the Olympics and stay at sites like Lake Cushman, Deer Park, and the
-            coastline around Lake Ozette. I'm excited ski season this winter. ⛷️</p>
-        <p>I know a bit about photography. You can see my work <a href="https://www.flickr.com/photos/uncheckederror/"
-                target="_blank" rel="noopener noreferrer">on
-                Flikr.</a> Right now I'm shooting with a Nikon Z7. 📸</p>
-        <p>As of September 2022 I am the author of the top text result on Google for "<a
-                href="https://www.google.com/search?q=how+to+install+ram" target="_blank" rel="noopener noreferrer">How
-                to install RAM</a>". Although I don't
-            write product reviews anymore, I still have a deep interest in computer hardware and benchmarking. 🧑‍💻</p>
-    </article>
-    <footer class="center top">
-        <a href="./index.html" class="underline hidemobile">
-            <h1>Thomas<br>August<br>Ryan</h1>
-        </a>
-        <h1 class="links">
-            <a href="./work.html" class="underline">Work</a>
-            <a href="./posts.html" class="underline">Posts</a>
-            <a href="./resume.pdf" class="underline">Résumé</a>
-        </h1>
+    <main id="main-content" tabindex="-1">
+        <article class="center">
+            <p>Hi! You can call me <a href="https://www.instagram.com/uncheckederror/" target="_blank"
+                    rel="noopener noreferrer">Tom</a>. 👋</p>
+            <p>I'm a Principal IT Engineer at King County's <a href="https://state-of-gis.kingcounty.gov/" target="_blank"
+                    rel="noopener noreferrer">GIS
+                    Center</a>. 🗺️</p>
+            <p>Here's my most recent post:</p>
+            <a href="./2026/06/parallel-foreach-async-dotnet-notes.html" class="underline" aria-labelledby="latest-post-title">
+                <strong><time datetime="2026-06-15">June 15th, 2026</time></strong>
+                <h2 id="latest-post-title">Notes on Using Parallel.ForEachAsync() in .NET 10</h2>
+                <p>This explains how to convert a standard foreach loop that performs async HTTP calls into a
+                    Parallel.ForEachAsync() implementation in .NET 10. While focusing on thread‑safety, correctness, and
+                    performance considerations.</p>
+            </a>
+            <p>Check out my portfolio of prior <a href="./work.html">work here</a>! 🚀
+        </article>
+        <article class="center">
+            <h2>Right Now</h2>
+            <p>I'm working on modernizing our GIS data publishing pipeline and processes as part of the GIS Open Data 2026
+                initiative. Getting King County's data out to the public in a useful way while rebuilding our systems in the cloud is challenging work.</p>
+            <p>Existing commercial products like ArcGIS Hub and Socrata don't meet our needs. At the same time many
+                governments use these commercial products and the public has become familiar with them. So I'm developing
+                custom enhancements and solutions to enable us to better serve our community.</p>
+        </article>
+        <article class="center">
+            <h2>About Myself</h2>
+            <p>I like camping. Often I'll go out to the Olympics and stay at sites like Lake Cushman, Deer Park, and the
+                coastline around Lake Ozette. I'm excited for ski season this winter. ⛷️</p>
+            <p>I know a bit about photography. You can see my work <a href="https://www.flickr.com/photos/uncheckederror/"
+                    target="_blank" rel="noopener noreferrer">on
+                    Flickr.</a> Right now I'm shooting with a Nikon Z7. 📸</p>
+            <p>As of September 2022 I am the author of the top text result on Google for "<a
+                    href="https://www.google.com/search?q=how+to+install+ram" target="_blank" rel="noopener noreferrer">How
+                    to install RAM</a>". Although I don't
+                write product reviews anymore, I still have a deep interest in computer hardware and benchmarking. 🧑‍💻</p>
+        </article>
+    </main>
+    <footer>
+        <div class="center top">
+            <a href="./" class="underline hidemobile">
+                <span class="site-title">Thomas<br>August<br>Ryan</span>
+            </a>
+            <nav class="links" aria-label="Footer">
+                <ul>
+                    <li><a href="./work.html" class="underline">Work</a></li>
+                    <li><a href="./posts.html" class="underline">Posts</a></li>
+                    <li><a href="./resume.pdf" class="underline">Résumé</a></li>
+                </ul>
+            </nav>
+        </div>
+        <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+            <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+            <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+            <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+        </p>
     </footer>
 </body>
 
