@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!--
+Hello there.
+You're a bold one; hitting that inspect button.
+(•_• )
+( •_•)
+( •_•)>⌐■-■
+(⌐■_■)
+Welcome to my hand-crafted fair-trade small-batch artisanal DOM.
+Designed in Seattle, forged in Puget Sound.
+@UncheckedError
+-->
+<html lang="en-US">
+
+<head>
+    <!-- Content security policy: start -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'sha256-ypxjcmIGix5eUDzUQpHlN75/ABmOBAOKkWxQ8q783To=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <!-- Content security policy: end -->
+    <title>Trials and Tribulations with Controlled Folder Access on Windows 11</title>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="I was poking around in the Windows 11 security setting so my gaming desktop PC and I came across an
+                untoggled switch: Controlled folder access?!?">
+    <meta name="keywords"
+        content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
+    <meta name="author" content="Thomas August Ryan @UncheckedError">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Skip the favicon. -->
+    <link
+        href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAACEAEUAAAAAAGIBTABJSUkAw7ItAF7o5QAhlg8AhE3ZALSIDwDj5WMAvq0rAJYGVQB6AEYAmFgLAASvTwCFAUMAtH4TAJRG7QAIl6wAVFRUADq3zAAP0NIAr0T6AAadrACUA04AKrE4ADd0sgBlCK4A4/M9ABHYvABuFN8A/v79AEBBSQBvAEgAMg/XAF3o5wAd3NoAXAtDAAefsAD+/v4AeiKfAIQASAAbKbkA19xOAJYGWABqAFIAiQJLAAAeqAAGsnMAZTPlAFYX4gAbcrMASrrOAFrr6QD29vUAlVMEAEfOtwAvlQ0A1Mw6ABdhoQB9BE8ABcO4AACdAQAAIJsAlCDXABNKuQD//P0A6enpAAgskgBQoB8ALrmAALJ+DwCAAEIAAEeRACu/ZwCExzwAWgB+ABl9AAA1NTUA5eXlAACLFABmCcAAkwJNAOX2KAAUNasAV684AFYBUwCNA0sA5+chAFsAXgBf5dsAVABvADSsvwAwI9UAJaoXAOXXJQD///8AI+zjAAGeKgACVpIAAEuQAFEAXwCQHMQACw3TAP39/QBIqwsAHi7IAGq2FAAvLy8AGqMsAAKPAgDQ0NAAbwWCAPv7+wCfWQcAoMY4AGYd5QCn3yMAiARKAKY+8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYGBgYGAnFSZjcGBgYGBgYGBgYGAdPRUXY0RwZ2BgYGBgYGBNDh0kEmQ/ZzIeYGBgYCdNPlAwYSZJLyIeUUxgYGB1aU1uYmEmYy90G0xlTmAnHHVrOTliJmMvG1tWLSVgX19YU1NTAQEBAQMBDAApbxAQRwgQEAFgYAF2dlcYLHYNDTdyDQ0BYGABdnZ2Ugt2CgoEOjpGAQEBAUhISA8udmAJK3NzRgU0GkFmcAIhPB9gK0tFBkYFNBpBB2ZwWWxgYDZVXm1GBTQaKjF3QChoYGBgXhlKODVcO1RdERYTYGBgYGBCOFojFDNBaiBxYGBgYGBgYGBDIxQzQU9gYGBgYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+        rel="icon" type="image/x-icon" />
+    <!-- Tracking/telemetry code please disable if you're not into that sort of thing -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "jk0a2nru7l");
+    </script>
+    <style type="text/css">
+        /* Shared base styles: start */
+        .center {
+            /* Off white to reduce eye strain. */
+            background: #FDFDFD;
+            border-radius: 2px;
+            padding: 5%;
+            margin: 3% 0% 3% 0%;
+            /* Shamelessly stolen from: https://codepen.io/sdthornton/pen/wBZdXq */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        p {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+
+        main>article>p>a {
+            text-decoration: none;
+            border-bottom: 1px solid #2A2A2A;
+        }
+
+        .underline {
+            text-decoration: none;
+        }
+
+        blockquote {
+            background: #f5f5f5;
+            border-radius: 2px;
+            padding: 1rem;
+            margin: 0% 0% 0% 0%;
+        }
+
+        .links {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+        }
+        /* Shared base styles: end */
+
+        body {
+            /* Compatible with everything, and anything. */
+            font-family: sans-serif;
+            /* Off white to reduce eye strain. */
+            background-color: #DCDCDC;
+            margin: auto;
+            padding: 0% 3% 0% 3%;
+            max-width: 800px;
+            /* Off black to reduce eye strain. */
+            color: #2A2A2A;
+        }
+
+        h1,
+        .site-title,
+        nav.links,
+        h1.a {
+            letter-spacing: 0.03em;
+            font-size: 4.5em;
+            word-spacing: 5em;
+            line-height: 1.1em;
+            margin: 0%;
+            font-weight: 100;
+        }
+
+        .site-title {
+            display: block;
+        }
+
+        h2.section-title {
+            margin-block: 1em;
+        }
+
+        h3,
+        h2.section-title {
+            letter-spacing: 0.01rem;
+            font-size: 2.4rem;
+            font-weight: 100;
+            margin-top: 0;
+        }
+
+        li {
+            font-size: 1.3rem;
+            line-height: 2rem;
+        }
+
+        a:link,
+        a:visited {
+            color: #2A2A2A;
+        }
+
+        a:hover,
+        a:active {
+            color: grey;
+        }
+
+        nav.links>a:link,
+        nav.links>a:visited {
+            color: grey;
+        }
+
+        nav.links>a:hover,
+        nav.links>a:active {
+            color: #d2d2d2;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 680px) {
+            .hidemobile {
+                display: none;
+            }
+
+            /* Flex makes this look wonky on small screens */
+            .top {
+                display: block;
+            }
+        }
+
+        /*https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
+        @media (prefers-color-scheme: dark) {
+            .center {
+                /* Off white to reduce eye strain. */
+                background: #242424;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+
+            body {
+                /* Off black to reduce eye strain. */
+                background-color: #171717;
+                /* Off white to reduce eye strain. */
+                color: #e3e3e3;
+            }
+
+            blockquote {
+                background: #2e2e2e;
+            }
+
+            main>article>p>a {
+                text-decoration: none;
+                border-bottom: 1px solid #4db2ff;
+            }
+
+            a:link,
+            a:visited {
+                color: #e3e3e3;
+            }
+
+            a:hover,
+            a:active {
+                color: #0091ff;
+            }
+
+            nav.links>a:link,
+            nav.links>a:visited {
+                color: #6b6b6b;
+            }
+
+            nav.links>a:hover,
+            nav.links>a:active {
+                color: #0091ff;
+            }
+        }
+
+        /* Shared site styles: start */
+        .skip-link {
+            position: fixed;
+            top: 0.5rem;
+            left: 0.5rem;
+            z-index: 100;
+            padding: 0.5rem;
+            background: #000;
+            transform: translateY(-200%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        a.skip-link:link,
+        a.skip-link:visited,
+        a.skip-link:hover,
+        a.skip-link:active {
+            color: #fff;
+        }
+
+        main pre {
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        main pre:focus-visible {
+            outline: 3px solid #0091ff;
+            outline-offset: 2px;
+        }
+
+        .code-example {
+            margin: 1.5rem 0;
+        }
+
+        .code-example figcaption {
+            font-size: 1rem;
+        }
+
+        .code-example pre {
+            padding: 0.75rem;
+            background: #f5f5f5;
+        }
+
+        @media (max-width: 680px) {
+            main {
+                overflow-wrap: anywhere;
+            }
+
+            .top nav.links {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: flex-start;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+                font-size: 1.5rem;
+                line-height: 1.25;
+                word-spacing: normal;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            nav.links>a:link,
+            nav.links>a:visited {
+                color: #a0a0a0;
+            }
+
+            nav.links>a:hover,
+            nav.links>a:active {
+                color: #0091ff;
+            }
+
+            .code-example pre {
+                background: #2e2e2e;
+            }
+        }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
+        /* Shared site styles: end */
+    </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Trials and Tribulations with Controlled Folder Access on Windows 11",
+        "datePublished": "2026-11-12",
+        "author": {
+            "@type": "Person",
+            "name": "Thomas August Ryan",
+            "url": "https://thomasryan.dev/"
+        },
+        "mainEntityOfPage": "https://thomasryan.dev/2026/11/controlled-folder-access-win11.html"
+    }
+    </script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="center top">
+        <a href="./../../index.html" class="underline">
+            <h1>Thomas<br>August<br>Ryan</h1>
+        </a>
+        <nav class="links" aria-label="Primary">
+            <a href="./../../work.html" class="underline">Work</a>
+            <a href="./../../posts.html" class="underline">Posts</a>
+            <a href="./../../resume.pdf" class="underline">Résumé</a>
+        </nav>
+    </header>
+    <main id="main-content" tabindex="-1">
+        <article class="center">
+            <time datetime="2026-11-12">
+                <strong>November 12th, 2026</strong>
+            </time>
+            <h2 class="section-title">Trials and Tribulations with Controlled folder access on Windows 11</h2>
+            <p>I was poking around in the Windows 11 security setting so my gaming desktop PC and I came across an
+                untoggled switch. Controlled folder access, it claims to “Protect files, folders, and memory areas on
+                your devices from unauthorized changes by unfriendly applications”. </p>
+            <p>Huh, well that sounds good to me.</p>
+            <p>So, I switched it on to see what would happen.</p>
+            <p>The first app it blocked was LM Studio. This app is supplied to my machine through the AI Bundle in AMD’s
+                driver installer. I use it to run a local copies of GPT-OSS and Gemma 4, but mostly to poke around with
+                what’s possible on my RX 9070 XT. It has a feature where it will start in the system tray when you
+                login. Which leads to this:</p>
+            <a href="LMStudioBlockCFA.webp"
+                title="LM Studio blocked by Controlled Folder Access"><img
+                    src="LMStudioBlockCFA.webp" width="975" height="481" loading="lazy"
+                    alt="LM Studio blocked by Controlled Folder Access"></a>
+            <p>Interestingly other apps have this same behavior and are blocked by Windows like AMDRSServ.exe,
+                DeviceCensus.exe, msedge.exe, AceCombat8.exe, DARK.EXE, clinfo.exe, and RadeonSoftware.exe. </p>
+            <a href="RadeonSoftwareBlockCFA.webp"
+                title="Radeon Software blocked by Controlled Folder Access"><img
+                    src="RadeonSoftwareBlockCFA.webp" width="975" height="513" loading="lazy"
+                    alt="Radeon Software blocked by Controlled Folder Access"></a>
+            <p>It looks like common denominator here is that they try to access the root folder of my C drive.</p>
+            <p>Which would make sense if I were Randsomeware. Encrypting the C drive seems like it would be an important
+                task.</p>
+            <p>But as someone who, for unrelated reasons, is developing a desktop app targeting Windows 11: how do I
+                avoid triggering this Protected memory access feature? I don’t want to scare my users.</p>
+            <p>Reading through <a
+                    href="https://learn.microsoft.com/en-us/defender-endpoint/controlled-folder-access-overview#default-folders-protected-by-cfa"
+                    target="_blank">Microsoft’s documentation</a> it looks like we can avoid triggering a block by not
+                using these folders:</p>
+            <ul>
+                <li>Hard driver boot sectors like C:\</li>
+                <li>C:\Users\ and any sub-folder</li>
+            </ul>
+            <p>But it turns out that that’s not enough. There is an unreported whitelist that Microsoft maintains, “By
+                default, Microsoft Defender Antivirus automatically trusts apps based on their prevalence and
+                reputation, and adds them to the allowed list.”</p>
+            <p>Thus, it looks like there is not a lot we can do to avoid getting blocked by the CFA feature in Windows
+                11. Except for building a popular app and avoiding code that writes files to the root director or the
+                user’s directories. Harrumph.</p>
+                <p>Looking at my work laptop I can see that CFA is disabled by our group policy. Which after this experiment makes sense, and so I've disabled it again on my gaming machine. It's a shame that there isn't a better way to combat randsomware attacks.</p>
+        </article>
+        <nav class="center" aria-label="More posts">
+            <p><a rel="next" href="../../2026/06/parallel-foreach-async-dotnet-notes.html">Older post: Notes on Using Parallel.ForEachAsync() in .NET 10</a></p>
+        </nav>
+    </main>
+    <footer class="center top">
+        <a href="./../../index.html" class="underline hidemobile">
+            <span class="site-title">Thomas<br>August<br>Ryan</span>
+        </a>
+        <nav class="links" aria-label="Footer">
+            <a href="./../../work.html" class="underline">Work</a>
+            <a href="./../../posts.html" class="underline">Posts</a>
+            <a href="./../../resume.pdf" class="underline">Résumé</a>
+        </nav>
+    </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's
+            data collection.</a>
+        <br>This site is licensed under the <a
+            href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public
+            License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
+</body>
+
+</html>

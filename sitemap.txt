@@ -35,3 +35,4 @@ https://thomasryan.dev/2025/01/what-is-a-parcel-viewer.html
 https://thomasryan.dev/2025/10/ultimate-trunk-lighting-for-toyota-camry.html
 https://thomasryan.dev/2025/11/sep-export-csv-razor-pages.html
 https://thomasryan.dev/2026/06/parallel-foreach-async-dotnet-notes.html
+https://thomasryan.dev/2026/11/controlled-folder-access-win11.html

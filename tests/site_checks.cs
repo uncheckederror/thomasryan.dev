@@ -583,16 +583,18 @@ public static class SiteChecks
                             }
                         }
                         for (const image of doc.querySelectorAll("main img[width][height]")) {
+                            if (!image.naturalWidth || !image.naturalHeight) {
+                                failures.push(path + " has an image that could not be loaded: " + image.src);
+                                continue;
+                            }
                             const rect = image.getBoundingClientRect();
-                            const expected = Number(image.getAttribute("width")) / Number(image.getAttribute("height"));
+                            const expected = image.naturalWidth / image.naturalHeight;
                             if (!rect.height || Math.abs(rect.width / rect.height - expected) > 0.01) {
                                 failures.push(path + " has an image with an incorrect aspect ratio");
                             }
-                            if (image.getAttribute("src").endsWith("-display.webp") &&
-                                image.getAttribute("loading") !== "lazy" &&
-                                (image.naturalWidth !== Number(image.getAttribute("width")) ||
-                                 image.naturalHeight !== Number(image.getAttribute("height")))) {
-                                failures.push(path + " has an invalid display image or dimensions: " + image.src);
+                            if (image.naturalWidth !== Number(image.getAttribute("width")) ||
+                                image.naturalHeight !== Number(image.getAttribute("height"))) {
+                                failures.push(path + " has incorrect image dimensions: " + image.src);
                             }
                         }
                         const skip = doc.querySelector('a.skip-link');
@@ -719,8 +721,13 @@ public static class SiteChecks
                 {
                     content = await File.ReadAllBytesAsync(target);
                     if (Path.GetExtension(target).Equals(".html", StringComparison.OrdinalIgnoreCase))
+                    {
                         // Headless virtual time cannot settle cross-document transitions between iframe loads.
-                        content = Encoding.UTF8.GetBytes(Encoding.UTF8.GetString(content).Replace("@view-transition", "@ignored-view-transition"));
+                        string html = Encoding.UTF8.GetString(content).Replace("@view-transition", "@ignored-view-transition");
+                        // Load lazy images before measuring their intrinsic dimensions.
+                        html = html.Replace("loading=\"lazy\"", "loading=\"eager\"");
+                        content = Encoding.UTF8.GetBytes(html);
+                    }
                     context.Response.ContentType = Path.GetExtension(target).ToLowerInvariant() switch {
                         ".html" => "text/html; charset=utf-8",
                         ".svg" => "image/svg+xml",
