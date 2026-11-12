@@ -67,8 +67,8 @@ Run it after `sync_inline_assets.cs` when changing shared code scrolling.
 
 Every main-site page has an inline `speculationrules` script that prefetches
 same-site links on hover, and a shared `@view-transition` rule (disabled for
-reduced motion) for smoother navigation. The CSP allows the former with
-`'inline-speculation-rules'` instead of a hash.
+reduced motion) for smoother navigation. The CSP authorizes the rules by their
+content hash, which is regenerated when the rules change.
 
 The older standalone demos use a more permissive CSP, including HTTPS script
 sources and dynamic code evaluation, for their map and social integrations. A

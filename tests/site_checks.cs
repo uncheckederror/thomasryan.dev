@@ -291,8 +291,12 @@ public static class SiteChecks
             "Main-site CSP did not include a restrictive script hash");
         Assert(SyncCsp.Update(updated, false) == updated, "CSP synchronization was not stable");
         string speculative = SyncCsp.Update(page.Replace("</head>", "<script type=\"speculationrules\">{\"prefetch\":[]}</script></head>"), false);
-        Assert(speculative.Contains("'inline-speculation-rules'") && speculative.Split("'sha256-").Length == 2,
-            "Speculation rules were hashed or not allowed by the CSP");
+        Assert(speculative.Contains("'sha256-iCmLT321orx9XB2HAc2rMGzJNxtBxBtg4uKp/p7UHH4='") &&
+               !speculative.Contains("'inline-speculation-rules'"),
+            "Speculation rules were not authorized by their own hash");
+        string changedRules = speculative.Replace("{\"prefetch\":[]}", "{\"prefetch\":[],\"prerender\":[]}");
+        Assert(SyncCsp.Update(changedRules, false) != changedRules,
+            "Changed speculation rules did not invalidate their CSP hash");
         Assert(SyncCsp.Update(updated.Replace("window.test = 1", "window.test = 2"), false) !=
                updated.Replace("window.test = 1", "window.test = 2"), "Changed script did not invalidate its CSP hash");
         string demo = SyncCsp.Update(page, true);
@@ -364,6 +368,11 @@ public static class SiteChecks
                         $"{path}: missing fragment: {reference}");
             }
         }
+        var latestPost = pages[Path.Combine(root, "index.html")]
+            .QuerySelector("#latest-post-title")?.Closest("a");
+        Assert(latestPost is not null && !latestPost.HasAttribute("aria-label") &&
+               !latestPost.HasAttribute("aria-labelledby"),
+            "Latest-post link must include its visible text in its accessible name");
         Assert(File.ReadAllBytes(Path.Combine(root, "feed.xml")).SequenceEqual(GenerateFeed.Generate(root)), "Feed is stale");
         var feed = XDocument.Load(Path.Combine(root, "feed.xml")).Root!;
         var urls = feed.Elements(GenerateFeed.Atom + "entry").Select(entry => Field(entry, "id")!).ToList();
