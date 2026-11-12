@@ -14,7 +14,7 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
     <title>The Ultimate Trunk Lighting for a Toyota Camry</title>
     <meta charset="UTF-8">
@@ -286,8 +286,24 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -353,14 +369,14 @@ Designed in Seattle, forged in Puget Sound.
             I could hook almost anything up to this; I was no longer limited to just stuffing the biggest bulb that I
             could into that socket.</p>
         <a href="camryadaptert10.webp"
-            title="This cheap little T10 socket apater opens up a world of possible lighting solutions."><img
+            title="This cheap little T10 socket adapter opens up a world of possible lighting solutions."><img
                 src="camryadaptert10-display.webp" width="1600" height="1092" loading="lazy"
-                alt="This cheap little T10 socket apater opens up a world of possible lighting solutions."></a>
+                alt="This cheap little T10 socket adapter opens up a world of possible lighting solutions."></a>
         <p>The kit was cheap, so I ordered it and stuck it in the car. It was a real improvement and everything in the
             trunk was clearly visible now. But I didn’t love the cold 6500k color temperature or how short the strip of LEDs
-            was. I scrouged up a pair waterproof 5000k LED strips left over from a project in my kitchen (I converted my
+            was. I scrounged up a pair of waterproof 5000k LED strips left over from a project in my kitchen (I converted my
             12-volt lighting to 48-volt) and installed one on each side of the trunk for a full-width lighting
-            solution. This produced a jaw droppingly bright trunk space perfect for disassembling a broken camp stove in
+            solution. This produced a jaw-droppingly bright trunk space perfect for disassembling a broken camp stove in
             the wilderness or merely finding that thing that rolled away while I was driving.
         </p>
         <a href="camryinstallfinal.webp"
@@ -391,6 +407,11 @@ Designed in Seattle, forged in Puget Sound.
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
 </body>
 
 </html>

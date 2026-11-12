@@ -290,6 +290,9 @@ public static class SiteChecks
                updated.Contains("'sha256-") && !updated.Contains("'unsafe-eval'"),
             "Main-site CSP did not include a restrictive script hash");
         Assert(SyncCsp.Update(updated, false) == updated, "CSP synchronization was not stable");
+        string speculative = SyncCsp.Update(page.Replace("</head>", "<script type=\"speculationrules\">{\"prefetch\":[]}</script></head>"), false);
+        Assert(speculative.Contains("'inline-speculation-rules'") && speculative.Split("'sha256-").Length == 2,
+            "Speculation rules were hashed or not allowed by the CSP");
         Assert(SyncCsp.Update(updated.Replace("window.test = 1", "window.test = 2"), false) !=
                updated.Replace("window.test = 1", "window.test = 2"), "Changed script did not invalidate its CSP hash");
         string demo = SyncCsp.Update(page, true);
@@ -336,7 +339,10 @@ public static class SiteChecks
             foreach (var block in page.QuerySelectorAll("pre"))
                 Assert(block.GetAttribute("tabindex") == "0" && block.GetAttribute("role") == "region" &&
                        !string.IsNullOrEmpty(block.GetAttribute("aria-label")), $"{path}: inaccessible code block");
+            Assert(page.QuerySelectorAll("script[type='speculationrules']").Length == 1,
+                $"{path}: missing speculation rules");
             string text = SyncInlineAssets.ReadPage(path);
+            Assert(text.Contains("@view-transition"), $"{path}: missing view transition");
             Assert(SyncInlineAssets.SyncPage(text, baseCss, css) == text, $"{path}: stale inline assets");
             foreach (var node in page.QuerySelectorAll("a[href], img[src], script[src]"))
             {
@@ -703,6 +709,9 @@ public static class SiteChecks
                 else
                 {
                     content = await File.ReadAllBytesAsync(target);
+                    if (Path.GetExtension(target).Equals(".html", StringComparison.OrdinalIgnoreCase))
+                        // Headless virtual time cannot settle cross-document transitions between iframe loads.
+                        content = Encoding.UTF8.GetBytes(Encoding.UTF8.GetString(content).Replace("@view-transition", "@ignored-view-transition"));
                     context.Response.ContentType = Path.GetExtension(target).ToLowerInvariant() switch {
                         ".html" => "text/html; charset=utf-8",
                         ".svg" => "image/svg+xml",

@@ -54,16 +54,23 @@ public static class SyncCsp
         text = text.Replace("\r\n", "\n").Replace('\r', '\n');
         var document = new HtmlParser().ParseDocument(text);
         var hashes = new SortedSet<string>(StringComparer.Ordinal);
+        bool speculation = false;
         foreach (var script in document.QuerySelectorAll("script:not([src])"))
         {
             string type = script.GetAttribute("type") ?? "";
             if (type.Equals("application/ld+json", StringComparison.OrdinalIgnoreCase)) continue;
+            if (type.Equals("speculationrules", StringComparison.OrdinalIgnoreCase))
+            {
+                speculation = true;
+                continue;
+            }
             if (type.Length != 0 && !type.Equals("text/javascript", StringComparison.OrdinalIgnoreCase) &&
                 !type.Equals("module", StringComparison.OrdinalIgnoreCase))
                 throw new InvalidOperationException($"Unexpected inline script type: {type}");
             hashes.Add("'sha256-" + Convert.ToBase64String(SHA256.HashData(Encoding.UTF8.GetBytes(script.TextContent))) + "'");
         }
         string scripts = hashes.Count > 0 ? string.Join(" ", hashes) + " " : "";
+        if (speculation) scripts += "'inline-speculation-rules' ";
         string policy = demo
             ? "default-src 'self' https: data: blob:; script-src " + scripts +
               "'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; " +

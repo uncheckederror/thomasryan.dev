@@ -14,7 +14,7 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
     <title>Auditing a .NET 8 web app with Lighthouse </title>
     <meta charset="UTF-8">
@@ -285,8 +285,24 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -354,7 +370,7 @@ Designed in Seattle, forged in Puget Sound.
             first issue, but we can ignore it as this is an artifact of the way that VS2022 runs .NET apps on localhost
             in debug mode. The second issue is “Uses third-party cookies” where we have 1 remote cookie from the CDN
             that hosts our logo image, CSS theme, and favicon and 4 from our user telemetry service Microsoft Clarity.
-            To get rid of the cookie from the content delievery network (CDN) we must quit using it. This not complex,
+            To get rid of the cookie from the content delivery network (CDN) we must quit using it. This not complex,
             we just download the files
             and place them in our wwwroot folder, then update the references to those files from the CDN’s URL
             https://cdn.com/styles.css to ~/wwwroot/styles.css which is where we placed the copy of the file
@@ -362,7 +378,7 @@ Designed in Seattle, forged in Puget Sound.
         </p>
         <p>Disabling Clarity completely bumps our score up to 78. “Issues were logged in the Issues panel in Chrome
             Devtools” seemed interesting so I looked in the console and solved a couple of CSS errors where Lighthouse
-            reported that that I need to add or remove the -webkit prefix from rules in the stylesheet. But
+            reported that I need to add or remove the -webkit prefix from rules in the stylesheet. But
             resolving these console errors had no impact on the Best Practices score. Deploying the app to the
             development server, to remove the impact of VS2022’s debugging tools, brought the score up to 96. The
             remaining issues are the CDN cookies associated with dataTables.js. Using the same cookie-less-copy
@@ -392,7 +408,7 @@ Designed in Seattle, forged in Puget Sound.
             not be compressed. Additionally, if the MIME types of your static files are not in the default list for the
             ResponseCompression middleware they will also be skipped. This is easy enough to fix by updating the Program.cs file
             and then using the AddResponseCompression options to explicitly add support for the text/css and
-            text/javascript MIME types as discribed in the docs.
+            text/javascript MIME types as described in the docs.
         </p>
         <p style="word-break: break-word;">
             If don’t know what MIME types to add, you can open the Networking panel in the Chrome console, refresh the
@@ -452,6 +468,11 @@ Designed in Seattle, forged in Puget Sound.
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
 </body>
 
 </html>

@@ -14,7 +14,7 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
     <title>Malicious Scraping and Account Number Schemes</title>
     <meta charset="UTF-8">
@@ -290,8 +290,24 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -362,7 +378,7 @@ Designed in Seattle, forged in Puget Sound.
             the 14-digit version which includes dashes. The query string value that was causing this exception contained
             multiple letters.</p>
         <p>I went to the controller for this page and added a small chunk of input validation code that redirected
-            requests with query strings containing characters other than digits and punctation back to the default
+            requests with query strings containing characters other than digits and punctuation back to the default
             search page rather than running them against the database. This change would short circuit the lookup for
             these accounts that don’t exist and spare the database the hassle of pointlessly trying to look it up.</p>
         <p>I ran the testing suite and did a bit of manual verification testing in IIS Express to verify that the fix
@@ -390,6 +406,11 @@ Designed in Seattle, forged in Puget Sound.
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
 </body>
 
 </html>

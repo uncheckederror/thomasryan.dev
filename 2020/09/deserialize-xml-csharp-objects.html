@@ -14,7 +14,7 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
     <title>Deserializing XML into Objects in C#</title>
     <meta charset="UTF-8">
@@ -291,8 +291,24 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -366,7 +382,7 @@ Designed in Seattle, forged in Puget Sound.
             this case we’ll have to rename it when we deserialize it to a more specifically named type like “SalesTax”.
             To accomplish this, we can use the XmlRoot attribute as described in this <a
                 href="https://stackoverflow.com/a/3653438/10344352" target="_blank"
-                rel="noopener noreferrer">Stackoverflow</a> question. </p>
+                rel="noopener noreferrer">StackOverflow</a> question. </p>
         <p>We can mark our SalesTax class as an XmlRoot with an ElementName of “response”. This hint will allow the
             deserializer to map the “response” class in our XML body to the SalesTax object in our C# model. </p>
         <h3>Making A Request</h3>
@@ -465,7 +481,7 @@ Designed in Seattle, forged in Puget Sound.
         <p>
             You can find all of the code discussed in this post here on <a
                 href="https://github.com/AccelerateNetworks/NumberSearch/blob/d643120d5f1e4df942b55bc4216cf30814297402/NumberSearch.DataAccess/SalesTax/WA.cs#L99"
-                target="_blank" rel="noopener noreferrer">Github</a> and in production on the <a
+                target="_blank" rel="noopener noreferrer">GitHub</a> and in production on the <a
                 href="https://acceleratenetworks.com/" target="_blank" rel="noopener noreferrer">Accelerate
                 Network’s</a> website where its being used to calculate the sales tax to collect on new orders.
         </p>
@@ -485,6 +501,11 @@ Designed in Seattle, forged in Puget Sound.
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
 </body>
 
 </html>

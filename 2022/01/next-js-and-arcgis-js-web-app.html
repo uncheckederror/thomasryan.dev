@@ -14,7 +14,7 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-WEa4CsWNpJbzxwT33CEuEQmrJkrIe4k6JZwEgWeEvhc=' 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-WEa4CsWNpJbzxwT33CEuEQmrJkrIe4k6JZwEgWeEvhc=' 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
     <title>Using Next.js and ArcGIS JS to build Geospatial Web Apps</title>
     <meta charset="UTF-8">
@@ -291,8 +291,24 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -421,7 +437,7 @@ useEffect(() =&gt; {
         <h3>Two way data flow</h3>
         <p>Finally, we must handle passing data and events from our isolated map component back up into the tree of
             React components. When the user clicks on a thing, we want the side panel to display the attributes of that
-            thing. We can do this by again defining a useState() hook in our index.js file, passing it’s set function
+            thing. We can do this by again defining a useState() hook in our index.js file, passing its set function
             down to EsriMap as a prop, and then updating it with the values of the thing that was selected inside the
             map’s view.on(“click”, () => { }) event handler. We define this event handler in the first useEffect() hook
             when we are creating and configuring the Web Map object. </p>
@@ -464,6 +480,11 @@ useEffect(() =&gt; {
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
     <!-- Shared code scrolling: start -->
     <script>
         document.addEventListener("keydown", function (event) {

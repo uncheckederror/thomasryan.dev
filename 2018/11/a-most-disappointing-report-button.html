@@ -14,12 +14,12 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
     <title>A Most Disappointing Bug Report Button</title>
     <meta charset="UTF-8">
     <meta name="description"
-        content="It's been another month since I set the report button to my own email. I have recieved exactly one email through this feedback funnel.">
+        content="It's been another month since I set the report button to my own email. I have received exactly one email through this feedback funnel.">
     <meta name="keywords"
         content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
     <meta name="author" content="Thomas August Ryan @UncheckedError">
@@ -291,8 +291,24 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
 
     <script type="application/ld+json">
     {
@@ -345,7 +361,7 @@ Designed in Seattle, forged in Puget Sound.
             emails. 🤔</p>
         <p>In the end I waited about a month before I gave up on the helpdesk and swapped their email for my own. They
             must not be triaging the pile of incoming bug reports the users are submitting, or so I thought.</p>
-        <p>It's been another month since I set the report button to my own email. I have recieved exactly one email
+        <p>It's been another month since I set the report button to my own email. I have received exactly one email
             through this feedback funnel.</p>
         <blockquote>From: Worky McWorkerson<br>To: Thomas August Ryan (Me)<br>Subject: {AppName} Bug Report
             {TimeAndDateStamp}<br><br>Not working today</blockquote>
@@ -381,6 +397,11 @@ Designed in Seattle, forged in Puget Sound.
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
 </body>
 
 </html>

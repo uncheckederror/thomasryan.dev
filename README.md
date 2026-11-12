@@ -65,6 +65,11 @@ editing an inline script or adding an HTML page, run `dotnet run sync_csp.cs` an
 commit the updated policy; `dotnet run sync_csp.cs -- --check` detects stale hashes.
 Run it after `sync_inline_assets.cs` when changing shared code scrolling.
 
+Every main-site page has an inline `speculationrules` script that prefetches
+same-site links on hover, and a shared `@view-transition` rule (disabled for
+reduced motion) for smoother navigation. The CSP allows the former with
+`'inline-speculation-rules'` instead of a hash.
+
 The older standalone demos use a more permissive CSP, including HTTPS script
 sources and dynamic code evaluation, for their map and social integrations. A
 meta CSP cannot enforce header-only directives such as `frame-ancestors`, and

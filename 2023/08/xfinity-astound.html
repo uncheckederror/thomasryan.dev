@@ -14,7 +14,7 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
     <title>Leaving Xfinity for Astound</title>
     <meta charset="UTF-8">
@@ -284,8 +284,24 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -322,7 +338,7 @@ Designed in Seattle, forged in Puget Sound.
         <h2 class="section-title">Leaving Xfinity for Astound</h2>
         <a href="xfinityspeedtest.webp" title="Oh no my packet loss."><img src="xfinityspeedtest.webp"
                 alt="Oh no my packet loss."></a>
-        <p>I week ago, I switched my internet services provider (ISP) from Xfinity to Astound. I had been getting
+        <p>A week ago, I switched my internet services provider (ISP) from Xfinity to Astound. I had been getting
             internet service
             from Xfinity since I moved into my condo in late 2020. On paper Xfinity offers impressive service at my
             address. I was paying about $100 a month for 1200 Mbps down and 200 Mbps up. Sadly, I never really got that
@@ -335,7 +351,7 @@ Designed in Seattle, forged in Puget Sound.
             anti-Xfinity brother I scheduled an install with Astound. On paper this was going to be a big hit as Astound
             was only offering 100 Mbps down and 100 Mbps up. But I was hoping we could find a way to do better.</p>
         <p>Two weeks later at around noon the Astound installer arrived and went to work. First, they tried to find a
-            lose ethernet cable coming out from one of the walls or hiding behind one of the coaxial cable plates, to no
+            loose ethernet cable coming out from one of the walls or hiding behind one of the coaxial cable plates, to no
             avail. Then they called the corporate to verify that they really did offer service in my building, before
             finally calling out a master tech to take over the install. With two installers on site, they swapped the
             face plate on one of the unused phone outlets to an RJ45 faceplate and then in the networking closet in the
@@ -373,6 +389,11 @@ Designed in Seattle, forged in Puget Sound.
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
 </body>
 
 </html>

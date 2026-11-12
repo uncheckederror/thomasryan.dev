@@ -14,7 +14,7 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
     <title>GIS and Software Projects | Thomas August Ryan</title>
     <meta charset="UTF-8">
@@ -298,8 +298,24 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
 </head>
 
 <body>
@@ -365,7 +381,7 @@ Designed in Seattle, forged in Puget Sound.
             <ul>
                 <li>Aggregate data for more than 700k parcels in King County</li>
                 <li>Average page load time of less than 1000ms for an uncached lookup</li>
-                <li>Blends seemlessly with the UX of the 2025 King County website</li>
+                <li>Blends seamlessly with the UX of the 2025 King County website</li>
             </ul>
         </blockquote>
         <br />
@@ -427,7 +443,7 @@ Designed in Seattle, forged in Puget Sound.
         <p>Built to replace an excel spreadsheet generated from a few SQL queries and a rather complex Access database
             the Usage reporting web app is an internal only product of the King County GIS Center that allows us to show
             our customers how much value they’re getting from our ESRI licensed apps like ArcMap, ArcGIS Online, and
-            ArcGIS Pro. A quarterly report is produced from this app that KC employes can review on the King County
+            ArcGIS Pro. A quarterly report is produced from this app that KC employees can review on the King County
             State of GIS website.
         </p>
     </article>
@@ -487,7 +503,7 @@ Designed in Seattle, forged in Puget Sound.
         <h2 class="section-title">Phone Numbers in Bulk</h2>
         <blockquote>
             <ul>
-                <li>Investigate the portablity of Local, Tollfree, and Wireless numbers</li>
+                <li>Investigate the portability of Local, Toll-free, and Wireless numbers</li>
                 <li>Validate Phone Number ownership</li>
                 <li>Handles up to 350 Phone Numbers in 20 seconds</li>
             </ul>
@@ -589,7 +605,7 @@ Designed in Seattle, forged in Puget Sound.
                 Microsoft introduced in 2002</p>
         </a>
         <a href="./2019/02/purging-the-search-page.html" class="underline">
-            <strong><time datetime="2019-02-07">Feburary 7, 2019</time></strong>
+            <strong><time datetime="2019-02-07">February 7, 2019</time></strong>
             <h3>Purging the Search Page</h3>
             <p>About 60 percent of its users enter Parcel Details through the search page. The search page calls out to
                 a SOAP service with query and then it’s returned a JSON payload of results.</p>
@@ -665,6 +681,11 @@ Designed in Seattle, forged in Puget Sound.
             <a href="./resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
 </body>
 
 </html>

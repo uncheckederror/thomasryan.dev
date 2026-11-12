@@ -14,7 +14,7 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-Hfm+AyflpNDcBcH0P9vRk6QGmG5vV2OkfBsGvhIkrFs=' 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'sha256-lssRVfiuS4g4B/wUSQmsjTw/R2qB8VMZigMSJBM79x8=' 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
     <link rel="alternate" type="application/atom+xml" title="Thomas August Ryan's Posts" href="https://thomasryan.dev/feed.xml">
     <title>Blog Posts | Thomas August Ryan</title>
@@ -289,8 +289,98 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        #post-search-count {
+            position: absolute;
+            top: 50%;
+            right: 0.6rem;
+            transform: translateY(-50%);
+            padding: 0 0.35rem;
+            border-radius: 2px;
+            background: #e8e8e8;
+            color: #1f1f1f;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            pointer-events: none;
+        }
+
+        #post-search-input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0.4rem 3.5rem 0.4rem 0.6rem;
+            border: 1px solid #c8c8c8;
+            border-radius: 2px;
+            background: #ffffff;
+            color: #1f1f1f;
+            font: inherit;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        #post-search-input::placeholder {
+            color: #767676;
+        }
+
+        #post-search-input:focus {
+            outline: 1px solid #0060c0;
+            outline-offset: -1px;
+            border-color: #0060c0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            #post-search-input {
+                border-color: #3c3c3c;
+                background: #3c3c3c;
+                color: #cccccc;
+            }
+
+            #post-search-input::placeholder {
+                color: #a0a0a0;
+            }
+
+            #post-search-count {
+                background: #4d4d4d;
+                color: #ffffff;
+            }
+
+            #post-search-input:focus {
+                outline-color: #0091ff;
+                border-color: #0091ff;
+            }
+        }
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
 </head>
 
 <body>
@@ -307,9 +397,12 @@ Designed in Seattle, forged in Puget Sound.
     </header>
     <main id="main-content" tabindex="-1">
     <section class="center" id="post-search" hidden>
-        <label for="post-search-input">Search posts</label>
-        <input id="post-search-input" type="search" autocomplete="off">
-        <p id="post-search-status" role="status" aria-live="polite"></p>
+        <div class="search-box">
+            <label class="visually-hidden" for="post-search-input">Search posts</label>
+            <input id="post-search-input" type="search" placeholder="Search posts" autocomplete="off">
+            <span id="post-search-count" aria-hidden="true"></span>
+        </div>
+        <p id="post-search-status" class="visually-hidden" role="status" aria-live="polite"></p>
     </section>
     <article class="center">
         <h2 style="margin-top: 0;">2026</h2>
@@ -415,7 +508,7 @@ Designed in Seattle, forged in Puget Sound.
         <a href="./2023/08/xfinity-astound.html" class="underline">
             <strong><time datetime="2023-08-21">August 21st, 2023</time></strong>
             <h3>Leaving Xfinity for Astound</h3>
-            <p>I week ago, I switched my internet services provider (ISP) from Xfinity to Astound.</p>
+            <p>A week ago, I switched my internet services provider (ISP) from Xfinity to Astound.</p>
         </a>
         <a href="./2023/06/wagisa-2023.html" class="underline">
             <strong><time datetime="2023-06-15">June 15th, 2023</time></strong>
@@ -456,7 +549,7 @@ Designed in Seattle, forged in Puget Sound.
         <a href="./2021/07/Connected_MarketPlace_Ryan_Tom.pdf" class="underline">
             <strong><time datetime="2021-06-16">June 16th, 2021</time></strong>
             <h3>The Cool & High Impact Award</h3>
-            <p>An award from an internal hackaton where my team pitched an accounts system for the public that would
+            <p>An award from an internal hackathon where my team pitched an accounts system for the public that would
                 aggregate all information published by the County on that user.</p>
         </a>
         <a href="./2021/04/swagger-default-and-root-route.html" class="underline">
@@ -482,8 +575,8 @@ Designed in Seattle, forged in Puget Sound.
         </a>
         <a href="./2020/05/azure-static-web-apps-preview.html" class="underline">
             <strong><time datetime="2020-05-22">May 22nd, 2020</time></strong>
-            <h3>Comparing Azure Static Web Apps and Github Pages</h3>
-            <p>I host my personal website on Github pages. At Build 2020 I watched a demo of a new service called Azure
+            <h3>Comparing Azure Static Web Apps and GitHub Pages</h3>
+            <p>I host my personal website on GitHub pages. At Build 2020 I watched a demo of a new service called Azure
                 Static Web Apps.</p>
         </a>
         <a href="./2020/04/adding-security-headers.html" class="underline">
@@ -537,7 +630,7 @@ Designed in Seattle, forged in Puget Sound.
                 tool. But I love it dearly.</p>
         </a>
         <a href="./2019/02/purging-the-search-page.html" class="underline">
-            <strong><time datetime="2019-02-07">Feburary 7, 2019</time></strong>
+            <strong><time datetime="2019-02-07">February 7, 2019</time></strong>
             <h3>Purging the Search Page</h3>
             <p>About 60 percent of its users enter Parcel Details through the search page. The search page calls out to
                 a SOAP service with query and then it’s returned a JSON payload of results.</p>
@@ -586,11 +679,17 @@ Designed in Seattle, forged in Puget Sound.
             <a href="./resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
     <script>
     {
         const search = document.getElementById("post-search");
         const input = document.getElementById("post-search-input");
         const status = document.getElementById("post-search-status");
+        const counter = document.getElementById("post-search-count");
         const groups = [...document.querySelectorAll("main > article")];
         const entries = groups.map(group => ({
             group,
@@ -611,6 +710,7 @@ Designed in Seattle, forged in Puget Sound.
                 group.hidden = visible === 0;
                 count += visible;
             }
+            counter.textContent = count;
             status.textContent = count === 0 ? "No posts found." :
                 `Showing ${count} ${count === 1 ? "post" : "posts"}.`;
         }

@@ -14,7 +14,7 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
     <title>Updating Porsche Macan headlights to LEDs</title>
     <meta charset="UTF-8">
@@ -291,8 +291,24 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -327,8 +343,8 @@ Designed in Seattle, forged in Puget Sound.
             <span class="date-label">October 23rd, 2022</span>
         </time>
         <h2 class="section-title">Updating Porsche Macan headlights to LEDs</h2>
-        <a href="IMG_2947.JPG" title="Headlight pattern with all of the upgraded blubs installed."><img
-                src="IMG_2947-display.webp" width="1600" height="1200" alt="Headlight pattern with all of the upgraded blubs installed."></a>
+        <a href="IMG_2947.JPG" title="Headlight pattern with all of the upgraded bulbs installed."><img
+                src="IMG_2947-display.webp" width="1600" height="1200" alt="Headlight pattern with all of the upgraded bulbs installed."></a>
         <p>Last year I purchased a 2016 Porsche Macan S. Many things about my Macan have aged well in the 6 years since
             it left the factory in Leipzig, Germany; but the decision to ship the car with mostly incandescent light
             bulbs was clearly a mistake. I remember thinking to myself as I was on the way to campsite deep in the
@@ -346,9 +362,9 @@ Designed in Seattle, forged in Puget Sound.
             being half the cost. Hard to say no to something that’s both cheaper and better.</p>
         <h3>Changing Color Temperature</h3>
         <a href="FoglightColorComparison.webp"
-            title="Stock foig light on the left and the LED fog light on the right."><img
+            title="Stock fog light on the left and the LED fog light on the right."><img
                 src="FoglightColorComparison-display.webp" width="1600" height="1200" loading="lazy"
-                alt="Stock foig light on the left and the LED fog light on the right."></a>
+                alt="Stock fog light on the left and the LED fog light on the right."></a>
         <p>There is a caveat though, which is that LEDs do not match the color temperature of most stock light bulbs.
             Typically, they will be 6500k or 6000k in color temperature which cooler or bluer looking than the stock
             lighting. For low beams and high beams, you can often find options between 6500k and 3000k where 4500k is
@@ -391,12 +407,12 @@ Designed in Seattle, forged in Puget Sound.
         <p>It’s worth noting here that I am not including the running lights present in the headlight assembly because
             the four dots are already LEDs and non-replaceable. Additionally, I am not counting the running lights that
             sit below the headlight assembly as they are also a nonreplaceable strip of LEDs.</p>
-        <a href="BlubComparison.webp" title="The better build quality of the LED fog light blub is clear."><img
-                src="BlubComparison-display.webp" width="1600" height="1200" loading="lazy" alt="The better build quality of the LED fog light blub is clear."></a>
+        <a href="BlubComparison.webp" title="The better build quality of the LED fog light bulb is clear."><img
+                src="BlubComparison-display.webp" width="1600" height="1200" loading="lazy" alt="The better build quality of the LED fog light bulb is clear."></a>
         <h3>Totals</h3>
         <ul>
             <li>Stock replacements - 12k Lumens @ 290 Watts</li>
-            <li>My blubs - 20k Lumens @ 164 Watts</li>
+            <li>My bulbs - 20k Lumens @ 164 Watts</li>
             <li>63% more light output at 56% of the power consumption</li>
         </ul>
         <p>For the low/high beam bulb I used a HID replacement rather than an LED, because the LED options were all
@@ -425,6 +441,11 @@ Designed in Seattle, forged in Puget Sound.
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
 </body>
 
 </html>

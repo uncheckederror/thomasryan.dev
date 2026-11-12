@@ -14,7 +14,7 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-WEa4CsWNpJbzxwT33CEuEQmrJkrIe4k6JZwEgWeEvhc=' 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-WEa4CsWNpJbzxwT33CEuEQmrJkrIe4k6JZwEgWeEvhc=' 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
     <title>Using Sep to Export a CSV in Razor Pages</title>
     <meta charset="UTF-8">
@@ -292,8 +292,24 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -356,7 +372,7 @@ Designed in Seattle, forged in Puget Sound.
         <p>Recently I built a status page in my app so that I could verify that it had all the data that it needed to
             work correctly. After showing this page to the team, they asked for an export to CSV button so they could
             play with the data in Excel. I turned to Sep as the perfect tool to implement this. But I hadn’t used Sep
-            for writing CSVs before. Working through the readme.md on Github left me more confused. I decided to hunt
+            for writing CSVs before. Working through the readme.md on GitHub left me more confused. I decided to hunt
             for
             practical examples to reference as I wrote my own implementation. </p>
         <p>Credit where credit was due, the example I needed was in the readme and in the section labeled 'example' but
@@ -427,7 +443,7 @@ foreach (var item in ArrayOfObjects) {
         </time>
         <h3>UPDATE 1</h3>
         <p>The author of the Sep library stumbled upon <a href="https://github.com/nietras/Sep/pull/448" target="_blank">this post</a> and offered some helpful tips to improve this method by taking advantage of Sep’s support for Streams to skip the creation of a string when calling Sep.Writer.ToText(). Additionally, we can write directly to the UTF-8 format by wrapping our Stream in a StreamWriter (which defaults to writing in the UTF-8 format), rather than converting the string using Encoding.UTF8.GetBytes(writer.ToString()) at the end.</p>
-        <p>We can implement this by creating a MemoryStream() and then a StreamWriter() that takes that our mStream as a parameter before constructing the Sep.Writer and then calling .To(utf8Wrtier) rather than .ToText(). When returning the FileResult at the end rather than using Encoding.UTF8.GetBytes(writer.ToString()) we can simply call mStream.GetBuffer() to hand back the UTF-8 encoded byte[] that File() expects as mStream now contains all the bytes we wrote into the writer object as we set the rows.</p>
+        <p>We can implement this by creating a MemoryStream() and then a StreamWriter() that takes our mStream as a parameter before constructing the Sep.Writer and then calling .To(utf8Writer) rather than .ToText(). When returning the FileResult at the end rather than using Encoding.UTF8.GetBytes(writer.ToString()) we can simply call mStream.GetBuffer() to hand back the UTF-8 encoded byte[] that File() expects as mStream now contains all the bytes we wrote into the writer object as we set the rows.</p>
         <figure class="code-example">
             <figcaption><a href="https://gist.github.com/uncheckederror/2ac932aeaca1f2a2af9791ff09448066">utf8streamsSep.cs</a></figcaption>
             <pre tabindex="0" role="region" aria-label="Code example: utf8streamsSep.cs; use left and right arrow keys to scroll"><code>public FileResult OnPostAsCSV() {
@@ -467,6 +483,11 @@ foreach (var item in ArrayOfObjects) {
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
     <!-- Shared code scrolling: start -->
     <script>
         document.addEventListener("keydown", function (event) {

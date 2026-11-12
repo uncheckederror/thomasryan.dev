@@ -14,12 +14,12 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
-    <title>Comparing Azure Static Web Apps and Github Pages</title>
+    <title>Comparing Azure Static Web Apps and GitHub Pages</title>
     <meta charset="UTF-8">
     <meta name="description"
-        content="I host my personal website on Github pages. At Build 2020 I watched a demo of a new service called Azure Static Web Apps">
+        content="I host my personal website on GitHub pages. At Build 2020 I watched a demo of a new service called Azure Static Web Apps">
     <meta name="keywords"
         content="Personal, Blog, Thomas, August, Ryan, Developer, GIS, Web, Seattle, Maps, UncheckedError">
     <meta name="author" content="Thomas August Ryan @UncheckedError">
@@ -291,13 +291,29 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "Comparing Azure Static Web Apps and Github Pages",
+        "headline": "Comparing Azure Static Web Apps and GitHub Pages",
         "datePublished": "2020-05-22",
         "author": {
             "@type": "Person",
@@ -326,26 +342,26 @@ Designed in Seattle, forged in Puget Sound.
         <time datetime="2020-05-22">
             <span class="date-label">May 22nd, 2020</span>
         </time>
-        <h2 class="section-title">Comparing Azure Static Web Apps and Github Pages</h2>
-        <p>I host my personal website on Github pages. At Build 2020 I watched a demo of a new service called <a
+        <h2 class="section-title">Comparing Azure Static Web Apps and GitHub Pages</h2>
+        <p>I host my personal website on GitHub pages. At Build 2020 I watched a demo of a new service called <a
                 href="https://docs.microsoft.com/en-us/azure/static-web-apps/" target="_blank"
                 rel="noopener noreferrer">Azure
                 Static Web Apps</a>. This service is still in preview and its free to use for the moment. I decided to
-            try it out by deploying my Github pages project to it.
+            try it out by deploying my GitHub pages project to it.
         </p>
         <p>This was surprisingly easy to do given how complicated other Azure services can be to configure. I opened the
             Azure portal and typed “static” in the search bar and it popped up immediately. The configuration page did a
-            good job of walking me through the process where I created a new resource for it, pointed it at my Github
-            repo, approved the automatic creation of a new Github Action to grab the static files from the repo. In just
+            good job of walking me through the process where I created a new resource for it, pointed it at my GitHub
+            repo, approved the automatic creation of a new GitHub Action to grab the static files from the repo. In just
             a couple of minutes I could play with the <a href="https://thankful-sky-05e25161e.azurestaticapps.net/"
                 target="_blank" rel="noopener noreferrer">demo site</a>.</p>
         <p>There are a couple of things I don’t like about this though. If you pop open the site in your browser’s dev
             tools by hitting F12 in Chrome and refresh the page from the “Network” tab; You’ll see that requests are
-            being served using the HTTP/1.1 protocol with SSL enabled. This is unfortunate because on Github pages my
+            being served using the HTTP/1.1 protocol with SSL enabled. This is unfortunate because on GitHub pages my
             site is served up using HTTP/2 when the client’s browser supports it.</p>
         <p>This protocol support handicap manifests itself as performance hit if you compare the two services by hard
             refreshing them in side by side browser windows. A warm copy of the Azure Static Web App Preview takes 20
-            milliseconds to render in Chrome whereas the same site on Github pages takes 5 milliseconds.</p>
+            milliseconds to render in Chrome whereas the same site on GitHub pages takes 5 milliseconds.</p>
         <p>Acknowledging
             that both page load times are well below what would be perceived as slow by a user, a 3x performance hit is
             not ideal. What is worse is that a cold refresh on the Azure Static Web Apps version is typically much
@@ -359,14 +375,14 @@ Designed in Seattle, forged in Puget Sound.
         </p>
         <p>Ideally, I would be able to select the headers that I
             want the web server to respond with from a list of support options as a global configuration option for the
-            site. In defense of Azure’s Static Web App Preview, sites built on Github pages also fail this security
+            site. In defense of Azure’s Static Web App Preview, sites built on GitHub pages also fail this security
             headers test.</p>
         <p>Finally, we have the Google Lighthouse scores which are identical at 100 for both services. Azure’s Static
             Web Apps Preview does get dinged 7 points in the “Best Practices” category for not using HTTP/2, but we
             already knew about that issue.</p>
         <p>In sum this preview is a good start and the concept of quickly yeeting some static files into a website
             hosted on Azure has legs. But the current implementation has room for improvement before it can compete
-            effectively with existing free services like Github pages.</p>
+            effectively with existing free services like GitHub pages.</p>
     </article>
     <nav class="center" aria-label="More posts">
         <p><a rel="prev" href="../06/serve-geojson-aspnetcore-dotnet.html">Newer post: Serve GeoJSON Files in ASP.NET Core 3.1</a></p>
@@ -383,6 +399,11 @@ Designed in Seattle, forged in Puget Sound.
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
 </body>
 
 </html>

@@ -14,7 +14,7 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-WEa4CsWNpJbzxwT33CEuEQmrJkrIe4k6JZwEgWeEvhc=' 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-WEa4CsWNpJbzxwT33CEuEQmrJkrIe4k6JZwEgWeEvhc=' 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
     <title>Serve GeoJSON Files in ASP.NET Core 6</title>
     <meta charset="UTF-8">
@@ -291,8 +291,24 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -354,7 +370,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         <p>
             For more info on the why ASP.NET Core does not serve GeoJSON out of the box check out this <a
                 href="https://github.com/dotnet/aspnetcore/issues/22477" target="_blank"
-                rel="noopener noreferrer">Github issue</a> and
+                rel="noopener noreferrer">GitHub issue</a> and
             for more on the Static Files Middleware check out <a
                 href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files?view=aspnetcore-3.1#fileextensioncontenttypeprovider"
                 target="_blank" rel="noopener noreferrer">the docs</a>.
@@ -362,7 +378,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     </article>
     <nav class="center" aria-label="More posts">
         <p><a rel="prev" href="../09/deserialize-xml-csharp-objects.html">Newer post: Deserializing XML into Objects in C#</a></p>
-        <p><a rel="next" href="../05/azure-static-web-apps-preview.html">Older post: Comparing Azure Static Web Apps and Github Pages</a></p>
+        <p><a rel="next" href="../05/azure-static-web-apps-preview.html">Older post: Comparing Azure Static Web Apps and GitHub Pages</a></p>
     </nav>
     </main>
     <footer class="center top">
@@ -375,6 +391,11 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
     <!-- Shared code scrolling: start -->
     <script>
         document.addEventListener("keydown", function (event) {

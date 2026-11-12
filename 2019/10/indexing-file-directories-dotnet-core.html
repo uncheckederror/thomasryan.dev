@@ -14,7 +14,7 @@ Designed in Seattle, forged in Puget Sound.
 
 <head>
     <!-- Content security policy: start -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://*.clarity.ms https://c.bing.com; script-src 'sha256-YBx9ZuBJ8v5hQTZ2N32o/igYsB4ZlusjA5BIzTayqjs=' 'inline-speculation-rules' https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'">
     <!-- Content security policy: end -->
     <title>Quickly Indexing File Directories in ASP.NET Core 3.0</title>
     <meta charset="UTF-8">
@@ -291,8 +291,24 @@ Designed in Seattle, forged in Puget Sound.
                 background: #2e2e2e;
             }
         }
+
+        .privacy-note {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 3%;
+            padding: 0 5%;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            @view-transition {
+                navigation: auto;
+            }
+        }
         /* Shared site styles: end */
     </style>
+    <script type="speculationrules">
+    {"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":"/*.pdf"}}]},"eagerness":"moderate"}]}
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -333,7 +349,7 @@ Designed in Seattle, forged in Puget Sound.
             documents stored in a remote directory on the internal network.</p>
         <p>This feature was implemented in haste just after Christmas of 2018 while most of my coworkers were on
             vacation. The first bit of
-            feedback I recieved was that it was too slow to load. To solve this problem, I limited the scope of records
+            feedback I received was that it was too slow to load. To solve this problem, I limited the scope of records
             returned on the initial page load to just the first page of every volume in the directory. This got the page
             load times down into the workable zone of less than 3 seconds.</p>
         <p>In my excitement to upgrade this app to ASP.NET Core 3.0 I was expecting to see significant performance
@@ -342,7 +358,7 @@ Designed in Seattle, forged in Puget Sound.
         <p> After a week or so of running the 3.0 version in production I was
             disappointed to find that page load and server response times were basically the same. But in this moment, I
             found the motivation to address the core problem; the file indexing process used by this app was slow.</p>
-        <p>As a baseline let’s remove the scope limiting to create a worst-case senario and then load
+        <p>As a baseline let’s remove the scope limiting to create a worst-case scenario and then load
             the page from a hard refresh.</p>
         <a href="NaiveImplementation.png" title="Performance of the Naive Implementation"><img
                 src="NaiveImplementation.png" alt="Performance of the Naive Implementation"></a>
@@ -389,7 +405,7 @@ Designed in Seattle, forged in Puget Sound.
             lazy
             evaluation to work by limiting the number of files being indexed.</p>
         <a href="NaiveImplementationTake1000.png" title="Performance of the Naive Implementation with 1000 files"><img
-                src="NaiveImplementationTake1000.png" alt="Performance of the Navie Implementation with 1000 files"></a>
+                src="NaiveImplementationTake1000.png" alt="Performance of the Naive Implementation with 1000 files"></a>
         <p>When just 1000 files are indexed using the naïve implementation the page load time drops to 8.6 seconds. This
             is a big improvement, but 8 seconds is still an eternity from a user experience perspective.</p>
         <a href="EnumerateImplementationTake1000.png"
@@ -399,7 +415,7 @@ Designed in Seattle, forged in Puget Sound.
         <p>Using the lazily evaluated file indexing implementation this same operation takes 945 milliseconds. This is
             nearly a full order of magnitude reduction in page load time.</p>
         <a href="NaiveImplementationTake10.png" title="Performance of the Naive Implementation with 10 files"><img
-                src="NaiveImplementationTake10.png" alt="Performance of the Navie Implementation with 10 files"></a>
+                src="NaiveImplementationTake10.png" alt="Performance of the Naive Implementation with 10 files"></a>
         <p>For an apples to apples comparison, let’s look at the before and after state for this web app where just 10
             files are displayed on the page.</p>
         <a href="EnumerateImplementationTake10.png"
@@ -427,6 +443,11 @@ Designed in Seattle, forged in Puget Sound.
             <a href="./../../resume.pdf" class="underline">Résumé</a>
         </nav>
     </footer>
+    <p class="privacy-note">This site uses Microsoft Clarity for analytics.
+        <a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-data">Learn about Clarity's data collection.</a>
+        <br>This site is licensed under the <a href="https://github.com/uncheckederror/thomasryan.dev/blob/master/LICENSE">GNU Affero General Public License v3.0</a>.
+        <br><a href="https://github.com/uncheckederror/thomasryan.dev">View this site's source on GitHub.</a>
+    </p>
 </body>
 
 </html>
