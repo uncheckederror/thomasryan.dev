@@ -1,3 +1,6 @@
+[![CodeQL](https://github.com/uncheckederror/thomasryan.dev/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/uncheckederror/thomasryan.dev/actions/workflows/github-code-scanning/codeql)
+[![pages-build-deployment](https://github.com/uncheckederror/thomasryan.dev/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/uncheckederror/thomasryan.dev/actions/workflows/pages/pages-build-deployment)
+[![Site checks](https://github.com/uncheckederror/thomasryan.dev/actions/workflows/site-checks.yml/badge.svg)](https://github.com/uncheckederror/thomasryan.dev/actions/workflows/site-checks.yml)
 # thomasryan.dev
 
 The source for [thomasryan.dev](https://thomasryan.dev/), Thomas August Ryan's personal website, portfolio, and blog about GIS, software development, and other interests.
